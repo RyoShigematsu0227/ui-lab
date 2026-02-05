@@ -1,5 +1,4 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
-import { RecentSections } from "@/components/gallery/recent-sections";
 import { getSections, getCategories, getTags } from "@/lib/supabase";
 
 // ISR: 1時間ごとに再生成
@@ -53,9 +52,6 @@ export default async function Home() {
       {/* ギャラリーセクション */}
       <section className="relative">
         <div className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-20 md:py-32">
-          {/* 最近閲覧したセクション */}
-          <RecentSections />
-
           {/* セクションヘッダー */}
           <div className="mb-12 opacity-0 animate-fade-up">
             <span className="heading-section text-muted-foreground tracking-widest-custom">
