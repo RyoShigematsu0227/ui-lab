@@ -40,12 +40,8 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link
               href="/"
-              className="group inline-flex items-center gap-3 hover-opacity"
+              className="group inline-block hover-opacity"
             >
-              {/* ロゴマーク */}
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
-                <span className="text-sm font-bold text-background">U</span>
-              </div>
               <div className="flex flex-col">
                 <span className="text-sm font-semibold tracking-wide">UI Lab</span>
                 <span className="text-[9px] tracking-widest-custom uppercase text-muted-foreground">

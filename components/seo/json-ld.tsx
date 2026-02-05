@@ -1,4 +1,4 @@
-import { Section, Site, Category } from "@/types";
+import { Section, Category } from "@/types";
 
 // JSON-LDスクリプトを出力するコンポーネント
 export function JsonLd({ data }: { data: object }) {
@@ -80,26 +80,6 @@ export function SectionJsonLd({ section, url }: { section: Section; url: string 
     },
     keywords: section.tags.map((tag) => tag.name).join(", "),
     articleSection: section.category?.name,
-  };
-
-  return <JsonLd data={data} />;
-}
-
-// サイト事例詳細ページ用スキーマ
-export function SiteJsonLd({ site, url }: { site: Site; url: string }) {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: site.title,
-    description: site.description,
-    url,
-    datePublished: site.createdAt,
-    dateModified: site.updatedAt,
-    mainEntity: {
-      "@type": "WebSite",
-      name: site.title,
-      url: site.url,
-    },
   };
 
   return <JsonLd data={data} />;

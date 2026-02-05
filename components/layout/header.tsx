@@ -34,13 +34,8 @@ export function Header() {
           {/* ロゴ */}
           <Link
             href="/"
-            className="group flex items-center gap-3 hover-opacity"
+            className="group hover-opacity"
           >
-            {/* ロゴマーク */}
-            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
-              <span className="text-sm font-bold text-background">U</span>
-            </div>
-            {/* ロゴテキスト */}
             <div className="flex flex-col">
               <span className="text-sm font-semibold tracking-wide">UI Lab</span>
               <span className="text-[9px] tracking-widest-custom uppercase text-muted-foreground hidden sm:block">
