@@ -1,14 +1,13 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { LayoutGrid, ArrowRight } from "lucide-react";
-import { CategoryIcon } from "@/components/ui/category-icon";
+import { ArrowRight } from "lucide-react";
 import { getCategories, getSections } from "@/lib/supabase";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "カテゴリ一覧 | UI Lab",
+  title: "Categories",
   description: "UIセクションのカテゴリ一覧。ヒーロー、ナビゲーション、フィーチャーなど、セクション種別ごとに閲覧できます。",
 };
 
@@ -37,91 +36,54 @@ export default async function CategoriesPage() {
     }))
     .sort((a, b) => b.count - a.count);
 
-  // 上位カテゴリ
-  const topCategories = sortedCategories.slice(0, 4);
-
   return (
     <div className="min-h-screen">
       {/* ヘッダー */}
-      <section className="border-b border-border/50 bg-muted/30">
-        <div className="container mx-auto max-w-screen-xl px-4 py-12 md:py-16">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-              <LayoutGrid className="h-6 w-6 text-primary" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                カテゴリ一覧
-              </h1>
-              <p className="mt-2 text-lg text-muted-foreground">
-                {categories.length} 種類のカテゴリからセクションを探せます
-              </p>
-            </div>
-          </div>
+      <section className="relative min-h-[40vh] flex items-center justify-center">
+        {/* 背景 */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-60" />
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[80px]" />
         </div>
+
+        <div className="relative z-10 container mx-auto max-w-screen-md px-6 sm:px-8 md:px-12 text-center">
+          <span className="heading-section text-muted-foreground tracking-widest-custom">
+            Browse by
+          </span>
+          <h1 className="mt-6 heading-display text-4xl sm:text-5xl">
+            Categories
+          </h1>
+          <p className="mt-6 text-muted-foreground">
+            {categories.length} categories available
+          </p>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       </section>
 
-      <div className="container mx-auto max-w-screen-xl px-4 py-12 md:py-16">
-        {/* 人気のカテゴリ */}
-        <section className="mb-16">
-          <h2 className="mb-6 text-lg font-semibold uppercase tracking-wider text-muted-foreground">
-            人気のカテゴリ
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {topCategories.map((category) => (
-              <Link
-                key={category.id}
-                href={`/categories/${category.slug}`}
-                className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card p-6 transition-all hover:border-primary/20 hover:shadow-soft"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="relative">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                    <CategoryIcon name={category.icon} className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold transition-colors group-hover:text-primary">
-                    {category.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {category.count} セクション
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* 全カテゴリ */}
-        <section>
-          <h2 className="mb-6 text-lg font-semibold uppercase tracking-wider text-muted-foreground">
-            すべてのカテゴリ
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {sortedCategories.map((category) => (
-              <Link
-                key={category.id}
-                href={`/categories/${category.slug}`}
-                className="group flex items-center justify-between rounded-xl border border-border/50 bg-card/50 p-5 transition-all hover:border-primary/20 hover:bg-card"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <CategoryIcon name={category.icon} className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium transition-colors group-hover:text-primary">
-                      {category.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {category.count} セクション
-                    </p>
-                  </div>
-                </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-              </Link>
-            ))}
-          </div>
-        </section>
-      </div>
+      {/* カテゴリ一覧 */}
+      <section className="container mx-auto max-w-screen-xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {sortedCategories.map((category, index) => (
+            <Link
+              key={category.id}
+              href={`/categories/${category.slug}`}
+              className="group flex items-center justify-between p-5 rounded-lg border border-border/50 bg-card/30 transition-all duration-300 hover:border-border hover:bg-card opacity-0 animate-fade-up"
+              style={{ animationDelay: `${index * 50}ms` }}
+            >
+              <div>
+                <h3 className="font-medium transition-colors group-hover:text-primary">
+                  {category.name}
+                </h3>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {category.count} sections
+                </p>
+              </div>
+              <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

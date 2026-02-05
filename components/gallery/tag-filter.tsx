@@ -2,7 +2,6 @@
 
 import { Tag } from "@/types";
 import { cn } from "@/lib/utils";
-import { Check } from "lucide-react";
 
 interface TagFilterProps {
   tags: Tag[];
@@ -29,14 +28,13 @@ export function TagFilter({
             role="option"
             aria-selected={isSelected}
             className={cn(
-              "inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm font-medium transition-all",
+              "px-3 py-1.5 text-xs rounded-lg border transition-all duration-300",
               isSelected
-                ? "border-primary/50 bg-primary/10 text-primary"
-                : "border-border/50 bg-card/50 text-muted-foreground hover:border-border hover:bg-card hover:text-foreground"
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-border/50 text-muted-foreground hover:border-border hover:text-foreground"
             )}
           >
-            {isSelected && <Check className="h-3.5 w-3.5" />}
-            {tag.name}
+            #{tag.name}
           </button>
         );
       })}

@@ -13,7 +13,7 @@ interface SearchBarProps {
 export function SearchBar({
   value,
   onChange,
-  placeholder = "セクションを検索...",
+  placeholder = "Search sections...",
   className,
 }: SearchBarProps) {
   return (
@@ -29,25 +29,25 @@ export function SearchBar({
         placeholder={placeholder}
         aria-label={placeholder}
         className={cn(
-          "h-12 w-full rounded-xl border border-border/50 bg-card/50 pl-11 pr-11 text-sm",
-          "placeholder:text-muted-foreground/70",
-          "transition-all duration-200",
-          "hover:border-border hover:bg-card",
-          "focus:border-primary/50 focus:bg-card focus:outline-none focus:ring-2 focus:ring-primary/20"
+          "h-11 w-full rounded-lg border border-border/50 bg-background pl-11 pr-11 text-sm",
+          "placeholder:text-muted-foreground/60",
+          "transition-all duration-300",
+          "hover:border-border",
+          "focus:border-primary/50 focus:outline-none"
         )}
       />
       {value && (
         <button
           onClick={() => onChange("")}
           className={cn(
-            "absolute right-2 top-1/2 -translate-y-1/2",
-            "flex h-8 w-8 items-center justify-center rounded-lg",
+            "absolute right-3 top-1/2 -translate-y-1/2",
+            "flex h-6 w-6 items-center justify-center rounded",
             "text-muted-foreground transition-colors",
-            "hover:bg-muted hover:text-foreground"
+            "hover:text-foreground"
           )}
         >
           <X className="h-4 w-4" />
-          <span className="sr-only">クリア</span>
+          <span className="sr-only">Clear</span>
         </button>
       )}
     </div>
