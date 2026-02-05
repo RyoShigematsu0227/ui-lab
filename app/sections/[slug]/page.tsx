@@ -10,7 +10,7 @@ import { CodeDownloadButton } from "@/components/sections/code-download-button";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { SectionJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
-import { SECTION_CODES } from "@/content/sections";
+import { getSectionCode } from "@/lib/section-codes";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 
@@ -59,8 +59,8 @@ export default async function SectionPage({ params }: SectionPageProps) {
     .filter((s) => s.id !== section.id)
     .slice(0, 4);
 
-  // セクションのコードを取得
-  const code = SECTION_CODES[slug] || "// コードは準備中です";
+  // セクションのコードを実際のファイルから取得
+  const code = getSectionCode(slug);
 
   // パンくずリストのアイテム
   const breadcrumbItems = [
