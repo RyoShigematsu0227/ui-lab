@@ -10,10 +10,12 @@ export function useRecentSections() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   // LocalStorageから読み込み
+  // SSR中はlocalStorageにアクセスできないため、クライアントサイドでのハイドレーションが必要
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setRecentSlugs(JSON.parse(stored));
       } catch {
         setRecentSlugs([]);

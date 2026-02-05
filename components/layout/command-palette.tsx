@@ -12,7 +12,6 @@ import {
   Sun,
   Keyboard,
   Layout,
-  Tag,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
@@ -23,7 +22,6 @@ import {
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { MOCK_SECTIONS } from "@/data/mock-sections";
 import { CATEGORIES } from "@/data/categories";
-import { TAGS } from "@/data/tags";
 
 interface CommandPaletteProps {
   open: boolean;
@@ -177,21 +175,23 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open, filteredCommands, selectedIndex]);
 
-  // クエリ変更時にインデックスをリセット
-  useEffect(() => {
+  // クエリ変更ハンドラー
+  const handleQueryChange = (newQuery: string) => {
+    setQuery(newQuery);
     setSelectedIndex(0);
-  }, [query]);
+  };
 
-  // ダイアログが閉じたらクエリをリセット
-  useEffect(() => {
-    if (!open) {
+  // ダイアログの開閉ハンドラー
+  const handleOpenChange = (isOpen: boolean) => {
+    if (!isOpen) {
       setQuery("");
       setSelectedIndex(0);
     }
-  }, [open]);
+    onOpenChange(isOpen);
+  };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="max-w-lg gap-0 overflow-hidden p-0">
         <VisuallyHidden>
           <DialogTitle>コマンドパレット</DialogTitle>
@@ -203,7 +203,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             type="text"
             placeholder="検索またはコマンドを入力..."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => handleQueryChange(e.target.value)}
             className="flex-1 bg-transparent px-3 py-3 text-sm outline-none placeholder:text-muted-foreground"
             autoFocus
           />

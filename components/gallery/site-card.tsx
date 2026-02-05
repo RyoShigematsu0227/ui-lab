@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,22 +25,32 @@ export function SiteCard({ site }: SiteCardProps) {
       <Link href={`/sites/${site.slug}`}>
         {/* サムネイル */}
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-          {/* プレースホルダー */}
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-            <span className="text-4xl font-bold text-muted-foreground/30">
-              {site.title.charAt(0)}
-            </span>
-          </div>
+          {site.screenshotUrl ? (
+            <Image
+              src={site.screenshotUrl}
+              alt={site.title}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          ) : (
+            /* プレースホルダー */
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+              <span className="text-4xl font-bold text-muted-foreground/30">
+                {site.title.charAt(0)}
+              </span>
+            </div>
+          )}
           {/* NEWバッジ */}
           {isNewSite && (
-            <div className="absolute left-2 top-2">
+            <div className="absolute left-2 top-2 z-10">
               <Badge className="bg-green-500 text-white hover:bg-green-500">
                 NEW
               </Badge>
             </div>
           )}
           {/* ホバーオーバーレイ */}
-          <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
             <span className="text-sm font-medium text-white">詳細を見る</span>
           </div>
         </div>

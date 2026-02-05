@@ -9,10 +9,12 @@ export function useFavorites() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   // 初期化時にローカルストレージから読み込み
+  // SSR中はlocalStorageにアクセスできないため、クライアントサイドでのハイドレーションが必要
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFavorites(JSON.parse(stored));
       }
     } catch {

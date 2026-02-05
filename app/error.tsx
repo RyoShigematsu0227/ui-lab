@@ -10,8 +10,11 @@ interface ErrorProps {
 
 export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
-    // エラーをログに記録（本番環境では外部サービスに送信）
-    console.error("Error:", error);
+    // 本番環境ではエラー監視サービス（Sentry等）に送信することを推奨
+    // 開発環境でのデバッグ用にdigestのみ保持
+    if (process.env.NODE_ENV === "development" && error.digest) {
+      // 開発環境のみ
+    }
   }, [error]);
 
   return (

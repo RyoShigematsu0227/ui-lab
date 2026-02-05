@@ -5,6 +5,7 @@ import { Site } from "@/types";
 import { SiteCard } from "./site-card";
 import { SearchBar } from "./search-bar";
 import { SortSelect, SortOption } from "./sort-select";
+import { useDebounce } from "@/hooks/use-debounce";
 
 interface SitesViewProps {
   sites: Site[];
@@ -14,13 +15,16 @@ export function SitesView({ sites }: SitesViewProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState<SortOption>("newest");
 
+  // 検索クエリをデバウンス（300ms）
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
   // 検索とソートでフィルタリング
   const filteredSites = useMemo(() => {
     let result = [...sites];
 
-    // 検索フィルター
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase().trim();
+    // 検索フィルター（デバウンス済みの値を使用）
+    if (debouncedSearchQuery.trim()) {
+      const query = debouncedSearchQuery.toLowerCase().trim();
       result = result.filter((site) => {
         // タイトルで検索
         if (site.title.toLowerCase().includes(query)) return true;
@@ -50,7 +54,7 @@ export function SitesView({ sites }: SitesViewProps) {
     });
 
     return result;
-  }, [sites, searchQuery, sortOption]);
+  }, [sites, debouncedSearchQuery, sortOption]);
 
   return (
     <div className="space-y-6">
@@ -69,9 +73,9 @@ export function SitesView({ sites }: SitesViewProps) {
       {/* 結果数 */}
       <p className="text-sm text-muted-foreground">
         {filteredSites.length} 件のサイト
-        {searchQuery && (
+        {debouncedSearchQuery && (
           <span className="ml-2">
-            「{searchQuery}」の検索結果
+            「{debouncedSearchQuery}」の検索結果
           </span>
         )}
       </p>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Section, Category, Tag } from "@/types";
 import { SectionGrid } from "./section-grid";
 import { CategoryFilter } from "./category-filter";
@@ -8,6 +9,8 @@ import { TagFilter } from "./tag-filter";
 import { SearchBar } from "./search-bar";
 import { SortSelect, SortOption } from "./sort-select";
 import { RandomSectionButton } from "./random-section-button";
+import { useDebounce } from "@/hooks/use-debounce";
+import { Button } from "@/components/ui/button";
 
 interface GalleryViewProps {
   sections: Section[];
@@ -15,11 +18,57 @@ interface GalleryViewProps {
   tags: Tag[];
 }
 
+const ITEMS_PER_PAGE = 12;
+
 export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortOption, setSortOption] = useState<SortOption>("newest");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // URLパラメータから初期値を取得
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    searchParams.get("category") || null
+  );
+  const [selectedTags, setSelectedTags] = useState<string[]>(
+    searchParams.get("tags")?.split(",").filter(Boolean) || []
+  );
+  const [searchQuery, setSearchQuery] = useState(
+    searchParams.get("q") || ""
+  );
+  const [sortOption, setSortOption] = useState<SortOption>(
+    (searchParams.get("sort") as SortOption) || "newest"
+  );
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+
+  // 検索クエリをデバウンス（300ms）
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
+  // URLパラメータを更新
+  const updateURLParams = useCallback(() => {
+    const params = new URLSearchParams();
+
+    if (selectedCategory) {
+      params.set("category", selectedCategory);
+    }
+    if (selectedTags.length > 0) {
+      params.set("tags", selectedTags.join(","));
+    }
+    if (debouncedSearchQuery) {
+      params.set("q", debouncedSearchQuery);
+    }
+    if (sortOption !== "newest") {
+      params.set("sort", sortOption);
+    }
+
+    const queryString = params.toString();
+    const newURL = queryString ? `?${queryString}` : "/";
+
+    router.replace(newURL, { scroll: false });
+  }, [selectedCategory, selectedTags, debouncedSearchQuery, sortOption, router]);
+
+  // フィルター変更時にURLを更新
+  useEffect(() => {
+    updateURLParams();
+  }, [updateURLParams]);
 
   // 検索、カテゴリ、タグ、ソートでフィルタリング
   const filteredSections = useMemo(() => {
@@ -41,9 +90,9 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
       );
     }
 
-    // 検索フィルター
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase().trim();
+    // 検索フィルター（デバウンス済みの値を使用）
+    if (debouncedSearchQuery.trim()) {
+      const query = debouncedSearchQuery.toLowerCase().trim();
       result = result.filter((section) => {
         // タイトルで検索
         if (section.title.toLowerCase().includes(query)) return true;
@@ -75,14 +124,27 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
     });
 
     return result;
-  }, [sections, selectedCategory, selectedTags, searchQuery, sortOption]);
+  }, [sections, selectedCategory, selectedTags, debouncedSearchQuery, sortOption]);
+
+  // 表示するセクション
+  const visibleSections = useMemo(() => {
+    return filteredSections.slice(0, visibleCount);
+  }, [filteredSections, visibleCount]);
+
+  const hasMore = visibleCount < filteredSections.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
+  };
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
+    setVisibleCount(ITEMS_PER_PAGE);
   };
 
   const handleCategorySelect = (category: string | null) => {
     setSelectedCategory(category);
+    setVisibleCount(ITEMS_PER_PAGE);
   };
 
   const handleToggleTag = (tagSlug: string) => {
@@ -91,11 +153,28 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
         ? prev.filter((t) => t !== tagSlug)
         : [...prev, tagSlug]
     );
+    setVisibleCount(ITEMS_PER_PAGE);
   };
 
   const handleClearTags = () => {
     setSelectedTags([]);
+    setVisibleCount(ITEMS_PER_PAGE);
   };
+
+  const handleClearAll = () => {
+    setSelectedCategory(null);
+    setSelectedTags([]);
+    setSearchQuery("");
+    setSortOption("newest");
+    setVisibleCount(ITEMS_PER_PAGE);
+  };
+
+  const handleSortChange = (option: SortOption) => {
+    setSortOption(option);
+    setVisibleCount(ITEMS_PER_PAGE);
+  };
+
+  const hasActiveFilters = selectedCategory || selectedTags.length > 0 || debouncedSearchQuery;
 
   return (
     <div className="space-y-6">
@@ -110,7 +189,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
         </div>
         <div className="flex items-center gap-2">
           <RandomSectionButton />
-          <SortSelect value={sortOption} onChange={setSortOption} />
+          <SortSelect value={sortOption} onChange={handleSortChange} />
         </div>
       </div>
 
@@ -131,24 +210,56 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
       />
 
       {/* 結果数 */}
-      <p className="text-sm text-muted-foreground">
-        {filteredSections.length} 件のセクション
-        {searchQuery && (
-          <span className="ml-2">
-            「{searchQuery}」の検索結果
-          </span>
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-muted-foreground">
+          {filteredSections.length} 件のセクション
+          {debouncedSearchQuery && (
+            <span className="ml-2">
+              「{debouncedSearchQuery}」の検索結果
+            </span>
+          )}
+        </p>
+        {hasActiveFilters && (
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleClearAll}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            フィルターをクリア
+          </Button>
         )}
-      </p>
+      </div>
 
       {/* グリッド */}
-      {filteredSections.length > 0 ? (
-        <SectionGrid sections={filteredSections} />
+      {visibleSections.length > 0 ? (
+        <>
+          <SectionGrid sections={visibleSections} />
+
+          {/* もっと見るボタン */}
+          {hasMore && (
+            <div className="flex justify-center pt-4">
+              <Button
+                variant="outline"
+                onClick={handleLoadMore}
+                className="min-w-[200px]"
+              >
+                もっと見る（残り {filteredSections.length - visibleCount} 件）
+              </Button>
+            </div>
+          )}
+        </>
       ) : (
         <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-16">
           <p className="mb-2 text-lg font-medium">セクションが見つかりません</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="mb-4 text-sm text-muted-foreground">
             検索条件を変更してみてください
           </p>
+          {hasActiveFilters && (
+            <Button variant="outline" size="sm" onClick={handleClearAll}>
+              フィルターをクリア
+            </Button>
+          )}
         </div>
       )}
     </div>

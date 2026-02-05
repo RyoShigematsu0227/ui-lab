@@ -20,8 +20,9 @@ export function RandomSectionButton() {
       size="sm"
       className="gap-2"
       onClick={handleRandomSection}
+      aria-label="ランダムなセクションを表示"
     >
-      <Shuffle className="h-4 w-4" />
+      <Shuffle className="h-4 w-4" aria-hidden="true" />
       ランダム
     </Button>
   );

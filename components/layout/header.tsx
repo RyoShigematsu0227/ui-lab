@@ -31,14 +31,14 @@ export function Header() {
         </Link>
 
         {/* デスクトップナビゲーション */}
-        <nav className="hidden md:flex md:flex-1 md:items-center md:gap-6">
+        <nav className="hidden md:flex md:flex-1 md:items-center md:gap-6" aria-label="メインナビゲーション">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              {item.icon && <item.icon className="h-4 w-4" />}
+              {item.icon && <item.icon className="h-4 w-4" aria-hidden="true" />}
               {item.label}
             </Link>
           ))}
@@ -54,21 +54,23 @@ export function Header() {
             size="icon"
             className="h-9 w-9 md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
+            aria-label={mobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
           >
             {mobileMenuOpen ? (
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4" aria-hidden="true" />
             ) : (
-              <Menu className="h-4 w-4" />
+              <Menu className="h-4 w-4" aria-hidden="true" />
             )}
-            <span className="sr-only">メニュー</span>
           </Button>
         </div>
       </div>
 
       {/* モバイルメニュー */}
       {mobileMenuOpen && (
-        <div className="border-t border-border md:hidden">
-          <nav className="container mx-auto flex flex-col space-y-3 px-4 py-4">
+        <div className="border-t border-border md:hidden" id="mobile-nav">
+          <nav className="container mx-auto flex flex-col space-y-3 px-4 py-4" aria-label="モバイルナビゲーション">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -76,7 +78,7 @@ export function Header() {
                 className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item.icon && <item.icon className="h-4 w-4" />}
+                {item.icon && <item.icon className="h-4 w-4" aria-hidden="true" />}
                 {item.label}
               </Link>
             ))}

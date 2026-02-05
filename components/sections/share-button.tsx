@@ -16,24 +16,20 @@ interface ShareButtonProps {
 }
 
 export function ShareButton({ title, slug }: ShareButtonProps) {
-  const url = typeof window !== "undefined"
-    ? `${window.location.origin}/sections/${slug}`
-    : `/sections/${slug}`;
-
-  const handleCopyLink = async () => {
-    const fullUrl = typeof window !== "undefined"
+  const getUrl = () => {
+    return typeof window !== "undefined"
       ? `${window.location.origin}/sections/${slug}`
       : `/sections/${slug}`;
-    await navigator.clipboard.writeText(fullUrl);
+  };
+
+  const handleCopyLink = async () => {
+    await navigator.clipboard.writeText(getUrl());
     toast.success("リンクをコピーしました");
   };
 
   const handleShareTwitter = () => {
     const text = `${title} | UI Lab`;
-    const fullUrl = typeof window !== "undefined"
-      ? `${window.location.origin}/sections/${slug}`
-      : `/sections/${slug}`;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(fullUrl)}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(getUrl())}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
   };
 

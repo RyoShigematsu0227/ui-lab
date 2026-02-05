@@ -29,8 +29,8 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2">
-          <ArrowUpDown className="h-4 w-4" />
+        <Button variant="outline" size="sm" className="gap-2" aria-label={`並び替え: ${currentOption?.label}`}>
+          <ArrowUpDown className="h-4 w-4" aria-hidden="true" />
           <span className="hidden sm:inline">{currentOption?.label}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -41,7 +41,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
             onClick={() => onChange(option.value)}
             className={value === option.value ? "bg-accent" : ""}
           >
-            <option.icon className="mr-2 h-4 w-4" />
+            <option.icon className="mr-2 h-4 w-4" aria-hidden="true" />
             {option.label}
           </DropdownMenuItem>
         ))}
