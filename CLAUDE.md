@@ -48,6 +48,7 @@ public/
 ## Rules
 
 - MUST: TypeScript strict mode。`any`型禁止
+- NEVER: ユーザーの明示的な指示なしに git commit / push しない（/ship コマンド等で指示された場合のみ実行）
 - MUST: named export を使う（default export禁止。Next.js のpage/layoutは例外）
 - MUST: コンポーネントは関数コンポーネント + hooks
 - MUST: Tailwind CSS のユーティリティクラスを使う。カスタムCSSファイルは作らない
