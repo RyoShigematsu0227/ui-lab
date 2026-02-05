@@ -1,4 +1,5 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
+import { RecentSections } from "@/components/gallery/recent-sections";
 import { getSections, getCategories, getTags } from "@/lib/supabase";
 
 // ISR: 1時間ごとに再生成
@@ -40,6 +41,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* 最近閲覧したセクション */}
+      <RecentSections />
 
       {/* ギャラリー */}
       <section className="animate-in fade-in duration-500 delay-300 fill-mode-both">

@@ -3,6 +3,7 @@ import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FavoritesProvider } from "@/components/layout/favorites-provider";
+import { RecentSectionsProvider } from "@/components/layout/recent-sections-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
@@ -69,14 +70,16 @@ export default function RootLayout({
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         <ThemeProvider>
           <FavoritesProvider>
-            <div className="relative flex min-h-screen flex-col">
+            <RecentSectionsProvider>
+              <div className="relative flex min-h-screen flex-col">
               <Header />
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
-            <ScrollToTop />
-            <KeyboardShortcuts />
-            <Toaster />
+              <ScrollToTop />
+              <KeyboardShortcuts />
+              <Toaster />
+            </RecentSectionsProvider>
           </FavoritesProvider>
         </ThemeProvider>
       </body>

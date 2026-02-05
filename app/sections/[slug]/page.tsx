@@ -5,6 +5,8 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CodeBlock } from "@/components/sections/code-block";
 import { SectionPreviewLive } from "@/components/sections/section-preview-live";
 import { SectionActions } from "@/components/sections/section-actions";
+import { SectionViewTracker } from "@/components/sections/section-view-tracker";
+import { CodeDownloadButton } from "@/components/sections/code-download-button";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
 import { SECTION_CODES } from "@/content/sections";
@@ -68,6 +70,9 @@ export default async function SectionPage({ params }: SectionPageProps) {
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">
+      {/* 閲覧履歴トラッキング */}
+      <SectionViewTracker slug={slug} />
+
       {/* パンくずリスト */}
       <Breadcrumb items={breadcrumbItems} />
 
@@ -105,7 +110,10 @@ export default async function SectionPage({ params }: SectionPageProps) {
 
       {/* コード */}
       <div className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold">コード</h2>
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl font-semibold">コード</h2>
+          <CodeDownloadButton code={code} filename={slug} />
+        </div>
         <CodeBlock code={code} />
       </div>
 

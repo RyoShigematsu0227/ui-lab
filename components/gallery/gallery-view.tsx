@@ -7,6 +7,7 @@ import { CategoryFilter } from "./category-filter";
 import { TagFilter } from "./tag-filter";
 import { SearchBar } from "./search-bar";
 import { SortSelect, SortOption } from "./sort-select";
+import { RandomSectionButton } from "./random-section-button";
 
 interface GalleryViewProps {
   sections: Section[];
@@ -107,12 +108,16 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
             placeholder="タイトル、説明、タグで検索..."
           />
         </div>
-        <SortSelect value={sortOption} onChange={setSortOption} />
+        <div className="flex items-center gap-2">
+          <RandomSectionButton />
+          <SortSelect value={sortOption} onChange={setSortOption} />
+        </div>
       </div>
 
       {/* カテゴリフィルター */}
       <CategoryFilter
         categories={categories}
+        sections={sections}
         selectedCategory={selectedCategory}
         onSelectCategory={handleCategorySelect}
       />
