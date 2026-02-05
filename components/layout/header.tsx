@@ -1,13 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Heart, Menu, X, type LucideIcon } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "@/components/ui/button";
 
-const navItems = [
+interface NavItem {
+  label: string;
+  href: string;
+  icon?: LucideIcon;
+}
+
+const navItems: NavItem[] = [
   { label: "セクション", href: "/" },
+  { label: "お気に入り", href: "/favorites", icon: Heart },
   { label: "サイト事例", href: "/sites" },
   { label: "About", href: "/about" },
 ];
@@ -29,8 +36,9 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
+              {item.icon && <item.icon className="h-4 w-4" />}
               {item.label}
             </Link>
           ))}
@@ -65,9 +73,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
+                {item.icon && <item.icon className="h-4 w-4" />}
                 {item.label}
               </Link>
             ))}
