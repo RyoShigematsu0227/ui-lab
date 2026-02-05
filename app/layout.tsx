@@ -6,6 +6,7 @@ import { FavoritesProvider } from "@/components/layout/favorites-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
+import { KeyboardShortcuts } from "@/components/layout/keyboard-shortcuts";
 import { Toaster } from "@/components/ui/sonner";
 
 const notoSansJP = Noto_Sans_JP({
@@ -74,6 +75,7 @@ export default function RootLayout({
               <Footer />
             </div>
             <ScrollToTop />
+            <KeyboardShortcuts />
             <Toaster />
           </FavoritesProvider>
         </ThemeProvider>
