@@ -51,21 +51,21 @@ export function BlogCards001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
+    <section className="bg-background py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-wide text-foreground sm:text-3xl">
               Latest Articles
             </h2>
-            <p className="mt-3 text-base tracking-wide text-zinc-500">
+            <p className="mt-3 text-base tracking-wide text-muted-foreground">
               Insights and stories from our team
             </p>
           </div>
           <Link
             href="#"
-            className="hidden text-sm font-medium tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white sm:block"
+            className="hidden text-sm font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground sm:block"
           >
             View all articles
           </Link>
@@ -76,7 +76,7 @@ export function BlogCards001() {
           {posts.map((post) => (
             <article
               key={post.title}
-              className="group flex flex-col overflow-hidden rounded-xl border border-zinc-800/50 bg-zinc-900/50 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900"
+              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-muted/30 transition-all duration-300 hover:border-border/80 hover:bg-muted/50"
             >
               {/* Image */}
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -87,7 +87,7 @@ export function BlogCards001() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute left-4 top-4">
-                  <span className="rounded-full border border-zinc-700 bg-zinc-900/90 px-3 py-1 text-xs font-medium tracking-wide text-zinc-300 backdrop-blur">
+                  <span className="rounded-full border border-border bg-background/90 px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground backdrop-blur">
                     {post.category}
                   </span>
                 </div>
@@ -95,22 +95,22 @@ export function BlogCards001() {
 
               {/* Content */}
               <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-center gap-2 text-xs tracking-wide text-zinc-600">
+                <div className="flex items-center gap-2 text-xs tracking-wide text-muted-foreground/70">
                   <time>{post.date}</time>
-                  <span className="text-zinc-700">|</span>
+                  <span className="text-muted-foreground/50">|</span>
                   <span>{post.readTime}</span>
                 </div>
 
-                <h3 className="mt-4 text-lg font-medium tracking-wide text-white transition-colors duration-200 group-hover:text-zinc-300">
+                <h3 className="mt-4 text-lg font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-muted-foreground">
                   <Link href="#">{post.title}</Link>
                 </h3>
 
-                <p className="mt-3 flex-1 text-sm leading-relaxed tracking-wide text-zinc-500">
+                <p className="mt-3 flex-1 text-sm leading-relaxed tracking-wide text-muted-foreground">
                   {post.excerpt}
                 </p>
 
                 {/* Author */}
-                <div className="mt-6 flex items-center gap-3 border-t border-zinc-800/50 pt-6">
+                <div className="mt-6 flex items-center gap-3 border-t border-border pt-6">
                   <Image
                     src={post.author.avatar}
                     alt={post.author.name}
@@ -118,7 +118,7 @@ export function BlogCards001() {
                     height={36}
                     className="rounded-full object-cover"
                   />
-                  <span className="text-sm font-medium tracking-wide text-zinc-400">
+                  <span className="text-sm font-medium tracking-wide text-muted-foreground">
                     {post.author.name}
                   </span>
                 </div>
@@ -131,7 +131,7 @@ export function BlogCards001() {
         <div className="mt-10 text-center sm:hidden">
           <Link
             href="#"
-            className="text-sm font-medium tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+            className="text-sm font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
           >
             View all articles
           </Link>

@@ -1,4 +1,5 @@
-// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
+// acsim.appスタイル: コーナードット、subtle border
+// ダーク/ライトモード両対応
 export function TestimonialCarousel001() {
   const testimonials = [
     {
@@ -25,17 +26,17 @@ export function TestimonialCarousel001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             What people say
           </p>
-          <h2 className="mb-4 text-3xl font-light tracking-tight text-white sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             Loved by developers
           </h2>
-          <p className="mx-auto max-w-2xl text-lg tracking-wide text-zinc-400">
+          <p className="mx-auto max-w-2xl text-lg tracking-wide text-muted-foreground">
             Join thousands of satisfied customers who have transformed their
             workflow.
           </p>
@@ -46,16 +47,16 @@ export function TestimonialCarousel001() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative border border-zinc-800/50 bg-zinc-900/30 p-8"
+              className="group relative border border-border bg-card/30 p-8"
             >
               {/* Corner dots */}
-              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
 
               {/* 引用符 */}
-              <div className="mb-6 flex h-8 w-8 items-center justify-center border border-zinc-800 text-zinc-600">
+              <div className="mb-6 flex h-8 w-8 items-center justify-center border border-border text-muted-foreground">
                 <svg
                   className="h-4 w-4"
                   fill="currentColor"
@@ -66,20 +67,20 @@ export function TestimonialCarousel001() {
               </div>
 
               {/* コンテンツ */}
-              <p className="mb-8 text-base leading-relaxed tracking-wide text-zinc-300">
+              <p className="mb-8 text-base leading-relaxed tracking-wide text-muted-foreground">
                 {testimonial.content}
               </p>
 
               {/* 著者 */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center border border-zinc-700 bg-zinc-800 text-sm font-medium tracking-wider text-zinc-300">
+                <div className="flex h-10 w-10 items-center justify-center border border-border bg-muted text-sm font-medium tracking-wider text-muted-foreground">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <p className="text-sm font-medium tracking-wide text-white">
+                  <p className="text-sm font-medium tracking-wide text-foreground">
                     {testimonial.author}
                   </p>
-                  <p className="text-xs tracking-wider text-zinc-500">
+                  <p className="text-xs tracking-wider text-muted-foreground">
                     {testimonial.role}
                   </p>
                 </div>
@@ -94,7 +95,7 @@ export function TestimonialCarousel001() {
             {[...Array(5)].map((_, i) => (
               <svg
                 key={i}
-                className="h-4 w-4 text-zinc-600"
+                className="h-4 w-4 text-muted-foreground"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -102,7 +103,7 @@ export function TestimonialCarousel001() {
               </svg>
             ))}
           </div>
-          <p className="text-sm tracking-wide text-zinc-500">
+          <p className="text-sm tracking-wide text-muted-foreground">
             4.9/5 average rating from 2,000+ reviews
           </p>
         </div>

@@ -1,4 +1,4 @@
-// acsim.app スタイル - カード形式フィーチャー
+// カード形式フィーチャー - ライト/ダーク両対応
 export function FeatureCards001() {
   const features = [
     {
@@ -25,28 +25,28 @@ export function FeatureCards001() {
   ];
 
   return (
-    <section className="relative bg-zinc-950 py-32">
+    <section className="relative bg-background py-32">
       {/* コーナードット装飾 */}
-      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-foreground/20" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-20">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+              <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
                 Capabilities
               </p>
-              <h2 className="max-w-md text-3xl font-light tracking-tight text-white/90 sm:text-4xl">
+              <h2 className="max-w-md text-3xl font-light tracking-tight text-foreground sm:text-4xl">
                 The complete platform for modern apps
               </h2>
             </div>
             <a
               href="#"
-              className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-white/50 transition-colors hover:text-white/80"
+              className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
             >
               All Features
               <svg
@@ -71,33 +71,33 @@ export function FeatureCards001() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative border border-white/10 bg-zinc-950 p-8 transition-colors hover:border-white/20"
+              className="group relative border border-border bg-background p-8 transition-colors hover:border-foreground/20"
             >
               {/* コーナードット */}
-              <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+              <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
 
               {/* Tag */}
-              <span className="mb-8 inline-block text-xs font-medium uppercase tracking-[0.2em] text-white/40">
+              <span className="mb-8 inline-block text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 {feature.tag}
               </span>
 
               {/* Content */}
-              <h3 className="mb-4 text-xl font-light tracking-wide text-white/90">
+              <h3 className="mb-4 text-xl font-light tracking-wide text-foreground">
                 {feature.title}
               </h3>
-              <p className="mb-8 text-sm font-light leading-relaxed text-white/50">
+              <p className="mb-8 text-sm font-light leading-relaxed text-muted-foreground">
                 {feature.description}
               </p>
 
               {/* Stats */}
-              <div className="border-t border-white/10 pt-6">
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/60">
+              <div className="border-t border-border pt-6">
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   {feature.stats}
                 </span>
               </div>
 
               {/* Hover line */}
-              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-white/20 transition-all duration-500 group-hover:w-full" />
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-foreground/20 transition-all duration-500 group-hover:w-full" />
             </div>
           ))}
         </div>

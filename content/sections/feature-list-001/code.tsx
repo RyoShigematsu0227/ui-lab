@@ -1,4 +1,4 @@
-// acsim.app スタイル - ダークネイビーフィーチャーリスト
+// フィーチャーリスト - ライト/ダーク両対応
 export function FeatureList001() {
   const features = [
     {
@@ -124,49 +124,49 @@ export function FeatureList001() {
   ];
 
   return (
-    <section className="relative bg-slate-950 py-32">
+    <section className="relative bg-background py-32">
       {/* コーナードット装飾 */}
-      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-foreground/20" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-20 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Features
           </p>
-          <h2 className="text-3xl font-light tracking-tight text-white/90 sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             Everything you need to succeed
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/50">
+          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-muted-foreground">
             Powerful features designed to help you build better products faster
           </p>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
-            <div key={index} className="group relative bg-slate-950 p-8">
+            <div key={index} className="group relative bg-background p-8">
               {/* コーナードット */}
-              <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+              <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
 
               {/* Icon */}
-              <div className="mb-6 text-white/40 transition-colors group-hover:text-white/60">
+              <div className="mb-6 text-muted-foreground transition-colors group-hover:text-foreground/60">
                 {feature.icon}
               </div>
 
               {/* Content */}
-              <h3 className="mb-3 text-base font-light tracking-wide text-white/90">
+              <h3 className="mb-3 text-base font-light tracking-wide text-foreground">
                 {feature.title}
               </h3>
-              <p className="text-sm font-light leading-relaxed text-white/50">
+              <p className="text-sm font-light leading-relaxed text-muted-foreground">
                 {feature.description}
               </p>
 
               {/* Hover line */}
-              <div className="absolute bottom-0 left-0 h-px w-0 bg-white/20 transition-all duration-500 group-hover:w-full" />
+              <div className="absolute bottom-0 left-0 h-px w-0 bg-foreground/20 transition-all duration-500 group-hover:w-full" />
             </div>
           ))}
         </div>

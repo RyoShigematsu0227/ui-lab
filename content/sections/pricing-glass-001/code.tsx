@@ -47,7 +47,9 @@ export function PricingGlass001() {
 
   // コーナードット装飾コンポーネント
   const CornerDots = ({ highlight = false }: { highlight?: boolean }) => {
-    const dotColor = highlight ? "bg-white/60" : "bg-white/20";
+    const dotColor = highlight
+      ? "bg-foreground/60"
+      : "bg-foreground/20";
     return (
       <>
         <div className={`absolute top-4 left-4 h-1 w-1 rounded-full ${dotColor}`} />
@@ -59,20 +61,20 @@ export function PricingGlass001() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-zinc-950 py-24">
+    <section className="relative overflow-hidden bg-background py-24">
       {/* 背景グラデーション - subtle */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-foreground/5 via-transparent to-transparent" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Choose Your Plan
           </p>
-          <h2 className="mb-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Simple, transparent pricing
           </h2>
-          <p className="mx-auto max-w-2xl text-base tracking-wide text-white/50">
+          <p className="mx-auto max-w-2xl text-base tracking-wide text-muted-foreground">
             Choose the plan that fits your needs. No hidden fees.
           </p>
         </div>
@@ -84,8 +86,8 @@ export function PricingGlass001() {
               key={plan.name}
               className={`relative rounded-sm p-8 backdrop-blur-sm ${
                 plan.popular
-                  ? "border border-white/20 bg-white/[0.08]"
-                  : "border border-white/10 bg-white/[0.03]"
+                  ? "border border-border bg-muted/50"
+                  : "border border-border/50 bg-muted/20"
               }`}
             >
               <CornerDots highlight={plan.popular} />
@@ -93,40 +95,40 @@ export function PricingGlass001() {
               {/* 人気バッジ */}
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex rounded-sm bg-white px-4 py-1 text-xs font-medium uppercase tracking-[0.15em] text-zinc-950">
+                  <span className="inline-flex rounded-sm bg-primary px-4 py-1 text-xs font-medium uppercase tracking-[0.15em] text-primary-foreground">
                     Most Popular
                   </span>
                 </div>
               )}
 
               {/* プラン名 */}
-              <h3 className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-white/60">
+              <h3 className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 {plan.name}
               </h3>
 
               {/* 価格 */}
               <div className="mb-4">
-                <span className="text-4xl font-light tracking-tight text-white">
+                <span className="text-4xl font-light tracking-tight text-foreground">
                   {plan.price}
                 </span>
-                <span className="text-white/40">/month</span>
+                <span className="text-muted-foreground">/month</span>
               </div>
 
               {/* 説明 */}
-              <p className="mb-6 text-sm tracking-wide text-white/40">{plan.description}</p>
+              <p className="mb-6 text-sm tracking-wide text-muted-foreground">{plan.description}</p>
 
               {/* Divider */}
-              <div className="mb-6 h-px bg-white/10" />
+              <div className="mb-6 h-px bg-border" />
 
               {/* 機能リスト */}
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-center gap-3 text-sm tracking-wide text-white/60"
+                    className="flex items-center gap-3 text-sm tracking-wide text-muted-foreground"
                   >
                     <svg
-                      className="h-4 w-4 text-white/40"
+                      className="h-4 w-4 text-muted-foreground"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -147,8 +149,8 @@ export function PricingGlass001() {
               <button
                 className={`w-full rounded-sm py-3 text-sm font-medium uppercase tracking-[0.15em] transition-all ${
                   plan.popular
-                    ? "bg-white text-zinc-950 hover:bg-white/90"
-                    : "border border-white/20 text-white hover:border-white/40 hover:bg-white/5"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "border border-border text-foreground hover:border-foreground/40 hover:bg-muted"
                 }`}
               >
                 {plan.cta}

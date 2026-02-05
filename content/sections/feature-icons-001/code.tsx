@@ -1,4 +1,4 @@
-// acsim.app スタイル - アイコン付きフィーチャー
+// アイコン付きフィーチャー - ライト/ダーク両対応
 export function FeatureIcons001() {
   const features = [
     {
@@ -84,23 +84,23 @@ export function FeatureIcons001() {
   ];
 
   return (
-    <section className="relative bg-slate-950 py-32">
+    <section className="relative bg-background py-32">
       {/* コーナードット装飾 */}
-      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-foreground/20" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-20 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Platform
           </p>
-          <h2 className="text-3xl font-light tracking-tight text-white/90 sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             Enterprise-grade infrastructure
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/50">
+          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-muted-foreground">
             Built on the same technology that powers the world&apos;s leading companies
           </p>
         </div>
@@ -110,20 +110,20 @@ export function FeatureIcons001() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative border-l border-white/10 pl-8"
+              className="group relative border-l border-border pl-8"
             >
               {/* ドット */}
-              <div className="absolute -left-[3px] top-0 h-1.5 w-1.5 rounded-full bg-white/30 transition-colors group-hover:bg-white/60" />
+              <div className="absolute -left-[3px] top-0 h-1.5 w-1.5 rounded-full bg-foreground/30 transition-colors group-hover:bg-foreground/60" />
 
               {/* Icon */}
-              <div className="mb-6 text-white/40 transition-colors group-hover:text-white/60">
+              <div className="mb-6 text-muted-foreground transition-colors group-hover:text-foreground/60">
                 {feature.icon}
               </div>
 
-              <h3 className="mb-3 text-lg font-light tracking-wide text-white/90">
+              <h3 className="mb-3 text-lg font-light tracking-wide text-foreground">
                 {feature.title}
               </h3>
-              <p className="text-sm font-light leading-relaxed text-white/50">
+              <p className="text-sm font-light leading-relaxed text-muted-foreground">
                 {feature.description}
               </p>
             </div>
@@ -134,7 +134,7 @@ export function FeatureIcons001() {
         <div className="mt-20 text-center">
           <a
             href="#"
-            className="inline-flex items-center gap-3 border border-white/20 px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white/90"
+            className="inline-flex items-center gap-3 border border-border px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
           >
             View Documentation
             <svg

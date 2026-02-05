@@ -39,24 +39,24 @@ export function FaqTwoColumn001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left Column - Header */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
               Support
             </p>
-            <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
               Frequently Asked Questions
             </h2>
-            <p className="mt-6 text-lg leading-relaxed tracking-wide text-zinc-400">
+            <p className="mt-6 text-lg leading-relaxed tracking-wide text-muted-foreground">
               Can&apos;t find the answer you&apos;re looking for? Reach out to
               our customer support team.
             </p>
             <a
               href="#"
-              className="mt-10 inline-flex items-center gap-3 border border-zinc-700 px-8 py-3 text-sm font-medium uppercase tracking-[0.15em] text-white transition-all hover:border-white hover:bg-white hover:text-zinc-950"
+              className="mt-10 inline-flex items-center gap-3 border border-border px-8 py-3 text-sm font-medium uppercase tracking-[0.15em] text-foreground transition-all hover:border-foreground hover:bg-foreground hover:text-background"
             >
               Contact Support
               <svg
@@ -80,7 +80,7 @@ export function FaqTwoColumn001() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border border-zinc-800 transition-colors hover:border-zinc-700"
+                className="border border-border transition-colors hover:border-muted-foreground/50"
               >
                 <button
                   className="flex w-full items-center justify-between px-6 py-5 text-left"
@@ -88,7 +88,7 @@ export function FaqTwoColumn001() {
                     setOpenIndex(openIndex === index ? null : index)
                   }
                 >
-                  <span className="font-light tracking-wide text-white">
+                  <span className="font-light tracking-wide text-foreground">
                     {faq.question}
                   </span>
                   <span
@@ -97,7 +97,7 @@ export function FaqTwoColumn001() {
                     }`}
                   >
                     <svg
-                      className="h-4 w-4 text-zinc-500"
+                      className="h-4 w-4 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ export function FaqTwoColumn001() {
                     openIndex === index ? "max-h-96" : "max-h-0"
                   }`}
                 >
-                  <p className="px-6 pb-5 text-zinc-400 leading-relaxed tracking-wide">
+                  <p className="px-6 pb-5 text-muted-foreground leading-relaxed tracking-wide">
                     {faq.answer}
                   </p>
                 </div>

@@ -1,7 +1,8 @@
 import Image from "next/image";
 
-// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
+// acsim.appスタイル: コーナードット、subtle border
 // 1つの大きな引用を中央に配置したシングルテスティモニアル
+// ダーク/ライトモード両対応
 export function TestimonialSingle001() {
   const testimonial = {
     content:
@@ -14,21 +15,21 @@ export function TestimonialSingle001() {
   };
 
   return (
-    <section className="bg-zinc-950 py-32">
+    <section className="bg-background py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Main testimonial container */}
-        <div className="relative border border-zinc-800/50 bg-zinc-900/20 p-12 md:p-16">
+        <div className="relative border border-border bg-card/20 p-12 md:p-16">
           {/* Corner dots */}
-          <div className="absolute left-3 top-3 h-1.5 w-1.5 rounded-full bg-zinc-700" />
-          <div className="absolute right-3 top-3 h-1.5 w-1.5 rounded-full bg-zinc-700" />
-          <div className="absolute bottom-3 left-3 h-1.5 w-1.5 rounded-full bg-zinc-700" />
-          <div className="absolute bottom-3 right-3 h-1.5 w-1.5 rounded-full bg-zinc-700" />
+          <div className="absolute left-3 top-3 h-1.5 w-1.5 rounded-full bg-muted-foreground/30" />
+          <div className="absolute right-3 top-3 h-1.5 w-1.5 rounded-full bg-muted-foreground/30" />
+          <div className="absolute bottom-3 left-3 h-1.5 w-1.5 rounded-full bg-muted-foreground/30" />
+          <div className="absolute bottom-3 right-3 h-1.5 w-1.5 rounded-full bg-muted-foreground/30" />
 
           {/* Quote icon */}
           <div className="mb-8 flex justify-center">
-            <div className="flex h-12 w-12 items-center justify-center border border-zinc-800 bg-zinc-900/50">
+            <div className="flex h-12 w-12 items-center justify-center border border-border bg-muted/50">
               <svg
-                className="h-6 w-6 text-zinc-600"
+                className="h-6 w-6 text-muted-foreground"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -39,7 +40,7 @@ export function TestimonialSingle001() {
 
           {/* Quote text */}
           <blockquote className="text-center">
-            <p className="text-xl leading-relaxed tracking-wide text-zinc-200 md:text-2xl md:leading-relaxed">
+            <p className="text-xl leading-relaxed tracking-wide text-foreground/90 md:text-2xl md:leading-relaxed">
               &ldquo;{testimonial.content}&rdquo;
             </p>
           </blockquote>
@@ -54,13 +55,13 @@ export function TestimonialSingle001() {
               className="rounded-full object-cover grayscale"
             />
             <div className="mt-4 text-center">
-              <p className="text-base font-medium tracking-wide text-white">
+              <p className="text-base font-medium tracking-wide text-foreground">
                 {testimonial.author}
               </p>
-              <p className="mt-1 text-sm tracking-wider text-zinc-500">
+              <p className="mt-1 text-sm tracking-wider text-muted-foreground">
                 {testimonial.role}
               </p>
-              <p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
                 {testimonial.company}
               </p>
             </div>

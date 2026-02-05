@@ -13,10 +13,10 @@ export function NavigationMinimal001() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-zinc-950">
+    <header className="sticky top-0 z-50 w-full bg-background">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="#" className="text-lg font-semibold tracking-wide text-white">
+        <Link href="#" className="text-lg font-semibold tracking-wide text-foreground">
           Studio
         </Link>
 
@@ -26,7 +26,7 @@ export function NavigationMinimal001() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+              className="text-sm tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -35,7 +35,7 @@ export function NavigationMinimal001() {
 
         {/* Mobile Menu Button */}
         <button
-          className="text-zinc-400 hover:text-white md:hidden"
+          className="text-muted-foreground hover:text-foreground md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg
@@ -65,13 +65,13 @@ export function NavigationMinimal001() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="bg-zinc-950 px-4 pb-6 md:hidden">
-          <div className="flex flex-col gap-4 border-t border-zinc-800/50 pt-4">
+        <div className="bg-background px-4 pb-6 md:hidden">
+          <div className="flex flex-col gap-4 border-t border-border pt-4">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+                className="text-sm tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
               >
                 {link.label}
               </Link>

@@ -25,15 +25,15 @@ export function ContactForm001() {
   };
 
   return (
-    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
+    <section className="bg-background py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left side - Info */}
           <div>
-            <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-wide text-foreground sm:text-3xl md:text-4xl">
               Get in touch
             </h2>
-            <p className="mt-5 text-base leading-relaxed tracking-wide text-zinc-500">
+            <p className="mt-5 text-base leading-relaxed tracking-wide text-muted-foreground">
               Have a project in mind? We&apos;d love to hear about it. Send us a
               message and we&apos;ll get back to you as soon as possible.
             </p>
@@ -41,9 +41,9 @@ export function ContactForm001() {
             <div className="mt-14 space-y-10">
               {/* Email */}
               <div className="flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted">
                   <svg
-                    className="h-5 w-5 text-zinc-400"
+                    className="h-5 w-5 text-muted-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -57,10 +57,10 @@ export function ContactForm001() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium tracking-wide text-white">
+                  <p className="font-medium tracking-wide text-foreground">
                     Email
                   </p>
-                  <p className="mt-1 text-sm tracking-wide text-zinc-500">
+                  <p className="mt-1 text-sm tracking-wide text-muted-foreground">
                     hello@example.com
                   </p>
                 </div>
@@ -68,9 +68,9 @@ export function ContactForm001() {
 
               {/* Phone */}
               <div className="flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted">
                   <svg
-                    className="h-5 w-5 text-zinc-400"
+                    className="h-5 w-5 text-muted-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -84,10 +84,10 @@ export function ContactForm001() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium tracking-wide text-white">
+                  <p className="font-medium tracking-wide text-foreground">
                     Phone
                   </p>
-                  <p className="mt-1 text-sm tracking-wide text-zinc-500">
+                  <p className="mt-1 text-sm tracking-wide text-muted-foreground">
                     +1 (555) 123-4567
                   </p>
                 </div>
@@ -95,9 +95,9 @@ export function ContactForm001() {
 
               {/* Location */}
               <div className="flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted">
                   <svg
-                    className="h-5 w-5 text-zinc-400"
+                    className="h-5 w-5 text-muted-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -117,10 +117,10 @@ export function ContactForm001() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium tracking-wide text-white">
+                  <p className="font-medium tracking-wide text-foreground">
                     Office
                   </p>
-                  <p className="mt-1 text-sm tracking-wide text-zinc-500">
+                  <p className="mt-1 text-sm tracking-wide text-muted-foreground">
                     123 Innovation Street
                     <br />
                     San Francisco, CA 94102
@@ -131,12 +131,12 @@ export function ContactForm001() {
           </div>
 
           {/* Right side - Form */}
-          <div className="rounded-xl border border-zinc-800/50 bg-zinc-900/50 p-8">
+          <div className="rounded-xl border border-border bg-muted/50 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
+                  className="block text-xs font-medium uppercase tracking-widest text-muted-foreground"
                 >
                   Name
                 </label>
@@ -146,7 +146,7 @@ export function ContactForm001() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-3 block w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
+                  className="mt-3 block w-full rounded-lg border border-border bg-background px-4 py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
                   placeholder="John Doe"
                 />
               </div>
@@ -154,7 +154,7 @@ export function ContactForm001() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
+                  className="block text-xs font-medium uppercase tracking-widest text-muted-foreground"
                 >
                   Email
                 </label>
@@ -164,7 +164,7 @@ export function ContactForm001() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-3 block w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
+                  className="mt-3 block w-full rounded-lg border border-border bg-background px-4 py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
                   placeholder="john@example.com"
                 />
               </div>
@@ -172,10 +172,10 @@ export function ContactForm001() {
               <div>
                 <label
                   htmlFor="company"
-                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
+                  className="block text-xs font-medium uppercase tracking-widest text-muted-foreground"
                 >
                   Company{" "}
-                  <span className="normal-case text-zinc-700">
+                  <span className="normal-case text-muted-foreground/50">
                     (optional)
                   </span>
                 </label>
@@ -185,7 +185,7 @@ export function ContactForm001() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="mt-3 block w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
+                  className="mt-3 block w-full rounded-lg border border-border bg-background px-4 py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
                   placeholder="Acme Inc."
                 />
               </div>
@@ -193,7 +193,7 @@ export function ContactForm001() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
+                  className="block text-xs font-medium uppercase tracking-widest text-muted-foreground"
                 >
                   Message
                 </label>
@@ -203,14 +203,14 @@ export function ContactForm001() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="mt-3 block w-full resize-none rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
+                  className="mt-3 block w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-lg border border-zinc-700 bg-white px-6 py-3.5 text-sm font-medium tracking-wide text-zinc-900 transition-all duration-200 hover:bg-zinc-100"
+                className="w-full rounded-lg bg-primary px-6 py-3.5 text-sm font-medium tracking-wide text-primary-foreground transition-all duration-200 hover:bg-primary/90"
               >
                 Send Message
               </button>

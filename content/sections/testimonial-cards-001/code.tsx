@@ -1,7 +1,8 @@
 import Image from "next/image";
 
-// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
+// acsim.appスタイル: コーナードット、subtle border
 // カードスタイルのテスティモニアル
+// ダーク/ライトモード両対応
 export function TestimonialCards001() {
   const testimonials = [
     {
@@ -47,19 +48,19 @@ export function TestimonialCards001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-zinc-600">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
               Testimonials
             </p>
-            <h2 className="text-3xl font-light tracking-tight text-white">
+            <h2 className="text-3xl font-light tracking-tight text-foreground">
               Trusted by industry leaders
             </h2>
           </div>
-          <p className="max-w-md text-sm tracking-wide text-zinc-500">
+          <p className="max-w-md text-sm tracking-wide text-muted-foreground">
             See why teams choose us to build their most ambitious projects.
           </p>
         </div>
@@ -69,20 +70,20 @@ export function TestimonialCards001() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative border border-zinc-800/50 bg-zinc-900/20 p-8 transition-colors hover:border-zinc-700/50 hover:bg-zinc-900/40"
+              className="group relative border border-border bg-card/20 p-8 transition-colors hover:border-border/80 hover:bg-card/40"
             >
               {/* Corner dots */}
-              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-zinc-700" />
-              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-zinc-700" />
-              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-zinc-700" />
-              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-zinc-700" />
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/20 transition-colors group-hover:bg-muted-foreground/30" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/20 transition-colors group-hover:bg-muted-foreground/30" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-muted-foreground/20 transition-colors group-hover:bg-muted-foreground/30" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-muted-foreground/20 transition-colors group-hover:bg-muted-foreground/30" />
 
               {/* Rating */}
               <div className="mb-6 flex gap-1">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <svg
                     key={i}
-                    className="h-3.5 w-3.5 text-zinc-600"
+                    className="h-3.5 w-3.5 text-muted-foreground"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -92,7 +93,7 @@ export function TestimonialCards001() {
               </div>
 
               {/* Quote */}
-              <p className="mb-8 text-base leading-relaxed tracking-wide text-zinc-300">
+              <p className="mb-8 text-base leading-relaxed tracking-wide text-muted-foreground">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
@@ -107,15 +108,15 @@ export function TestimonialCards001() {
                     className="rounded-full object-cover grayscale"
                   />
                   <div>
-                    <p className="text-sm font-medium tracking-wide text-white">
+                    <p className="text-sm font-medium tracking-wide text-foreground">
                       {testimonial.author}
                     </p>
-                    <p className="text-xs tracking-wider text-zinc-500">
+                    <p className="text-xs tracking-wider text-muted-foreground">
                       {testimonial.role}
                     </p>
                   </div>
                 </div>
-                <span className="text-xs uppercase tracking-[0.15em] text-zinc-600">
+                <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
                   {testimonial.company}
                 </span>
               </div>

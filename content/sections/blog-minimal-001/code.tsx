@@ -29,35 +29,35 @@ export function BlogMinimal001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
+    <section className="bg-background py-24 border-t border-border">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-wide text-foreground sm:text-3xl">
             Journal
           </h2>
-          <p className="mt-3 text-sm tracking-wide text-zinc-500">
+          <p className="mt-3 text-sm tracking-wide text-muted-foreground">
             Thoughts on design, development, and building products
           </p>
         </div>
 
         {/* Posts List */}
-        <div className="mt-16 divide-y divide-zinc-800/50">
+        <div className="mt-16 divide-y divide-border">
           {posts.map((post) => (
             <article key={post.title} className="group py-8 first:pt-0 last:pb-0">
               <Link href="#" className="block">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
                   <div className="flex-1">
-                    <h3 className="text-lg font-medium tracking-wide text-white transition-colors duration-200 group-hover:text-zinc-300">
+                    <h3 className="text-lg font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-muted-foreground">
                       {post.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed tracking-wide text-zinc-500">
+                    <p className="mt-2 text-sm leading-relaxed tracking-wide text-muted-foreground">
                       {post.excerpt}
                     </p>
                   </div>
-                  <div className="flex items-center gap-4 text-xs tracking-wide text-zinc-600 sm:flex-col sm:items-end sm:gap-2">
+                  <div className="flex items-center gap-4 text-xs tracking-wide text-muted-foreground/70 sm:flex-col sm:items-end sm:gap-2">
                     <time>{post.date}</time>
-                    <span className="rounded-full border border-zinc-800 px-3 py-1">
+                    <span className="rounded-full border border-border px-3 py-1">
                       {post.category}
                     </span>
                   </div>
@@ -71,7 +71,7 @@ export function BlogMinimal001() {
         <div className="mt-12 text-center">
           <Link
             href="#"
-            className="inline-flex items-center gap-2 text-sm tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+            className="inline-flex items-center gap-2 text-sm tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
           >
             View all articles
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

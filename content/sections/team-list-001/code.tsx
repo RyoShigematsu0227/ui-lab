@@ -5,10 +5,10 @@ import Link from "next/link";
 function CornerDots({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute h-3 w-3 ${className}`}>
-      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
     </div>
   );
 }
@@ -50,7 +50,7 @@ export function TeamList001() {
   ];
 
   return (
-    <section className="relative bg-zinc-950 py-24">
+    <section className="relative bg-background py-24">
       {/* コーナードット装飾 */}
       <CornerDots className="left-6 top-6" />
       <CornerDots className="right-6 top-6" />
@@ -59,21 +59,21 @@ export function TeamList001() {
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
-        <div className="border-b border-zinc-800 pb-8">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+        <div className="border-b border-border pb-8">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Leadership
           </p>
-          <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Our Team
           </h2>
-          <p className="mt-4 max-w-xl text-base tracking-wide text-zinc-400">
+          <p className="mt-4 max-w-xl text-base tracking-wide text-muted-foreground">
             A small team of dedicated professionals building the future of
             technology.
           </p>
         </div>
 
         {/* チームリスト */}
-        <div className="divide-y divide-zinc-800">
+        <div className="divide-y divide-border">
           {team.map((member, index) => (
             <div
               key={member.name}
@@ -81,13 +81,13 @@ export function TeamList001() {
             >
               {/* 番号 */}
               <div className="hidden w-12 shrink-0 sm:block">
-                <span className="text-xs font-medium tracking-wider text-zinc-600">
+                <span className="text-xs font-medium tracking-wider text-muted-foreground/60">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
 
               {/* アバター */}
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-zinc-800 transition-all group-hover:border-zinc-600">
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-border transition-all group-hover:border-muted-foreground/60">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -100,10 +100,10 @@ export function TeamList001() {
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg font-medium tracking-wide text-white">
+                    <h3 className="text-lg font-medium tracking-wide text-foreground">
                       {member.name}
                     </h3>
-                    <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+                    <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                       {member.role}
                     </p>
                   </div>
@@ -112,7 +112,7 @@ export function TeamList001() {
                   <div className="flex gap-3">
                     <Link
                       href={member.links.twitter}
-                      className="text-zinc-600 transition-colors hover:text-white"
+                      className="text-muted-foreground/60 transition-colors hover:text-foreground"
                     >
                       <svg
                         className="h-4 w-4"
@@ -124,7 +124,7 @@ export function TeamList001() {
                     </Link>
                     <Link
                       href={member.links.linkedin}
-                      className="text-zinc-600 transition-colors hover:text-white"
+                      className="text-muted-foreground/60 transition-colors hover:text-foreground"
                     >
                       <svg
                         className="h-4 w-4"
@@ -137,7 +137,7 @@ export function TeamList001() {
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed tracking-wide text-zinc-400">
+                <p className="mt-4 text-sm leading-relaxed tracking-wide text-muted-foreground">
                   {member.bio}
                 </p>
               </div>

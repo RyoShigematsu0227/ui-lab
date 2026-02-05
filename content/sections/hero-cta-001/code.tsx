@@ -1,17 +1,17 @@
 export function HeroCta001() {
   return (
-    <section className="relative min-h-screen bg-slate-950">
+    <section className="relative min-h-screen bg-background">
       {/* コーナードット装飾 */}
-      <div className="absolute left-6 top-6 h-1 w-1 rounded-full bg-white/40" />
-      <div className="absolute right-6 top-6 h-1 w-1 rounded-full bg-white/40" />
-      <div className="absolute bottom-6 left-6 h-1 w-1 rounded-full bg-white/40" />
-      <div className="absolute bottom-6 right-6 h-1 w-1 rounded-full bg-white/40" />
+      <div className="absolute left-6 top-6 h-1 w-1 rounded-full bg-foreground/40" />
+      <div className="absolute right-6 top-6 h-1 w-1 rounded-full bg-foreground/40" />
+      <div className="absolute bottom-6 left-6 h-1 w-1 rounded-full bg-foreground/40" />
+      <div className="absolute bottom-6 right-6 h-1 w-1 rounded-full bg-foreground/40" />
 
       {/* Background pattern */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
           backgroundSize: "32px 32px",
         }}
       />
@@ -19,39 +19,39 @@ export function HeroCta001() {
       <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-24 text-center">
         {/* Label */}
         <div className="mb-12">
-          <div className="inline-flex items-center gap-3 border border-white/10 px-5 py-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/50">
+          <div className="inline-flex items-center gap-3 border border-border px-5 py-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400/70" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
               Limited Offer
             </span>
           </div>
         </div>
 
         {/* Main heading */}
-        <h1 className="mb-6 text-4xl font-light tracking-tight text-white/90 sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="mb-6 text-4xl font-light tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           Start building today
         </h1>
 
         {/* Subheading */}
-        <p className="mb-12 max-w-lg text-lg text-white/50">
+        <p className="mb-12 max-w-lg text-lg text-muted-foreground">
           Get 50% off your first year. No credit card required.
           Cancel anytime.
         </p>
 
         {/* Primary CTA - Large and prominent */}
         <div className="mb-8 w-full max-w-md">
-          <button className="group w-full border border-white/20 bg-white px-8 py-5 transition-all hover:bg-white/95">
-            <span className="text-sm font-medium uppercase tracking-[0.25em] text-slate-950">
+          <button className="group w-full border border-border bg-foreground px-8 py-5 transition-all hover:bg-foreground/95">
+            <span className="text-sm font-medium uppercase tracking-[0.25em] text-background">
               Get Started Free
             </span>
-            <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-slate-600">
+            <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-background/70">
               No credit card required
             </div>
           </button>
         </div>
 
         {/* Secondary CTA */}
-        <button className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-white/50 transition-colors hover:text-white/70">
+        <button className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground">
           <svg
             className="h-4 w-4"
             fill="none"
@@ -75,7 +75,7 @@ export function HeroCta001() {
         </button>
 
         {/* Divider */}
-        <div className="my-16 h-px w-24 bg-white/10" />
+        <div className="my-16 h-px w-24 bg-border" />
 
         {/* Features list */}
         <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
@@ -87,7 +87,7 @@ export function HeroCta001() {
           ].map((feature) => (
             <div
               key={feature}
-              className="flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-white/40"
+              className="flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-muted-foreground"
             >
               <svg
                 className="h-3.5 w-3.5"
@@ -114,13 +114,13 @@ export function HeroCta001() {
               {[1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
-                  className="flex h-8 w-8 items-center justify-center border border-white/10 bg-zinc-900 text-[10px] text-white/40"
+                  className="flex h-8 w-8 items-center justify-center border border-border bg-muted text-[10px] text-muted-foreground"
                 >
                   {String.fromCharCode(64 + i)}
                 </div>
               ))}
             </div>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60">
               Join 10,000+ developers
             </span>
           </div>

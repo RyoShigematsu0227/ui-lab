@@ -34,17 +34,17 @@ export function FaqAccordion001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
             Support
           </p>
-          <h2 className="mb-6 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mb-6 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Frequently asked questions
           </h2>
-          <p className="text-lg tracking-wide text-zinc-400">
+          <p className="text-lg tracking-wide text-muted-foreground">
             Everything you need to know about the product.
           </p>
         </div>
@@ -54,7 +54,7 @@ export function FaqAccordion001() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="overflow-hidden border border-zinc-800 bg-zinc-950 transition-colors hover:border-zinc-700"
+              className="overflow-hidden border border-border bg-background transition-colors hover:border-muted-foreground/50"
             >
               <button
                 className="flex w-full items-center justify-between px-6 py-5 text-left"
@@ -62,11 +62,11 @@ export function FaqAccordion001() {
                   setOpenIndex(openIndex === index ? null : index)
                 }
               >
-                <span className="font-light tracking-wide text-white">
+                <span className="font-light tracking-wide text-foreground">
                   {faq.question}
                 </span>
                 <svg
-                  className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-300 ${
+                  className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -86,7 +86,7 @@ export function FaqAccordion001() {
                   openIndex === index ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <p className="px-6 pb-5 text-zinc-400 leading-relaxed tracking-wide">
+                <p className="px-6 pb-5 text-muted-foreground leading-relaxed tracking-wide">
                   {faq.answer}
                 </p>
               </div>
@@ -95,15 +95,15 @@ export function FaqAccordion001() {
         </div>
 
         {/* サポートCTA */}
-        <div className="mt-16 border border-zinc-800 p-8 text-center">
-          <p className="mb-2 text-lg font-light tracking-wide text-white">
+        <div className="mt-16 border border-border p-8 text-center">
+          <p className="mb-2 text-lg font-light tracking-wide text-foreground">
             Still have questions?
           </p>
-          <p className="mb-6 text-zinc-400 tracking-wide">
+          <p className="mb-6 text-muted-foreground tracking-wide">
             Can&apos;t find the answer you&apos;re looking for? Reach out to our
             support team.
           </p>
-          <button className="inline-flex h-11 items-center justify-center border border-zinc-700 bg-transparent px-8 text-sm font-medium uppercase tracking-[0.15em] text-white transition-all hover:border-white hover:bg-white hover:text-zinc-950">
+          <button className="inline-flex h-11 items-center justify-center border border-border bg-transparent px-8 text-sm font-medium uppercase tracking-[0.15em] text-foreground transition-all hover:border-foreground hover:bg-foreground hover:text-background">
             Contact Support
           </button>
         </div>

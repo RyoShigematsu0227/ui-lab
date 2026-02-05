@@ -1,35 +1,35 @@
-// acsim.app スタイル - ダークネイビーベントーグリッド
+// ベントーグリッドフィーチャー - ライト/ダーク両対応
 export function FeatureBento001() {
   return (
-    <section className="relative bg-slate-950 py-32">
+    <section className="relative bg-background py-32">
       {/* コーナードット装飾 */}
-      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-foreground/20" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* ヘッダー */}
         <div className="mb-20 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Core Features
           </p>
-          <h2 className="text-3xl font-light tracking-tight text-white/90 sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             Everything you need
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/50">
+          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-muted-foreground">
             Powerful features designed to help you build faster and smarter.
           </p>
         </div>
 
         {/* ベントーグリッド */}
-        <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2">
+        <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2">
           {/* 大きなカード（左） */}
-          <div className="relative bg-slate-950 p-8 sm:col-span-2 md:col-span-1 md:row-span-2 md:p-10">
-            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+          <div className="relative bg-background p-8 sm:col-span-2 md:col-span-1 md:row-span-2 md:p-10">
+            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
             <div className="mb-8">
               <svg
-                className="h-5 w-5 text-white/40"
+                className="h-5 w-5 text-muted-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -42,21 +42,21 @@ export function FeatureBento001() {
                 />
               </svg>
             </div>
-            <h3 className="mb-4 text-lg font-light tracking-wide text-white/90">
+            <h3 className="mb-4 text-lg font-light tracking-wide text-foreground">
               Lightning Fast
             </h3>
-            <p className="text-sm font-light leading-relaxed text-white/50">
+            <p className="text-sm font-light leading-relaxed text-muted-foreground">
               Optimized for performance with instant load times and smooth
               interactions. Built on the latest technologies.
             </p>
           </div>
 
           {/* 上段中央 */}
-          <div className="relative bg-slate-950 p-8">
-            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+          <div className="relative bg-background p-8">
+            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
             <div className="mb-6">
               <svg
-                className="h-5 w-5 text-white/40"
+                className="h-5 w-5 text-muted-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -69,20 +69,20 @@ export function FeatureBento001() {
                 />
               </svg>
             </div>
-            <h3 className="mb-3 text-base font-light tracking-wide text-white/90">
+            <h3 className="mb-3 text-base font-light tracking-wide text-foreground">
               Customizable
             </h3>
-            <p className="text-sm font-light leading-relaxed text-white/50">
+            <p className="text-sm font-light leading-relaxed text-muted-foreground">
               Tailor every aspect to match your brand perfectly.
             </p>
           </div>
 
           {/* 上段右 */}
-          <div className="relative bg-slate-950 p-8">
-            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+          <div className="relative bg-background p-8">
+            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
             <div className="mb-6">
               <svg
-                className="h-5 w-5 text-white/40"
+                className="h-5 w-5 text-muted-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -95,21 +95,21 @@ export function FeatureBento001() {
                 />
               </svg>
             </div>
-            <h3 className="mb-3 text-base font-light tracking-wide text-white/90">
+            <h3 className="mb-3 text-base font-light tracking-wide text-foreground">
               Responsive
             </h3>
-            <p className="text-sm font-light leading-relaxed text-white/50">
+            <p className="text-sm font-light leading-relaxed text-muted-foreground">
               Looks great on any device, from mobile to desktop.
             </p>
           </div>
 
           {/* 下段（横長） */}
-          <div className="relative bg-slate-950 p-8 sm:col-span-2">
-            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+          <div className="relative bg-background p-8 sm:col-span-2">
+            <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
             <div className="flex items-start gap-6">
               <div className="shrink-0">
                 <svg
-                  className="h-5 w-5 text-white/40"
+                  className="h-5 w-5 text-muted-foreground"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -123,10 +123,10 @@ export function FeatureBento001() {
                 </svg>
               </div>
               <div>
-                <h3 className="mb-3 text-base font-light tracking-wide text-white/90">
+                <h3 className="mb-3 text-base font-light tracking-wide text-foreground">
                   Enterprise Security
                 </h3>
-                <p className="text-sm font-light leading-relaxed text-white/50">
+                <p className="text-sm font-light leading-relaxed text-muted-foreground">
                   Bank-grade encryption and security measures to keep your data
                   safe. SOC 2 compliant and GDPR ready.
                 </p>

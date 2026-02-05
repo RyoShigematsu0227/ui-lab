@@ -86,23 +86,23 @@ export function TrustBadges001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-20 border-y border-zinc-800/50">
+    <section className="bg-background py-20 border-y border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Trust Badges */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {badges.map((badge, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 rounded-xl border border-zinc-800/50 bg-zinc-900/50 p-5"
+              className="flex items-center gap-4 rounded-xl border border-border bg-muted/30 p-5"
             >
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-400">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-muted-foreground">
                 {badge.icon}
               </div>
               <div>
-                <p className="font-medium tracking-wide text-white">
+                <p className="font-medium tracking-wide text-foreground">
                   {badge.title}
                 </p>
-                <p className="text-xs tracking-wide text-zinc-500">
+                <p className="text-xs tracking-wide text-muted-foreground">
                   {badge.description}
                 </p>
               </div>
@@ -111,25 +111,25 @@ export function TrustBadges001() {
         </div>
 
         {/* Divider */}
-        <div className="my-14 border-t border-zinc-800/50" />
+        <div className="my-14 border-t border-border" />
 
         {/* Awards */}
         <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-16">
           {awards.map((award, index) => (
             <div key={index} className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted">
                 <svg
-                  className="h-6 w-6 text-zinc-400"
+                  className="h-6 w-6 text-muted-foreground"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>
-              <p className="mt-3 font-medium tracking-wide text-white">
+              <p className="mt-3 font-medium tracking-wide text-foreground">
                 {award.name}
               </p>
-              <p className="text-xs tracking-wide text-zinc-500">
+              <p className="text-xs tracking-wide text-muted-foreground">
                 {award.label}
               </p>
             </div>

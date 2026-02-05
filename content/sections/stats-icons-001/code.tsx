@@ -2,10 +2,10 @@
 function CornerDots({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute h-3 w-3 ${className}`}>
-      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
     </div>
   );
 }
@@ -95,7 +95,7 @@ export function StatsIcons001() {
   ];
 
   return (
-    <section className="relative bg-zinc-950 py-24">
+    <section className="relative bg-background py-24">
       {/* コーナードット装飾 */}
       <CornerDots className="left-6 top-6" />
       <CornerDots className="right-6 top-6" />
@@ -105,13 +105,13 @@ export function StatsIcons001() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Performance
           </p>
-          <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Trusted by millions
           </h2>
-          <p className="mt-4 text-base tracking-wide text-zinc-400">
+          <p className="mt-4 text-base tracking-wide text-muted-foreground">
             Numbers that speak for themselves
           </p>
         </div>
@@ -121,31 +121,31 @@ export function StatsIcons001() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="group relative border border-zinc-800 bg-zinc-900/30 p-8 text-center transition-all hover:border-zinc-700 hover:bg-zinc-900/50"
+              className="group relative border border-border bg-muted/30 p-8 text-center transition-all hover:border-border/80 hover:bg-muted/50"
             >
               {/* コーナードット */}
-              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
 
               {/* アイコン */}
-              <div className="mx-auto flex h-12 w-12 items-center justify-center border border-zinc-800 text-zinc-400 transition-colors group-hover:text-white">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center border border-border text-muted-foreground transition-colors group-hover:text-foreground">
                 {stat.icon}
               </div>
 
               {/* 数値 */}
-              <p className="mt-6 text-3xl font-light tracking-wider text-white">
+              <p className="mt-6 text-3xl font-light tracking-wider text-foreground">
                 {stat.value}
               </p>
 
               {/* ラベル */}
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 {stat.label}
               </p>
 
               {/* 説明 */}
-              <p className="mt-2 text-sm tracking-wide text-zinc-400">
+              <p className="mt-2 text-sm tracking-wide text-muted-foreground">
                 {stat.description}
               </p>
             </div>

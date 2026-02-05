@@ -35,14 +35,14 @@ export function FaqSimple001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
             FAQ
           </p>
-          <h2 className="text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Questions & Answers
           </h2>
         </div>
@@ -52,12 +52,12 @@ export function FaqSimple001() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border-b border-zinc-800 pb-12 last:border-b-0"
+              className="border-b border-border pb-12 last:border-b-0"
             >
-              <h3 className="mb-4 text-lg font-light tracking-wide text-white">
+              <h3 className="mb-4 text-lg font-light tracking-wide text-foreground">
                 {faq.question}
               </h3>
-              <p className="text-zinc-400 leading-relaxed tracking-wide">
+              <p className="text-muted-foreground leading-relaxed tracking-wide">
                 {faq.answer}
               </p>
             </div>
@@ -66,12 +66,12 @@ export function FaqSimple001() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <p className="mb-6 text-zinc-400 tracking-wide">
+          <p className="mb-6 text-muted-foreground tracking-wide">
             Have more questions?
           </p>
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors hover:text-zinc-400"
+            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.15em] text-foreground transition-colors hover:text-muted-foreground"
           >
             Get in touch
             <svg

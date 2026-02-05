@@ -19,7 +19,7 @@ function isSmallComponent(slug: string): boolean {
 }
 
 async function generateScreenshots() {
-  console.log(`スクリーンショット生成を開始... (${SECTION_SLUGS.length}セクション)\n`);
+  console.log(`スクリーンショット生成を開始... (${SECTION_SLUGS.length}セクション × 2テーマ)\n`);
 
   const browser: Browser = await chromium.launch();
 
@@ -38,32 +38,41 @@ async function generateScreenshots() {
   let success = 0;
   let failed = 0;
 
+  const themes: Array<{ name: string; suffix: string }> = [
+    { name: "dark", suffix: "" },
+    { name: "light", suffix: "-light" },
+  ];
+
   for (let i = 0; i < SECTION_SLUGS.length; i++) {
     const slug = SECTION_SLUGS[i];
     const isSmall = isSmallComponent(slug);
     const page = isSmall ? smallPage : normalPage;
 
-    try {
-      const url = `${BASE_URL}/preview/${slug}`;
+    for (const theme of themes) {
+      try {
+        // URLパラメータでテーマを指定
+        const url = `${BASE_URL}/preview/${slug}?theme=${theme.name}`;
+        const filename = `${slug}${theme.suffix}.png`;
 
-      process.stdout.write(`[${i + 1}/${SECTION_SLUGS.length}] 📸 ${slug}...`);
+        process.stdout.write(`[${i + 1}/${SECTION_SLUGS.length}] 📸 ${filename}...`);
 
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+        await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
 
-      // レンダリング完了を待つ
-      await page.waitForTimeout(800);
+        // レンダリング完了を待つ
+        await page.waitForTimeout(500);
 
-      // スクリーンショットを撮影
-      await page.screenshot({
-        path: `public/screenshots/${slug}.png`,
-        fullPage: false,
-      });
+        // スクリーンショットを撮影
+        await page.screenshot({
+          path: `public/screenshots/${filename}`,
+          fullPage: false,
+        });
 
-      console.log(" ✅");
-      success++;
-    } catch (error) {
-      console.log(` ❌ ${(error as Error).message}`);
-      failed++;
+        console.log(" ✅");
+        success++;
+      } catch (error) {
+        console.log(` ❌ ${(error as Error).message}`);
+        failed++;
+      }
     }
   }
 

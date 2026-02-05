@@ -32,21 +32,21 @@ export function FooterDark001() {
   ];
 
   return (
-    <footer className="bg-zinc-950">
+    <footer className="bg-background">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="#" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
-                <span className="text-base font-bold tracking-wider text-white">L</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted">
+                <span className="text-base font-bold tracking-wider text-foreground">L</span>
               </div>
-              <span className="text-xl font-semibold tracking-wide text-white">
+              <span className="text-xl font-semibold tracking-wide text-foreground">
                 Logo
               </span>
             </Link>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed tracking-wide text-zinc-500">
+            <p className="mt-6 max-w-sm text-sm leading-relaxed tracking-wide text-muted-foreground">
               Build better products faster with our modern platform. Join thousands of teams who trust us.
             </p>
 
@@ -56,7 +56,7 @@ export function FooterDark001() {
                 <Link
                   key={social}
                   href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-500 transition-all duration-200 hover:border-zinc-700 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted text-muted-foreground transition-all duration-200 hover:border-border hover:text-foreground"
                 >
                   <span className="text-xs font-medium">{social[0]}</span>
                 </Link>
@@ -68,7 +68,7 @@ export function FooterDark001() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8 lg:justify-items-end">
             {footerSections.map((section) => (
               <div key={section.title}>
-                <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                   {section.title}
                 </h3>
                 <ul className="mt-6 space-y-4">
@@ -76,7 +76,7 @@ export function FooterDark001() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm tracking-wide text-zinc-500 transition-colors duration-200 hover:text-white"
+                        className="text-sm tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
                       >
                         {link.label}
                       </Link>
@@ -89,26 +89,26 @@ export function FooterDark001() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-zinc-800/50 pt-10 sm:flex-row">
-          <p className="text-xs tracking-widest text-zinc-600">
+        <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-border pt-10 sm:flex-row">
+          <p className="text-xs tracking-widest text-muted-foreground">
             &copy; {new Date().getFullYear()} Your Company. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link
               href="#"
-              className="text-xs tracking-wide text-zinc-600 transition-colors duration-200 hover:text-zinc-400"
+              className="text-xs tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-xs tracking-wide text-zinc-600 transition-colors duration-200 hover:text-zinc-400"
+              className="text-xs tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               Terms of Service
             </Link>
             <Link
               href="#"
-              className="text-xs tracking-wide text-zinc-600 transition-colors duration-200 hover:text-zinc-400"
+              className="text-xs tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               Cookie Settings
             </Link>

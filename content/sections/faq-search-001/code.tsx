@@ -94,14 +94,14 @@ export function FaqSearch001() {
   }, [filteredFaqs]);
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-12 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
             Help Center
           </p>
-          <h2 className="mb-6 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mb-6 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             How can we help you?
           </h2>
         </div>
@@ -110,7 +110,7 @@ export function FaqSearch001() {
         <div className="relative mb-12">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5">
             <svg
-              className="h-5 w-5 text-zinc-500"
+              className="h-5 w-5 text-muted-foreground"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -128,13 +128,13 @@ export function FaqSearch001() {
             placeholder="Search for answers..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border border-zinc-800 bg-transparent py-4 pl-14 pr-5 text-white placeholder-zinc-500 tracking-wide transition-colors focus:border-zinc-600 focus:outline-none"
+            className="w-full border border-border bg-transparent py-4 pl-14 pr-5 text-foreground placeholder-muted-foreground tracking-wide transition-colors focus:border-muted-foreground focus:outline-none"
           />
         </div>
 
         {/* 検索結果カウント */}
         {searchQuery && (
-          <p className="mb-8 text-sm tracking-wide text-zinc-500">
+          <p className="mb-8 text-sm tracking-wide text-muted-foreground">
             {filteredFaqs.length} result{filteredFaqs.length !== 1 ? "s" : ""}{" "}
             found
           </p>
@@ -145,7 +145,7 @@ export function FaqSearch001() {
           <div className="space-y-12">
             {categories.map((category) => (
               <div key={category}>
-                <h3 className="mb-6 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+                <h3 className="mb-6 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   {category}
                 </h3>
                 <div className="space-y-3">
@@ -156,7 +156,7 @@ export function FaqSearch001() {
                       return (
                         <div
                           key={index}
-                          className="border border-zinc-800 transition-colors hover:border-zinc-700"
+                          className="border border-border transition-colors hover:border-muted-foreground/50"
                         >
                           <button
                             className="flex w-full items-center justify-between px-6 py-5 text-left"
@@ -166,11 +166,11 @@ export function FaqSearch001() {
                               )
                             }
                           >
-                            <span className="font-light tracking-wide text-white">
+                            <span className="font-light tracking-wide text-foreground">
                               {faq.question}
                             </span>
                             <svg
-                              className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-300 ${
+                              className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
                                 openIndex === globalIndex ? "rotate-180" : ""
                               }`}
                               fill="none"
@@ -190,7 +190,7 @@ export function FaqSearch001() {
                               openIndex === globalIndex ? "max-h-96" : "max-h-0"
                             }`}
                           >
-                            <p className="px-6 pb-5 text-zinc-400 leading-relaxed tracking-wide">
+                            <p className="px-6 pb-5 text-muted-foreground leading-relaxed tracking-wide">
                               {faq.answer}
                             </p>
                           </div>
@@ -203,12 +203,12 @@ export function FaqSearch001() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-zinc-400 tracking-wide">
+            <p className="text-muted-foreground tracking-wide">
               No results found for &ldquo;{searchQuery}&rdquo;
             </p>
             <button
               onClick={() => setSearchQuery("")}
-              className="mt-4 text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors hover:text-zinc-400"
+              className="mt-4 text-sm font-medium uppercase tracking-[0.15em] text-foreground transition-colors hover:text-muted-foreground"
             >
               Clear search
             </button>
@@ -216,16 +216,16 @@ export function FaqSearch001() {
         )}
 
         {/* サポートCTA */}
-        <div className="mt-16 border-t border-zinc-800 pt-16 text-center">
-          <p className="mb-2 text-lg font-light tracking-wide text-white">
+        <div className="mt-16 border-t border-border pt-16 text-center">
+          <p className="mb-2 text-lg font-light tracking-wide text-foreground">
             Can&apos;t find what you&apos;re looking for?
           </p>
-          <p className="mb-6 text-zinc-400 tracking-wide">
+          <p className="mb-6 text-muted-foreground tracking-wide">
             Our support team is here to help.
           </p>
           <a
             href="#"
-            className="inline-flex h-11 items-center justify-center border border-zinc-700 px-8 text-sm font-medium uppercase tracking-[0.15em] text-white transition-all hover:border-white hover:bg-white hover:text-zinc-950"
+            className="inline-flex h-11 items-center justify-center border border-border px-8 text-sm font-medium uppercase tracking-[0.15em] text-foreground transition-all hover:border-foreground hover:bg-foreground hover:text-background"
           >
             Contact Support
           </a>

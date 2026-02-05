@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
+// acsim.appスタイル: コーナードット、subtle border
+// ダーク/ライトモード両対応
 export function TestimonialGrid001() {
   const testimonials = [
     {
@@ -60,17 +61,17 @@ export function TestimonialGrid001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Testimonials
           </p>
-          <h2 className="text-3xl font-light tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             Loved by thousands
           </h2>
-          <p className="mt-4 text-lg tracking-wide text-zinc-400">
+          <p className="mt-4 text-lg tracking-wide text-muted-foreground">
             See what our customers have to say about their experience
           </p>
         </div>
@@ -82,22 +83,22 @@ export function TestimonialGrid001() {
               key={index}
               className={`group relative p-8 ${
                 testimonial.featured
-                  ? "border border-zinc-700 bg-zinc-900/50 md:col-span-2 lg:col-span-1"
-                  : "border border-zinc-800/50 bg-zinc-900/30"
+                  ? "border border-border bg-card/50 md:col-span-2 lg:col-span-1"
+                  : "border border-border/50 bg-card/30"
               }`}
             >
               {/* Corner dots */}
-              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
 
               {/* Rating */}
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className="h-4 w-4 text-zinc-600"
+                    className="h-4 w-4 text-muted-foreground"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -107,7 +108,7 @@ export function TestimonialGrid001() {
               </div>
 
               {/* Quote */}
-              <p className="mt-6 text-base leading-relaxed tracking-wide text-zinc-300">
+              <p className="mt-6 text-base leading-relaxed tracking-wide text-muted-foreground">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
@@ -121,10 +122,10 @@ export function TestimonialGrid001() {
                   className="rounded-full object-cover grayscale"
                 />
                 <div>
-                  <p className="text-sm font-medium tracking-wide text-white">
+                  <p className="text-sm font-medium tracking-wide text-foreground">
                     {testimonial.author}
                   </p>
-                  <p className="text-xs tracking-wider text-zinc-500">
+                  <p className="text-xs tracking-wider text-muted-foreground">
                     {testimonial.role}
                   </p>
                 </div>
