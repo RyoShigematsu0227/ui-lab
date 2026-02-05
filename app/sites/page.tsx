@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SiteCard } from "@/components/gallery/site-card";
+import { SitesView } from "@/components/gallery/sites-view";
 import { getSites } from "@/lib/supabase";
 
 // ISR: 1時間ごとに再生成
@@ -21,17 +21,10 @@ export default async function SitesPage() {
         <p className="text-lg text-muted-foreground">
           洗練されたWebサイトのデザイン事例を紹介します。
         </p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {sites.length} 件のサイト
-        </p>
       </div>
 
       {/* サイト一覧 */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sites.map((site) => (
-          <SiteCard key={site.id} site={site} />
-        ))}
-      </div>
+      <SitesView sites={sites} />
     </div>
   );
 }

@@ -8,7 +8,17 @@ interface SiteCardProps {
   site: Site;
 }
 
+// 7日以内に作成されたサイトは新着とみなす
+function isNew(createdAt: string): boolean {
+  const created = new Date(createdAt);
+  const now = new Date();
+  const diffDays = (now.getTime() - created.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays <= 7;
+}
+
 export function SiteCard({ site }: SiteCardProps) {
+  const isNewSite = isNew(site.createdAt);
+
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg hover:ring-2 hover:ring-primary/20">
       <Link href={`/sites/${site.slug}`}>
@@ -20,6 +30,14 @@ export function SiteCard({ site }: SiteCardProps) {
               {site.title.charAt(0)}
             </span>
           </div>
+          {/* NEWバッジ */}
+          {isNewSite && (
+            <div className="absolute left-2 top-2">
+              <Badge className="bg-green-500 text-white hover:bg-green-500">
+                NEW
+              </Badge>
+            </div>
+          )}
           {/* ホバーオーバーレイ */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
             <span className="text-sm font-medium text-white">詳細を見る</span>
