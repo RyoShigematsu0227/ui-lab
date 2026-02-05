@@ -17,6 +17,13 @@ export function generateStaticParams() {
   }));
 }
 
+// コンポーネントタイプを判定
+function getComponentType(slug: string): "navigation" | "footer" | "normal" {
+  if (slug.startsWith("navigation-")) return "navigation";
+  if (slug.startsWith("footer-")) return "footer";
+  return "normal";
+}
+
 export default async function PreviewPage({ params, searchParams }: PreviewPageProps) {
   const { slug } = await params;
   const { theme } = await searchParams;
@@ -26,12 +33,10 @@ export default async function PreviewPage({ params, searchParams }: PreviewPageP
     notFound();
   }
 
-  // ナビゲーション・フッターは小さいので背景にコントラストをつける
-  const isSmallComponent =
-    slug.startsWith("navigation-") || slug.startsWith("footer-");
+  const componentType = getComponentType(slug);
 
   return (
-    <PreviewWrapper theme={theme} isSmallComponent={isSmallComponent}>
+    <PreviewWrapper theme={theme} componentType={componentType}>
       <SectionComponent />
     </PreviewWrapper>
   );

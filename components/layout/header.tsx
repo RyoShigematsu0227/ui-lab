@@ -21,7 +21,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header data-site-header className="fixed top-0 left-0 right-0 z-50">
       {/* 背景 - テーマ対応 */}
       <div className="absolute inset-0 bg-background/90 backdrop-blur-md" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />

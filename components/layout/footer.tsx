@@ -10,7 +10,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-background">
+    <footer data-site-footer className="relative bg-background">
       <div className="h-px bg-border" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
