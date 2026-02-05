@@ -11,10 +11,48 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
 });
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
+
 export const metadata: Metadata = {
-  title: "UI Lab - モダンUIセクションギャラリー",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "UI Lab - モダンUIセクションギャラリー",
+    template: "%s | UI Lab",
+  },
   description:
-    "AIが生成するモダンUIセクションのギャラリー。ヒーロー、料金テーブル、CTA等のUIコンポーネントを閲覧・コピーできます。",
+    "AIが生成するモダンUIセクションのギャラリー。ヒーロー、料金テーブル、CTA等のUIコンポーネントを閲覧・コピーできます。Next.js + Tailwind CSSのコードを無料で提供。",
+  keywords: [
+    "UI",
+    "UIデザイン",
+    "コンポーネント",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "ヒーロー",
+    "ランディングページ",
+    "Webデザイン",
+  ],
+  authors: [{ name: "UI Lab" }],
+  creator: "UI Lab",
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: BASE_URL,
+    siteName: "UI Lab",
+    title: "UI Lab - モダンUIセクションギャラリー",
+    description:
+      "AIが生成するモダンUIセクションのギャラリー。洗練されたUIコンポーネントを閲覧・コピーできます。",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "UI Lab - モダンUIセクションギャラリー",
+    description:
+      "AIが生成するモダンUIセクションのギャラリー。洗練されたUIコンポーネントを閲覧・コピーできます。",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
