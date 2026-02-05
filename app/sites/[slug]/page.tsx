@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SiteJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { SiteShareButton } from "@/components/sites/site-share-button";
 import { getSites, getSiteBySlug } from "@/lib/supabase";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
@@ -126,12 +127,19 @@ export default async function SitePage({ params }: SitePageProps) {
           </div>
 
           {/* アクション */}
-          <a href={site.url} target="_blank" rel="noopener noreferrer">
-            <Button className="w-full gap-2">
-              <ExternalLink className="h-4 w-4" />
-              サイトを開く
-            </Button>
-          </a>
+          <div className="flex flex-col gap-3">
+            <a href={site.url} target="_blank" rel="noopener noreferrer">
+              <Button className="w-full gap-2">
+                <ExternalLink className="h-4 w-4" />
+                サイトを開く
+              </Button>
+            </a>
+            <SiteShareButton
+              title={site.title}
+              slug={slug}
+              description={site.description}
+            />
+          </div>
         </div>
       </div>
 

@@ -3,44 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Category, Section } from "@/types";
 import { cn } from "@/lib/utils";
-import {
-  Layout,
-  Menu,
-  Sparkles,
-  CreditCard,
-  MessageSquare,
-  MousePointerClick,
-  PanelBottom,
-  HelpCircle,
-  Users,
-  BarChart3,
-  Building2,
-  Mail,
-  FileText,
-  Image,
-  Newspaper,
-  LayoutGrid,
-  LucideIcon,
-} from "lucide-react";
-
-// アイコン名からコンポーネントへのマッピング
-const iconMap: Record<string, LucideIcon> = {
-  Layout,
-  Menu,
-  Sparkles,
-  CreditCard,
-  MessageSquare,
-  MousePointerClick,
-  PanelBottom,
-  HelpCircle,
-  Users,
-  BarChart3,
-  Building2,
-  Mail,
-  FileText,
-  Image,
-  Newspaper,
-};
+import { LayoutGrid } from "lucide-react";
+import { iconMap } from "@/components/ui/category-icon";
 
 interface CategoryFilterProps {
   categories: Category[];

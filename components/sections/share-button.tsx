@@ -1,30 +1,64 @@
 "use client";
 
-import { Share2, Twitter, Link as LinkIcon } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Share2, Twitter, Link as LinkIcon, Smartphone } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 interface ShareButtonProps {
   title: string;
-  slug: string;
+  slug?: string;
+  url?: string;
+  description?: string;
 }
 
-export function ShareButton({ title, slug }: ShareButtonProps) {
+export function ShareButton({ title, slug, url, description }: ShareButtonProps) {
+  const [canNativeShare, setCanNativeShare] = useState(false);
+
+  useEffect(() => {
+    // Web Share API が使用可能かチェック
+    setCanNativeShare(typeof navigator !== "undefined" && !!navigator.share);
+  }, []);
+
   const getUrl = () => {
-    return typeof window !== "undefined"
-      ? `${window.location.origin}/sections/${slug}`
-      : `/sections/${slug}`;
+    if (url) return url;
+    if (slug) {
+      return typeof window !== "undefined"
+        ? `${window.location.origin}/sections/${slug}`
+        : `/sections/${slug}`;
+    }
+    return typeof window !== "undefined" ? window.location.href : "/";
+  };
+
+  const handleNativeShare = async () => {
+    try {
+      await navigator.share({
+        title: `${title} | UI Lab`,
+        text: description || `${title} - UI Lab`,
+        url: getUrl(),
+      });
+    } catch (error) {
+      // ユーザーがキャンセルした場合は何もしない
+      if ((error as Error).name !== "AbortError") {
+        toast.error("共有に失敗しました");
+      }
+    }
   };
 
   const handleCopyLink = async () => {
-    await navigator.clipboard.writeText(getUrl());
-    toast.success("リンクをコピーしました");
+    try {
+      await navigator.clipboard.writeText(getUrl());
+      toast.success("リンクをコピーしました");
+    } catch {
+      toast.error("コピーに失敗しました");
+    }
   };
 
   const handleShareTwitter = () => {
@@ -42,6 +76,15 @@ export function ShareButton({ title, slug }: ShareButtonProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
+        {canNativeShare && (
+          <>
+            <DropdownMenuItem onClick={handleNativeShare}>
+              <Smartphone className="mr-2 h-4 w-4" />
+              アプリで共有
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+          </>
+        )}
         <DropdownMenuItem onClick={handleCopyLink}>
           <LinkIcon className="mr-2 h-4 w-4" />
           リンクをコピー

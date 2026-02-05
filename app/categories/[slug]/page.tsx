@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
-import { SectionGrid } from "@/components/gallery/section-grid";
+import { CategoryPageView } from "@/components/gallery/category-page-view";
 import { CategoryJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/supabase";
 
@@ -67,17 +67,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {/* パンくずリスト */}
       <Breadcrumb items={breadcrumbItems} />
 
-      {/* ヘッダー */}
-      <div className="mb-8">
-        <h1 className="mb-3 text-3xl font-bold">{category.name}</h1>
-        <p className="text-lg text-muted-foreground">{category.description}</p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {sections.length} 件のセクション
-        </p>
-      </div>
-
-      {/* セクション一覧 */}
-      <SectionGrid sections={sections} />
+      {/* カテゴリページビュー（検索・ソート機能付き） */}
+      <CategoryPageView category={category} sections={sections} />
     </div>
   );
 }
