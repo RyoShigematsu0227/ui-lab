@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -29,12 +29,20 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { resolvedTheme } = useTheme();
   const isNewSection = isNew(section.createdAt);
   const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // クライアント側でマウント後にテーマを適用（ハイドレーションエラー回避）
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // テーマに応じたスクリーンショットURLを生成
   const getThemedScreenshotUrl = () => {
     if (!section.screenshotUrl) return null;
-    if (resolvedTheme === "light") {
+    // マウント前はデフォルト（ダーク）画像を使用
+    if (mounted && resolvedTheme === "light") {
       // /screenshots/slug.png -> /screenshots/slug-light.png
       return section.screenshotUrl.replace(/\.png$/, "-light.png");
     }
@@ -43,6 +51,7 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
 
   const screenshotUrl = getThemedScreenshotUrl();
   const showPlaceholder = !screenshotUrl || imageError;
+  const showSkeleton = !showPlaceholder && !imageLoaded;
 
   return (
     <article
@@ -60,6 +69,18 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
       >
         {/* サムネイル */}
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+          {/* スケルトンローディング - 画像の下に表示 */}
+          <div
+            className={cn(
+              "absolute inset-0 bg-muted transition-opacity duration-300",
+              imageLoaded ? "opacity-0" : "opacity-100"
+            )}
+          >
+            <div className="absolute inset-0 animate-pulse">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted-foreground/10 to-transparent skeleton-shimmer" />
+            </div>
+          </div>
+
           {!showPlaceholder && screenshotUrl ? (
             <Image
               src={screenshotUrl}
@@ -67,10 +88,11 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
               fill
               priority={priority}
               className={cn(
-                "object-cover transition-transform duration-700 ease-out",
+                "object-cover transition-all duration-500 ease-out",
                 isHovered ? "scale-[1.02]" : "scale-100"
               )}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onLoad={() => setImageLoaded(true)}
               onError={() => setImageError(true)}
             />
           ) : (
