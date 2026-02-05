@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CodeBlock } from "@/components/sections/code-block";
 import { SectionPreviewLive } from "@/components/sections/section-preview-live";
 import { SectionActions } from "@/components/sections/section-actions";
@@ -58,15 +57,19 @@ export default async function SectionPage({ params }: SectionPageProps) {
   // セクションのコードを取得
   const code = SECTION_CODES[slug] || "// コードは準備中です";
 
+  // パンくずリストのアイテム
+  const breadcrumbItems = [
+    { label: "セクション", href: "/" },
+    ...(section.category
+      ? [{ label: section.category.name, href: `/categories/${section.category.slug}` }]
+      : []),
+    { label: section.title },
+  ];
+
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">
-      {/* 戻るリンク */}
-      <Link href="/">
-        <Button variant="ghost" size="sm" className="mb-6 gap-2">
-          <ArrowLeft className="h-4 w-4" />
-          セクション一覧に戻る
-        </Button>
-      </Link>
+      {/* パンくずリスト */}
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* ヘッダー */}
       <div className="mb-8">

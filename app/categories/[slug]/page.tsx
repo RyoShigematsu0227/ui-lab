@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/supabase";
 
@@ -43,15 +41,16 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   const sections = await getSectionsByCategory(slug);
 
+  // パンくずリストのアイテム
+  const breadcrumbItems = [
+    { label: "セクション", href: "/" },
+    { label: category.name },
+  ];
+
   return (
     <div className="container mx-auto max-w-screen-2xl px-4 py-8">
-      {/* 戻るリンク */}
-      <Link href="/">
-        <Button variant="ghost" size="sm" className="mb-6 gap-2">
-          <ArrowLeft className="h-4 w-4" />
-          トップに戻る
-        </Button>
-      </Link>
+      {/* パンくずリスト */}
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* ヘッダー */}
       <div className="mb-8">

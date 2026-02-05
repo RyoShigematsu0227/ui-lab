@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getSites, getSiteBySlug } from "@/lib/supabase";
@@ -46,15 +47,16 @@ export default async function SitePage({ params }: SitePageProps) {
   const allSites = await getSites();
   const relatedSites = allSites.filter((s) => s.id !== site.id).slice(0, 3);
 
+  // パンくずリストのアイテム
+  const breadcrumbItems = [
+    { label: "サイト事例", href: "/sites" },
+    { label: site.title },
+  ];
+
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">
-      {/* 戻るリンク */}
-      <Link href="/sites">
-        <Button variant="ghost" size="sm" className="mb-6 gap-2">
-          <ArrowLeft className="h-4 w-4" />
-          サイト事例一覧に戻る
-        </Button>
-      </Link>
+      {/* パンくずリスト */}
+      <Breadcrumb items={breadcrumbItems} />
 
       {/* メインコンテンツ */}
       <div className="grid gap-8 lg:grid-cols-3">
