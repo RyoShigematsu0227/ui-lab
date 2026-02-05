@@ -47,27 +47,27 @@ export function GalleryMasonry001() {
   ];
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-zinc-950">
+    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
+          <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl md:text-4xl">
             Our Portfolio
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-base tracking-wide text-zinc-500">
             A collection of our best work across different categories
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
           {["All", "Abstract", "Architecture", "Nature"].map((filter) => (
             <button
               key={filter}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-full px-5 py-2 text-xs font-medium uppercase tracking-widest transition-all duration-200 ${
                 filter === "All"
-                  ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900"
-                  : "bg-white text-gray-600 hover:bg-gray-100 dark:bg-zinc-900 dark:text-gray-300 dark:hover:bg-zinc-800"
+                  ? "border border-zinc-700 bg-white text-zinc-900"
+                  : "border border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-white"
               }`}
             >
               {filter}
@@ -76,37 +76,37 @@ export function GalleryMasonry001() {
         </div>
 
         {/* Masonry Grid */}
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-2xl ${image.span}`}
+              className={`group relative overflow-hidden rounded-xl border border-zinc-800/50 ${image.span}`}
             >
               <div className="relative aspect-[3/4]">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               {/* Content */}
               <div className="absolute inset-x-0 bottom-0 p-6 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="text-sm font-medium text-indigo-300">
+                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
                   {image.category}
                 </span>
-                <h3 className="mt-1 text-xl font-semibold text-white">
+                <h3 className="mt-2 text-lg font-medium tracking-wide text-white">
                   {image.title}
                 </h3>
               </div>
 
               {/* View Button */}
               <div className="absolute right-4 top-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <button className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-900 backdrop-blur transition-transform hover:scale-110">
+                <button className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/90 text-white backdrop-blur transition-all duration-200 hover:bg-white hover:text-zinc-900">
                   <svg
                     className="h-5 w-5"
                     fill="none"
@@ -116,7 +116,7 @@ export function GalleryMasonry001() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
                     />
                   </svg>
@@ -127,8 +127,8 @@ export function GalleryMasonry001() {
         </div>
 
         {/* Load More */}
-        <div className="mt-12 text-center">
-          <button className="rounded-full border border-gray-300 bg-white px-8 py-3 font-medium text-gray-900 transition-all hover:border-gray-400 hover:shadow-lg dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:border-zinc-600">
+        <div className="mt-14 text-center">
+          <button className="rounded-full border border-zinc-800 bg-zinc-900 px-8 py-3 text-sm font-medium tracking-wide text-white transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800">
             Load More Projects
           </button>
         </div>

@@ -9,24 +9,28 @@ export const metadata: Metadata = {
 
 const features = [
   {
+    number: "01",
     title: "AI Generated",
     description:
-      "最新のUIトレンドをAIが分析し、オリジナルのUIセクションを自動生成。常に新鮮なデザインを提供します。",
+      "最新のUIトレンドをAIが分析し、オリジナルのUIセクションを自動生成",
   },
   {
+    number: "02",
     title: "Weekly Updates",
     description:
-      "毎週新しいセクションを追加。トレンドの変化に合わせて、最新のデザインパターンを取り入れています。",
+      "毎週新しいセクションを追加。トレンドの変化に合わせた最新デザイン",
   },
   {
+    number: "03",
     title: "Copy & Paste",
     description:
-      "すべてのセクションはNext.js + Tailwind CSSのコードとして提供。ワンクリックでコピーしてすぐに使えます。",
+      "Next.js + Tailwind CSSのコードをワンクリックでコピー",
   },
   {
+    number: "04",
     title: "Dark Mode Ready",
     description:
-      "すべてのコンポーネントがライト/ダークモード両対応。カスタマイズなしでそのまま導入できます。",
+      "すべてのコンポーネントがライト/ダークモード両対応",
   },
 ];
 
@@ -42,101 +46,125 @@ const techStack = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      {/* ヒーロー */}
-      <section className="relative min-h-[60vh] flex items-center justify-center">
-        {/* 背景グロー */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[100px] animate-pulse-glow" />
-        </div>
+      {/* ヒーロー - acsim.app style */}
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32">
+        {/* コーナードット装飾 */}
+        <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
+        <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
 
-        {/* 背景ドットパターン */}
-        <div className="absolute inset-0 bg-dot-pattern opacity-60" />
-
-        <div className="relative z-10 container mx-auto max-w-screen-md px-6 sm:px-8 md:px-12 text-center">
-          <span className="heading-section text-muted-foreground tracking-widest-custom opacity-0 animate-fade-up">
+        <div className="container mx-auto max-w-screen-md px-6 sm:px-8 md:px-12">
+          {/* セクションラベル */}
+          <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-8">
             About
           </span>
 
-          <h1 className="mt-6 heading-display text-4xl sm:text-5xl md:text-6xl opacity-0 animate-fade-up delay-100">
-            <span className="text-gradient glow-text">UI Lab</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15]">
+            UI Lab
           </h1>
 
-          <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto opacity-0 animate-fade-up delay-200">
+          <p className="mt-8 text-[15px] text-muted-foreground max-w-md leading-[1.8] tracking-wide">
             AIが生成するモダンUIセクションのギャラリー。
             フロントエンド開発者やUIデザイナーの
-            インスピレーション源として活用できます。
+            インスピレーション源として。
           </p>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="absolute bottom-0 left-8 right-8 h-px bg-border/40" />
       </section>
 
       {/* 特徴 */}
-      <section className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="mb-16">
-          <span className="heading-section text-muted-foreground tracking-widest-custom">
-            Features
-          </span>
-        </div>
-
-        <div className="grid gap-px bg-border/50 md:grid-cols-2 rounded-lg overflow-hidden">
-          {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className="bg-background p-8 md:p-10 opacity-0 animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <h3 className="text-lg font-semibold tracking-wide">{feature.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 技術スタック */}
-      <section className="border-y border-border/50">
-        <div className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
-          <div className="mb-16">
-            <span className="heading-section text-muted-foreground tracking-widest-custom">
-              Tech Stack
+      <section className="relative">
+        <div className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-20 md:py-28">
+          {/* セクションヘッダー */}
+          <div className="mb-16 flex items-center">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
+              Features
             </span>
+            <div className="h-px flex-1 max-w-[120px] bg-border/40 ml-6" />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {techStack.map((tech, index) => (
+          {/* 特徴リスト - シンプルなグリッド */}
+          <div className="grid gap-px bg-border/30 md:grid-cols-2">
+            {features.map((feature) => (
               <div
-                key={tech.name}
-                className="flex items-center justify-between p-4 rounded-lg border border-border/50 opacity-0 animate-fade-up"
-                style={{ animationDelay: `${index * 50}ms` }}
+                key={feature.title}
+                className="bg-background p-8 md:p-10"
               >
-                <span className="font-medium">{tech.name}</span>
-                <span className="text-xs text-muted-foreground tracking-wide">{tech.label}</span>
+                <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground/60">
+                  {feature.number}
+                </span>
+                <h3 className="mt-4 text-base font-medium tracking-wide">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 text-[13px] leading-[1.8] text-muted-foreground tracking-wide">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-8 right-8 h-px bg-border/40" />
+      </section>
+
+      {/* 技術スタック */}
+      <section className="relative">
+        <div className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-20 md:py-28">
+          {/* セクションヘッダー */}
+          <div className="mb-16 flex items-center">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
+              Tech Stack
+            </span>
+            <div className="h-px flex-1 max-w-[120px] bg-border/40 ml-6" />
+          </div>
+
+          {/* 技術リスト - ミニマルなカード */}
+          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+            {techStack.map((tech) => (
+              <div
+                key={tech.name}
+                className="flex items-center justify-between p-4 border border-border/40 transition-colors hover:border-border"
+              >
+                <span className="text-[13px] font-medium tracking-wide">
+                  {tech.name}
+                </span>
+                <span className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase">
+                  {tech.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-8 right-8 h-px bg-border/40" />
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-            Start Exploring
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            AIが生成した洗練されたUIセクションを閲覧しましょう
-          </p>
-          <div className="mt-10">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium tracking-wide bg-foreground text-background rounded-lg hover-opacity transition-opacity"
-            >
-              View Gallery
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+      <section className="relative">
+        <div className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
+          <div className="max-w-md">
+            <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6">
+              Explore
+            </span>
+            <h2 className="text-xl md:text-2xl font-medium tracking-tight">
+              Start Exploring
+            </h2>
+            <p className="mt-4 text-[13px] text-muted-foreground tracking-wide leading-[1.8]">
+              AIが生成した洗練されたUIセクションを閲覧
+            </p>
+            <div className="mt-10">
+              <Link
+                href="/"
+                className="group inline-flex items-center gap-3 text-[13px] font-medium tracking-[0.1em] uppercase transition-opacity hover:opacity-60"
+              >
+                View Gallery
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
+
+          {/* コーナードット装飾 */}
+          <div className="absolute bottom-8 right-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
         </div>
       </section>
     </div>

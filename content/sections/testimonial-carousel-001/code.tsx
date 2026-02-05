@@ -1,3 +1,4 @@
+// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
 export function TestimonialCarousel001() {
   const testimonials = [
     {
@@ -24,28 +25,37 @@ export function TestimonialCarousel001() {
   ];
 
   return (
-    <section className="bg-white py-24 dark:bg-zinc-950">
+    <section className="bg-zinc-950 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+            What people say
+          </p>
+          <h2 className="mb-4 text-3xl font-light tracking-tight text-white sm:text-4xl">
             Loved by developers
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="mx-auto max-w-2xl text-lg tracking-wide text-zinc-400">
             Join thousands of satisfied customers who have transformed their
             workflow.
           </p>
         </div>
 
         {/* テスティモニアルグリッド */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900"
+              className="group relative border border-zinc-800/50 bg-zinc-900/30 p-8"
             >
+              {/* Corner dots */}
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+
               {/* 引用符 */}
-              <div className="absolute -top-4 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-violet-100 text-violet-600 dark:bg-violet-900/30 dark:text-violet-400">
+              <div className="mb-6 flex h-8 w-8 items-center justify-center border border-zinc-800 text-zinc-600">
                 <svg
                   className="h-4 w-4"
                   fill="currentColor"
@@ -56,20 +66,20 @@ export function TestimonialCarousel001() {
               </div>
 
               {/* コンテンツ */}
-              <p className="mb-6 text-zinc-600 dark:text-zinc-400">
+              <p className="mb-8 text-base leading-relaxed tracking-wide text-zinc-300">
                 {testimonial.content}
               </p>
 
               {/* 著者 */}
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-purple-600 font-medium text-white">
+                <div className="flex h-10 w-10 items-center justify-center border border-zinc-700 bg-zinc-800 text-sm font-medium tracking-wider text-zinc-300">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <p className="font-medium text-zinc-900 dark:text-zinc-100">
+                  <p className="text-sm font-medium tracking-wide text-white">
                     {testimonial.author}
                   </p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-500">
+                  <p className="text-xs tracking-wider text-zinc-500">
                     {testimonial.role}
                   </p>
                 </div>
@@ -84,7 +94,7 @@ export function TestimonialCarousel001() {
             {[...Array(5)].map((_, i) => (
               <svg
                 key={i}
-                className="h-5 w-5 text-yellow-400"
+                className="h-4 w-4 text-zinc-600"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -92,7 +102,7 @@ export function TestimonialCarousel001() {
               </svg>
             ))}
           </div>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="text-sm tracking-wide text-zinc-500">
             4.9/5 average rating from 2,000+ reviews
           </p>
         </div>

@@ -1,100 +1,98 @@
-import Image from "next/image";
-import Link from "next/link";
-
+// acsim.app スタイル - ダークネイビー交互レイアウト
 export function FeatureAlternating001() {
   const features = [
     {
+      number: "01",
       title: "Streamlined Workflow",
       description:
-        "Automate repetitive tasks and focus on what matters most. Our intelligent system learns your patterns and suggests optimizations.",
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
-      badges: ["Automation", "AI-Powered"],
+        "Automate repetitive tasks and focus on what matters most. Our intelligent system learns your patterns and suggests optimizations for maximum efficiency.",
+      tags: ["Automation", "AI-Powered"],
     },
     {
+      number: "02",
       title: "Real-time Collaboration",
       description:
-        "Work together seamlessly with your team. See changes instantly, leave comments, and never lose track of who did what.",
-      image:
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-      badges: ["Team", "Real-time"],
+        "Work together seamlessly with your team. See changes instantly, leave comments, and never lose track of who did what in your projects.",
+      tags: ["Team", "Real-time"],
     },
     {
+      number: "03",
       title: "Powerful Analytics",
       description:
-        "Get deep insights into your data with beautiful dashboards and customizable reports. Make informed decisions backed by data.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      badges: ["Analytics", "Reports"],
+        "Get deep insights into your data with beautiful dashboards and customizable reports. Make informed decisions backed by comprehensive data.",
+      tags: ["Analytics", "Reports"],
     },
   ];
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-zinc-950 py-32">
+      {/* コーナードット装飾 */}
+      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-white/20" />
+
+      <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">
+        <div className="mb-24 text-center">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
             Features
-          </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          </p>
+          <h2 className="text-3xl font-light tracking-tight text-white/90 sm:text-4xl">
             Everything you need to scale
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/50">
             Powerful tools designed to help teams work better together
           </p>
         </div>
 
         {/* Feature Items */}
-        <div className="mt-20 space-y-24">
+        <div className="space-y-px bg-white/10">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center gap-12 lg:flex-row ${
+              className={`flex flex-col bg-zinc-950 lg:flex-row ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              {/* Image */}
-              <div className="w-full lg:w-1/2">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              {/* Number / Visual */}
+              <div className="flex items-center justify-center border-b border-white/10 p-12 lg:w-1/3 lg:border-b-0 lg:border-r">
+                <span className="text-6xl font-extralight tracking-tight text-white/20">
+                  {feature.number}
+                </span>
               </div>
 
               {/* Content */}
-              <div className="w-full lg:w-1/2">
-                {/* Badges */}
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {feature.badges.map((badge) => (
+              <div className="relative p-10 lg:w-2/3 lg:p-12">
+                <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+
+                {/* Tags */}
+                <div className="mb-6 flex flex-wrap gap-3">
+                  {feature.tags.map((tag) => (
                     <span
-                      key={badge}
-                      className="rounded-full bg-indigo-100 px-3 py-1 text-sm font-medium text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
+                      key={tag}
+                      className="border border-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-white/40"
                     >
-                      {badge}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl dark:text-white">
+                <h3 className="mb-4 text-xl font-light tracking-wide text-white/90 sm:text-2xl">
                   {feature.title}
                 </h3>
 
-                <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                <p className="mb-8 text-sm font-light leading-relaxed text-white/50">
                   {feature.description}
                 </p>
 
-                <Link
+                <a
                   href="#"
-                  className="mt-6 inline-flex items-center gap-2 font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
+                  className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white/90"
                 >
                   Learn more
                   <svg
-                    className="h-4 w-4"
+                    className="h-3 w-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -102,11 +100,11 @@ export function FeatureAlternating001() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1}
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
                   </svg>
-                </Link>
+                </a>
               </div>
             </div>
           ))}

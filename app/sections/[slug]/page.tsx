@@ -4,7 +4,6 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CodeBlock } from "@/components/sections/code-block";
 import { SectionPreviewLive } from "@/components/sections/section-preview-live";
 import { SectionActions } from "@/components/sections/section-actions";
-import { SectionViewTracker } from "@/components/sections/section-view-tracker";
 import { CodeDownloadButton } from "@/components/sections/code-download-button";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { SectionJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -87,9 +86,6 @@ export default async function SectionPage({ params }: SectionPageProps) {
       {/* 構造化データ */}
       <SectionJsonLd section={section} url={pageUrl} />
       <BreadcrumbJsonLd items={breadcrumbJsonLdItems} />
-
-      {/* 閲覧履歴トラッキング */}
-      <SectionViewTracker slug={slug} />
 
       {/* ヘッダー */}
       <div className="border-b border-border/50">

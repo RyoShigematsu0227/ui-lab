@@ -45,17 +45,17 @@ export function FooterMinimal001() {
   ];
 
   return (
-    <footer className="border-t border-gray-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+    <footer className="border-t border-zinc-800/50 bg-zinc-950">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row">
           {/* Logo */}
-          <Link href="#" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 dark:bg-white">
-              <span className="text-sm font-bold text-white dark:text-gray-900">
+          <Link href="#" className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900">
+              <span className="text-sm font-bold tracking-wider text-white">
                 L
               </span>
             </div>
-            <span className="text-lg font-semibold text-gray-900 dark:text-white">
+            <span className="text-lg font-semibold tracking-wide text-white">
               Logo
             </span>
           </Link>
@@ -66,7 +66,7 @@ export function FooterMinimal001() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                className="text-sm tracking-wide text-zinc-500 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
               </Link>
@@ -74,12 +74,12 @@ export function FooterMinimal001() {
           </nav>
 
           {/* Social Links */}
-          <div className="flex gap-4">
+          <div className="flex gap-5">
             {socialLinks.map((social) => (
               <Link
                 key={social.label}
                 href={social.href}
-                className="text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
+                className="text-zinc-500 transition-colors duration-200 hover:text-white"
               >
                 <span className="sr-only">{social.label}</span>
                 {social.icon}
@@ -89,8 +89,8 @@ export function FooterMinimal001() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 border-t border-gray-200 pt-8 text-center dark:border-zinc-800">
-          <p className="text-sm text-gray-400">
+        <div className="mt-12 border-t border-zinc-800/50 pt-8 text-center">
+          <p className="text-xs tracking-widest text-zinc-600">
             &copy; {new Date().getFullYear()} Your Company. All rights reserved.
           </p>
         </div>

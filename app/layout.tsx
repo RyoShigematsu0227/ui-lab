@@ -3,7 +3,6 @@ import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FavoritesProvider } from "@/components/layout/favorites-provider";
-import { RecentSectionsProvider } from "@/components/layout/recent-sections-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
@@ -82,20 +81,18 @@ export default function RootLayout({
         <WebSiteJsonLd />
         <ThemeProvider>
           <FavoritesProvider>
-            <RecentSectionsProvider>
-              {/* サイドライン装飾 */}
-              <div className="fixed top-0 bottom-0 left-6 w-px bg-border/30 hidden lg:block z-40" />
-              <div className="fixed top-0 bottom-0 right-6 w-px bg-border/30 hidden lg:block z-40" />
+            {/* サイドライン装飾 */}
+            <div className="fixed top-0 bottom-0 left-6 w-px bg-border/30 hidden lg:block z-40" />
+            <div className="fixed top-0 bottom-0 right-6 w-px bg-border/30 hidden lg:block z-40" />
 
-              <div className="relative flex min-h-screen flex-col">
-                <Header />
-                <main className="flex-1 pt-16 md:pt-20">{children}</main>
-                <Footer />
-              </div>
-              <ScrollToTop />
-              <KeyboardShortcuts />
-              <Toaster />
-            </RecentSectionsProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1 pt-16 md:pt-20">{children}</main>
+              <Footer />
+            </div>
+            <ScrollToTop />
+            <KeyboardShortcuts />
+            <Toaster />
           </FavoritesProvider>
         </ThemeProvider>
       </body>

@@ -23,6 +23,26 @@ export default async function PreviewPage({ params }: PreviewPageProps) {
     notFound();
   }
 
+  // ナビゲーション・フッターは小さいので中央配置＋コントラスト背景
+  const isSmallComponent =
+    slug.startsWith("navigation-") || slug.startsWith("footer-");
+
+  if (isSmallComponent) {
+    return (
+      <>
+        <style>{`
+          header { display: none !important; }
+          footer { display: none !important; }
+          main { padding-top: 0 !important; }
+          .fixed.top-0.bottom-0 { display: none !important; }
+        `}</style>
+        <div className="min-h-screen bg-zinc-600">
+          <SectionComponent />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       {/* プレビューモード：ヘッダー/フッター/サイドラインを非表示 */}

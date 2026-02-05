@@ -1,9 +1,21 @@
+// コーナードット装飾コンポーネント
+function CornerDots({ className = "" }: { className?: string }) {
+  return (
+    <div className={`absolute h-3 w-3 ${className}`}>
+      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-zinc-600" />
+    </div>
+  );
+}
+
 export function StatsIcons001() {
   const stats = [
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="h-6 w-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -11,7 +23,7 @@ export function StatsIcons001() {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={1.5}
             d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
           />
         </svg>
@@ -23,7 +35,7 @@ export function StatsIcons001() {
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="h-6 w-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -31,7 +43,7 @@ export function StatsIcons001() {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={1.5}
             d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
@@ -43,7 +55,7 @@ export function StatsIcons001() {
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="h-6 w-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -51,7 +63,7 @@ export function StatsIcons001() {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={1.5}
             d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
           />
         </svg>
@@ -63,7 +75,7 @@ export function StatsIcons001() {
     {
       icon: (
         <svg
-          className="h-8 w-8"
+          className="h-6 w-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -71,7 +83,7 @@ export function StatsIcons001() {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={1.5}
             d="M13 10V3L4 14h7v7l9-11h-7z"
           />
         </svg>
@@ -83,42 +95,57 @@ export function StatsIcons001() {
   ];
 
   return (
-    <section className="bg-white py-24 dark:bg-zinc-950">
+    <section className="relative bg-zinc-950 py-24">
+      {/* コーナードット装飾 */}
+      <CornerDots className="left-6 top-6" />
+      <CornerDots className="right-6 top-6" />
+      <CornerDots className="bottom-6 left-6" />
+      <CornerDots className="bottom-6 right-6" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* ヘッダー */}
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+            Performance
+          </p>
+          <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
             Trusted by millions
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-base tracking-wide text-zinc-400">
             Numbers that speak for themselves
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 統計グリッド */}
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="relative rounded-2xl border border-gray-200 bg-white p-8 text-center transition-all hover:border-indigo-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-indigo-900"
+              className="group relative border border-zinc-800 bg-zinc-900/30 p-8 text-center transition-all hover:border-zinc-700 hover:bg-zinc-900/50"
             >
-              {/* Icon */}
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+              {/* コーナードット */}
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+
+              {/* アイコン */}
+              <div className="mx-auto flex h-12 w-12 items-center justify-center border border-zinc-800 text-zinc-400 transition-colors group-hover:text-white">
                 {stat.icon}
               </div>
 
-              {/* Value */}
-              <p className="mt-6 text-4xl font-bold text-gray-900 dark:text-white">
+              {/* 数値 */}
+              <p className="mt-6 text-3xl font-light tracking-wider text-white">
                 {stat.value}
               </p>
 
-              {/* Label */}
-              <p className="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
+              {/* ラベル */}
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
                 {stat.label}
               </p>
 
-              {/* Description */}
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              {/* 説明 */}
+              <p className="mt-2 text-sm tracking-wide text-zinc-400">
                 {stat.description}
               </p>
             </div>

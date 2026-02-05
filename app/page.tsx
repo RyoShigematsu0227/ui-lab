@@ -1,7 +1,5 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
-import { RecentSections } from "@/components/gallery/recent-sections";
 import { getSections, getCategories, getTags } from "@/lib/supabase";
-import { ArrowDown } from "lucide-react";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
@@ -15,89 +13,74 @@ export default async function Home() {
 
   return (
     <>
-      {/* ヒーローセクション */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-        {/* 背景グロー */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] animate-pulse-glow" />
-        </div>
+      {/* ヒーローセクション - acsim.app style */}
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32">
+        <div className="container mx-auto max-w-screen-xl px-6 sm:px-8 md:px-12">
+          {/* コーナードット装飾 */}
+          <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
+          <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
 
-        {/* 背景ドットパターン */}
-        <div className="absolute inset-0 bg-dot-pattern opacity-60" />
-
-        {/* グラデーションオーバーレイ */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-
-        <div className="relative z-10 container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 text-center">
-          {/* サブテキスト */}
-          <div className="mb-8 opacity-0 animate-fade-up">
-            <span className="heading-section text-muted-foreground tracking-widest-custom">
-              AI-Powered UI Components
+          <div className="max-w-2xl">
+            {/* セクションラベル */}
+            <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-8">
+              UI Component Gallery
             </span>
-          </div>
 
-          {/* メインタイトル */}
-          <h1 className="opacity-0 animate-fade-up delay-100">
-            <span className="heading-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-              <span className="text-gradient glow-text">UI Lab</span>
-            </span>
-          </h1>
+            {/* メインタイトル */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15]">
+              Modern UI
+              <br />
+              <span className="text-muted-foreground">Sections</span>
+            </h1>
 
-          {/* 説明文 */}
-          <p className="mt-8 md:mt-12 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-up delay-200">
-            AIが生成した洗練されたUIセクションを
-            <br className="hidden sm:inline" />
-            ワンクリックでコピー。
-          </p>
+            {/* 説明文 */}
+            <p className="mt-8 text-[15px] text-muted-foreground max-w-md leading-[1.8] tracking-wide">
+              Next.js + Tailwind CSS で構築された
+              <br className="hidden sm:block" />
+              UIセクションのコレクション
+            </p>
 
-          {/* 統計 */}
-          <div className="mt-12 sm:mt-16 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-20 opacity-0 animate-fade-up delay-300">
-            <div className="text-center">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{sections.length}</p>
-              <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Sections</p>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-border" />
-            <div className="text-center">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{categories.length}</p>
-              <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Categories</p>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-border" />
-            <div className="text-center">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">AI</p>
-              <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Generated</p>
-            </div>
-          </div>
-
-          {/* スクロールインジケーター - モバイルでは非表示 */}
-          <div className="hidden sm:block absolute bottom-12 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in delay-500">
-            <div className="flex flex-col items-center gap-3 text-muted-foreground hover-opacity cursor-pointer">
-              <span className="text-[10px] tracking-widest-custom uppercase">Scroll</span>
-              <ArrowDown className="h-4 w-4 animate-bounce" />
+            {/* 統計 - シンプルなレイアウト */}
+            <div className="mt-12 pt-8 border-t border-border/50">
+              <div className="flex items-baseline gap-12 text-[13px] tracking-wide">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-2xl font-medium tabular-nums">
+                    {sections.length}
+                  </span>
+                  <span className="text-muted-foreground uppercase tracking-[0.15em]">
+                    Sections
+                  </span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-2xl font-medium tabular-nums">
+                    {categories.length}
+                  </span>
+                  <span className="text-muted-foreground uppercase tracking-[0.15em]">
+                    Categories
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* 下部ボーダー */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="absolute bottom-0 left-8 right-8 h-px bg-border/40" />
       </section>
 
       {/* ギャラリーセクション */}
       <section className="relative">
-        <div className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-20 md:py-32">
-          {/* 最近閲覧したセクション */}
-          <RecentSections />
-
+        <div className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
           {/* セクションヘッダー */}
-          <div className="mb-12 opacity-0 animate-fade-up">
-            <span className="heading-section text-muted-foreground tracking-widest-custom">
+          <div className="mb-12 flex items-center justify-between">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
               Browse Collection
             </span>
+            <div className="h-px flex-1 max-w-[200px] bg-border/40 ml-6 hidden sm:block" />
           </div>
 
           {/* ギャラリー */}
-          <div className="opacity-0 animate-fade-up delay-100">
-            <GalleryView sections={sections} categories={categories} tags={tags} />
-          </div>
+          <GalleryView sections={sections} categories={categories} tags={tags} />
         </div>
       </section>
     </>

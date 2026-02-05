@@ -25,25 +25,25 @@ export function ContactForm001() {
   };
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-zinc-950">
+    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left side - Info */}
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
+            <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl md:text-4xl">
               Get in touch
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+            <p className="mt-5 text-base leading-relaxed tracking-wide text-zinc-500">
               Have a project in mind? We&apos;d love to hear about it. Send us a
               message and we&apos;ll get back to you as soon as possible.
             </p>
 
-            <div className="mt-12 space-y-8">
+            <div className="mt-14 space-y-10">
               {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+              <div className="flex items-start gap-5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
                   <svg
-                    className="h-5 w-5 text-indigo-600 dark:text-indigo-400"
+                    className="h-5 w-5 text-zinc-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -51,26 +51,26 @@ export function ContactForm001() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">
+                  <p className="font-medium tracking-wide text-white">
                     Email
                   </p>
-                  <p className="mt-1 text-gray-600 dark:text-gray-400">
+                  <p className="mt-1 text-sm tracking-wide text-zinc-500">
                     hello@example.com
                   </p>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+              <div className="flex items-start gap-5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
                   <svg
-                    className="h-5 w-5 text-indigo-600 dark:text-indigo-400"
+                    className="h-5 w-5 text-zinc-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -78,26 +78,26 @@ export function ContactForm001() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">
+                  <p className="font-medium tracking-wide text-white">
                     Phone
                   </p>
-                  <p className="mt-1 text-gray-600 dark:text-gray-400">
+                  <p className="mt-1 text-sm tracking-wide text-zinc-500">
                     +1 (555) 123-4567
                   </p>
                 </div>
               </div>
 
               {/* Location */}
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
+              <div className="flex items-start gap-5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900">
                   <svg
-                    className="h-5 w-5 text-indigo-600 dark:text-indigo-400"
+                    className="h-5 w-5 text-zinc-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -105,22 +105,22 @@ export function ContactForm001() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                     />
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">
+                  <p className="font-medium tracking-wide text-white">
                     Office
                   </p>
-                  <p className="mt-1 text-gray-600 dark:text-gray-400">
+                  <p className="mt-1 text-sm tracking-wide text-zinc-500">
                     123 Innovation Street
                     <br />
                     San Francisco, CA 94102
@@ -131,12 +131,12 @@ export function ContactForm001() {
           </div>
 
           {/* Right side - Form */}
-          <div className="rounded-2xl bg-white p-8 shadow-lg dark:bg-zinc-900">
+          <div className="rounded-xl border border-zinc-800/50 bg-zinc-900/50 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
                 >
                   Name
                 </label>
@@ -146,7 +146,7 @@ export function ContactForm001() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-2 block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-gray-500"
+                  className="mt-3 block w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
                   placeholder="John Doe"
                 />
               </div>
@@ -154,7 +154,7 @@ export function ContactForm001() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
                 >
                   Email
                 </label>
@@ -164,7 +164,7 @@ export function ContactForm001() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-2 block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-gray-500"
+                  className="mt-3 block w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
                   placeholder="john@example.com"
                 />
               </div>
@@ -172,10 +172,10 @@ export function ContactForm001() {
               <div>
                 <label
                   htmlFor="company"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
                 >
                   Company{" "}
-                  <span className="text-gray-400 dark:text-gray-500">
+                  <span className="normal-case text-zinc-700">
                     (optional)
                   </span>
                 </label>
@@ -185,7 +185,7 @@ export function ContactForm001() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="mt-2 block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-gray-500"
+                  className="mt-3 block w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
                   placeholder="Acme Inc."
                 />
               </div>
@@ -193,7 +193,7 @@ export function ContactForm001() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block text-xs font-medium uppercase tracking-widest text-zinc-500"
                 >
                   Message
                 </label>
@@ -203,14 +203,14 @@ export function ContactForm001() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="mt-2 block w-full resize-none rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-gray-500"
+                  className="mt-3 block w-full resize-none rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-lg bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-700 hover:shadow-xl hover:shadow-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
+                className="w-full rounded-lg border border-zinc-700 bg-white px-6 py-3.5 text-sm font-medium tracking-wide text-zinc-900 transition-all duration-200 hover:bg-zinc-100"
               >
                 Send Message
               </button>
