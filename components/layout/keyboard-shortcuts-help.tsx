@@ -13,7 +13,7 @@ interface KeyboardShortcutsHelpProps {
 }
 
 const shortcuts = [
-  { keys: ["⌘", "K"], description: "検索にフォーカス" },
+  { keys: ["⌘", "K"], description: "コマンドパレットを開く" },
   { keys: ["⌘", "D"], description: "ダークモード切替" },
   { keys: ["G", "H"], description: "ホームに移動" },
   { keys: ["G", "F"], description: "お気に入りに移動" },

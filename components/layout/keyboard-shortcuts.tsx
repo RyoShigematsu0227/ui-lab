@@ -4,36 +4,39 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { KeyboardShortcutsHelp } from "./keyboard-shortcuts-help";
+import { CommandPalette } from "./command-palette";
 
 export function KeyboardShortcuts() {
   const router = useRouter();
   const { setTheme, resolvedTheme } = useTheme();
   const [helpOpen, setHelpOpen] = useState(false);
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // 入力フィールドにフォーカスがある場合は無視
+      // 入力フィールドにフォーカスがある場合は無視（コマンドパレット以外）
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement
       ) {
+        // Cmd/Ctrl + K は常に動作
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+          e.preventDefault();
+          setCommandPaletteOpen(true);
+        }
         return;
       }
 
       // モーダルが開いている場合は無視
-      if (helpOpen) {
+      if (helpOpen || commandPaletteOpen) {
         return;
       }
 
-      // Cmd/Ctrl + K: 検索にフォーカス
+      // Cmd/Ctrl + K: コマンドパレットを開く
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        const searchInput = document.querySelector<HTMLInputElement>(
-          'input[placeholder*="検索"]'
-        );
-        if (searchInput) {
-          searchInput.focus();
-        }
+        setCommandPaletteOpen(true);
+        return;
       }
 
       // Cmd/Ctrl + D: ダークモード切替
@@ -71,7 +74,12 @@ export function KeyboardShortcuts() {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [router, setTheme, resolvedTheme, helpOpen]);
+  }, [router, setTheme, resolvedTheme, helpOpen, commandPaletteOpen]);
 
-  return <KeyboardShortcutsHelp open={helpOpen} onOpenChange={setHelpOpen} />;
+  return (
+    <>
+      <KeyboardShortcutsHelp open={helpOpen} onOpenChange={setHelpOpen} />
+      <CommandPalette open={commandPaletteOpen} onOpenChange={setCommandPaletteOpen} />
+    </>
+  );
 }
