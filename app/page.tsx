@@ -1,13 +1,14 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
-import { getSections, getCategories } from "@/lib/supabase";
+import { getSections, getCategories, getTags } from "@/lib/supabase";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
 
 export default async function Home() {
-  const [sections, categories] = await Promise.all([
+  const [sections, categories, tags] = await Promise.all([
     getSections(),
     getCategories(),
+    getTags(),
   ]);
 
   return (
@@ -42,7 +43,7 @@ export default async function Home() {
 
       {/* ギャラリー */}
       <section>
-        <GalleryView sections={sections} categories={categories} />
+        <GalleryView sections={sections} categories={categories} tags={tags} />
       </section>
     </div>
   );
