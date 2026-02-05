@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function HeroSplit001() {
   return (
     <section className="min-h-screen bg-white dark:bg-zinc-950">
@@ -31,7 +34,7 @@ export function HeroSplit001() {
 
             {/* CTA Buttons */}
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
+              <Link
                 href="#"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-700 hover:shadow-xl hover:shadow-indigo-500/40"
               >
@@ -49,8 +52,8 @@ export function HeroSplit001() {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 transition-all hover:bg-gray-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-gray-300 dark:hover:bg-zinc-800"
               >
@@ -74,7 +77,7 @@ export function HeroSplit001() {
                   />
                 </svg>
                 Watch Demo
-              </a>
+              </Link>
             </div>
 
             {/* Social Proof */}
@@ -86,11 +89,13 @@ export function HeroSplit001() {
                   "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
                   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
                 ].map((src, i) => (
-                  <img
+                  <Image
                     key={i}
                     src={src}
                     alt=""
-                    className="h-10 w-10 rounded-full border-2 border-white object-cover dark:border-zinc-950"
+                    width={40}
+                    height={40}
+                    className="rounded-full border-2 border-white object-cover dark:border-zinc-950"
                   />
                 ))}
               </div>
@@ -121,10 +126,11 @@ export function HeroSplit001() {
         {/* Right Image */}
         <div className="relative hidden lg:block">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600" />
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=1600&fit=crop"
             alt="Team collaboration"
-            className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-overlay"
+            fill
+            className="object-cover opacity-30 mix-blend-overlay"
           />
 
           {/* Floating Card */}

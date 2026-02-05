@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function GalleryMasonry001() {
   const images = [
     {
@@ -80,11 +82,14 @@ export function GalleryMasonry001() {
               key={index}
               className={`group relative overflow-hidden rounded-2xl ${image.span}`}
             >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

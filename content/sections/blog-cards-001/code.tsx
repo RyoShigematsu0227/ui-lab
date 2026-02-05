@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function BlogCards001() {
   const posts = [
     {
@@ -60,12 +63,12 @@ export function BlogCards001() {
               Insights and stories from our team
             </p>
           </div>
-          <a
+          <Link
             href="#"
             className="hidden text-sm font-medium text-indigo-600 hover:text-indigo-500 sm:block dark:text-indigo-400"
           >
             View all articles →
-          </a>
+          </Link>
         </div>
 
         {/* Cards Grid */}
@@ -77,10 +80,11 @@ export function BlogCards001() {
             >
               {/* Image */}
               <div className="relative aspect-[16/10] overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute left-4 top-4">
                   <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-900 backdrop-blur dark:bg-zinc-900/90 dark:text-white">
@@ -98,7 +102,7 @@ export function BlogCards001() {
                 </div>
 
                 <h3 className="mt-3 text-xl font-semibold text-gray-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
-                  <a href="#">{post.title}</a>
+                  <Link href="#">{post.title}</Link>
                 </h3>
 
                 <p className="mt-2 flex-1 text-gray-600 dark:text-gray-400">
@@ -107,10 +111,12 @@ export function BlogCards001() {
 
                 {/* Author */}
                 <div className="mt-6 flex items-center gap-3">
-                  <img
+                  <Image
                     src={post.author.avatar}
                     alt={post.author.name}
-                    className="h-10 w-10 rounded-full object-cover"
+                    width={40}
+                    height={40}
+                    className="rounded-full object-cover"
                   />
                   <span className="text-sm font-medium text-gray-900 dark:text-white">
                     {post.author.name}
@@ -123,12 +129,12 @@ export function BlogCards001() {
 
         {/* Mobile View All */}
         <div className="mt-8 text-center sm:hidden">
-          <a
+          <Link
             href="#"
             className="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
           >
             View all articles →
-          </a>
+          </Link>
         </div>
       </div>
     </section>

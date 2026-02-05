@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function FooterMinimal001() {
   const links = [
     { label: "About", href: "#" },
@@ -47,7 +49,7 @@ export function FooterMinimal001() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <Link href="#" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 dark:bg-white">
               <span className="text-sm font-bold text-white dark:text-gray-900">
                 L
@@ -56,32 +58,32 @@ export function FooterMinimal001() {
             <span className="text-lg font-semibold text-gray-900 dark:text-white">
               Logo
             </span>
-          </a>
+          </Link>
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Social Links */}
           <div className="flex gap-4">
             {socialLinks.map((social) => (
-              <a
+              <Link
                 key={social.label}
                 href={social.href}
                 className="text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
               >
                 <span className="sr-only">{social.label}</span>
                 {social.icon}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,12 +1,16 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function CtaImage001() {
   return (
     <section className="relative overflow-hidden bg-gray-900 py-24">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop"
           alt="Team collaboration"
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gray-900/80" />
       </div>
@@ -35,7 +39,7 @@ export function CtaImage001() {
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <Link
               href="#"
               className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100 hover:shadow-xl"
             >
@@ -53,8 +57,8 @@ export function CtaImage001() {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/10"
             >
@@ -78,7 +82,7 @@ export function CtaImage001() {
                 />
               </svg>
               Watch Demo
-            </a>
+            </Link>
           </div>
 
           {/* Trust Badges */}

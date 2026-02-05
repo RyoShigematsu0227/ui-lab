@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function TestimonialGrid001() {
   const testimonials = [
     {
@@ -111,10 +113,12 @@ export function TestimonialGrid001() {
 
               {/* Author */}
               <div className="mt-8 flex items-center gap-4">
-                <img
+                <Image
                   src={testimonial.avatar}
                   alt={testimonial.author}
-                  className="h-12 w-12 rounded-full object-cover"
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover"
                 />
                 <div>
                   <p
