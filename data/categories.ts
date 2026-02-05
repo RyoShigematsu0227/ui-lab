@@ -81,6 +81,46 @@ export const CATEGORIES: Category[] = [
     icon: "BarChart3",
     sortOrder: 10,
   },
+  {
+    id: "11",
+    slug: "logo-cloud",
+    name: "ロゴクラウド",
+    description: "取引先・パートナーロゴの並び",
+    icon: "Building2",
+    sortOrder: 11,
+  },
+  {
+    id: "12",
+    slug: "contact",
+    name: "コンタクト",
+    description: "問い合わせフォームセクション",
+    icon: "Mail",
+    sortOrder: 12,
+  },
+  {
+    id: "13",
+    slug: "blog",
+    name: "ブログ",
+    description: "ブログカードの一覧表示",
+    icon: "FileText",
+    sortOrder: 13,
+  },
+  {
+    id: "14",
+    slug: "gallery",
+    name: "ギャラリー",
+    description: "画像やプロジェクトの一覧表示",
+    icon: "Image",
+    sortOrder: 14,
+  },
+  {
+    id: "15",
+    slug: "newsletter",
+    name: "ニュースレター",
+    description: "メール登録・購読フォーム",
+    icon: "Newspaper",
+    sortOrder: 15,
+  },
 ];
 
 export const getCategoryBySlug = (slug: string): Category | undefined => {
