@@ -1,48 +1,52 @@
 export function CtaGradient001() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* CTA カード */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-600 to-indigo-600 p-8 text-center sm:p-12 md:p-16">
-          {/* 装飾的な要素 */}
-          <div className="absolute -left-16 -top-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+    <section className="relative overflow-hidden bg-zinc-950 py-32">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/50 via-transparent to-zinc-900/50" />
 
-          {/* グリッドパターン */}
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-              backgroundSize: "32px 32px",
-            }}
-          />
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)`,
+          backgroundSize: "64px 64px",
+        }}
+      />
 
-          {/* コンテンツ */}
-          <div className="relative">
-            <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl">
-              Ready to get started?
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">
-              Join thousands of developers building amazing products with our
-              components. Start your free trial today.
-            </p>
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        {/* Eyebrow */}
+        <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+          Start building today
+        </p>
 
-            {/* ボタン */}
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <button className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 font-semibold text-violet-600 transition-transform hover:scale-105">
-                Start Free Trial
-              </button>
-              <button className="inline-flex h-12 items-center justify-center rounded-full border-2 border-white/30 px-8 font-semibold text-white transition-colors hover:bg-white/10">
-                Talk to Sales
-              </button>
-            </div>
+        {/* Heading */}
+        <h2 className="mb-6 text-center text-3xl font-light tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          Ready to get started?
+        </h2>
 
-            {/* 補足テキスト */}
-            <p className="mt-6 text-sm text-white/60">
-              No credit card required • 14-day free trial • Cancel anytime
-            </p>
-          </div>
+        {/* Description */}
+        <p className="mx-auto mb-12 max-w-2xl text-center text-lg font-light leading-relaxed tracking-wide text-zinc-400">
+          Join thousands of developers building amazing products with our
+          components. Start your free trial today.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button className="inline-flex h-12 items-center justify-center border border-white bg-white px-8 text-sm font-medium uppercase tracking-[0.2em] text-zinc-950 transition-all hover:bg-transparent hover:text-white">
+            Start Free Trial
+          </button>
+          <button className="inline-flex h-12 items-center justify-center border border-zinc-700 bg-transparent px-8 text-sm font-medium uppercase tracking-[0.2em] text-zinc-300 transition-all hover:border-zinc-500 hover:text-white">
+            Talk to Sales
+          </button>
         </div>
+
+        {/* Footer text */}
+        <p className="mt-10 text-center text-xs tracking-[0.2em] text-zinc-600">
+          No credit card required — 14-day free trial — Cancel anytime
+        </p>
+
+        {/* Subtle bottom border */}
+        <div className="mx-auto mt-16 h-px w-32 bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
       </div>
     </section>
   );

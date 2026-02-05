@@ -1,7 +1,7 @@
 export function PricingTable001() {
   const plans = [
     {
-      name: "Starter",
+      name: "STARTER",
       description: "Perfect for getting started",
       price: "$9",
       period: "month",
@@ -17,7 +17,7 @@ export function PricingTable001() {
       popular: false,
     },
     {
-      name: "Professional",
+      name: "PROFESSIONAL",
       description: "Best for growing teams",
       price: "$29",
       period: "month",
@@ -33,7 +33,7 @@ export function PricingTable001() {
       popular: true,
     },
     {
-      name: "Enterprise",
+      name: "ENTERPRISE",
       description: "For large organizations",
       price: "$99",
       period: "month",
@@ -50,34 +50,52 @@ export function PricingTable001() {
     },
   ];
 
+  // コーナードット装飾コンポーネント
+  const CornerDots = ({ highlight = false }: { highlight?: boolean }) => {
+    const dotColor = highlight ? "bg-white" : "bg-white/30";
+    return (
+      <>
+        <div className={`absolute top-3 left-3 h-1 w-1 rounded-full ${dotColor}`} />
+        <div className={`absolute top-3 right-3 h-1 w-1 rounded-full ${dotColor}`} />
+        <div className={`absolute bottom-3 left-3 h-1 w-1 rounded-full ${dotColor}`} />
+        <div className={`absolute bottom-3 right-3 h-1 w-1 rounded-full ${dotColor}`} />
+      </>
+    );
+  };
+
   return (
-    <section className="bg-white py-24 dark:bg-zinc-950">
+    <section className="bg-zinc-950 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/50">
+            Pricing
+          </p>
+          <h2 className="text-3xl font-light tracking-wide text-white sm:text-4xl">
             Simple, transparent pricing
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-base tracking-wide text-white/60">
             Choose the plan that&apos;s right for you
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl p-8 ${
+              className={`relative rounded-sm p-8 ${
                 plan.popular
-                  ? "border-2 border-indigo-600 shadow-xl"
-                  : "border border-gray-200 dark:border-zinc-800"
+                  ? "border border-white/30 bg-white/5"
+                  : "border border-white/10 bg-transparent"
               }`}
             >
+              <CornerDots highlight={plan.popular} />
+
               {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-indigo-600 px-4 py-1 text-sm font-medium text-white">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="rounded-sm bg-white px-4 py-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-950">
                     Most Popular
                   </span>
                 </div>
@@ -85,29 +103,30 @@ export function PricingTable001() {
 
               {/* Plan Info */}
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
                   {plan.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                <p className="mt-2 text-sm tracking-wide text-white/40">
                   {plan.description}
                 </p>
                 <div className="mt-6">
-                  <span className="text-5xl font-bold text-gray-900 dark:text-white">
+                  <span className="text-5xl font-light tracking-tight text-white">
                     {plan.price}
                   </span>
-                  <span className="text-gray-500 dark:text-gray-400">
-                    /{plan.period}
-                  </span>
+                  <span className="text-white/40">/{plan.period}</span>
                 </div>
               </div>
 
+              {/* Divider */}
+              <div className="my-8 h-px bg-white/10" />
+
               {/* Features */}
-              <ul className="mt-8 space-y-4">
+              <ul className="space-y-4">
                 {plan.features.map((feature) => (
                   <li key={feature.name} className="flex items-center gap-3">
                     {feature.included ? (
                       <svg
-                        className="h-5 w-5 flex-shrink-0 text-indigo-600 dark:text-indigo-400"
+                        className="h-4 w-4 flex-shrink-0 text-white/70"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -115,13 +134,13 @@ export function PricingTable001() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={2}
+                          strokeWidth={1.5}
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
                     ) : (
                       <svg
-                        className="h-5 w-5 flex-shrink-0 text-gray-300 dark:text-gray-600"
+                        className="h-4 w-4 flex-shrink-0 text-white/20"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -129,17 +148,15 @@ export function PricingTable001() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={2}
+                          strokeWidth={1.5}
                           d="M6 18L18 6M6 6l12 12"
                         />
                       </svg>
                     )}
                     <span
-                      className={
-                        feature.included
-                          ? "text-gray-700 dark:text-gray-300"
-                          : "text-gray-400 dark:text-gray-500"
-                      }
+                      className={`text-sm tracking-wide ${
+                        feature.included ? "text-white/70" : "text-white/30"
+                      }`}
                     >
                       {feature.name}
                     </span>
@@ -149,10 +166,10 @@ export function PricingTable001() {
 
               {/* CTA Button */}
               <button
-                className={`mt-8 w-full rounded-lg px-6 py-3 font-medium transition-all ${
+                className={`mt-8 w-full rounded-sm px-6 py-3 text-sm font-medium uppercase tracking-[0.15em] transition-all ${
                   plan.popular
-                    ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 hover:shadow-xl hover:shadow-indigo-500/40"
-                    : "border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:bg-zinc-800"
+                    ? "bg-white text-zinc-950 hover:bg-white/90"
+                    : "border border-white/20 text-white hover:border-white/40 hover:bg-white/5"
                 }`}
               >
                 {plan.cta}

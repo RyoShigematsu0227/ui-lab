@@ -62,30 +62,30 @@ export function FooterModern001() {
   ];
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+    <footer className="bg-zinc-950 border-t border-zinc-800/50">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-12">
           {/* Brand */}
           <div className="space-y-8 xl:col-span-1">
-            <Link href="#" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
-                <span className="text-sm font-bold text-white">L</span>
+            <Link href="#" className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900">
+                <span className="text-sm font-bold tracking-wider text-white">L</span>
               </div>
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
+              <span className="text-xl font-semibold tracking-wide text-white">
                 Logo
               </span>
             </Link>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm leading-relaxed tracking-wide text-zinc-400">
               Making the world a better place through constructing elegant
               hierarchies.
             </p>
             {/* Social Links */}
-            <div className="flex gap-4">
+            <div className="flex gap-5">
               {socialLinks.map((social) => (
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="text-gray-400 transition-colors hover:text-gray-500 dark:hover:text-gray-300"
+                  className="text-zinc-500 transition-colors duration-200 hover:text-white"
                 >
                   <span className="sr-only">{social.label}</span>
                   {social.icon}
@@ -95,18 +95,18 @@ export function FooterModern001() {
           </div>
 
           {/* Links */}
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:col-span-2 xl:mt-0">
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
                   Product
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-6 space-y-4">
                   {footerLinks.product.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        className="text-sm tracking-wide text-zinc-500 transition-colors duration-200 hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -115,15 +115,15 @@ export function FooterModern001() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
                   Company
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-6 space-y-4">
                   {footerLinks.company.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        className="text-sm tracking-wide text-zinc-500 transition-colors duration-200 hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -134,15 +134,15 @@ export function FooterModern001() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
                   Resources
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-6 space-y-4">
                   {footerLinks.resources.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        className="text-sm tracking-wide text-zinc-500 transition-colors duration-200 hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -151,15 +151,15 @@ export function FooterModern001() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
                   Legal
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-6 space-y-4">
                   {footerLinks.legal.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        className="text-sm tracking-wide text-zinc-500 transition-colors duration-200 hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -172,8 +172,8 @@ export function FooterModern001() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-700">
-          <p className="text-center text-sm text-gray-400">
+        <div className="mt-16 border-t border-zinc-800/50 pt-8">
+          <p className="text-center text-xs tracking-widest text-zinc-600">
             &copy; {new Date().getFullYear()} Your Company. All rights reserved.
           </p>
         </div>

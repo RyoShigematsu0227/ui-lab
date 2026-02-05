@@ -46,75 +46,82 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-/* ライトモード - ミニマルなグレースケール + シアンアクセント */
+/* ========================================
+   acsim.app インスパイア - ライトモード
+   深いネイビー系 + オフホワイトテキスト
+======================================== */
 :root {
-  --radius: 0.5rem;
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.12 0.02 250);
-  --card: oklch(0.98 0 0);
-  --card-foreground: oklch(0.12 0.02 250);
-  --popover: oklch(0.99 0 0);
-  --popover-foreground: oklch(0.12 0.02 250);
-  --primary: oklch(0.65 0.15 220);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.005 250);
-  --secondary-foreground: oklch(0.20 0.02 250);
-  --muted: oklch(0.96 0.003 250);
-  --muted-foreground: oklch(0.45 0.01 250);
-  --accent: oklch(0.94 0.01 250);
-  --accent-foreground: oklch(0.20 0.02 250);
-  --destructive: oklch(0.55 0.22 25);
-  --border: oklch(0.92 0.005 250);
-  --input: oklch(0.92 0.005 250);
-  --ring: oklch(0.65 0.15 220);
-  --chart-1: oklch(0.65 0.15 220);
-  --chart-2: oklch(0.70 0.12 180);
-  --chart-3: oklch(0.60 0.10 280);
-  --chart-4: oklch(0.75 0.10 60);
-  --chart-5: oklch(0.65 0.15 30);
-  --sidebar: oklch(0.98 0.003 250);
-  --sidebar-foreground: oklch(0.12 0.02 250);
-  --sidebar-primary: oklch(0.65 0.15 220);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.01 250);
-  --sidebar-accent-foreground: oklch(0.20 0.02 250);
-  --sidebar-border: oklch(0.92 0.005 250);
-  --sidebar-ring: oklch(0.65 0.15 220);
+  --radius: 0.375rem;
+  /* ライトモードも深いネイビーベース（acsim風） */
+  --background: oklch(0.08 0.02 250);
+  --foreground: oklch(0.95 0.005 250);
+  --card: oklch(0.10 0.025 250);
+  --card-foreground: oklch(0.95 0.005 250);
+  --popover: oklch(0.10 0.025 250);
+  --popover-foreground: oklch(0.95 0.005 250);
+  --primary: oklch(0.95 0.005 250);
+  --primary-foreground: oklch(0.08 0.02 250);
+  --secondary: oklch(0.15 0.025 250);
+  --secondary-foreground: oklch(0.90 0.005 250);
+  --muted: oklch(0.12 0.02 250);
+  --muted-foreground: oklch(0.55 0.015 250);
+  --accent: oklch(0.14 0.025 250);
+  --accent-foreground: oklch(0.95 0.005 250);
+  --destructive: oklch(0.55 0.20 25);
+  --border: oklch(0.22 0.03 250);
+  --input: oklch(0.15 0.025 250);
+  --ring: oklch(0.95 0.005 250);
+  --chart-1: oklch(0.70 0.10 200);
+  --chart-2: oklch(0.65 0.08 180);
+  --chart-3: oklch(0.60 0.10 260);
+  --chart-4: oklch(0.75 0.08 60);
+  --chart-5: oklch(0.65 0.12 30);
+  --sidebar: oklch(0.06 0.015 250);
+  --sidebar-foreground: oklch(0.95 0.005 250);
+  --sidebar-primary: oklch(0.95 0.005 250);
+  --sidebar-primary-foreground: oklch(0.08 0.02 250);
+  --sidebar-accent: oklch(0.12 0.025 250);
+  --sidebar-accent-foreground: oklch(0.90 0.005 250);
+  --sidebar-border: oklch(0.20 0.025 250);
+  --sidebar-ring: oklch(0.95 0.005 250);
 }
 
-/* ダークモード - 深い紺黒 + シアンアクセント */
+/* ========================================
+   acsim.app インスパイア - ダークモード
+   さらに深いネイビー
+======================================== */
 .dark {
-  --background: oklch(0.12 0.02 250);
-  --foreground: oklch(0.93 0.01 250);
-  --card: oklch(0.15 0.02 250);
-  --card-foreground: oklch(0.93 0.01 250);
-  --popover: oklch(0.14 0.02 250);
-  --popover-foreground: oklch(0.93 0.01 250);
-  --primary: oklch(0.75 0.12 200);
-  --primary-foreground: oklch(0.12 0.02 250);
-  --secondary: oklch(0.20 0.02 250);
-  --secondary-foreground: oklch(0.90 0.01 250);
-  --muted: oklch(0.20 0.015 250);
-  --muted-foreground: oklch(0.55 0.01 250);
-  --accent: oklch(0.22 0.02 250);
-  --accent-foreground: oklch(0.90 0.01 250);
-  --destructive: oklch(0.60 0.20 25);
-  --border: oklch(0.25 0.02 250);
-  --input: oklch(0.22 0.02 250);
-  --ring: oklch(0.75 0.12 200);
-  --chart-1: oklch(0.75 0.12 200);
-  --chart-2: oklch(0.70 0.10 180);
-  --chart-3: oklch(0.65 0.12 280);
-  --chart-4: oklch(0.80 0.12 60);
-  --chart-5: oklch(0.70 0.15 30);
-  --sidebar: oklch(0.13 0.02 250);
-  --sidebar-foreground: oklch(0.93 0.01 250);
-  --sidebar-primary: oklch(0.75 0.12 200);
-  --sidebar-primary-foreground: oklch(0.12 0.02 250);
-  --sidebar-accent: oklch(0.22 0.02 250);
-  --sidebar-accent-foreground: oklch(0.90 0.01 250);
-  --sidebar-border: oklch(0.25 0.02 250);
-  --sidebar-ring: oklch(0.75 0.12 200);
+  --background: oklch(0.06 0.02 250);
+  --foreground: oklch(0.97 0.003 250);
+  --card: oklch(0.08 0.025 250);
+  --card-foreground: oklch(0.97 0.003 250);
+  --popover: oklch(0.08 0.025 250);
+  --popover-foreground: oklch(0.97 0.003 250);
+  --primary: oklch(0.97 0.003 250);
+  --primary-foreground: oklch(0.06 0.02 250);
+  --secondary: oklch(0.12 0.025 250);
+  --secondary-foreground: oklch(0.92 0.005 250);
+  --muted: oklch(0.10 0.02 250);
+  --muted-foreground: oklch(0.50 0.015 250);
+  --accent: oklch(0.12 0.025 250);
+  --accent-foreground: oklch(0.97 0.003 250);
+  --destructive: oklch(0.55 0.20 25);
+  --border: oklch(0.20 0.03 250);
+  --input: oklch(0.12 0.025 250);
+  --ring: oklch(0.97 0.003 250);
+  --chart-1: oklch(0.70 0.10 200);
+  --chart-2: oklch(0.65 0.08 180);
+  --chart-3: oklch(0.60 0.10 260);
+  --chart-4: oklch(0.75 0.08 60);
+  --chart-5: oklch(0.65 0.12 30);
+  --sidebar: oklch(0.05 0.015 250);
+  --sidebar-foreground: oklch(0.97 0.003 250);
+  --sidebar-primary: oklch(0.97 0.003 250);
+  --sidebar-primary-foreground: oklch(0.06 0.02 250);
+  --sidebar-accent: oklch(0.10 0.025 250);
+  --sidebar-accent-foreground: oklch(0.92 0.005 250);
+  --sidebar-border: oklch(0.18 0.025 250);
+  --sidebar-ring: oklch(0.97 0.003 250);
 }
 
 @layer base {
@@ -123,6 +130,7 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    letter-spacing: 0.025em;
   }
 }
 
@@ -131,17 +139,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* フォーカスリング */
+/* フォーカスリング - subtle */
 :focus-visible {
   outline: 1px solid var(--ring);
   outline-offset: 2px;
+  opacity: 0.8;
 }
 
 /* ========================================
-   カスタムアニメーション
+   acsim風カスタムアニメーション
 ======================================== */
 
-/* フェードイン */
+/* フェードイン - よりゆっくり、subtle */
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -150,7 +159,7 @@ html {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -161,7 +170,7 @@ html {
 @keyframes fade-down {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -169,16 +178,31 @@ html {
   }
 }
 
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .animate-fade-down {
-  animation: fade-down 0.6s ease-out forwards;
+  animation: fade-down 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* 遅延クラス */
@@ -187,18 +211,37 @@ html {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
 
-/* パルスグロー */
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+/* subtle パルス */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
 }
 
-/* シマー */
+/* ドットのパルス */
+@keyframes dot-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse 3s ease-in-out infinite;
+}
+
+/* シマー - よりsubtleに */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -209,37 +252,33 @@ html {
     90deg,
     var(--muted) 0%,
     var(--muted) 40%,
-    var(--accent) 50%,
+    oklch(0.20 0.025 250) 50%,
     var(--muted) 60%,
     var(--muted) 100%
   );
   background-size: 200% 100%;
-  animation: shimmer 1.5s infinite ease-in-out;
+  animation: shimmer 2s infinite ease-in-out;
 }
 
 /* ========================================
-   背景パターン
+   acsim風背景パターン
 ======================================== */
 
-/* グリッドパターン */
+/* グリッドパターン - より細く、subtleに */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(to right, oklch(0.18 0.025 250 / 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.18 0.025 250 / 0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-/* ドットパターン（細かい） */
+/* ドットパターン - acsim風に非常にsubtleに */
 .bg-dot-pattern {
-  background-image: radial-gradient(circle, oklch(0.50 0.01 250 / 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(circle, oklch(0.30 0.02 250 / 0.3) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-.dark .bg-dot-pattern {
-  background-image: radial-gradient(circle, oklch(0.40 0.02 250 / 0.3) 1px, transparent 1px);
-}
-
-/* ライン装飾（縦線） */
+/* ライン装飾（縦線） - より細く */
 .side-lines {
   position: relative;
 }
@@ -251,20 +290,26 @@ html {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: var(--border);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border) 15%,
+    var(--border) 85%,
+    transparent
+  );
   z-index: 40;
   pointer-events: none;
 }
 
 .side-lines::before {
-  left: 24px;
+  left: 32px;
 }
 
 .side-lines::after {
-  right: 24px;
+  right: 32px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .side-lines::before,
   .side-lines::after {
     display: none;
@@ -272,92 +317,144 @@ html {
 }
 
 /* ========================================
-   UIコンポーネント
+   acsim風コーナードット装飾
 ======================================== */
 
-/* フレームボックス - コーナーにドット */
+/* フレームボックス - コーナーに白いドット（acsim風） */
 .frame-box {
   position: relative;
 }
 
 .frame-box::before,
-.frame-box::after,
-.frame-box > .corner-bl,
-.frame-box > .corner-br {
+.frame-box::after {
   content: "";
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: var(--primary);
+  width: 4px;
+  height: 4px;
+  background: var(--foreground);
   border-radius: 50%;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
 }
 
 .frame-box:hover::before,
 .frame-box:hover::after {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .frame-box::before {
-  top: -3px;
-  left: -3px;
+  top: -2px;
+  left: -2px;
 }
 
 .frame-box::after {
-  top: -3px;
-  right: -3px;
+  top: -2px;
+  right: -2px;
 }
 
-/* テキストグラデーション */
+/* 四隅すべてにドットを配置するクラス */
+.corner-dots {
+  position: relative;
+}
+
+.corner-dots::before,
+.corner-dots::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--foreground);
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+
+.corner-dots::before {
+  top: 0;
+  left: 0;
+}
+
+.corner-dots::after {
+  top: 0;
+  right: 0;
+}
+
+/* 下側のドット用の内部要素 */
+.corner-dots > .corner-dot-bl,
+.corner-dots > .corner-dot-br {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--foreground);
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+
+.corner-dots > .corner-dot-bl {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-dots > .corner-dot-br {
+  bottom: 0;
+  right: 0;
+}
+
+.corner-dots:hover::before,
+.corner-dots:hover::after,
+.corner-dots:hover > .corner-dot-bl,
+.corner-dots:hover > .corner-dot-br {
+  opacity: 0.9;
+}
+
+/* ========================================
+   テキストスタイル
+======================================== */
+
+/* テキストグラデーション - subtle */
 .text-gradient {
-  background: linear-gradient(135deg, oklch(0.65 0.15 220), oklch(0.70 0.12 200));
+  background: linear-gradient(
+    135deg,
+    oklch(0.95 0.005 250),
+    oklch(0.70 0.05 200)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.dark .text-gradient {
-  background: linear-gradient(135deg, oklch(0.80 0.12 200), oklch(0.75 0.10 220));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* グロー効果 */
+/* グロー効果 - subtle */
 .glow {
-  box-shadow: 0 0 40px -10px oklch(0.65 0.15 220 / 0.3);
-}
-
-.dark .glow {
-  box-shadow: 0 0 60px -15px oklch(0.75 0.12 200 / 0.4);
+  box-shadow: 0 0 60px -20px oklch(0.50 0.08 250 / 0.3);
 }
 
 .glow-text {
-  text-shadow: 0 0 30px oklch(0.65 0.15 220 / 0.5);
+  text-shadow: 0 0 40px oklch(0.70 0.05 250 / 0.4);
 }
 
-.dark .glow-text {
-  text-shadow: 0 0 40px oklch(0.75 0.12 200 / 0.6);
-}
-
-/* カードシャドウ */
+/* カードシャドウ - 深いネイビー用 */
 .shadow-elevated {
   box-shadow:
-    0 1px 2px oklch(0.20 0.02 250 / 0.04),
-    0 4px 12px oklch(0.20 0.02 250 / 0.06);
+    0 1px 2px oklch(0 0 0 / 0.3),
+    0 4px 16px oklch(0 0 0 / 0.4),
+    0 0 0 1px oklch(0.25 0.03 250 / 0.5);
 }
 
-.dark .shadow-elevated {
+/* subtle ボーダーシャドウ */
+.shadow-border {
   box-shadow:
-    0 1px 2px oklch(0 0 0 / 0.2),
-    0 4px 16px oklch(0 0 0 / 0.3);
+    0 0 0 1px oklch(0.22 0.03 250),
+    0 2px 8px oklch(0 0 0 / 0.2);
 }
 
-/* ホバートランジション */
+/* ========================================
+   ホバーエフェクト - subtle
+======================================== */
+
 .hover-opacity {
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
 }
 
 .hover-opacity:hover {
@@ -365,48 +462,108 @@ html {
 }
 
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* ボーダーホバー */
+/* ボーダーホバー - subtle */
 .hover-border {
   border-color: transparent;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.4s ease;
 }
 
 .hover-border:hover {
-  border-color: var(--primary);
+  border-color: oklch(0.35 0.03 250);
+}
+
+/* グローホバー */
+.hover-glow {
+  transition: box-shadow 0.4s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 40px -10px oklch(0.50 0.08 250 / 0.3);
 }
 
 /* ========================================
-   タイポグラフィ
+   タイポグラフィ - acsim風
 ======================================== */
 
-/* 広いレタースペーシング */
-.tracking-widest-custom {
-  letter-spacing: 0.2em;
+/* 広いレタースペーシング（acsim風） */
+.tracking-acsim {
+  letter-spacing: 0.15em;
 }
 
-/* 大きな見出し */
+.tracking-widest-custom {
+  letter-spacing: 0.25em;
+}
+
+/* 大きな見出し - シャープ */
 .heading-display {
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
+/* セクション見出し - uppercase + wide tracking */
 .heading-section {
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+}
+
+/* 本文 - subtle letter-spacing */
+.body-text {
+  letter-spacing: 0.02em;
+  line-height: 1.7;
 }
 
 /* ========================================
-   スクロールバー
+   ボタンスタイル - acsim風
+======================================== */
+
+/* アウトラインボタン */
+.btn-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+  padding: 0.75rem 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--foreground);
+  background: oklch(0.95 0.005 250 / 0.05);
+}
+
+/* フィルドボタン */
+.btn-filled {
+  border: 1px solid var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.75rem 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-filled:hover {
+  background: oklch(0.85 0.005 250);
+}
+
+/* ========================================
+   スクロールバー - ミニマル
 ======================================== */
 
 .scrollbar-hide {
@@ -418,15 +575,15 @@ html {
   display: none;
 }
 
-/* カスタムスクロールバー */
+/* カスタムスクロールバー - 非常に細く */
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+  scrollbar-color: oklch(0.25 0.025 250) transparent;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
@@ -434,10 +591,66 @@ html {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: oklch(0.25 0.025 250);
+  border-radius: 2px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
+  background: oklch(0.35 0.025 250);
+}
+
+/* ========================================
+   セレクション - acsim風
+======================================== */
+
+::selection {
+  background: oklch(0.95 0.005 250 / 0.2);
+  color: var(--foreground);
+}
+
+/* ========================================
+   区切り線 - subtle
+======================================== */
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
+}
+
+.divider-vertical {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
+}
+
+/* ========================================
+   ラベル・バッジ - acsim風
+======================================== */
+
+.label-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--border);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  transition: all 0.3s ease;
+}
+
+.label-tag:hover {
+  border-color: var(--foreground);
+  color: var(--foreground);
 }

@@ -13,56 +13,74 @@ export default async function Home() {
 
   return (
     <>
-      {/* ヒーローセクション */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* ヒーローセクション - acsim.app style */}
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32">
         <div className="container mx-auto max-w-screen-xl px-6 sm:px-8 md:px-12">
-          <div className="max-w-3xl">
+          {/* コーナードット装飾 */}
+          <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
+          <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
+
+          <div className="max-w-2xl">
+            {/* セクションラベル */}
+            <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-8">
+              UI Component Gallery
+            </span>
+
             {/* メインタイトル */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15]">
               Modern UI
               <br />
-              <span className="text-muted-foreground">Components</span>
+              <span className="text-muted-foreground">Sections</span>
             </h1>
 
             {/* 説明文 */}
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Next.js + Tailwind CSS で構築されたUIセクション。
-              コードをコピーしてすぐに使えます。
+            <p className="mt-8 text-[15px] text-muted-foreground max-w-md leading-[1.8] tracking-wide">
+              Next.js + Tailwind CSS で構築された
+              <br className="hidden sm:block" />
+              UIセクションのコレクション
             </p>
 
-            {/* 統計 - インライン */}
-            <div className="mt-10 flex items-center gap-8 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-semibold">{sections.length}</span>
-                <span className="text-muted-foreground">sections</span>
-              </div>
-              <div className="w-px h-4 bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-semibold">{categories.length}</span>
-                <span className="text-muted-foreground">categories</span>
+            {/* 統計 - シンプルなレイアウト */}
+            <div className="mt-12 pt-8 border-t border-border/50">
+              <div className="flex items-baseline gap-12 text-[13px] tracking-wide">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-2xl font-medium tabular-nums">
+                    {sections.length}
+                  </span>
+                  <span className="text-muted-foreground uppercase tracking-[0.15em]">
+                    Sections
+                  </span>
+                </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-2xl font-medium tabular-nums">
+                    {categories.length}
+                  </span>
+                  <span className="text-muted-foreground uppercase tracking-[0.15em]">
+                    Categories
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* 下部ボーダー */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-border/50" />
+        <div className="absolute bottom-0 left-8 right-8 h-px bg-border/40" />
       </section>
 
       {/* ギャラリーセクション */}
       <section className="relative">
-        <div className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-20 md:py-32">
+        <div className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
           {/* セクションヘッダー */}
-          <div className="mb-12 opacity-0 animate-fade-up">
-            <span className="heading-section text-muted-foreground tracking-widest-custom">
+          <div className="mb-12 flex items-center justify-between">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
               Browse Collection
             </span>
+            <div className="h-px flex-1 max-w-[200px] bg-border/40 ml-6 hidden sm:block" />
           </div>
 
           {/* ギャラリー */}
-          <div className="opacity-0 animate-fade-up delay-100">
-            <GalleryView sections={sections} categories={categories} tags={tags} />
-          </div>
+          <GalleryView sections={sections} categories={categories} tags={tags} />
         </div>
       </section>
     </>

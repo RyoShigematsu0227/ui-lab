@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
 export function TestimonialGrid001() {
   const testimonials = [
     {
@@ -59,39 +60,44 @@ export function TestimonialGrid001() {
   ];
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-zinc-950">
+    <section className="bg-zinc-950 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+            Testimonials
+          </p>
+          <h2 className="text-3xl font-light tracking-tight text-white sm:text-4xl">
             Loved by thousands
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-lg tracking-wide text-zinc-400">
             See what our customers have to say about their experience
           </p>
         </div>
 
         {/* Testimonial Grid */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`rounded-2xl p-8 ${
+              className={`group relative p-8 ${
                 testimonial.featured
-                  ? "bg-indigo-600 text-white md:col-span-2 lg:col-span-1"
-                  : "border border-gray-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
+                  ? "border border-zinc-700 bg-zinc-900/50 md:col-span-2 lg:col-span-1"
+                  : "border border-zinc-800/50 bg-zinc-900/30"
               }`}
             >
+              {/* Corner dots */}
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+
               {/* Rating */}
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className={`h-5 w-5 ${
-                      testimonial.featured
-                        ? "text-indigo-200"
-                        : "text-yellow-400"
-                    }`}
+                    className="h-4 w-4 text-zinc-600"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -101,13 +107,7 @@ export function TestimonialGrid001() {
               </div>
 
               {/* Quote */}
-              <p
-                className={`mt-6 text-lg leading-relaxed ${
-                  testimonial.featured
-                    ? "text-indigo-100"
-                    : "text-gray-600 dark:text-gray-400"
-                }`}
-              >
+              <p className="mt-6 text-base leading-relaxed tracking-wide text-zinc-300">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
@@ -116,27 +116,15 @@ export function TestimonialGrid001() {
                 <Image
                   src={testimonial.avatar}
                   alt={testimonial.author}
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover"
+                  width={44}
+                  height={44}
+                  className="rounded-full object-cover grayscale"
                 />
                 <div>
-                  <p
-                    className={`font-semibold ${
-                      testimonial.featured
-                        ? "text-white"
-                        : "text-gray-900 dark:text-white"
-                    }`}
-                  >
+                  <p className="text-sm font-medium tracking-wide text-white">
                     {testimonial.author}
                   </p>
-                  <p
-                    className={`text-sm ${
-                      testimonial.featured
-                        ? "text-indigo-200"
-                        : "text-gray-500 dark:text-gray-400"
-                    }`}
-                  >
+                  <p className="text-xs tracking-wider text-zinc-500">
                     {testimonial.role}
                   </p>
                 </div>

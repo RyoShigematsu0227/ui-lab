@@ -1,6 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// コーナードット装飾コンポーネント
+function CornerDots({ className = "" }: { className?: string }) {
+  return (
+    <div className={`absolute h-3 w-3 ${className}`}>
+      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-zinc-600" />
+    </div>
+  );
+}
+
 export function TeamCards001() {
   const team = [
     {
@@ -39,55 +51,71 @@ export function TeamCards001() {
   ];
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-zinc-950">
+    <section className="relative bg-zinc-950 py-24">
+      {/* コーナードット装飾 */}
+      <CornerDots className="left-6 top-6" />
+      <CornerDots className="right-6 top-6" />
+      <CornerDots className="bottom-6 left-6" />
+      <CornerDots className="bottom-6 right-6" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* ヘッダー */}
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+            Our Team
+          </p>
+          <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
             Leadership Team
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-base tracking-wide text-zinc-400">
             Meet the people driving our mission forward
           </p>
         </div>
 
-        {/* Team Cards */}
+        {/* チームカード */}
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <div
               key={member.name}
-              className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:shadow-xl dark:bg-zinc-900"
+              className="group relative overflow-hidden border border-zinc-800 bg-zinc-900/50 transition-all hover:border-zinc-700"
             >
-              {/* Image */}
+              {/* コーナードット */}
+              <div className="absolute left-3 top-3 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute right-3 top-3 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-3 left-3 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute bottom-3 right-3 h-1 w-1 rounded-full bg-zinc-700" />
+
+              {/* 画像 */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
                 />
+                <div className="absolute inset-0 bg-zinc-950/20" />
               </div>
 
-              {/* Content */}
+              {/* コンテンツ */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-lg font-medium tracking-wide text-white">
                   {member.name}
                 </h3>
-                <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
                   {member.role}
                 </p>
-                <p className="mt-4 text-gray-600 dark:text-gray-400">
+                <p className="mt-4 text-sm leading-relaxed tracking-wide text-zinc-400">
                   {member.bio}
                 </p>
 
-                {/* Social Links */}
+                {/* ソーシャルリンク */}
                 <div className="mt-6 flex gap-4">
                   <Link
                     href={member.social.twitter}
-                    className="text-gray-400 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
+                    className="text-zinc-600 transition-colors hover:text-white"
                   >
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -96,10 +124,10 @@ export function TeamCards001() {
                   </Link>
                   <Link
                     href={member.social.linkedin}
-                    className="text-gray-400 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
+                    className="text-zinc-600 transition-colors hover:text-white"
                   >
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
