@@ -25,7 +25,7 @@ export function CtaImage001() {
           </span>
 
           {/* Heading */}
-          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Ready to transform
             <br />
             your workflow?

@@ -52,7 +52,7 @@ export function TeamCards001() {
         </div>
 
         {/* Team Cards */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <div
               key={member.name}

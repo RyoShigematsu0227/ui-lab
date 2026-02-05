@@ -51,25 +51,25 @@ export default async function Home() {
           </p>
 
           {/* 統計 */}
-          <div className="mt-16 md:mt-20 flex items-center justify-center gap-12 md:gap-20 opacity-0 animate-fade-up delay-300">
+          <div className="mt-12 sm:mt-16 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-20 opacity-0 animate-fade-up delay-300">
             <div className="text-center">
-              <p className="text-4xl md:text-5xl font-bold tracking-tight">{sections.length}</p>
-              <p className="mt-2 text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Sections</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{sections.length}</p>
+              <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Sections</p>
             </div>
-            <div className="w-px h-12 bg-border" />
+            <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">
-              <p className="text-4xl md:text-5xl font-bold tracking-tight">{categories.length}</p>
-              <p className="mt-2 text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Categories</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{categories.length}</p>
+              <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Categories</p>
             </div>
-            <div className="w-px h-12 bg-border" />
+            <div className="hidden sm:block w-px h-12 bg-border" />
             <div className="text-center">
-              <p className="text-4xl md:text-5xl font-bold tracking-tight">AI</p>
-              <p className="mt-2 text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Generated</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">AI</p>
+              <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-widest-custom uppercase">Generated</p>
             </div>
           </div>
 
-          {/* スクロールインジケーター */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in delay-500">
+          {/* スクロールインジケーター - モバイルでは非表示 */}
+          <div className="hidden sm:block absolute bottom-12 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in delay-500">
             <div className="flex flex-col items-center gap-3 text-muted-foreground hover-opacity cursor-pointer">
               <span className="text-[10px] tracking-widest-custom uppercase">Scroll</span>
               <ArrowDown className="h-4 w-4 animate-bounce" />

@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import { SECTION_COMPONENTS } from "@/content/sections";
 import { MOCK_SECTIONS } from "@/data/mock-sections";
 
-// スクリーンショット撮影用のプレビューページ
-// 余計なUIを表示せず、セクションコンポーネントのみをレンダリング
+// プレビュー専用ページ
+// iframeで埋め込まれる想定、ヘッダー/フッターは非表示
 
 interface PreviewPageProps {
   params: Promise<{ slug: string }>;
@@ -24,8 +24,17 @@ export default async function PreviewPage({ params }: PreviewPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <SectionComponent />
-    </div>
+    <>
+      {/* プレビューモード：ヘッダー/フッター/サイドラインを非表示 */}
+      <style>{`
+        header { display: none !important; }
+        footer { display: none !important; }
+        main { padding-top: 0 !important; }
+        .fixed.top-0.bottom-0 { display: none !important; }
+      `}</style>
+      <div className="min-h-screen bg-background">
+        <SectionComponent />
+      </div>
+    </>
   );
 }

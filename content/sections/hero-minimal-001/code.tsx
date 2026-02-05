@@ -5,7 +5,7 @@ export function HeroMinimal001() {
         {/* メインコンテンツ */}
         <div className="text-center">
           {/* 見出し */}
-          <h1 className="mb-6 text-4xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl md:text-6xl">
+          <h1 className="mb-6 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl md:text-5xl lg:text-6xl dark:text-zinc-100">
             Simplicity is the
             <br />
             ultimate sophistication

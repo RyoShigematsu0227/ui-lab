@@ -50,10 +50,10 @@ export function PricingGlass001() {
       {/* 背景グラデーション */}
       <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10" />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
             Simple, transparent pricing
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-zinc-400">
@@ -62,7 +62,7 @@ export function PricingGlass001() {
         </div>
 
         {/* 料金カード */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan.name}

@@ -41,13 +41,13 @@ export function FaqTwoColumn001() {
   return (
     <section className="bg-white py-24 dark:bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left Column - Header */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <span className="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">
               Support
             </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
               Frequently Asked Questions
             </h2>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">

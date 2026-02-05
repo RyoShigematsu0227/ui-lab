@@ -35,7 +35,7 @@ export function FaqAccordion001() {
 
   return (
     <section className="bg-zinc-50 py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-3xl px-6">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">

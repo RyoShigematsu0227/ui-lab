@@ -54,9 +54,9 @@ export function BlogCards001() {
     <section className="bg-white py-24 dark:bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex items-end justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
               Latest Articles
             </h2>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
@@ -72,7 +72,7 @@ export function BlogCards001() {
         </div>
 
         {/* Cards Grid */}
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <article
               key={post.title}

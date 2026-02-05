@@ -25,7 +25,7 @@ export function TestimonialCarousel001() {
 
   return (
     <section className="bg-white py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
@@ -38,7 +38,7 @@ export function TestimonialCarousel001() {
         </div>
 
         {/* テスティモニアルグリッド */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

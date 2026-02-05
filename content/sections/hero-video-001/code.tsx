@@ -40,7 +40,7 @@ export function HeroVideo001() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             The future of
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">

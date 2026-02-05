@@ -80,7 +80,7 @@ export function FeatureAlternating001() {
                   ))}
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
+                <h3 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl dark:text-white">
                   {feature.title}
                 </h3>
 
