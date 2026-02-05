@@ -4,33 +4,14 @@ import { ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/sections/code-block";
-import { SectionPreview } from "@/components/sections/section-preview";
+import { SectionPreviewLive } from "@/components/sections/section-preview-live";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { MOCK_SECTIONS, getSectionBySlug } from "@/data/mock-sections";
+import { SECTION_CODES } from "@/content/sections";
 
 interface SectionPageProps {
   params: Promise<{ slug: string }>;
 }
-
-// サンプルコード（モック）
-const SAMPLE_CODE = `export function HeroSection() {
-  return (
-    <section className="relative min-h-screen bg-gradient-to-br from-primary/10 to-secondary/10">
-      <div className="container mx-auto px-4 py-24">
-        <h1 className="text-5xl font-bold tracking-tight">
-          Welcome to UI Lab
-        </h1>
-        <p className="mt-6 text-xl text-muted-foreground">
-          モダンUIセクションのギャラリー
-        </p>
-        <div className="mt-8 flex gap-4">
-          <Button size="lg">Get Started</Button>
-          <Button size="lg" variant="outline">Learn More</Button>
-        </div>
-      </div>
-    </section>
-  );
-}`;
 
 export async function generateStaticParams() {
   return MOCK_SECTIONS.map((section) => ({
@@ -64,6 +45,9 @@ export default async function SectionPage({ params }: SectionPageProps) {
   const relatedSections = MOCK_SECTIONS.filter(
     (s) => s.categoryId === section.categoryId && s.id !== section.id
   ).slice(0, 4);
+
+  // セクションのコードを取得
+  const code = SECTION_CODES[slug] || "// コードは準備中です";
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">
@@ -99,13 +83,13 @@ export default async function SectionPage({ params }: SectionPageProps) {
 
       {/* プレビュー */}
       <div className="mb-8">
-        <SectionPreview title={section.title} />
+        <SectionPreviewLive slug={slug} title={section.title} />
       </div>
 
       {/* コード */}
       <div className="mb-12">
         <h2 className="mb-4 text-xl font-semibold">コード</h2>
-        <CodeBlock code={SAMPLE_CODE} />
+        <CodeBlock code={code} />
       </div>
 
       {/* 関連セクション */}
