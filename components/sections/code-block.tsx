@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
+import { Highlight, themes } from "prism-react-renderer";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 
 interface CodeBlockProps {
   code: string;
@@ -11,6 +13,7 @@ interface CodeBlockProps {
 
 export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -18,10 +21,13 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // ダークモードに応じてテーマを切り替え
+  const theme = resolvedTheme === "dark" ? themes.nightOwl : themes.nightOwlLight;
+
   return (
-    <div className="relative rounded-lg border border-border bg-muted/50">
+    <div className="relative rounded-lg border border-border overflow-hidden">
       {/* ヘッダー */}
-      <div className="flex items-center justify-between border-b border-border px-4 py-2">
+      <div className="flex items-center justify-between border-b border-border bg-muted/50 px-4 py-2">
         <span className="text-xs text-muted-foreground">{language}</span>
         <Button
           variant="ghost"
@@ -43,10 +49,26 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
         </Button>
       </div>
 
-      {/* コード */}
-      <pre className="overflow-x-auto p-4">
-        <code className="text-sm">{code}</code>
-      </pre>
+      {/* コード（シンタックスハイライト） */}
+      <Highlight theme={theme} code={code.trim()} language={language}>
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre
+            className={`${className} overflow-x-auto p-4 text-sm`}
+            style={{ ...style, margin: 0 }}
+          >
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                <span className="mr-4 inline-block w-8 select-none text-right text-muted-foreground/50">
+                  {i + 1}
+                </span>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
     </div>
   );
 }
