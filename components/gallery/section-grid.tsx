@@ -26,7 +26,7 @@ export function SectionGrid({ sections, className }: SectionGridProps) {
           className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
           style={{ animationDelay: `${index * 50}ms` }}
         >
-          <SectionCard section={section} />
+          <SectionCard section={section} priority={index < 4} />
         </div>
       ))}
     </div>

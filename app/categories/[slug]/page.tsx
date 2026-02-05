@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { SectionGrid } from "@/components/gallery/section-grid";
+import { CategoryJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/supabase";
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
@@ -47,8 +50,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     { label: category.name },
   ];
 
+  // JSON-LD用パンくず
+  const breadcrumbJsonLdItems = [
+    { name: "ホーム", url: BASE_URL },
+    { name: category.name, url: `${BASE_URL}/categories/${slug}` },
+  ];
+
+  const pageUrl = `${BASE_URL}/categories/${slug}`;
+
   return (
     <div className="container mx-auto max-w-screen-2xl px-4 py-8">
+      {/* 構造化データ */}
+      <CategoryJsonLd category={category} sections={sections} url={pageUrl} />
+      <BreadcrumbJsonLd items={breadcrumbJsonLdItems} />
+
       {/* パンくずリスト */}
       <Breadcrumb items={breadcrumbItems} />
 

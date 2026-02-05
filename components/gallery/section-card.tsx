@@ -10,6 +10,7 @@ import { useFavoritesContext } from "@/components/layout/favorites-provider";
 
 interface SectionCardProps {
   section: Section;
+  priority?: boolean;
 }
 
 // 7日以内に作成されたセクションは新着とみなす
@@ -20,7 +21,7 @@ function isNew(createdAt: string): boolean {
   return diffDays <= 7;
 }
 
-export function SectionCard({ section }: SectionCardProps) {
+export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { isFavorite, toggleFavorite } = useFavoritesContext();
   const isNewSection = isNew(section.createdAt);
 
@@ -34,6 +35,7 @@ export function SectionCard({ section }: SectionCardProps) {
               src={section.screenshotUrl}
               alt={section.title}
               fill
+              priority={priority}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />

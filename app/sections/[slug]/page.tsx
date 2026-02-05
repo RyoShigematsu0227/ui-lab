@@ -8,8 +8,11 @@ import { SectionActions } from "@/components/sections/section-actions";
 import { SectionViewTracker } from "@/components/sections/section-view-tracker";
 import { CodeDownloadButton } from "@/components/sections/code-download-button";
 import { SectionGrid } from "@/components/gallery/section-grid";
+import { SectionJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
 import { SECTION_CODES } from "@/content/sections";
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 
 // ISR: 24時間ごとに再生成
 export const revalidate = 86400;
@@ -68,8 +71,23 @@ export default async function SectionPage({ params }: SectionPageProps) {
     { label: section.title },
   ];
 
+  // JSON-LD用パンくず
+  const breadcrumbJsonLdItems = [
+    { name: "ホーム", url: BASE_URL },
+    ...(section.category
+      ? [{ name: section.category.name, url: `${BASE_URL}/categories/${section.category.slug}` }]
+      : []),
+    { name: section.title, url: `${BASE_URL}/sections/${slug}` },
+  ];
+
+  const pageUrl = `${BASE_URL}/sections/${slug}`;
+
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">
+      {/* 構造化データ */}
+      <SectionJsonLd section={section} url={pageUrl} />
+      <BreadcrumbJsonLd items={breadcrumbJsonLdItems} />
+
       {/* 閲覧履歴トラッキング */}
       <SectionViewTracker slug={slug} />
 

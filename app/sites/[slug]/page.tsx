@@ -5,7 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { SiteJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getSites, getSiteBySlug } from "@/lib/supabase";
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 
 // ISR: 24時間ごとに再生成
 export const revalidate = 86400;
@@ -53,8 +56,21 @@ export default async function SitePage({ params }: SitePageProps) {
     { label: site.title },
   ];
 
+  // JSON-LD用パンくず
+  const breadcrumbJsonLdItems = [
+    { name: "ホーム", url: BASE_URL },
+    { name: "サイト事例", url: `${BASE_URL}/sites` },
+    { name: site.title, url: `${BASE_URL}/sites/${slug}` },
+  ];
+
+  const pageUrl = `${BASE_URL}/sites/${slug}`;
+
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">
+      {/* 構造化データ */}
+      <SiteJsonLd site={site} url={pageUrl} />
+      <BreadcrumbJsonLd items={breadcrumbJsonLdItems} />
+
       {/* パンくずリスト */}
       <Breadcrumb items={breadcrumbItems} />
 

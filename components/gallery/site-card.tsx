@@ -7,6 +7,7 @@ import { Site } from "@/types";
 
 interface SiteCardProps {
   site: Site;
+  priority?: boolean;
 }
 
 // 7日以内に作成されたサイトは新着とみなす
@@ -17,7 +18,7 @@ function isNew(createdAt: string): boolean {
   return diffDays <= 7;
 }
 
-export function SiteCard({ site }: SiteCardProps) {
+export function SiteCard({ site, priority = false }: SiteCardProps) {
   const isNewSite = isNew(site.createdAt);
 
   return (
@@ -30,6 +31,7 @@ export function SiteCard({ site }: SiteCardProps) {
               src={site.screenshotUrl}
               alt={site.title}
               fill
+              priority={priority}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />

@@ -11,6 +11,8 @@ import { SortSelect, SortOption } from "./sort-select";
 import { RandomSectionButton } from "./random-section-button";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { SearchX, Lightbulb } from "lucide-react";
 
 interface GalleryViewProps {
   sections: Section[];
@@ -250,16 +252,53 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
           )}
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-16">
+        <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-16 px-4">
+          <div className="mb-4 rounded-full bg-muted p-4">
+            <SearchX className="h-8 w-8 text-muted-foreground" />
+          </div>
           <p className="mb-2 text-lg font-medium">セクションが見つかりません</p>
-          <p className="mb-4 text-sm text-muted-foreground">
-            検索条件を変更してみてください
+          <p className="mb-6 max-w-md text-center text-sm text-muted-foreground">
+            {debouncedSearchQuery
+              ? `「${debouncedSearchQuery}」に一致するセクションはありませんでした`
+              : "選択した条件に一致するセクションがありません"}
           </p>
+
           {hasActiveFilters && (
-            <Button variant="outline" size="sm" onClick={handleClearAll}>
+            <Button variant="outline" size="sm" onClick={handleClearAll} className="mb-6">
               フィルターをクリア
             </Button>
           )}
+
+          {/* 検索のヒント */}
+          <div className="w-full max-w-md rounded-lg bg-muted/50 p-4">
+            <div className="mb-3 flex items-center gap-2 text-sm font-medium">
+              <Lightbulb className="h-4 w-4 text-yellow-500" />
+              検索のヒント
+            </div>
+            <ul className="mb-4 space-y-1 text-sm text-muted-foreground">
+              <li>• キーワードを短くしてみてください</li>
+              <li>• 別の言い方で検索してみてください</li>
+              <li>• カテゴリやタグを変えてみてください</li>
+            </ul>
+
+            {/* 人気のタグ */}
+            <p className="mb-2 text-xs font-medium text-muted-foreground">人気のタグ:</p>
+            <div className="flex flex-wrap gap-1.5">
+              {tags.slice(0, 6).map((tag) => (
+                <Badge
+                  key={tag.id}
+                  variant="secondary"
+                  className="cursor-pointer hover:bg-accent"
+                  onClick={() => {
+                    handleClearAll();
+                    handleToggleTag(tag.slug);
+                  }}
+                >
+                  {tag.name}
+                </Badge>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>
