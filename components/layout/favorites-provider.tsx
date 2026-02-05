@@ -1,0 +1,33 @@
+"use client";
+
+import { createContext, useContext, ReactNode } from "react";
+import { useFavorites } from "@/hooks/use-favorites";
+
+interface FavoritesContextType {
+  favorites: string[];
+  isLoaded: boolean;
+  addFavorite: (slug: string) => void;
+  removeFavorite: (slug: string) => void;
+  toggleFavorite: (slug: string) => void;
+  isFavorite: (slug: string) => boolean;
+}
+
+const FavoritesContext = createContext<FavoritesContextType | null>(null);
+
+export function FavoritesProvider({ children }: { children: ReactNode }) {
+  const favoritesState = useFavorites();
+
+  return (
+    <FavoritesContext.Provider value={favoritesState}>
+      {children}
+    </FavoritesContext.Provider>
+  );
+}
+
+export function useFavoritesContext() {
+  const context = useContext(FavoritesContext);
+  if (!context) {
+    throw new Error("useFavoritesContext must be used within FavoritesProvider");
+  }
+  return context;
+}
