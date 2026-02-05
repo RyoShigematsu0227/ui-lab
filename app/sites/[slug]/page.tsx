@@ -4,21 +4,22 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MOCK_SITES, getSiteBySlug } from "@/data/mock-sites";
+import { getSites, getSiteBySlug } from "@/lib/supabase";
 
 interface SitePageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return MOCK_SITES.map((site) => ({
+  const sites = await getSites();
+  return sites.map((site) => ({
     slug: site.slug,
   }));
 }
 
 export async function generateMetadata({ params }: SitePageProps) {
   const { slug } = await params;
-  const site = getSiteBySlug(slug);
+  const site = await getSiteBySlug(slug);
 
   if (!site) {
     return { title: "サイトが見つかりません" };
@@ -32,14 +33,15 @@ export async function generateMetadata({ params }: SitePageProps) {
 
 export default async function SitePage({ params }: SitePageProps) {
   const { slug } = await params;
-  const site = getSiteBySlug(slug);
+  const site = await getSiteBySlug(slug);
 
   if (!site) {
     notFound();
   }
 
   // 関連サイト（他のサイト、最大3件）
-  const relatedSites = MOCK_SITES.filter((s) => s.id !== site.id).slice(0, 3);
+  const allSites = await getSites();
+  const relatedSites = allSites.filter((s) => s.id !== site.id).slice(0, 3);
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-8">

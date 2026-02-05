@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/sections/code-block";
 import { SectionPreviewLive } from "@/components/sections/section-preview-live";
 import { SectionGrid } from "@/components/gallery/section-grid";
-import { MOCK_SECTIONS, getSectionBySlug } from "@/data/mock-sections";
+import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
 import { SECTION_CODES } from "@/content/sections";
 
 interface SectionPageProps {
@@ -14,14 +14,15 @@ interface SectionPageProps {
 }
 
 export async function generateStaticParams() {
-  return MOCK_SECTIONS.map((section) => ({
+  const sections = await getSections();
+  return sections.map((section) => ({
     slug: section.slug,
   }));
 }
 
 export async function generateMetadata({ params }: SectionPageProps) {
   const { slug } = await params;
-  const section = getSectionBySlug(slug);
+  const section = await getSectionBySlug(slug);
 
   if (!section) {
     return { title: "セクションが見つかりません" };
@@ -35,16 +36,20 @@ export async function generateMetadata({ params }: SectionPageProps) {
 
 export default async function SectionPage({ params }: SectionPageProps) {
   const { slug } = await params;
-  const section = getSectionBySlug(slug);
+  const section = await getSectionBySlug(slug);
 
   if (!section) {
     notFound();
   }
 
   // 関連セクション（同カテゴリの他のセクション、最大4件）
-  const relatedSections = MOCK_SECTIONS.filter(
-    (s) => s.categoryId === section.categoryId && s.id !== section.id
-  ).slice(0, 4);
+  const categorySlug = section.category?.slug;
+  const allCategorySections = categorySlug
+    ? await getSectionsByCategory(categorySlug)
+    : [];
+  const relatedSections = allCategorySections
+    .filter((s) => s.id !== section.id)
+    .slice(0, 4);
 
   // セクションのコードを取得
   const code = SECTION_CODES[slug] || "// コードは準備中です";

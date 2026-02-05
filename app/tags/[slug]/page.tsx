@@ -3,22 +3,22 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/gallery/section-grid";
-import { TAGS, getTagBySlug } from "@/data/tags";
-import { getSectionsByTag } from "@/data/mock-sections";
+import { getTags, getTagBySlug, getSectionsByTag } from "@/lib/supabase";
 
 interface TagPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return TAGS.map((tag) => ({
+  const tags = await getTags();
+  return tags.map((tag) => ({
     slug: tag.slug,
   }));
 }
 
 export async function generateMetadata({ params }: TagPageProps) {
   const { slug } = await params;
-  const tag = getTagBySlug(slug);
+  const tag = await getTagBySlug(slug);
 
   if (!tag) {
     return { title: "タグが見つかりません" };
@@ -32,13 +32,13 @@ export async function generateMetadata({ params }: TagPageProps) {
 
 export default async function TagPage({ params }: TagPageProps) {
   const { slug } = await params;
-  const tag = getTagBySlug(slug);
+  const tag = await getTagBySlug(slug);
 
   if (!tag) {
     notFound();
   }
 
-  const sections = getSectionsByTag(slug);
+  const sections = await getSectionsByTag(slug);
 
   return (
     <div className="container mx-auto max-w-screen-2xl px-4 py-8">

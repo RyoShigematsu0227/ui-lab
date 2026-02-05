@@ -3,22 +3,22 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/gallery/section-grid";
-import { CATEGORIES, getCategoryBySlug } from "@/data/categories";
-import { getSectionsByCategory } from "@/data/mock-sections";
+import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/supabase";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return CATEGORIES.map((category) => ({
+  const categories = await getCategories();
+  return categories.map((category) => ({
     slug: category.slug,
   }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps) {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
 
   if (!category) {
     return { title: "カテゴリが見つかりません" };
@@ -32,13 +32,13 @@ export async function generateMetadata({ params }: CategoryPageProps) {
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
 
   if (!category) {
     notFound();
   }
 
-  const sections = getSectionsByCategory(slug);
+  const sections = await getSectionsByCategory(slug);
 
   return (
     <div className="container mx-auto max-w-screen-2xl px-4 py-8">
