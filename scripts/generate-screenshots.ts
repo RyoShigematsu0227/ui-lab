@@ -13,7 +13,7 @@ const SECTION_SLUGS = fs.readdirSync(sectionsDir)
 
 const BASE_URL = "http://localhost:3000";
 
-// ナビゲーション・フッターは小さいコンポーネントなので異なるビューポートを使用
+// ナビゲーション・フッターはスケルトン付きで表示されるので専用ビューポートを使用
 function isSmallComponent(slug: string): boolean {
   return slug.startsWith("navigation-") || slug.startsWith("footer-");
 }
@@ -29,9 +29,9 @@ async function generateScreenshots() {
   });
   const normalPage = await normalContext.newPage();
 
-  // 小さいコンポーネント用のコンテキスト（高さを抑える）
+  // ナビ・フッター用のコンテキスト（スケルトン付きで表示）
   const smallContext = await browser.newContext({
-    viewport: { width: 1280, height: 300 },
+    viewport: { width: 1280, height: 480 },
   });
   const smallPage = await smallContext.newPage();
 
