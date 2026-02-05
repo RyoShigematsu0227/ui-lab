@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/sections/code-block";
 import { SectionPreviewLive } from "@/components/sections/section-preview-live";
+import { SectionActions } from "@/components/sections/section-actions";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
 import { SECTION_CODES } from "@/content/sections";
@@ -69,15 +70,20 @@ export default async function SectionPage({ params }: SectionPageProps) {
 
       {/* ヘッダー */}
       <div className="mb-8">
-        {section.category && (
-          <Link href={`/categories/${section.category.slug}`}>
-            <Badge variant="secondary" className="mb-3">
-              {section.category.name}
-            </Badge>
-          </Link>
-        )}
-        <h1 className="mb-3 text-3xl font-bold">{section.title}</h1>
-        <p className="text-lg text-muted-foreground">{section.description}</p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            {section.category && (
+              <Link href={`/categories/${section.category.slug}`}>
+                <Badge variant="secondary" className="mb-3">
+                  {section.category.name}
+                </Badge>
+              </Link>
+            )}
+            <h1 className="mb-3 text-3xl font-bold">{section.title}</h1>
+            <p className="text-lg text-muted-foreground">{section.description}</p>
+          </div>
+          <SectionActions slug={slug} title={section.title} />
+        </div>
 
         {/* タグ */}
         <div className="mt-4 flex flex-wrap gap-2">

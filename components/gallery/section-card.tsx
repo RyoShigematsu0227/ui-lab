@@ -11,8 +11,17 @@ interface SectionCardProps {
   section: Section;
 }
 
+// 7日以内に作成されたセクションは新着とみなす
+function isNew(createdAt: string): boolean {
+  const created = new Date(createdAt);
+  const now = new Date();
+  const diffDays = (now.getTime() - created.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays <= 7;
+}
+
 export function SectionCard({ section }: SectionCardProps) {
   const { isFavorite, toggleFavorite } = useFavoritesContext();
+  const isNewSection = isNew(section.createdAt);
 
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg hover:ring-2 hover:ring-primary/20">
@@ -25,6 +34,14 @@ export function SectionCard({ section }: SectionCardProps) {
               {section.title.charAt(0)}
             </span>
           </div>
+          {/* NEWバッジ */}
+          {isNewSection && (
+            <div className="absolute left-2 top-2">
+              <Badge className="bg-green-500 text-white hover:bg-green-500">
+                NEW
+              </Badge>
+            </div>
+          )}
           {/* ホバーオーバーレイ */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
             <span className="text-sm font-medium text-white">詳細を見る</span>
