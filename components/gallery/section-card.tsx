@@ -9,6 +9,7 @@ import { FavoriteButton } from "./favorite-button";
 import { useFavoritesContext } from "@/components/layout/favorites-provider";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 interface SectionCardProps {
   section: Section;
@@ -25,11 +26,23 @@ function isNew(createdAt: string): boolean {
 
 export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { isFavorite, toggleFavorite } = useFavoritesContext();
+  const { resolvedTheme } = useTheme();
   const isNewSection = isNew(section.createdAt);
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const showPlaceholder = !section.screenshotUrl || imageError;
+  // テーマに応じたスクリーンショットURLを生成
+  const getThemedScreenshotUrl = () => {
+    if (!section.screenshotUrl) return null;
+    if (resolvedTheme === "light") {
+      // /screenshots/slug.png -> /screenshots/slug-light.png
+      return section.screenshotUrl.replace(/\.png$/, "-light.png");
+    }
+    return section.screenshotUrl;
+  };
+
+  const screenshotUrl = getThemedScreenshotUrl();
+  const showPlaceholder = !screenshotUrl || imageError;
 
   return (
     <article
@@ -47,9 +60,9 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
       >
         {/* サムネイル */}
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-          {!showPlaceholder ? (
+          {!showPlaceholder && screenshotUrl ? (
             <Image
-              src={section.screenshotUrl}
+              src={screenshotUrl}
               alt={section.title}
               fill
               priority={priority}

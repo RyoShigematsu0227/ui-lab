@@ -11,12 +11,12 @@ export function NewsletterCentered001() {
   };
 
   return (
-    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
+    <section className="bg-background py-24 border-t border-border">
       <div className="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
         {/* Icon */}
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-border bg-muted">
           <svg
-            className="h-6 w-6 text-zinc-400"
+            className="h-6 w-6 text-muted-foreground"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -31,10 +31,10 @@ export function NewsletterCentered001() {
         </div>
 
         {/* Header */}
-        <h2 className="mt-8 text-2xl font-semibold tracking-wide text-white sm:text-3xl">
+        <h2 className="mt-8 text-2xl font-semibold tracking-wide text-foreground sm:text-3xl">
           Subscribe to our newsletter
         </h2>
-        <p className="mt-4 text-sm leading-relaxed tracking-wide text-zinc-500">
+        <p className="mt-4 text-sm leading-relaxed tracking-wide text-muted-foreground">
           Get weekly updates on design, development, and the latest trends in tech.
           No spam, unsubscribe at any time.
         </p>
@@ -48,11 +48,11 @@ export function NewsletterCentered001() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3.5 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-600 focus:outline-none sm:w-80"
+              className="w-full rounded-lg border border-border bg-muted px-4 py-3.5 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none sm:w-80"
             />
             <button
               type="submit"
-              className="rounded-lg border border-zinc-700 bg-white px-6 py-3.5 text-sm font-medium tracking-wide text-zinc-900 transition-all duration-200 hover:bg-zinc-100"
+              className="rounded-lg bg-primary px-6 py-3.5 text-sm font-medium tracking-wide text-primary-foreground transition-all duration-200 hover:bg-primary/90"
             >
               Subscribe
             </button>
@@ -60,8 +60,8 @@ export function NewsletterCentered001() {
         </form>
 
         {/* Trust Text */}
-        <p className="mt-8 text-xs tracking-wide text-zinc-600">
-          Join <span className="text-zinc-400">2,000+</span> subscribers
+        <p className="mt-8 text-xs tracking-wide text-muted-foreground/70">
+          Join <span className="text-muted-foreground">2,000+</span> subscribers
         </p>
       </div>
     </section>

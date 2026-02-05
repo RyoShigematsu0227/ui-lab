@@ -25,14 +25,14 @@ export function ContactMinimal001() {
   };
 
   return (
-    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
+    <section className="bg-background py-24 border-t border-border">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-wide text-foreground sm:text-3xl">
             Get in touch
           </h2>
-          <p className="mt-4 text-sm leading-relaxed tracking-wide text-zinc-500">
+          <p className="mt-4 text-sm leading-relaxed tracking-wide text-muted-foreground">
             Have a question or want to work together? <br className="hidden sm:block" />
             Drop us a message below.
           </p>
@@ -44,7 +44,7 @@ export function ContactMinimal001() {
             <div>
               <label
                 htmlFor="contact-name"
-                className="block text-xs font-medium uppercase tracking-[0.15em] text-zinc-500"
+                className="block text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground"
               >
                 Name
               </label>
@@ -54,7 +54,7 @@ export function ContactMinimal001() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-3 block w-full border-b border-zinc-800 bg-transparent py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-500 focus:outline-none"
+                className="mt-3 block w-full border-b border-border bg-transparent py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
                 placeholder="Your name"
               />
             </div>
@@ -62,7 +62,7 @@ export function ContactMinimal001() {
             <div>
               <label
                 htmlFor="contact-email"
-                className="block text-xs font-medium uppercase tracking-[0.15em] text-zinc-500"
+                className="block text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground"
               >
                 Email
               </label>
@@ -72,7 +72,7 @@ export function ContactMinimal001() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-3 block w-full border-b border-zinc-800 bg-transparent py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-500 focus:outline-none"
+                className="mt-3 block w-full border-b border-border bg-transparent py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
                 placeholder="your@email.com"
               />
             </div>
@@ -81,7 +81,7 @@ export function ContactMinimal001() {
           <div>
             <label
               htmlFor="contact-message"
-              className="block text-xs font-medium uppercase tracking-[0.15em] text-zinc-500"
+              className="block text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground"
             >
               Message
             </label>
@@ -91,7 +91,7 @@ export function ContactMinimal001() {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="mt-3 block w-full resize-none border-b border-zinc-800 bg-transparent py-3 text-sm tracking-wide text-white placeholder-zinc-600 transition-colors duration-200 focus:border-zinc-500 focus:outline-none"
+              className="mt-3 block w-full resize-none border-b border-border bg-transparent py-3 text-sm tracking-wide text-foreground placeholder-muted-foreground/60 transition-colors duration-200 focus:border-primary focus:outline-none"
               placeholder="Tell us about your project..."
             />
           </div>
@@ -99,7 +99,7 @@ export function ContactMinimal001() {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full rounded-lg border border-zinc-700 bg-white px-6 py-3.5 text-sm font-medium tracking-wide text-zinc-900 transition-all duration-200 hover:bg-zinc-100 sm:w-auto"
+              className="w-full rounded-lg bg-primary px-6 py-3.5 text-sm font-medium tracking-wide text-primary-foreground transition-all duration-200 hover:bg-primary/90 sm:w-auto"
             >
               Send Message
             </button>
@@ -108,11 +108,11 @@ export function ContactMinimal001() {
 
         {/* Alternative Contact */}
         <div className="mt-16 text-center">
-          <p className="text-xs tracking-wide text-zinc-600">
+          <p className="text-xs tracking-wide text-muted-foreground/70">
             Prefer email?{" "}
             <Link
               href="mailto:hello@example.com"
-              className="text-zinc-400 transition-colors duration-200 hover:text-white"
+              className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               hello@example.com
             </Link>

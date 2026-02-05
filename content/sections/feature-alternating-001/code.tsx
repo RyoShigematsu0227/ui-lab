@@ -1,4 +1,4 @@
-// acsim.app スタイル - ダークネイビー交互レイアウト
+// 交互レイアウトフィーチャー - ライト/ダーク両対応
 export function FeatureAlternating001() {
   const features = [
     {
@@ -25,70 +25,70 @@ export function FeatureAlternating001() {
   ];
 
   return (
-    <section className="relative bg-zinc-950 py-32">
+    <section className="relative bg-background py-32">
       {/* コーナードット装飾 */}
-      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-white/20" />
-      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-white/20" />
+      <div className="absolute left-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute right-8 top-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 left-8 h-1 w-1 rounded-full bg-foreground/20" />
+      <div className="absolute bottom-8 right-8 h-1 w-1 rounded-full bg-foreground/20" />
 
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-24 text-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Features
           </p>
-          <h2 className="text-3xl font-light tracking-tight text-white/90 sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             Everything you need to scale
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/50">
+          <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-muted-foreground">
             Powerful tools designed to help teams work better together
           </p>
         </div>
 
         {/* Feature Items */}
-        <div className="space-y-px bg-white/10">
+        <div className="space-y-px bg-border">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`flex flex-col bg-zinc-950 lg:flex-row ${
+              className={`flex flex-col bg-background lg:flex-row ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
               {/* Number / Visual */}
-              <div className="flex items-center justify-center border-b border-white/10 p-12 lg:w-1/3 lg:border-b-0 lg:border-r">
-                <span className="text-6xl font-extralight tracking-tight text-white/20">
+              <div className="flex items-center justify-center border-b border-border p-12 lg:w-1/3 lg:border-b-0 lg:border-r">
+                <span className="text-6xl font-extralight tracking-tight text-foreground/20">
                   {feature.number}
                 </span>
               </div>
 
               {/* Content */}
               <div className="relative p-10 lg:w-2/3 lg:p-12">
-                <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-white/20" />
+                <div className="absolute right-4 top-4 h-1 w-1 rounded-full bg-foreground/20" />
 
                 {/* Tags */}
                 <div className="mb-6 flex flex-wrap gap-3">
                   {feature.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-white/40"
+                      className="border border-border px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="mb-4 text-xl font-light tracking-wide text-white/90 sm:text-2xl">
+                <h3 className="mb-4 text-xl font-light tracking-wide text-foreground sm:text-2xl">
                   {feature.title}
                 </h3>
 
-                <p className="mb-8 text-sm font-light leading-relaxed text-white/50">
+                <p className="mb-8 text-sm font-light leading-relaxed text-muted-foreground">
                   {feature.description}
                 </p>
 
                 <a
                   href="#"
-                  className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white/90"
+                  className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Learn more
                   <svg

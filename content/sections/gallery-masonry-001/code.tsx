@@ -47,14 +47,14 @@ export function GalleryMasonry001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24 border-t border-zinc-800/50">
+    <section className="bg-background py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-2xl font-semibold tracking-wide text-white sm:text-3xl md:text-4xl">
+          <h2 className="text-2xl font-semibold tracking-wide text-foreground sm:text-3xl md:text-4xl">
             Our Portfolio
           </h2>
-          <p className="mt-4 text-base tracking-wide text-zinc-500">
+          <p className="mt-4 text-base tracking-wide text-muted-foreground">
             A collection of our best work across different categories
           </p>
         </div>
@@ -66,8 +66,8 @@ export function GalleryMasonry001() {
               key={filter}
               className={`rounded-full px-5 py-2 text-xs font-medium uppercase tracking-widest transition-all duration-200 ${
                 filter === "All"
-                  ? "border border-zinc-700 bg-white text-zinc-900"
-                  : "border border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-white"
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-border bg-muted text-muted-foreground hover:border-border/80 hover:text-foreground"
               }`}
             >
               {filter}
@@ -80,7 +80,7 @@ export function GalleryMasonry001() {
           {images.map((image, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-xl border border-zinc-800/50 ${image.span}`}
+              className={`group relative overflow-hidden rounded-xl border border-border ${image.span}`}
             >
               <div className="relative aspect-[3/4]">
                 <Image
@@ -92,21 +92,21 @@ export function GalleryMasonry001() {
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               {/* Content */}
               <div className="absolute inset-x-0 bottom-0 p-6 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
+                <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
                   {image.category}
                 </span>
-                <h3 className="mt-2 text-lg font-medium tracking-wide text-white">
+                <h3 className="mt-2 text-lg font-medium tracking-wide text-foreground">
                   {image.title}
                 </h3>
               </div>
 
               {/* View Button */}
               <div className="absolute right-4 top-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <button className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/90 text-white backdrop-blur transition-all duration-200 hover:bg-white hover:text-zinc-900">
+                <button className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/90 text-foreground backdrop-blur transition-all duration-200 hover:bg-primary hover:text-primary-foreground">
                   <svg
                     className="h-5 w-5"
                     fill="none"
@@ -128,7 +128,7 @@ export function GalleryMasonry001() {
 
         {/* Load More */}
         <div className="mt-14 text-center">
-          <button className="rounded-full border border-zinc-800 bg-zinc-900 px-8 py-3 text-sm font-medium tracking-wide text-white transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800">
+          <button className="rounded-full border border-border bg-muted px-8 py-3 text-sm font-medium tracking-wide text-foreground transition-all duration-200 hover:border-border/80 hover:bg-muted/80">
             Load More Projects
           </button>
         </div>

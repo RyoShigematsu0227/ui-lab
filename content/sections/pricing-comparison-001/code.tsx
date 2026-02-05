@@ -50,25 +50,25 @@ export function PricingComparison001() {
   const renderValue = (value: boolean | string) => {
     if (typeof value === "boolean") {
       return value ? (
-        <svg className="mx-auto h-4 w-4 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="mx-auto h-4 w-4 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
         </svg>
       ) : (
-        <span className="text-white/20">-</span>
+        <span className="text-muted-foreground/40">-</span>
       );
     }
-    return <span className="text-sm text-white/60">{value}</span>;
+    return <span className="text-sm text-muted-foreground">{value}</span>;
   };
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Compare Plans
           </p>
-          <h2 className="text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Find the right plan for you
           </h2>
         </div>
@@ -78,9 +78,9 @@ export function PricingComparison001() {
           <table className="w-full min-w-[600px]">
             {/* Header Row */}
             <thead>
-              <tr className="border-b border-white/10">
+              <tr className="border-b border-border">
                 <th className="pb-6 pr-4 text-left">
-                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/30">
+                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                     Features
                   </span>
                 </th>
@@ -88,19 +88,19 @@ export function PricingComparison001() {
                   <th key={plan.name} className="relative pb-6 text-center">
                     {plan.featured && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span className="bg-white px-3 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-zinc-950">
+                        <span className="bg-primary px-3 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-primary-foreground">
                           Popular
                         </span>
                       </div>
                     )}
                     <div className="space-y-2">
-                      <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/50">
+                      <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
                         {plan.name}
                       </p>
                       <div>
-                        <span className="text-3xl font-light text-white">{plan.price}</span>
+                        <span className="text-3xl font-light text-foreground">{plan.price}</span>
                         {plan.period && (
-                          <span className="text-sm text-white/30">/{plan.period}</span>
+                          <span className="text-sm text-muted-foreground">/{plan.period}</span>
                         )}
                       </div>
                     </div>
@@ -116,7 +116,7 @@ export function PricingComparison001() {
                   {/* Category Header */}
                   <tr>
                     <td colSpan={4} className="pt-10 pb-4">
-                      <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/30">
+                      <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                         {section.category}
                       </span>
                     </td>
@@ -126,13 +126,13 @@ export function PricingComparison001() {
                   {section.items.map((item, idx) => (
                     <tr
                       key={item.name}
-                      className={idx !== section.items.length - 1 ? "border-b border-white/5" : ""}
+                      className={idx !== section.items.length - 1 ? "border-b border-border/30" : ""}
                     >
                       <td className="py-4 pr-4">
-                        <span className="text-sm tracking-wide text-white/50">{item.name}</span>
+                        <span className="text-sm tracking-wide text-muted-foreground">{item.name}</span>
                       </td>
                       <td className="py-4 text-center">{renderValue(item.starter)}</td>
-                      <td className="py-4 text-center bg-white/[0.02]">{renderValue(item.pro)}</td>
+                      <td className="py-4 text-center bg-muted/30">{renderValue(item.pro)}</td>
                       <td className="py-4 text-center">{renderValue(item.enterprise)}</td>
                     </tr>
                   ))}
@@ -140,15 +140,15 @@ export function PricingComparison001() {
               ))}
 
               {/* CTA Row */}
-              <tr className="border-t border-white/10">
+              <tr className="border-t border-border">
                 <td className="pt-8"></td>
                 {plans.map((plan) => (
                   <td key={plan.name} className="pt-8 px-2 text-center">
                     <button
                       className={`w-full max-w-[160px] py-3 text-xs font-medium uppercase tracking-[0.15em] transition-all ${
                         plan.featured
-                          ? "bg-white text-zinc-950 hover:bg-white/90"
-                          : "border border-white/15 text-white/60 hover:border-white/30 hover:text-white"
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                          : "border border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
                       }`}
                     >
                       {plan.cta}
@@ -163,9 +163,9 @@ export function PricingComparison001() {
         {/* Corner Decoration */}
         <div className="mt-16 flex justify-center">
           <div className="flex items-center gap-2">
-            <div className="h-1 w-1 rounded-full bg-white/20" />
-            <div className="h-px w-16 bg-white/10" />
-            <div className="h-1 w-1 rounded-full bg-white/20" />
+            <div className="h-1 w-1 rounded-full bg-foreground/20" />
+            <div className="h-px w-16 bg-border" />
+            <div className="h-1 w-1 rounded-full bg-foreground/20" />
           </div>
         </div>
       </div>

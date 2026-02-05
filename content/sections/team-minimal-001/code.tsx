@@ -4,10 +4,10 @@ import Image from "next/image";
 function CornerDots({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute h-3 w-3 ${className}`}>
-      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
     </div>
   );
 }
@@ -53,7 +53,7 @@ export function TeamMinimal001() {
   ];
 
   return (
-    <section className="relative bg-zinc-950 py-24">
+    <section className="relative bg-background py-24">
       {/* コーナードット装飾 */}
       <CornerDots className="left-6 top-6" />
       <CornerDots className="right-6 top-6" />
@@ -63,10 +63,10 @@ export function TeamMinimal001() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Team
           </p>
-          <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             The people behind
           </h2>
         </div>
@@ -76,7 +76,7 @@ export function TeamMinimal001() {
           {team.map((member) => (
             <div key={member.name} className="group text-center">
               {/* アバター */}
-              <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full border border-zinc-800 transition-all group-hover:border-zinc-600">
+              <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full border border-border transition-all group-hover:border-muted-foreground/60">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -86,10 +86,10 @@ export function TeamMinimal001() {
               </div>
 
               {/* 情報 */}
-              <p className="mt-4 text-sm font-medium tracking-wide text-white">
+              <p className="mt-4 text-sm font-medium tracking-wide text-foreground">
                 {member.name}
               </p>
-              <p className="mt-1 text-xs uppercase tracking-[0.15em] text-zinc-500">
+              <p className="mt-1 text-xs uppercase tracking-[0.15em] text-muted-foreground">
                 {member.role}
               </p>
             </div>
@@ -97,12 +97,12 @@ export function TeamMinimal001() {
         </div>
 
         {/* フッターテキスト */}
-        <div className="mt-16 border-t border-zinc-800 pt-8 text-center">
-          <p className="text-sm tracking-wide text-zinc-400">
+        <div className="mt-16 border-t border-border pt-8 text-center">
+          <p className="text-sm tracking-wide text-muted-foreground">
             We&apos;re always looking for talented individuals.{" "}
             <a
               href="#"
-              className="text-white underline underline-offset-4 transition-colors hover:text-zinc-300"
+              className="text-foreground underline underline-offset-4 transition-colors hover:text-muted-foreground"
             >
               Join us
             </a>

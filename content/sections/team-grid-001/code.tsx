@@ -5,10 +5,10 @@ import Link from "next/link";
 function CornerDots({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute h-3 w-3 ${className}`}>
-      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-zinc-600" />
-      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-zinc-600" />
+      <div className="absolute left-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 left-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
+      <div className="absolute bottom-0 right-0 h-1 w-1 rounded-full bg-muted-foreground/40" />
     </div>
   );
 }
@@ -46,7 +46,7 @@ export function TeamGrid001() {
   ];
 
   return (
-    <section className="relative bg-zinc-950 py-24">
+    <section className="relative bg-background py-24">
       {/* コーナードット装飾 */}
       <CornerDots className="left-6 top-6" />
       <CornerDots className="right-6 top-6" />
@@ -56,13 +56,13 @@ export function TeamGrid001() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             The People
           </p>
-          <h2 className="mt-4 text-3xl font-light tracking-wide text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-light tracking-wide text-foreground sm:text-4xl">
             Meet our team
           </h2>
-          <p className="mt-4 text-base tracking-wide text-zinc-400">
+          <p className="mt-4 text-base tracking-wide text-muted-foreground">
             We&apos;re a passionate group of people working together to build
             something amazing.
           </p>
@@ -73,16 +73,16 @@ export function TeamGrid001() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="group relative border border-zinc-800 bg-zinc-900/30 p-6 transition-all hover:border-zinc-700 hover:bg-zinc-900/50"
+              className="group relative border border-border bg-muted/30 p-6 transition-all hover:border-border/80 hover:bg-muted/50"
             >
               {/* コーナードット */}
-              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-zinc-700" />
-              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-zinc-700" />
+              <div className="absolute left-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute right-2 top-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
+              <div className="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-muted-foreground/30" />
 
               {/* アバター */}
-              <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border border-zinc-800">
+              <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border border-border">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -93,13 +93,13 @@ export function TeamGrid001() {
 
               {/* 情報 */}
               <div className="mt-6 text-center">
-                <h3 className="text-base font-medium tracking-wide text-white">
+                <h3 className="text-base font-medium tracking-wide text-foreground">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   {member.role}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed tracking-wide text-zinc-400">
+                <p className="mt-3 text-sm leading-relaxed tracking-wide text-muted-foreground">
                   {member.bio}
                 </p>
               </div>
@@ -108,7 +108,7 @@ export function TeamGrid001() {
               <div className="mt-5 flex justify-center gap-3">
                 <Link
                   href="#"
-                  className="text-zinc-600 transition-colors hover:text-white"
+                  className="text-muted-foreground/60 transition-colors hover:text-foreground"
                 >
                   <svg
                     className="h-4 w-4"
@@ -120,7 +120,7 @@ export function TeamGrid001() {
                 </Link>
                 <Link
                   href="#"
-                  className="text-zinc-600 transition-colors hover:text-white"
+                  className="text-muted-foreground/60 transition-colors hover:text-foreground"
                 >
                   <svg
                     className="h-4 w-4"

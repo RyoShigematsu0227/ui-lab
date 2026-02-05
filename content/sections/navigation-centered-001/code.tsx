@@ -14,13 +14,13 @@ export function NavigationCentered001() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-800/50 bg-zinc-950/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link href="#" className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900">
-              <span className="text-lg font-bold tracking-wider text-white">L</span>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-muted">
+              <span className="text-lg font-bold tracking-wider text-foreground">L</span>
             </div>
           </Link>
         </div>
@@ -31,7 +31,7 @@ export function NavigationCentered001() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+              className="text-sm font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -42,13 +42,13 @@ export function NavigationCentered001() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <Link
             href="#"
-            className="text-sm font-medium tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+            className="text-sm font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
           >
             Sign in
           </Link>
           <Link
             href="#"
-            className="rounded-lg border border-zinc-700 bg-white px-4 py-2 text-sm font-medium tracking-wide text-zinc-900 transition-all duration-200 hover:bg-zinc-100"
+            className="rounded-lg border border-border bg-foreground px-4 py-2 text-sm font-medium tracking-wide text-background transition-all duration-200 hover:bg-foreground/90"
           >
             Get Started
           </Link>
@@ -57,7 +57,7 @@ export function NavigationCentered001() {
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button
-            className="rounded-lg p-2 text-zinc-400 hover:bg-zinc-800 hover:text-white"
+            className="rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg
@@ -88,13 +88,13 @@ export function NavigationCentered001() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-zinc-800/50 bg-zinc-950 px-4 py-6 lg:hidden">
+        <div className="border-t border-border bg-background px-4 py-6 lg:hidden">
           <div className="space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="block text-base font-medium tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white"
+                className="block text-base font-medium tracking-wide text-muted-foreground transition-colors duration-200 hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -103,13 +103,13 @@ export function NavigationCentered001() {
           <div className="mt-8 flex flex-col gap-3">
             <Link
               href="#"
-              className="rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-center text-sm font-medium tracking-wide text-white"
+              className="rounded-lg border border-border bg-muted px-4 py-2.5 text-center text-sm font-medium tracking-wide text-foreground"
             >
               Sign in
             </Link>
             <Link
               href="#"
-              className="rounded-lg bg-white px-4 py-2.5 text-center text-sm font-medium tracking-wide text-zinc-900"
+              className="rounded-lg bg-foreground px-4 py-2.5 text-center text-sm font-medium tracking-wide text-background"
             >
               Get Started
             </Link>

@@ -1,5 +1,6 @@
-// acsim.appスタイル: 深いダーク背景、白テキスト、広いletter-spacing、コーナードット、subtle border
+// acsim.appスタイル: コーナードット、subtle border
 // シンプルで洗練されたミニマルテスティモニアル
+// ダーク/ライトモード両対応
 export function TestimonialMinimal001() {
   const testimonials = [
     {
@@ -20,11 +21,11 @@ export function TestimonialMinimal001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-20 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-600">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             Testimonials
           </p>
         </div>
@@ -37,21 +38,21 @@ export function TestimonialMinimal001() {
               className="group relative flex flex-col items-center text-center"
             >
               {/* Quote */}
-              <p className="max-w-2xl text-2xl font-light leading-relaxed tracking-wide text-zinc-200 md:text-3xl">
+              <p className="max-w-2xl text-2xl font-light leading-relaxed tracking-wide text-foreground/90 md:text-3xl">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
 
               {/* Author */}
               <div className="mt-8 flex items-center gap-3">
-                <span className="h-px w-8 bg-zinc-800" />
-                <span className="text-sm tracking-wide text-zinc-500">
+                <span className="h-px w-8 bg-border" />
+                <span className="text-sm tracking-wide text-muted-foreground">
                   {testimonial.author}
                 </span>
-                <span className="text-zinc-700">/</span>
-                <span className="text-xs uppercase tracking-[0.2em] text-zinc-600">
+                <span className="text-muted-foreground/50">/</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                   {testimonial.role}
                 </span>
-                <span className="h-px w-8 bg-zinc-800" />
+                <span className="h-px w-8 bg-border" />
               </div>
             </div>
           ))}
@@ -60,9 +61,9 @@ export function TestimonialMinimal001() {
         {/* Bottom accent */}
         <div className="mt-20 flex justify-center">
           <div className="flex items-center gap-2">
-            <div className="h-1 w-1 rounded-full bg-zinc-700" />
-            <div className="h-1 w-1 rounded-full bg-zinc-700" />
-            <div className="h-1 w-1 rounded-full bg-zinc-700" />
+            <div className="h-1 w-1 rounded-full bg-muted-foreground/30" />
+            <div className="h-1 w-1 rounded-full bg-muted-foreground/30" />
+            <div className="h-1 w-1 rounded-full bg-muted-foreground/30" />
           </div>
         </div>
       </div>

@@ -34,17 +34,17 @@ export function FaqMinimal001() {
   ];
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16">
-          <h2 className="text-2xl font-light tracking-wide text-white sm:text-3xl">
+          <h2 className="text-2xl font-light tracking-wide text-foreground sm:text-3xl">
             FAQ
           </h2>
         </div>
 
         {/* FAQ リスト */}
-        <div className="divide-y divide-zinc-800">
+        <div className="divide-y divide-border">
           {faqs.map((faq, index) => (
             <div key={index} className="py-6">
               <button
@@ -53,10 +53,10 @@ export function FaqMinimal001() {
                   setOpenIndex(openIndex === index ? null : index)
                 }
               >
-                <span className="pr-8 font-light tracking-wide text-white">
+                <span className="pr-8 font-light tracking-wide text-foreground">
                   {faq.question}
                 </span>
-                <span className="mt-1 flex-shrink-0 text-zinc-500">
+                <span className="mt-1 flex-shrink-0 text-muted-foreground">
                   {openIndex === index ? (
                     <svg
                       className="h-4 w-4"
@@ -93,7 +93,7 @@ export function FaqMinimal001() {
                   openIndex === index ? "max-h-96 pt-4" : "max-h-0"
                 }`}
               >
-                <p className="text-zinc-400 leading-relaxed tracking-wide">
+                <p className="text-muted-foreground leading-relaxed tracking-wide">
                   {faq.answer}
                 </p>
               </div>
