@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -24,13 +25,16 @@ function isNew(createdAt: string): boolean {
 export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { isFavorite, toggleFavorite } = useFavoritesContext();
   const isNewSection = isNew(section.createdAt);
+  const [imageError, setImageError] = useState(false);
+
+  const showPlaceholder = !section.screenshotUrl || imageError;
 
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg hover:ring-2 hover:ring-primary/20">
       <Link href={`/sections/${section.slug}`}>
         {/* サムネイル */}
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-          {section.screenshotUrl ? (
+          {!showPlaceholder ? (
             <Image
               src={section.screenshotUrl}
               alt={section.title}
@@ -38,6 +42,7 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
               priority={priority}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onError={() => setImageError(true)}
             />
           ) : (
             /* プレースホルダー画像 */

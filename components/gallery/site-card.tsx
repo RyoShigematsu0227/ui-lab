@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
@@ -20,13 +23,16 @@ function isNew(createdAt: string): boolean {
 
 export function SiteCard({ site, priority = false }: SiteCardProps) {
   const isNewSite = isNew(site.createdAt);
+  const [imageError, setImageError] = useState(false);
+
+  const showPlaceholder = !site.screenshotUrl || imageError;
 
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg hover:ring-2 hover:ring-primary/20">
       <Link href={`/sites/${site.slug}`}>
         {/* サムネイル */}
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-          {site.screenshotUrl ? (
+          {!showPlaceholder ? (
             <Image
               src={site.screenshotUrl}
               alt={site.title}
@@ -34,6 +40,7 @@ export function SiteCard({ site, priority = false }: SiteCardProps) {
               priority={priority}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onError={() => setImageError(true)}
             />
           ) : (
             /* プレースホルダー */
