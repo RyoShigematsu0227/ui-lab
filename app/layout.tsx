@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FavoritesProvider } from "@/components/layout/favorites-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ScrollToTop } from "@/components/layout/scroll-to-top";
+import { Toaster } from "@/components/ui/sonner";
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
@@ -71,6 +73,8 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
+            <ScrollToTop />
+            <Toaster />
           </FavoritesProvider>
         </ThemeProvider>
       </body>

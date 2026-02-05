@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { Highlight, themes } from "prism-react-renderer";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
@@ -18,6 +19,7 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
     setCopied(true);
+    toast.success("コードをコピーしました");
     setTimeout(() => setCopied(false), 2000);
   };
 

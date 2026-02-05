@@ -1,6 +1,7 @@
 "use client";
 
 import { Heart } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +16,18 @@ export function FavoriteButton({
   onToggle,
   size = "default",
 }: FavoriteButtonProps) {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onToggle();
+
+    if (isFavorite) {
+      toast("お気に入りから削除しました");
+    } else {
+      toast.success("お気に入りに追加しました");
+    }
+  };
+
   return (
     <Button
       variant="ghost"
@@ -24,11 +37,7 @@ export function FavoriteButton({
         size === "sm" ? "h-8 w-8" : "h-9 w-9",
         isFavorite && "text-red-500 hover:text-red-600"
       )}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        onToggle();
-      }}
+      onClick={handleClick}
     >
       <Heart
         className={cn(
