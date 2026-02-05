@@ -1,5 +1,6 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
 import { getSections, getCategories, getTags } from "@/lib/supabase";
+import { HeroVisual } from "@/components/home/hero-visual";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
@@ -14,52 +15,60 @@ export default async function Home() {
   return (
     <>
       {/* ヒーローセクション - acsim.app style */}
-      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32">
+      <section className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden">
         <div className="container mx-auto max-w-screen-xl px-6 sm:px-8 md:px-12">
           {/* コーナードット装飾 */}
           <div className="absolute top-8 left-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
           <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-foreground/20 rounded-full hidden md:block" />
 
-          <div className="max-w-2xl">
-            {/* セクションラベル */}
-            <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-8">
-              UI Component Gallery
-            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            {/* 左側: テキストコンテンツ */}
+            <div className="max-w-xl">
+              {/* セクションラベル */}
+              <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-8">
+                UI Component Gallery
+              </span>
 
-            {/* メインタイトル */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15]">
-              Modern UI
-              <br />
-              <span className="text-muted-foreground">Sections</span>
-            </h1>
+              {/* メインタイトル */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15]">
+                Modern UI
+                <br />
+                <span className="text-muted-foreground">Sections</span>
+              </h1>
 
-            {/* 説明文 */}
-            <p className="mt-8 text-[15px] text-muted-foreground max-w-md leading-[1.8] tracking-wide">
-              Next.js + Tailwind CSS で構築された
-              <br className="hidden sm:block" />
-              UIセクションのコレクション
-            </p>
+              {/* 説明文 */}
+              <p className="mt-8 text-[15px] text-muted-foreground max-w-md leading-[1.8] tracking-wide">
+                Next.js + Tailwind CSS で構築された
+                <br className="hidden sm:block" />
+                UIセクションのコレクション
+              </p>
 
-            {/* 統計 - シンプルなレイアウト */}
-            <div className="mt-12 pt-8 border-t border-border/50">
-              <div className="flex items-baseline gap-12 text-[13px] tracking-wide">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-medium tabular-nums">
-                    {sections.length}
-                  </span>
-                  <span className="text-muted-foreground uppercase tracking-[0.15em]">
-                    Sections
-                  </span>
-                </div>
-                <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-medium tabular-nums">
-                    {categories.length}
-                  </span>
-                  <span className="text-muted-foreground uppercase tracking-[0.15em]">
-                    Categories
-                  </span>
+              {/* 統計 - シンプルなレイアウト */}
+              <div className="mt-12 pt-8 border-t border-border/50">
+                <div className="flex items-baseline gap-12 text-[13px] tracking-wide">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-2xl font-medium tabular-nums">
+                      {sections.length}
+                    </span>
+                    <span className="text-muted-foreground uppercase tracking-[0.15em]">
+                      Sections
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-2xl font-medium tabular-nums">
+                      {categories.length}
+                    </span>
+                    <span className="text-muted-foreground uppercase tracking-[0.15em]">
+                      Categories
+                    </span>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* 右側: フローティングUIカード */}
+            <div className="hidden lg:block relative h-[400px]">
+              <HeroVisual />
             </div>
           </div>
         </div>
