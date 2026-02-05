@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, Keyboard } from "lucide-react";
+import { Heart, Github, Twitter } from "lucide-react";
 
 const footerLinks = [
   {
@@ -21,9 +21,11 @@ const footerLinks = [
     ],
   },
   {
-    title: "サイト情報",
+    title: "リソース",
     links: [
       { label: "About", href: "/about" },
+      { label: "全カテゴリ", href: "/categories" },
+      { label: "全タグ", href: "/tags" },
     ],
   },
 ];
@@ -32,31 +34,64 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-muted/30">
-      <div className="container mx-auto max-w-screen-2xl px-4 py-12">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+    <footer className="relative border-t border-border/50 bg-muted/30">
+      {/* 背景パターン */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-30 dark:opacity-20" />
+
+      <div className="container relative mx-auto max-w-screen-2xl px-4 py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* ブランド */}
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="text-xl font-bold">
-              UI Lab
+          <div className="lg:col-span-2">
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-3 transition-opacity hover:opacity-80"
+            >
+              {/* ロゴマーク */}
+              <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
+                <span className="text-lg font-bold text-primary-foreground">U</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold tracking-tight">UI Lab</span>
+                <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+                  Modern UI Gallery
+                </span>
+              </div>
             </Link>
-            <p className="mt-3 text-sm text-muted-foreground">
-              AIが生成するモダンUIセクションのギャラリー。Next.js + Tailwind CSSのコードをコピーして使えます。
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              AIが生成するモダンUIセクションのギャラリー。Next.js + Tailwind CSSのコードをコピーして、あなたのプロジェクトにすぐに導入できます。
             </p>
-            {/* キーボードショートカットヒント */}
-            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-              <Keyboard className="h-3 w-3" />
-              <span>
-                <kbd className="rounded border border-border bg-muted px-1">?</kbd> でショートカット表示
-              </span>
+
+            {/* ソーシャルリンク */}
+            <div className="mt-6 flex gap-3">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-card/50 text-muted-foreground transition-all hover:border-primary/30 hover:bg-card hover:text-foreground"
+                aria-label="GitHub"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-border/50 bg-card/50 text-muted-foreground transition-all hover:border-primary/30 hover:bg-card hover:text-foreground"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
           {/* リンク */}
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h3 className="text-sm font-semibold">{group.title}</h3>
-              <ul className="mt-3 space-y-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+                {group.title}
+              </h3>
+              <ul className="mt-4 space-y-3">
                 {group.links.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -73,12 +108,13 @@ export function Footer() {
         </div>
 
         {/* コピーライト */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
             &copy; {currentYear} UI Lab. All rights reserved.
           </p>
-          <p className="flex items-center gap-1 text-sm text-muted-foreground">
-            Made with <Heart className="h-3 w-3 fill-red-500 text-red-500" /> and AI
+          <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            Made with{" "}
+            <Heart className="h-3.5 w-3.5 fill-red-500 text-red-500" /> and AI
           </p>
         </div>
       </div>

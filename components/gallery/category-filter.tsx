@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Category, Section } from "@/types";
 import { cn } from "@/lib/utils";
 import { LayoutGrid } from "lucide-react";
@@ -29,51 +28,60 @@ export function CategoryFilter({
 
   return (
     <div className="flex flex-wrap gap-2">
-      <Button
-        variant={selectedCategory === null ? "default" : "outline"}
-        size="sm"
+      {/* すべてボタン */}
+      <button
         onClick={() => onSelectCategory(null)}
         className={cn(
-          "rounded-full gap-1.5",
-          selectedCategory === null && "bg-primary text-primary-foreground"
+          "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all",
+          selectedCategory === null
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
         )}
       >
-        <LayoutGrid className="h-3.5 w-3.5" />
+        <LayoutGrid className="h-4 w-4" />
         すべて
-        <span className={cn(
-          "rounded-full px-1.5 py-0.5 text-xs",
-          selectedCategory === null
-            ? "bg-primary-foreground/20"
-            : "bg-muted"
-        )}>
+        <span
+          className={cn(
+            "rounded-md px-1.5 py-0.5 text-xs",
+            selectedCategory === null
+              ? "bg-primary-foreground/20"
+              : "bg-background/80"
+          )}
+        >
           {sections.length}
         </span>
-      </Button>
+      </button>
+
+      {/* カテゴリボタン */}
       {categories.map((category) => {
         const IconComponent = category.icon ? iconMap[category.icon] : null;
+        const isSelected = selectedCategory === category.slug;
+        const count = categoryCounts[category.slug] || 0;
+
         return (
-          <Button
+          <button
             key={category.id}
-            variant={selectedCategory === category.slug ? "default" : "outline"}
-            size="sm"
             onClick={() => onSelectCategory(category.slug)}
             className={cn(
-              "rounded-full gap-1.5",
-              selectedCategory === category.slug &&
-                "bg-primary text-primary-foreground"
+              "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all",
+              isSelected
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
-            {IconComponent && <IconComponent className="h-3.5 w-3.5" />}
+            {IconComponent && <IconComponent className="h-4 w-4" />}
             {category.name}
-            <span className={cn(
-              "rounded-full px-1.5 py-0.5 text-xs",
-              selectedCategory === category.slug
-                ? "bg-primary-foreground/20"
-                : "bg-muted"
-            )}>
-              {categoryCounts[category.slug] || 0}
+            <span
+              className={cn(
+                "rounded-md px-1.5 py-0.5 text-xs",
+                isSelected
+                  ? "bg-primary-foreground/20"
+                  : "bg-background/80"
+              )}
+            >
+              {count}
             </span>
-          </Button>
+          </button>
         );
       })}
     </div>

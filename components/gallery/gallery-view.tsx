@@ -12,7 +12,8 @@ import { RandomSectionButton } from "./random-section-button";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { SearchX, Lightbulb } from "lucide-react";
+import { SearchX, Lightbulb, Filter, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface GalleryViewProps {
   sections: Section[];
@@ -40,6 +41,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
     (searchParams.get("sort") as SortOption) || "newest"
   );
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [showFilters, setShowFilters] = useState(false);
 
   // 検索クエリをデバウンス（300ms）
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
@@ -96,14 +98,10 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
     if (debouncedSearchQuery.trim()) {
       const query = debouncedSearchQuery.toLowerCase().trim();
       result = result.filter((section) => {
-        // タイトルで検索
         if (section.title.toLowerCase().includes(query)) return true;
-        // 説明で検索
         if (section.description.toLowerCase().includes(query)) return true;
-        // タグで検索
         if (section.tags.some((tag) => tag.name.toLowerCase().includes(query)))
           return true;
-        // カテゴリ名で検索
         if (section.category?.name.toLowerCase().includes(query)) return true;
         return false;
       });
@@ -177,11 +175,42 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   };
 
   const hasActiveFilters = selectedCategory || selectedTags.length > 0 || debouncedSearchQuery;
+  const activeFilterCount = (selectedCategory ? 1 : 0) + selectedTags.length + (debouncedSearchQuery ? 1 : 0);
 
   return (
-    <div className="space-y-6">
-      {/* 検索バーとソート */}
+    <div className="space-y-8">
+      {/* ヘッダー */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight">セクション</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {filteredSections.length} 件のコンポーネント
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <RandomSectionButton />
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowFilters(!showFilters)}
+            className={cn(
+              "gap-2",
+              showFilters && "bg-accent"
+            )}
+          >
+            <Filter className="h-4 w-4" />
+            フィルター
+            {activeFilterCount > 0 && (
+              <Badge variant="secondary" className="ml-1 h-5 w-5 rounded-full p-0 text-xs">
+                {activeFilterCount}
+              </Badge>
+            )}
+          </Button>
+        </div>
+      </div>
+
+      {/* 検索バーとソート */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="flex-1">
           <SearchBar
             value={searchQuery}
@@ -189,49 +218,118 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
             placeholder="タイトル、説明、タグで検索..."
           />
         </div>
-        <div className="flex items-center gap-2">
-          <RandomSectionButton />
-          <SortSelect value={sortOption} onChange={handleSortChange} />
+        <SortSelect value={sortOption} onChange={handleSortChange} />
+      </div>
+
+      {/* フィルターパネル */}
+      <div
+        className={cn(
+          "overflow-hidden rounded-xl border border-border/50 bg-card/50 transition-all duration-300",
+          showFilters ? "max-h-[500px] opacity-100" : "max-h-0 border-transparent opacity-0"
+        )}
+      >
+        <div className="space-y-6 p-6">
+          {/* カテゴリフィルター */}
+          <div>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              カテゴリ
+            </h3>
+            <CategoryFilter
+              categories={categories}
+              sections={sections}
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleCategorySelect}
+            />
+          </div>
+
+          {/* タグフィルター */}
+          <div>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              タグ
+            </h3>
+            <TagFilter
+              tags={tags}
+              selectedTags={selectedTags}
+              onToggleTag={handleToggleTag}
+              onClearTags={handleClearTags}
+            />
+          </div>
+
+          {/* クリアボタン */}
+          {hasActiveFilters && (
+            <div className="flex justify-end border-t border-border/50 pt-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleClearAll}
+                className="gap-2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+                すべてクリア
+              </Button>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* カテゴリフィルター */}
-      <CategoryFilter
-        categories={categories}
-        sections={sections}
-        selectedCategory={selectedCategory}
-        onSelectCategory={handleCategorySelect}
-      />
-
-      {/* タグフィルター */}
-      <TagFilter
-        tags={tags}
-        selectedTags={selectedTags}
-        onToggleTag={handleToggleTag}
-        onClearTags={handleClearTags}
-      />
-
-      {/* 結果数 */}
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          {filteredSections.length} 件のセクション
-          {debouncedSearchQuery && (
-            <span className="ml-2">
-              「{debouncedSearchQuery}」の検索結果
-            </span>
+      {/* アクティブフィルター表示 */}
+      {hasActiveFilters && !showFilters && (
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-sm text-muted-foreground">絞り込み:</span>
+          {selectedCategory && (
+            <Badge
+              variant="secondary"
+              className="gap-1 pr-1"
+            >
+              {categories.find(c => c.slug === selectedCategory)?.name}
+              <button
+                onClick={() => handleCategorySelect(null)}
+                className="ml-1 rounded-full p-0.5 hover:bg-background/50"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </Badge>
           )}
-        </p>
-        {hasActiveFilters && (
-          <Button
-            variant="ghost"
-            size="sm"
+          {selectedTags.map(tagSlug => {
+            const tag = tags.find(t => t.slug === tagSlug);
+            return tag ? (
+              <Badge
+                key={tagSlug}
+                variant="secondary"
+                className="gap-1 pr-1"
+              >
+                {tag.name}
+                <button
+                  onClick={() => handleToggleTag(tagSlug)}
+                  className="ml-1 rounded-full p-0.5 hover:bg-background/50"
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              </Badge>
+            ) : null;
+          })}
+          {debouncedSearchQuery && (
+            <Badge
+              variant="secondary"
+              className="gap-1 pr-1"
+            >
+              「{debouncedSearchQuery}」
+              <button
+                onClick={() => setSearchQuery("")}
+                className="ml-1 rounded-full p-0.5 hover:bg-background/50"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </Badge>
+          )}
+          <button
             onClick={handleClearAll}
-            className="text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-foreground"
           >
-            フィルターをクリア
-          </Button>
-        )}
-      </div>
+            すべてクリア
+          </button>
+        </div>
+      )}
 
       {/* グリッド */}
       {visibleSections.length > 0 ? (
@@ -240,54 +338,73 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
 
           {/* もっと見るボタン */}
           {hasMore && (
-            <div className="flex justify-center pt-4">
+            <div className="flex justify-center pt-8">
               <Button
                 variant="outline"
+                size="lg"
                 onClick={handleLoadMore}
-                className="min-w-[200px]"
+                className="min-w-[200px] rounded-full"
               >
-                もっと見る（残り {filteredSections.length - visibleCount} 件）
+                もっと見る
+                <span className="ml-2 text-muted-foreground">
+                  ({filteredSections.length - visibleCount} 件)
+                </span>
               </Button>
             </div>
           )}
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-16 px-4">
-          <div className="mb-4 rounded-full bg-muted p-4">
-            <SearchX className="h-8 w-8 text-muted-foreground" />
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border/50 bg-card/30 py-20 px-4">
+          <div className="mb-6 rounded-2xl bg-muted/50 p-5">
+            <SearchX className="h-10 w-10 text-muted-foreground/50" />
           </div>
-          <p className="mb-2 text-lg font-medium">セクションが見つかりません</p>
-          <p className="mb-6 max-w-md text-center text-sm text-muted-foreground">
+          <p className="mb-2 text-xl font-semibold">セクションが見つかりません</p>
+          <p className="mb-8 max-w-md text-center text-sm text-muted-foreground">
             {debouncedSearchQuery
               ? `「${debouncedSearchQuery}」に一致するセクションはありませんでした`
               : "選択した条件に一致するセクションがありません"}
           </p>
 
           {hasActiveFilters && (
-            <Button variant="outline" size="sm" onClick={handleClearAll} className="mb-6">
+            <Button
+              variant="outline"
+              onClick={handleClearAll}
+              className="mb-8 rounded-full"
+            >
               フィルターをクリア
             </Button>
           )}
 
           {/* 検索のヒント */}
-          <div className="w-full max-w-md rounded-lg bg-muted/50 p-4">
-            <div className="mb-3 flex items-center gap-2 text-sm font-medium">
-              <Lightbulb className="h-4 w-4 text-yellow-500" />
+          <div className="w-full max-w-md rounded-xl border border-border/50 bg-card/50 p-6">
+            <div className="mb-4 flex items-center gap-2 text-sm font-medium">
+              <Lightbulb className="h-4 w-4 text-amber-500" />
               検索のヒント
             </div>
-            <ul className="mb-4 space-y-1 text-sm text-muted-foreground">
-              <li>• キーワードを短くしてみてください</li>
-              <li>• 別の言い方で検索してみてください</li>
-              <li>• カテゴリやタグを変えてみてください</li>
+            <ul className="mb-6 space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                キーワードを短くしてみてください
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                別の言い方で検索してみてください
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary">•</span>
+                カテゴリやタグを変えてみてください
+              </li>
             </ul>
 
             {/* 人気のタグ */}
-            <p className="mb-2 text-xs font-medium text-muted-foreground">人気のタグ:</p>
-            <div className="flex flex-wrap gap-1.5">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              人気のタグ
+            </p>
+            <div className="flex flex-wrap gap-2">
               {tags.slice(0, 6).map((tag) => (
                 <Badge
                   key={tag.id}
-                  variant="secondary"
+                  variant="outline"
                   className="cursor-pointer hover:bg-accent"
                   onClick={() => {
                     handleClearAll();

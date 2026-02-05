@@ -4,10 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { Section } from "@/types";
 import { FavoriteButton } from "./favorite-button";
 import { useFavoritesContext } from "@/components/layout/favorites-provider";
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SectionCardProps {
   section: Section;
@@ -26,12 +27,20 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { isFavorite, toggleFavorite } = useFavoritesContext();
   const isNewSection = isNew(section.createdAt);
   const [imageError, setImageError] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const showPlaceholder = !section.screenshotUrl || imageError;
 
   return (
-    <Card className="group overflow-hidden transition-all hover:shadow-lg hover:ring-2 hover:ring-primary/20">
-      <Link href={`/sections/${section.slug}`}>
+    <article
+      className="group relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Link
+        href={`/sections/${section.slug}`}
+        className="block overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-300 hover:border-primary/20 hover:shadow-soft"
+      >
         {/* サムネイル */}
         <div className="relative aspect-[16/10] overflow-hidden bg-muted">
           {!showPlaceholder ? (
@@ -40,69 +49,98 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
               alt={section.title}
               fill
               priority={priority}
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className={cn(
+                "object-cover transition-all duration-500",
+                isHovered ? "scale-105 blur-0" : "scale-100"
+              )}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               onError={() => setImageError(true)}
             />
           ) : (
-            /* プレースホルダー画像 */
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-              <span className="text-4xl font-bold text-muted-foreground/30">
-                {section.title.charAt(0)}
-              </span>
+            /* プレースホルダー */
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-primary/10">
+              <div className="text-center">
+                <span className="text-4xl font-bold text-primary/20">
+                  {section.title.charAt(0)}
+                </span>
+              </div>
+              {/* グリッドパターン */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-30" />
             </div>
           )}
+
           {/* NEWバッジ */}
           {isNewSection && (
-            <div className="absolute left-2 top-2 z-10">
-              <Badge className="bg-green-500 text-white hover:bg-green-500">
+            <div className="absolute left-3 top-3 z-10">
+              <Badge className="border-0 bg-emerald-500/90 text-white backdrop-blur-sm">
                 NEW
               </Badge>
             </div>
           )}
+
+          {/* カテゴリバッジ */}
+          {section.category && (
+            <div className="absolute right-3 top-3 z-10">
+              <Badge
+                variant="secondary"
+                className="border-0 bg-background/80 backdrop-blur-sm"
+              >
+                {section.category.name}
+              </Badge>
+            </div>
+          )}
+
           {/* ホバーオーバーレイ */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
-            <span className="text-sm font-medium text-white">詳細を見る</span>
+          <div
+            className={cn(
+              "absolute inset-0 flex items-center justify-center bg-gradient-to-t from-background/90 via-background/50 to-transparent transition-opacity duration-300",
+              isHovered ? "opacity-100" : "opacity-0"
+            )}
+          >
+            <div className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-lg transition-transform duration-300 group-hover:scale-100 scale-90">
+              詳細を見る
+              <ArrowUpRight className="h-4 w-4" />
+            </div>
+          </div>
+        </div>
+
+        {/* コンテンツ */}
+        <div className="p-5">
+          {/* タイトル + お気に入り */}
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="line-clamp-1 text-base font-semibold leading-tight tracking-tight transition-colors group-hover:text-primary">
+              {section.title}
+            </h3>
+            <FavoriteButton
+              size="sm"
+              isFavorite={isFavorite(section.slug)}
+              onToggle={() => toggleFavorite(section.slug)}
+            />
+          </div>
+
+          {/* 説明 */}
+          <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+            {section.description}
+          </p>
+
+          {/* タグ */}
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {section.tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag.id}
+                className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+              >
+                {tag.name}
+              </span>
+            ))}
+            {section.tags.length > 3 && (
+              <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+                +{section.tags.length - 3}
+              </span>
+            )}
           </div>
         </div>
       </Link>
-
-      <CardContent className="p-4">
-        {/* カテゴリ + お気に入り */}
-        <div className="mb-1 flex items-center justify-between">
-          {section.category && (
-            <p className="text-xs text-muted-foreground">
-              {section.category.name}
-            </p>
-          )}
-          <FavoriteButton
-            size="sm"
-            isFavorite={isFavorite(section.slug)}
-            onToggle={() => toggleFavorite(section.slug)}
-          />
-        </div>
-
-        <Link href={`/sections/${section.slug}`}>
-          {/* タイトル */}
-          <h3 className="mb-2 line-clamp-1 font-semibold leading-tight hover:underline">
-            {section.title}
-          </h3>
-        </Link>
-
-        {/* 説明 */}
-        <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
-          {section.description}
-        </p>
-
-        {/* タグ */}
-        <div className="flex flex-wrap gap-1">
-          {section.tags.slice(0, 3).map((tag) => (
-            <Badge key={tag.id} variant="secondary" className="text-xs">
-              {tag.name}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    </article>
   );
 }
