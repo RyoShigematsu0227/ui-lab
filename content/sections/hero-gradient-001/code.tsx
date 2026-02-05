@@ -16,7 +16,7 @@ export function HeroGradient001() {
       />
 
       {/* コンテンツ */}
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6 lg:px-8">
         {/* バッジ */}
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
@@ -27,7 +27,7 @@ export function HeroGradient001() {
         </div>
 
         {/* 見出し */}
-        <h1 className="mb-6 bg-gradient-to-b from-white to-white/60 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl md:text-7xl">
+        <h1 className="mb-6 bg-gradient-to-b from-white to-white/60 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
           Build faster with
           <br />
           <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text">

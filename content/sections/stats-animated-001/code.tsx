@@ -23,7 +23,7 @@ export function StatsAnimated001() {
       <div className="absolute left-1/4 top-0 h-64 w-64 rounded-full bg-violet-500/20 blur-[100px]" />
       <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-cyan-500/20 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -36,14 +36,14 @@ export function StatsAnimated001() {
         </div>
 
         {/* 統計グリッド */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <div
               key={index}
               className="group relative rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
             >
               {/* 数値 */}
-              <p className="mb-2 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+              <p className="mb-2 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
                 {stat.value}
               </p>
 

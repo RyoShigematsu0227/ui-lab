@@ -1,9 +1,9 @@
 export function CtaGradient001() {
   return (
     <section className="relative overflow-hidden bg-white py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* CTA カード */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-600 to-indigo-600 p-12 text-center md:p-16">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-violet-600 to-indigo-600 p-8 text-center sm:p-12 md:p-16">
           {/* 装飾的な要素 */}
           <div className="absolute -left-16 -top-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
@@ -19,7 +19,7 @@ export function CtaGradient001() {
 
           {/* コンテンツ */}
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+            <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl">
               Ready to get started?
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">

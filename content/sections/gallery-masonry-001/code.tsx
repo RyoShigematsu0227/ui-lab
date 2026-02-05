@@ -51,7 +51,7 @@ export function GalleryMasonry001() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
             Our Portfolio
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
@@ -76,7 +76,7 @@ export function GalleryMasonry001() {
         </div>
 
         {/* Masonry Grid */}
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
             <div
               key={index}

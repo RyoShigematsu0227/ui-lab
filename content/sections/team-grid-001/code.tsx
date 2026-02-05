@@ -44,7 +44,7 @@ export function TeamGrid001() {
         </div>
 
         {/* Team Grid */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
             <div
               key={member.name}

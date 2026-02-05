@@ -1,7 +1,7 @@
 export function FeatureBento001() {
   return (
     <section className="bg-zinc-50 py-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
@@ -13,9 +13,9 @@ export function FeatureBento001() {
         </div>
 
         {/* ベントーグリッド */}
-        <div className="grid gap-4 md:grid-cols-3 md:grid-rows-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2">
           {/* 大きなカード（左） */}
-          <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 p-8 text-white md:row-span-2">
+          <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 p-6 text-white sm:col-span-2 sm:p-8 md:col-span-1 md:row-span-2">
             <div className="relative z-10">
               <div className="mb-4 inline-flex rounded-lg bg-white/20 p-3">
                 <svg
@@ -92,7 +92,7 @@ export function FeatureBento001() {
           </div>
 
           {/* 下段（横長） */}
-          <div className="rounded-2xl bg-zinc-900 p-6 text-white dark:bg-zinc-800 md:col-span-2">
+          <div className="rounded-2xl bg-zinc-900 p-6 text-white sm:col-span-2 dark:bg-zinc-800">
             <div className="flex items-start gap-4">
               <div className="inline-flex shrink-0 rounded-lg bg-white/10 p-3">
                 <svg

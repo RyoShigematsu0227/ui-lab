@@ -13,10 +13,10 @@ export function NewsletterSimple001() {
   return (
     <section className="bg-indigo-600 dark:bg-indigo-900">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="lg:flex lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           {/* Text Content */}
           <div className="max-w-xl">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
               Stay in the loop
             </h2>
             <p className="mt-4 text-lg text-indigo-100">

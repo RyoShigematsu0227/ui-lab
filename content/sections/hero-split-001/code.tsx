@@ -6,7 +6,7 @@ export function HeroSplit001() {
     <section className="min-h-screen bg-white dark:bg-zinc-950">
       <div className="grid min-h-screen lg:grid-cols-2">
         {/* Left Content */}
-        <div className="flex flex-col justify-center px-6 py-16 lg:px-12 lg:py-24 xl:px-24">
+        <div className="flex flex-col justify-center px-4 py-16 sm:px-6 lg:px-12 lg:py-24 xl:px-24">
           <div className="mx-auto max-w-xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 dark:border-indigo-900 dark:bg-indigo-950">
@@ -17,7 +17,7 @@ export function HeroSplit001() {
             </div>
 
             {/* Heading */}
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white">
+            <h1 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
               Build products
               <br />
               <span className="text-indigo-600 dark:text-indigo-400">

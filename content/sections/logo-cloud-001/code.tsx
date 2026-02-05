@@ -66,7 +66,7 @@ export function LogoCloud001() {
         </div>
 
         {/* Logos Grid */}
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-3 lg:grid-cols-6">
           {logos.map((logo) => (
             <div
               key={logo.name}
