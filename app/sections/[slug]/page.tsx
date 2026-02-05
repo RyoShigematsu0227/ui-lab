@@ -9,6 +9,9 @@ import { SectionGrid } from "@/components/gallery/section-grid";
 import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
 import { SECTION_CODES } from "@/content/sections";
 
+// ISR: 24時間ごとに再生成
+export const revalidate = 86400;
+
 interface SectionPageProps {
   params: Promise<{ slug: string }>;
 }

@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/supabase";
 
+// ISR: 1時間ごとに再生成
+export const revalidate = 3600;
+
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
 }

@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getSites, getSiteBySlug } from "@/lib/supabase";
 
+// ISR: 24時間ごとに再生成
+export const revalidate = 86400;
+
 interface SitePageProps {
   params: Promise<{ slug: string }>;
 }

@@ -1,6 +1,9 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
 import { getSections, getCategories } from "@/lib/supabase";
 
+// ISR: 1時間ごとに再生成
+export const revalidate = 3600;
+
 export default async function Home() {
   const [sections, categories] = await Promise.all([
     getSections(),

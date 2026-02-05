@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import { SiteCard } from "@/components/gallery/site-card";
 import { getSites } from "@/lib/supabase";
 
+// ISR: 1時間ごとに再生成
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "サイト事例 | UI Lab",
   description: "洗練されたWebサイトのデザイン事例集",
