@@ -1,4 +1,4 @@
-import { chromium } from "playwright";
+import { chromium, Browser } from "playwright";
 import fs from "fs";
 import path from "path";
 
@@ -13,20 +13,36 @@ const SECTION_SLUGS = fs.readdirSync(sectionsDir)
 
 const BASE_URL = "http://localhost:3000";
 
+// ナビゲーション・フッターは小さいコンポーネントなので異なるビューポートを使用
+function isSmallComponent(slug: string): boolean {
+  return slug.startsWith("navigation-") || slug.startsWith("footer-");
+}
+
 async function generateScreenshots() {
   console.log(`スクリーンショット生成を開始... (${SECTION_SLUGS.length}セクション)\n`);
 
-  const browser = await chromium.launch();
-  const context = await browser.newContext({
+  const browser: Browser = await chromium.launch();
+
+  // 通常サイズのコンテキスト
+  const normalContext = await browser.newContext({
     viewport: { width: 1280, height: 720 },
   });
+  const normalPage = await normalContext.newPage();
 
-  const page = await context.newPage();
+  // 小さいコンポーネント用のコンテキスト（高さを抑える）
+  const smallContext = await browser.newContext({
+    viewport: { width: 1280, height: 300 },
+  });
+  const smallPage = await smallContext.newPage();
+
   let success = 0;
   let failed = 0;
 
   for (let i = 0; i < SECTION_SLUGS.length; i++) {
     const slug = SECTION_SLUGS[i];
+    const isSmall = isSmallComponent(slug);
+    const page = isSmall ? smallPage : normalPage;
+
     try {
       const url = `${BASE_URL}/preview/${slug}`;
 
@@ -51,7 +67,8 @@ async function generateScreenshots() {
     }
   }
 
-  await page.close();
+  await normalPage.close();
+  await smallPage.close();
   await browser.close();
   console.log(`\n✨ 完了！ 成功: ${success}, 失敗: ${failed}`);
 }

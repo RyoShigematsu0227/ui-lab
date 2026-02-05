@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 export function PricingComparison001() {
   const features = [
     {
@@ -110,9 +112,9 @@ export function PricingComparison001() {
             {/* Feature Rows */}
             <tbody>
               {features.map((section) => (
-                <>
+                <Fragment key={section.category}>
                   {/* Category Header */}
-                  <tr key={section.category}>
+                  <tr>
                     <td colSpan={4} className="pt-10 pb-4">
                       <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/30">
                         {section.category}
@@ -134,7 +136,7 @@ export function PricingComparison001() {
                       <td className="py-4 text-center">{renderValue(item.enterprise)}</td>
                     </tr>
                   ))}
-                </>
+                </Fragment>
               ))}
 
               {/* CTA Row */}

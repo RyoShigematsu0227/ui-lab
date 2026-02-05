@@ -3,6 +3,12 @@ export { HeroGradient001 } from "./hero-gradient-001/code";
 export { HeroMinimal001 } from "./hero-minimal-001/code";
 export { FeatureBento001 } from "./feature-bento-001/code";
 export { PricingGlass001 } from "./pricing-glass-001/code";
+export { PricingCards001 } from "./pricing-cards-001/code";
+export { PricingComparison001 } from "./pricing-comparison-001/code";
+export { PricingEnterprise001 } from "./pricing-enterprise-001/code";
+export { PricingMinimal001 } from "./pricing-minimal-001/code";
+export { PricingSimple001 } from "./pricing-simple-001/code";
+export { PricingToggle001 } from "./pricing-toggle-001/code";
 export { CtaGradient001 } from "./cta-gradient-001/code";
 export { TestimonialCarousel001 } from "./testimonial-carousel-001/code";
 export { TestimonialSingle001 } from "./testimonial-single-001/code";
@@ -81,6 +87,12 @@ import { HeroGradient001 } from "./hero-gradient-001/code";
 import { HeroMinimal001 } from "./hero-minimal-001/code";
 import { FeatureBento001 } from "./feature-bento-001/code";
 import { PricingGlass001 } from "./pricing-glass-001/code";
+import { PricingCards001 } from "./pricing-cards-001/code";
+import { PricingComparison001 } from "./pricing-comparison-001/code";
+import { PricingEnterprise001 } from "./pricing-enterprise-001/code";
+import { PricingMinimal001 } from "./pricing-minimal-001/code";
+import { PricingSimple001 } from "./pricing-simple-001/code";
+import { PricingToggle001 } from "./pricing-toggle-001/code";
 import { CtaGradient001 } from "./cta-gradient-001/code";
 import { TestimonialCarousel001 } from "./testimonial-carousel-001/code";
 import { TestimonialSingle001 } from "./testimonial-single-001/code";
@@ -159,6 +171,12 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-minimal-001": HeroMinimal001,
   "feature-bento-001": FeatureBento001,
   "pricing-glass-001": PricingGlass001,
+  "pricing-cards-001": PricingCards001,
+  "pricing-comparison-001": PricingComparison001,
+  "pricing-enterprise-001": PricingEnterprise001,
+  "pricing-minimal-001": PricingMinimal001,
+  "pricing-simple-001": PricingSimple001,
+  "pricing-toggle-001": PricingToggle001,
   "cta-gradient-001": CtaGradient001,
   "testimonial-carousel-001": TestimonialCarousel001,
   "testimonial-single-001": TestimonialSingle001,
