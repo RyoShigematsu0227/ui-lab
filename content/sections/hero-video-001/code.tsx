@@ -1,13 +1,18 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function HeroVideo001() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-black">
       {/* Video Background Placeholder */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&h=1080&fit=crop"
           alt="Background"
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
         {/* Play Button Overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -51,7 +56,7 @@ export function HeroVideo001() {
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <Link
               href="#"
               className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100"
             >
@@ -69,8 +74,8 @@ export function HeroVideo001() {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur transition-all hover:bg-white/10"
             >
@@ -94,7 +99,7 @@ export function HeroVideo001() {
                 />
               </svg>
               Watch Video
-            </a>
+            </Link>
           </div>
 
           {/* Scroll Indicator */}

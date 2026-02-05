@@ -22,7 +22,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "UI Lab - モダンUIセクションギャラリー",
+    default: "UI Lab - Modern UI Components Gallery",
     template: "%s | UI Lab",
   },
   description:
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: BASE_URL,
     siteName: "UI Lab",
-    title: "UI Lab - モダンUIセクションギャラリー",
+    title: "UI Lab - Modern UI Components Gallery",
     description:
       "AIが生成するモダンUIセクションのギャラリー。洗練されたUIコンポーネントを閲覧・コピーできます。",
   },
   twitter: {
     card: "summary_large_image",
-    title: "UI Lab - モダンUIセクションギャラリー",
+    title: "UI Lab - Modern UI Components Gallery",
     description:
       "AIが生成するモダンUIセクションのギャラリー。洗練されたUIコンポーネントを閲覧・コピーできます。",
   },
@@ -66,8 +66,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
   ],
 };
 
@@ -83,11 +83,15 @@ export default function RootLayout({
         <ThemeProvider>
           <FavoritesProvider>
             <RecentSectionsProvider>
+              {/* サイドライン装飾 */}
+              <div className="fixed top-0 bottom-0 left-6 w-px bg-border/30 hidden lg:block z-40" />
+              <div className="fixed top-0 bottom-0 right-6 w-px bg-border/30 hidden lg:block z-40" />
+
               <div className="relative flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
+                <Header />
+                <main className="flex-1 pt-16 md:pt-20">{children}</main>
+                <Footer />
+              </div>
               <ScrollToTop />
               <KeyboardShortcuts />
               <Toaster />

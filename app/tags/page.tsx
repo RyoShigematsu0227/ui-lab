@@ -1,33 +1,27 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Hash } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTags, getSections } from "@/lib/supabase";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "タグ一覧 | UI Lab",
+  title: "Tags",
   description: "UIセクションのタグ一覧。ビジュアルスタイル、インタラクション、レイアウトなどのタグでセクションを探せます。",
 };
 
 // タグカテゴリの定義
 const TAG_CATEGORIES = {
   visual: {
-    name: "ビジュアルスタイル",
-    description: "デザインの見た目に関するタグ",
+    name: "Visual Style",
     slugs: ["gradient", "glassmorphism", "dark-mode", "minimal", "bold-typography", "illustration", "3d", "retro", "neomorphism"],
   },
   interaction: {
-    name: "インタラクション",
-    description: "動きや操作に関するタグ",
+    name: "Interaction",
     slugs: ["animation", "scroll-driven", "hover-effect", "interactive", "parallax"],
   },
   layout: {
-    name: "レイアウト",
-    description: "配置や構造に関するタグ",
+    name: "Layout",
     slugs: ["grid", "bento", "asymmetric", "full-width", "split"],
   },
 };
@@ -69,7 +63,7 @@ export default async function TagsPage() {
     }))
     .sort((a, b) => b.count - a.count);
 
-  // 全タグを使用頻度順に並べて上位を取得
+  // 全タグを使用頻度順に
   const popularTags = tags
     .map((tag) => ({
       ...tag,
@@ -79,101 +73,101 @@ export default async function TagsPage() {
     .slice(0, 10);
 
   return (
-    <div className="container mx-auto max-w-screen-xl px-4 py-8">
+    <div className="min-h-screen">
       {/* ヘッダー */}
-      <div className="mb-8">
-        <div className="mb-3 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-            <Hash className="h-6 w-6 text-primary" />
-          </div>
-          <h1 className="text-3xl font-bold">タグ一覧</h1>
+      <section className="relative min-h-[40vh] flex items-center justify-center">
+        {/* 背景 */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-60" />
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[80px]" />
         </div>
-        <p className="text-lg text-muted-foreground">
-          {tags.length} 種類のタグでセクションを探せます
-        </p>
-      </div>
 
-      {/* 人気のタグ */}
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle className="text-lg">人気のタグ</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-3">
+        <div className="relative z-10 container mx-auto max-w-screen-md px-6 sm:px-8 md:px-12 text-center">
+          <span className="heading-section text-muted-foreground tracking-widest-custom">
+            Filter by
+          </span>
+          <h1 className="mt-6 heading-display text-4xl sm:text-5xl">
+            Tags
+          </h1>
+          <p className="mt-6 text-muted-foreground">
+            {tags.length} tags available
+          </p>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      </section>
+
+      <div className="container mx-auto max-w-screen-xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
+        {/* 人気のタグ */}
+        <section className="mb-20">
+          <span className="heading-section text-muted-foreground tracking-widest-custom">
+            Popular Tags
+          </span>
+          <div className="mt-6 flex flex-wrap gap-3">
             {popularTags.map((tag) => (
-              <Link key={tag.id} href={`/tags/${tag.slug}`}>
-                <Badge
-                  variant="secondary"
-                  className="cursor-pointer px-3 py-1.5 text-sm hover:bg-accent"
-                >
-                  #{tag.name}
-                  <span className="ml-1.5 text-xs text-muted-foreground">
-                    ({tag.count})
-                  </span>
-                </Badge>
+              <Link
+                key={tag.id}
+                href={`/tags/${tag.slug}`}
+                className="px-4 py-2 text-sm border border-border/50 rounded-lg hover:border-border hover:bg-muted/50 transition-all duration-300"
+              >
+                #{tag.name}
+                <span className="ml-2 text-muted-foreground">{tag.count}</span>
               </Link>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </section>
 
-      {/* カテゴリ別タグ */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {categorizedTags.map((category) => (
-          <Card key={category.key}>
-            <CardHeader>
-              <CardTitle className="text-lg">{category.name}</CardTitle>
-              <p className="text-sm text-muted-foreground">{category.description}</p>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {category.tags.map((tag) => (
-                  <Link key={tag.id} href={`/tags/${tag.slug}`}>
-                    <Badge
-                      variant="outline"
-                      className="cursor-pointer hover:bg-accent"
+        {/* カテゴリ別タグ */}
+        <section>
+          <span className="heading-section text-muted-foreground tracking-widest-custom mb-8 block">
+            By Category
+          </span>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {categorizedTags.map((category) => (
+              <div
+                key={category.key}
+                className="rounded-lg border border-border/50 bg-card/30 p-6"
+              >
+                <h3 className="text-sm font-medium tracking-wide mb-4">{category.name}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.tags.map((tag) => (
+                    <Link
+                      key={tag.id}
+                      href={`/tags/${tag.slug}`}
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                     >
                       #{tag.name}
-                      <span className="ml-1 text-xs text-muted-foreground">
-                        ({tag.count})
-                      </span>
-                    </Badge>
-                  </Link>
-                ))}
-                {category.tags.length === 0 && (
-                  <p className="text-sm text-muted-foreground">タグがありません</p>
-                )}
+                      <span className="ml-1 opacity-60">({tag.count})</span>
+                    </Link>
+                  ))}
+                  {category.tags.length === 0 && (
+                    <p className="text-xs text-muted-foreground">No tags</p>
+                  )}
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        ))}
+            ))}
 
-        {/* その他のタグ */}
-        {otherTags.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">その他</CardTitle>
-              <p className="text-sm text-muted-foreground">その他のタグ</p>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {otherTags.map((tag) => (
-                  <Link key={tag.id} href={`/tags/${tag.slug}`}>
-                    <Badge
-                      variant="outline"
-                      className="cursor-pointer hover:bg-accent"
+            {/* その他のタグ */}
+            {otherTags.length > 0 && (
+              <div className="rounded-lg border border-border/50 bg-card/30 p-6">
+                <h3 className="text-sm font-medium tracking-wide mb-4">Other</h3>
+                <div className="flex flex-wrap gap-2">
+                  {otherTags.map((tag) => (
+                    <Link
+                      key={tag.id}
+                      href={`/tags/${tag.slug}`}
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                     >
                       #{tag.name}
-                      <span className="ml-1 text-xs text-muted-foreground">
-                        ({tag.count})
-                      </span>
-                    </Badge>
-                  </Link>
-                ))}
+                      <span className="ml-1 opacity-60">({tag.count})</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        )}
+            )}
+          </div>
+        </section>
       </div>
     </div>
   );

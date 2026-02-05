@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function FooterModern001() {
   const footerLinks = {
     product: [
@@ -65,14 +67,14 @@ export function FooterModern001() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           {/* Brand */}
           <div className="space-y-8 xl:col-span-1">
-            <a href="#" className="flex items-center gap-2">
+            <Link href="#" className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
                 <span className="text-sm font-bold text-white">L</span>
               </div>
               <span className="text-xl font-bold text-gray-900 dark:text-white">
                 Logo
               </span>
-            </a>
+            </Link>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Making the world a better place through constructing elegant
               hierarchies.
@@ -80,14 +82,14 @@ export function FooterModern001() {
             {/* Social Links */}
             <div className="flex gap-4">
               {socialLinks.map((social) => (
-                <a
+                <Link
                   key={social.label}
                   href={social.href}
                   className="text-gray-400 transition-colors hover:text-gray-500 dark:hover:text-gray-300"
                 >
                   <span className="sr-only">{social.label}</span>
                   {social.icon}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -102,12 +104,12 @@ export function FooterModern001() {
                 <ul className="mt-4 space-y-3">
                   {footerLinks.product.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -119,12 +121,12 @@ export function FooterModern001() {
                 <ul className="mt-4 space-y-3">
                   {footerLinks.company.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -138,12 +140,12 @@ export function FooterModern001() {
                 <ul className="mt-4 space-y-3">
                   {footerLinks.resources.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -155,12 +157,12 @@ export function FooterModern001() {
                 <ul className="mt-4 space-y-3">
                   {footerLinks.legal.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-sm text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

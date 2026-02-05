@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export function NavigationCentered001() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,40 +18,40 @@ export function NavigationCentered001() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <a href="#" className="flex items-center gap-2">
+          <Link href="#" className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600">
               <span className="text-lg font-bold text-white">L</span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation - Centered */}
         <div className="hidden lg:flex lg:gap-x-10">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* CTA Buttons */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-          <a
+          <Link
             href="#"
             className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
           >
             Sign in
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-indigo-700"
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -90,28 +91,28 @@ export function NavigationCentered001() {
         <div className="border-t border-gray-200 bg-white px-4 py-6 lg:hidden dark:border-zinc-800 dark:bg-zinc-950">
           <div className="space-y-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="block text-base font-medium text-gray-700 transition-colors hover:text-indigo-600 dark:text-gray-300"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3">
-            <a
+            <Link
               href="#"
               className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-center text-sm font-medium text-gray-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
             >
               Sign in
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="rounded-lg bg-indigo-600 px-4 py-2 text-center text-sm font-medium text-white"
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
       )}

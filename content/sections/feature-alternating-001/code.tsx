@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function FeatureAlternating001() {
   const features = [
     {
@@ -53,11 +56,12 @@ export function FeatureAlternating001() {
             >
               {/* Image */}
               <div className="w-full lg:w-1/2">
-                <div className="overflow-hidden rounded-2xl shadow-2xl">
-                  <img
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
                     src={feature.image}
                     alt={feature.title}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -84,7 +88,7 @@ export function FeatureAlternating001() {
                   {feature.description}
                 </p>
 
-                <a
+                <Link
                   href="#"
                   className="mt-6 inline-flex items-center gap-2 font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
                 >
@@ -102,7 +106,7 @@ export function FeatureAlternating001() {
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

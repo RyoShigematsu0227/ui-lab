@@ -1,40 +1,54 @@
 "use client";
 
 import { Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  className?: string;
 }
 
 export function SearchBar({
   value,
   onChange,
-  placeholder = "セクションを検索...",
+  placeholder = "Search sections...",
+  className,
 }: SearchBarProps) {
   return (
-    <div className="relative" role="search">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+    <div className={cn("relative", className)} role="search">
+      <Search
+        className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+        aria-hidden="true"
+      />
       <input
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         aria-label={placeholder}
-        className="h-10 w-full rounded-lg border border-input bg-background pl-10 pr-10 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className={cn(
+          "h-11 w-full rounded-lg border border-border/50 bg-background pl-11 pr-11 text-sm",
+          "placeholder:text-muted-foreground/60",
+          "transition-all duration-300",
+          "hover:border-border",
+          "focus:border-primary/50 focus:outline-none"
+        )}
       />
       {value && (
-        <Button
-          variant="ghost"
-          size="sm"
-          className="absolute right-1 top-1/2 h-8 w-8 -translate-y-1/2 p-0"
+        <button
           onClick={() => onChange("")}
+          className={cn(
+            "absolute right-3 top-1/2 -translate-y-1/2",
+            "flex h-6 w-6 items-center justify-center rounded",
+            "text-muted-foreground transition-colors",
+            "hover:text-foreground"
+          )}
         >
           <X className="h-4 w-4" />
-          <span className="sr-only">クリア</span>
-        </Button>
+          <span className="sr-only">Clear</span>
+        </button>
       )}
     </div>
   );

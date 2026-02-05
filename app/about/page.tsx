@@ -1,121 +1,144 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Sparkles, RefreshCw, Code2, Palette } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About | UI Lab",
+  title: "About",
   description: "UI Labについて - AIが生成するモダンUIセクションのギャラリー",
 };
 
 const features = [
   {
-    icon: Sparkles,
-    title: "AI生成",
+    title: "AI Generated",
     description:
-      "最新のUIトレンドをAIが分析し、オリジナルのUIセクションを自動生成します。",
+      "最新のUIトレンドをAIが分析し、オリジナルのUIセクションを自動生成。常に新鮮なデザインを提供します。",
   },
   {
-    icon: RefreshCw,
-    title: "週次更新",
+    title: "Weekly Updates",
     description:
-      "毎週新しいセクションが追加されます。常に最新のデザイントレンドをキャッチアップ。",
+      "毎週新しいセクションを追加。トレンドの変化に合わせて、最新のデザインパターンを取り入れています。",
   },
   {
-    icon: Code2,
-    title: "コピー可能",
+    title: "Copy & Paste",
     description:
-      "すべてのセクションはNext.js + Tailwind CSSのコードとして提供。ワンクリックでコピー。",
+      "すべてのセクションはNext.js + Tailwind CSSのコードとして提供。ワンクリックでコピーしてすぐに使えます。",
   },
   {
-    icon: Palette,
-    title: "ダークモード対応",
+    title: "Dark Mode Ready",
     description:
-      "すべてのセクションはライト/ダークモード両対応。そのまま使えます。",
+      "すべてのコンポーネントがライト/ダークモード両対応。カスタマイズなしでそのまま導入できます。",
   },
+];
+
+const techStack = [
+  { name: "Next.js", label: "App Router" },
+  { name: "TypeScript", label: "Strict" },
+  { name: "Tailwind CSS", label: "v4" },
+  { name: "shadcn/ui", label: "Components" },
+  { name: "Supabase", label: "Database" },
+  { name: "Claude API", label: "AI" },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto max-w-screen-lg px-4 py-8">
-      {/* 戻るリンク */}
-      <Link href="/">
-        <Button variant="ghost" size="sm" className="mb-6 gap-2">
-          <ArrowLeft className="h-4 w-4" />
-          トップに戻る
-        </Button>
-      </Link>
+    <div className="min-h-screen">
+      {/* ヒーロー */}
+      <section className="relative min-h-[60vh] flex items-center justify-center">
+        {/* 背景グロー */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[100px] animate-pulse-glow" />
+        </div>
 
-      {/* ヘッダー */}
-      <div className="mb-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold">About UI Lab</h1>
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-          UI
-          Labは、AIが生成するモダンUIセクションのギャラリーサイトです。フロントエンド開発者やUIデザイナーのインスピレーション源として、また実際のプロジェクトで使えるコードスニペットとして活用できます。
-        </p>
-      </div>
+        {/* 背景ドットパターン */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-60" />
+
+        <div className="relative z-10 container mx-auto max-w-screen-md px-6 sm:px-8 md:px-12 text-center">
+          <span className="heading-section text-muted-foreground tracking-widest-custom opacity-0 animate-fade-up">
+            About
+          </span>
+
+          <h1 className="mt-6 heading-display text-4xl sm:text-5xl md:text-6xl opacity-0 animate-fade-up delay-100">
+            <span className="text-gradient glow-text">UI Lab</span>
+          </h1>
+
+          <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto opacity-0 animate-fade-up delay-200">
+            AIが生成するモダンUIセクションのギャラリー。
+            フロントエンド開発者やUIデザイナーの
+            インスピレーション源として活用できます。
+          </p>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      </section>
 
       {/* 特徴 */}
-      <div className="mb-12">
-        <h2 className="mb-6 text-center text-2xl font-semibold">特徴</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {features.map((feature) => (
-            <Card key={feature.title}>
-              <CardContent className="flex gap-4 p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                  <feature.icon className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="mb-1 font-semibold">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+      <section className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="mb-16">
+          <span className="heading-section text-muted-foreground tracking-widest-custom">
+            Features
+          </span>
+        </div>
+
+        <div className="grid gap-px bg-border/50 md:grid-cols-2 rounded-lg overflow-hidden">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="bg-background p-8 md:p-10 opacity-0 animate-fade-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <h3 className="text-lg font-semibold tracking-wide">{feature.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                {feature.description}
+              </p>
+            </div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* 技術スタック */}
-      <div className="mb-12">
-        <h2 className="mb-6 text-center text-2xl font-semibold">技術スタック</h2>
-        <Card>
-          <CardContent className="p-6">
-            <div className="grid gap-4 text-sm md:grid-cols-2">
-              <div>
-                <h3 className="mb-2 font-semibold">フロントエンド</h3>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li>Next.js (App Router)</li>
-                  <li>TypeScript</li>
-                  <li>Tailwind CSS v4</li>
-                  <li>shadcn/ui</li>
-                </ul>
+      <section className="border-y border-border/50">
+        <div className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
+          <div className="mb-16">
+            <span className="heading-section text-muted-foreground tracking-widest-custom">
+              Tech Stack
+            </span>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {techStack.map((tech, index) => (
+              <div
+                key={tech.name}
+                className="flex items-center justify-between p-4 rounded-lg border border-border/50 opacity-0 animate-fade-up"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <span className="font-medium">{tech.name}</span>
+                <span className="text-xs text-muted-foreground tracking-wide">{tech.label}</span>
               </div>
-              <div>
-                <h3 className="mb-2 font-semibold">バックエンド・インフラ</h3>
-                <ul className="space-y-1 text-muted-foreground">
-                  <li>Supabase (PostgreSQL)</li>
-                  <li>Vercel</li>
-                  <li>GitHub Actions</li>
-                  <li>Claude API (AI生成)</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
-      <div className="text-center">
-        <p className="mb-4 text-muted-foreground">
-          セクションを探してみましょう
-        </p>
-        <Link href="/">
-          <Button size="lg">ギャラリーを見る</Button>
-        </Link>
-      </div>
+      <section className="container mx-auto max-w-screen-lg px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+            Start Exploring
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            AIが生成した洗練されたUIセクションを閲覧しましょう
+          </p>
+          <div className="mt-10">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium tracking-wide bg-foreground text-background rounded-lg hover-opacity transition-opacity"
+            >
+              View Gallery
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
