@@ -72,6 +72,13 @@ async function generateScreenshots() {
 
         await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
 
+        // テーマが適用されるまで待つ（useEffectによるDOM更新を待機）
+        await page.waitForFunction(
+          (expectedTheme) => document.documentElement.classList.contains(expectedTheme),
+          theme.name,
+          { timeout: 10000 }
+        );
+
         // レンダリング完了を待つ
         await page.waitForTimeout(500);
 
