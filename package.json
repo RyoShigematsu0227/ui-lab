@@ -11,7 +11,9 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "screenshots": "tsx scripts/generate-screenshots.ts",
     "screenshots:all": "tsx scripts/generate-screenshots.ts --all",
-    "screenshots:sites": "tsx scripts/generate-site-screenshots.ts"
+    "screenshots:sites": "tsx scripts/generate-site-screenshots.ts",
+    "validate": "tsx scripts/validate-sections.ts",
+    "validate:all": "tsx scripts/validate-sections.ts --all"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
