@@ -44,13 +44,14 @@
 
 ## レンダリング戦略
 
-- **トップページ**: ISR、revalidate: 3600（1時間）
-- **セクション詳細**: ISR、revalidate: 86400（24時間）
-- **サイト事例一覧**: ISR、revalidate: 3600（1時間）
-- **お気に入り**: Static（クライアントサイドでlocalStorage読み込み）
-- **About**: Static
+- **トップページ**: SSG（ビルド時に静的生成）
+- **セクション詳細**: SSG（`generateStaticParams` で全ページ事前生成）
+- **プレビュー**: SSG（`generateStaticParams` で全ページ事前生成）
+- **サイト事例一覧**: SSG
+- **お気に入り**: CSR（クライアントサイドでlocalStorage読み込み）
+- **About**: SSG
 
-週次更新のコンテンツなので、ISRで十分。リアルタイム性は不要。
+ファイルベースCMSのため、コンテンツ更新 = git push = Vercel再デプロイ。ISRの再検証は不要で、全ページをビルド時に静的生成する。
 
 ## データフロー
 
