@@ -8,7 +8,7 @@
 │  (Next.js)   │     │  (週次Cron)      │
 └──────┬───────┘     └────────┬────────┘
        │                      │
-       │  ビルド時に           │  AI生成 →
+       │  ビルド時に           │  Claude Code CLI →
        │  fsで読み込み         │  ファイル生成 →
        │                      │  git push
        ▼                      ▼
@@ -46,8 +46,9 @@
 
 - **トップページ**: ISR、revalidate: 3600（1時間）
 - **セクション詳細**: ISR、revalidate: 86400（24時間）
-- **カテゴリ/タグページ**: ISR、revalidate: 3600（1時間）
 - **サイト事例一覧**: ISR、revalidate: 3600（1時間）
+- **お気に入り**: Static（クライアントサイドでlocalStorage読み込み）
+- **About**: Static
 
 週次更新のコンテンツなので、ISRで十分。リアルタイム性は不要。
 
@@ -63,13 +64,14 @@
 
 ### AI生成フロー
 
-1. GitHub Actions が週次 Cron で `scripts/generate-sections.ts` を実行
-2. Claude API でトレンド調査 → セクションコード生成
+1. GitHub Actions が週次 Cron で Claude Code CLI を実行
+2. `scripts/generate-sections-prompt.md` の指示に従いセクションを生成
 3. `content/sections/{slug}/code.tsx` と `metadata.json` を生成
-4. `content/sections/index.ts` にimport・マッピングを追加
-5. Playwright でプレビュースクリーンショットを撮影
-6. スクリーンショットを `public/screenshots/` に保存
-7. GitHub に push → Vercel が自動デプロイ
+4. `content/sections/index.ts` にexport・import・マッピングを追加
+5. `npm run build` でビルド確認
+6. Playwright でプレビュースクリーンショットを撮影（新規のみ）
+7. スクリーンショットを `public/screenshots/` に保存
+8. GitHub に push → Vercel が自動デプロイ
 
 ## セクションのファイル構成
 
