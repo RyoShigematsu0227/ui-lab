@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "screenshots": "tsx scripts/generate-screenshots.ts",
+    "screenshots:all": "tsx scripts/generate-screenshots.ts --all",
     "screenshots:sites": "tsx scripts/generate-site-screenshots.ts"
   },
   "dependencies": {
