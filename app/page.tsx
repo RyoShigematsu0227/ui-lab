@@ -4,9 +4,6 @@ import { getSections, getCategories, getTags } from "@/lib/content";
 import { HeroVisual } from "@/components/home/hero-visual";
 import { SectionGridSkeleton } from "@/components/gallery/section-card-skeleton";
 
-// ISR: 1時間ごとに再生成
-export const revalidate = 3600;
-
 export default async function Home() {
   const [sections, categories, tags] = await Promise.all([
     getSections(),

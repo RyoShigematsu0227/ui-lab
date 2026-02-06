@@ -2,9 +2,6 @@ import { Metadata } from "next";
 import { SitesView } from "@/components/gallery/sites-view";
 import { getSites } from "@/lib/content";
 
-// ISR: 1時間ごとに再生成
-export const revalidate = 3600;
-
 export const metadata: Metadata = {
   title: "Sites",
   description: "洗練されたWebサイトのデザイン事例集",

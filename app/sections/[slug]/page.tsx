@@ -12,9 +12,6 @@ import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 
-// ISR: 24時間ごとに再生成
-export const revalidate = 86400;
-
 interface SectionPageProps {
   params: Promise<{ slug: string }>;
 }
