@@ -22,7 +22,7 @@
 
 #### `content/sections/{slug}/code.tsx`
 
-要件:
+技術要件:
 - React関数コンポーネント（named export、default export禁止）
 - TypeScript strict mode（`any`型禁止）
 - Tailwind CSS v4 のユーティリティクラスのみ使用
@@ -35,6 +35,21 @@
 - 実在の企業名・ロゴは使わない
 - 日本語のダミーテキストを使用
 - コンポーネント名は PascalCase（例: `HeroModern002`）
+
+デザインガイドライン（既存セクションとの統一が最重要）:
+
+**必ず既存セクション（`content/sections/` 内の code.tsx）を2〜3個読み、トーンを合わせること。**
+
+- カラー: ハードコードした色は使わない。Tailwindのセマンティックトークンのみ使用
+  （`foreground`, `background`, `muted-foreground`, `border`, `primary`, `primary-foreground`）
+  透明度で階層を表現（`foreground/20`, `foreground/40`, `foreground/60`）
+- タイポグラフィ: ラベルは `text-[10px]`〜`text-xs` + `uppercase tracking-[0.2em]`〜`tracking-[0.3em]`。
+  見出しは `font-medium`（boldは使わない）。本文は `font-light` + `leading-relaxed`
+- 装飾: コーナードット（`w-1.5 h-1.5 rounded-full`）、細い区切り線（`h-px bg-border/40`）等、
+  控えめで建築的な装飾。過度なグラデーション・シャドウ・ボーダーは禁止
+- 余白: 大きめの余白を取る。`py-24`〜`py-32`、`gap-6`〜`gap-8` 等
+- 全体トーン: "洗練されたミニマリズム"。プロフェッショナルで落ち着いた印象。
+  派手・ポップ・遊び心のあるデザインは避ける
 
 #### `content/sections/{slug}/metadata.json`
 
