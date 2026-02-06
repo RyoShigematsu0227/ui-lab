@@ -117,7 +117,7 @@ export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteP
       label: category.name,
       description: `カテゴリ: ${category.description}`,
       icon: Layout,
-      action: () => navigate(`/categories/${category.slug}`),
+      action: () => navigate(`/?category=${category.slug}`),
       keywords: [category.slug, category.name, "category", "カテゴリ"],
     }));
 
