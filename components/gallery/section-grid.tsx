@@ -7,9 +7,11 @@ import { cn } from "@/lib/utils";
 interface SectionGridProps {
   sections: Section[];
   className?: string;
+  // このindex未満のアイテムはアニメーションをスキップ
+  animateFrom?: number;
 }
 
-export function SectionGrid({ sections, className }: SectionGridProps) {
+export function SectionGrid({ sections, className, animateFrom = 0 }: SectionGridProps) {
   if (sections.length === 0) {
     return (
       <div className="flex h-64 items-center justify-center rounded-lg border border-dashed border-border">
@@ -20,15 +22,18 @@ export function SectionGrid({ sections, className }: SectionGridProps) {
 
   return (
     <div className={cn("grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", className)}>
-      {sections.map((section, index) => (
-        <div
-          key={section.id}
-          className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
-          style={{ animationDelay: `${index * 50}ms` }}
-        >
-          <SectionCard section={section} priority={index < 4} />
-        </div>
-      ))}
+      {sections.map((section, index) => {
+        const shouldAnimate = index >= animateFrom;
+        return (
+          <div
+            key={section.id}
+            className={shouldAnimate ? "animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both" : undefined}
+            style={shouldAnimate ? { animationDelay: `${(index - animateFrom) * 50}ms` } : undefined}
+          >
+            <SectionCard section={section} priority={index < 4} />
+          </div>
+        );
+      })}
     </div>
   );
 }

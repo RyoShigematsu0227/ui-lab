@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Section, Category, Tag } from "@/types";
 import { SectionGrid } from "./section-grid";
 import { CategoryFilter } from "./category-filter";
@@ -22,8 +22,13 @@ interface GalleryViewProps {
 
 const ITEMS_PER_PAGE = 12;
 
+// モジュールレベルキャッシュ（SPA遷移間で保持、リロードでリセット）
+let cachedVisibleCount = ITEMS_PER_PAGE;
+const cachedScrollMap: Record<string, number> = {};
+
 export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
 
   // URLパラメータから初期値を取得
@@ -39,8 +44,54 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   const [sortOption, setSortOption] = useState<SortOption>(
     (searchParams.get("sort") as SortOption) || "newest"
   );
-  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  // SPA遷移で戻ってきた場合はキャッシュから復元（リロード時は12にリセット）
+  const [visibleCount, setVisibleCount] = useState(cachedVisibleCount);
+  // 復元時は全アイテムのアニメーションをスキップ
+  const [animateFrom, setAnimateFrom] = useState(
+    cachedVisibleCount > ITEMS_PER_PAGE ? cachedVisibleCount : 0
+  );
   const [showFilters, setShowFilters] = useState(false);
+
+  const shouldRestore = useRef(cachedVisibleCount > ITEMS_PER_PAGE);
+
+  // ブラウザのスクロール復元を無効化（SPA全体で自前管理）
+  useEffect(() => {
+    history.scrollRestoration = "manual";
+  }, []);
+
+  // スクロール位置をページ別で常時キャッシュ（変数代入のみなので軽量）
+  const isActive = useRef(true);
+  useEffect(() => {
+    isActive.current = true;
+    const onScroll = () => {
+      if (isActive.current) {
+        cachedScrollMap[pathname] = window.scrollY;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      isActive.current = false;
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [pathname]);
+
+  // スクロール位置の復元/リセット
+  useEffect(() => {
+    if (shouldRestore.current) {
+      // SPA遷移で戻ってきた: 即座に復元 + Next.jsのscroll-to-top後にも再復元
+      const savedY = cachedScrollMap[pathname] ?? 0;
+      window.scrollTo(0, savedY);
+      requestAnimationFrame(() => window.scrollTo(0, savedY));
+    } else {
+      // リロード/初回訪問: トップへ
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  // 表示件数をモジュールキャッシュに同期
+  useEffect(() => {
+    cachedVisibleCount = visibleCount;
+  }, [visibleCount]);
 
   // 検索クエリをデバウンス（300ms）
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
@@ -133,17 +184,23 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   const hasMore = visibleCount < filteredSections.length;
 
   const handleLoadMore = () => {
+    setAnimateFrom(visibleCount);
     setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
+  };
+
+  const resetPagination = () => {
+    setVisibleCount(ITEMS_PER_PAGE);
+    setAnimateFrom(0);
   };
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    setVisibleCount(ITEMS_PER_PAGE);
+    resetPagination();
   };
 
   const handleCategorySelect = (category: string | null) => {
     setSelectedCategory(category);
-    setVisibleCount(ITEMS_PER_PAGE);
+    resetPagination();
   };
 
   const handleToggleTag = (tagSlug: string) => {
@@ -152,12 +209,12 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
         ? prev.filter((t) => t !== tagSlug)
         : [...prev, tagSlug]
     );
-    setVisibleCount(ITEMS_PER_PAGE);
+    resetPagination();
   };
 
   const handleClearTags = () => {
     setSelectedTags([]);
-    setVisibleCount(ITEMS_PER_PAGE);
+    resetPagination();
   };
 
   const handleClearAll = () => {
@@ -165,12 +222,12 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
     setSelectedTags([]);
     setSearchQuery("");
     setSortOption("newest");
-    setVisibleCount(ITEMS_PER_PAGE);
+    resetPagination();
   };
 
   const handleSortChange = (option: SortOption) => {
     setSortOption(option);
-    setVisibleCount(ITEMS_PER_PAGE);
+    resetPagination();
   };
 
   const hasActiveFilters = selectedCategory || selectedTags.length > 0 || debouncedSearchQuery;
@@ -312,7 +369,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
       {/* グリッド */}
       {visibleSections.length > 0 ? (
         <>
-          <SectionGrid sections={visibleSections} />
+          <SectionGrid sections={visibleSections} animateFrom={animateFrom} />
 
           {/* もっと見るボタン */}
           {hasMore && (
