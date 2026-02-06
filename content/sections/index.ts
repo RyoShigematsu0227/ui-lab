@@ -81,12 +81,6 @@ export { GalleryGrid001 } from "./gallery-grid-001/code";
 export { NewsletterCentered001 } from "./newsletter-centered-001/code";
 export { TrustLogos001 } from "./trust-logos-001/code";
 export { AboutSection001 } from "./about-section-001/code";
-// 2026-02-06 新規セクション
-export { LogoCloudGrid001 } from "./logo-cloud-grid-001/code";
-export { GalleryBento001 } from "./gallery-bento-001/code";
-export { NewsletterMinimal001 } from "./newsletter-minimal-001/code";
-export { BlogGrid001 } from "./blog-grid-001/code";
-export { ContactSplit001 } from "./contact-split-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -171,12 +165,6 @@ import { GalleryGrid001 } from "./gallery-grid-001/code";
 import { NewsletterCentered001 } from "./newsletter-centered-001/code";
 import { TrustLogos001 } from "./trust-logos-001/code";
 import { AboutSection001 } from "./about-section-001/code";
-// 2026-02-06 新規セクション
-import { LogoCloudGrid001 } from "./logo-cloud-grid-001/code";
-import { GalleryBento001 } from "./gallery-bento-001/code";
-import { NewsletterMinimal001 } from "./newsletter-minimal-001/code";
-import { BlogGrid001 } from "./blog-grid-001/code";
-import { ContactSplit001 } from "./contact-split-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -261,10 +249,4 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "newsletter-centered-001": NewsletterCentered001,
   "trust-logos-001": TrustLogos001,
   "about-section-001": AboutSection001,
-  // 2026-02-06 新規セクション
-  "logo-cloud-grid-001": LogoCloudGrid001,
-  "gallery-bento-001": GalleryBento001,
-  "newsletter-minimal-001": NewsletterMinimal001,
-  "blog-grid-001": BlogGrid001,
-  "contact-split-001": ContactSplit001,
 };
