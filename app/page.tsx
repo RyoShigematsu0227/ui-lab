@@ -40,9 +40,9 @@ export default async function Home() {
 
               {/* 説明文 */}
               <p className="mt-8 text-[15px] text-muted-foreground max-w-md leading-[1.8] tracking-wide">
-                Next.js + Tailwind CSS で構築された
+                AIが毎週届ける、
                 <br className="hidden sm:block" />
-                UIセクションのコレクション
+                UIデザインの最前線
               </p>
 
               {/* 統計 - シンプルなレイアウト */}

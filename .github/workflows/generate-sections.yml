@@ -34,6 +34,7 @@ jobs:
         run: |
           PROMPT=$(cat scripts/generate-sections-prompt.md)
           npx @anthropic-ai/claude-code -p "$PROMPT" \
+            --model claude-opus-4-6 \
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash" \
             --max-turns 30
 

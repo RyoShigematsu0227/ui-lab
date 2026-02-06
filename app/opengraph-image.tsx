@@ -139,7 +139,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.6,
           }}
         >
-          Next.js + Tailwind CSS で構築された
+          AIが毎週届ける、
         </div>
         <div
           style={{
@@ -148,7 +148,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.6,
           }}
         >
-          UIセクションのコレクション
+          UIデザインの最前線
         </div>
 
         {/* フローティングカード風装飾 */}
