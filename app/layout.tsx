@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FavoritesProvider } from "@/components/layout/favorites-provider";
@@ -79,6 +80,20 @@ export default async function RootLayout({
   const sections = await getSections();
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YZKMTT5P97"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YZKMTT5P97');
+          `}
+        </Script>
+      </head>
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         <WebSiteJsonLd />
         <ThemeProvider>
