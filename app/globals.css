@@ -130,6 +130,10 @@
     @apply bg-background text-foreground antialiased;
     letter-spacing: 0.025em;
   }
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
 }
 
 /* スムーススクロール */

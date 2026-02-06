@@ -97,10 +97,17 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
             />
           ) : (
             /* プレースホルダー */
-            <div className="absolute inset-0 flex items-center justify-center bg-muted">
-              <span className="text-5xl font-bold text-muted-foreground/20">
-                {section.title.charAt(0)}
-              </span>
+            <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+              <div className="flex flex-col items-center gap-3">
+                <div className="flex gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground/10" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground/10" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-foreground/10" />
+                </div>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground/40">
+                  Preview
+                </span>
+              </div>
             </div>
           )}
 
