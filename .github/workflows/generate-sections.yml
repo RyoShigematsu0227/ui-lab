@@ -46,12 +46,15 @@ jobs:
       - name: Install Playwright
         run: npx playwright install chromium
 
-      - name: Generate screenshots
+      - name: Validate and generate screenshots
         run: |
           npm run dev &
           DEV_PID=$!
           # dev サーバーの起動を待つ
           npx wait-on http://localhost:3000 --timeout 30000
+          # 新規セクションをPlaywrightで検証（エラーがあれば非公開にする）
+          npx tsx scripts/validate-sections.ts
+          # 検証を通ったセクションのスクリーンショットを生成
           npm run screenshots
           kill $DEV_PID
 

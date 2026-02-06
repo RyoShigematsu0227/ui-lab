@@ -35,6 +35,7 @@
 - 実在の企業名・ロゴは使わない
 - 日本語のダミーテキストを使用
 - コンポーネント名は PascalCase（例: `HeroModern002`）
+- **重要**: `useState`, `useEffect`, `onClick`, `onSubmit`, `onChange` 等のhooksやイベントハンドラを使う場合、ファイル先頭に `"use client";` を必ず記述すること。これがないとランタイムエラーになる
 
 デザインガイドライン（既存セクションとの統一が最重要）:
 
