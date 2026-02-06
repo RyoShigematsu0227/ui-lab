@@ -248,7 +248,7 @@ export function HeroVisual() {
 
       {/* フローティングカード群 */}
       <FloatingCard
-        className="top-4 left-8 w-36"
+        className="top-2 left-4 w-28 sm:top-4 sm:left-8 sm:w-36"
         delay={0}
         duration={7}
         mouseX={mousePos.x}
@@ -261,7 +261,7 @@ export function HeroVisual() {
       </FloatingCard>
 
       <FloatingCard
-        className="top-16 right-4 w-32"
+        className="top-10 right-2 w-24 sm:top-16 sm:right-4 sm:w-32"
         delay={1.5}
         duration={6}
         mouseX={mousePos.x}
@@ -274,7 +274,7 @@ export function HeroVisual() {
       </FloatingCard>
 
       <FloatingCard
-        className="top-1/2 left-0 w-40 -translate-y-1/2"
+        className="top-1/2 left-0 w-32 -translate-y-1/2 sm:w-40"
         delay={0.8}
         duration={8}
         mouseX={mousePos.x}
@@ -287,7 +287,7 @@ export function HeroVisual() {
       </FloatingCard>
 
       <FloatingCard
-        className="bottom-24 right-8 w-36"
+        className="bottom-12 right-4 w-28 sm:bottom-24 sm:right-8 sm:w-36"
         delay={2}
         duration={7}
         mouseX={mousePos.x}
@@ -300,7 +300,7 @@ export function HeroVisual() {
       </FloatingCard>
 
       <FloatingCard
-        className="bottom-8 left-16 w-32"
+        className="bottom-2 left-8 w-24 sm:bottom-8 sm:left-16 sm:w-32"
         delay={1}
         duration={6.5}
         mouseX={mousePos.x}

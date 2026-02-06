@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
 import { Section } from "@/types";
 import { FavoriteButton } from "./favorite-button";
 import { useFavoritesContext } from "@/components/layout/favorites-provider";
@@ -28,30 +27,26 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { isFavorite, toggleFavorite } = useFavoritesContext();
   const { resolvedTheme } = useTheme();
   const isNewSection = isNew(section.createdAt);
-  const [imageError, setImageError] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [darkLoaded, setDarkLoaded] = useState(false);
+  const [lightLoaded, setLightLoaded] = useState(false);
+  const [darkError, setDarkError] = useState(false);
+  const [lightError, setLightError] = useState(false);
 
   // クライアント側でマウント後にテーマを適用（ハイドレーションエラー回避）
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // テーマに応じたスクリーンショットURLを生成
-  const getThemedScreenshotUrl = () => {
-    if (!section.screenshotUrl) return null;
-    // マウント前はデフォルト（ダーク）画像を使用
-    if (mounted && resolvedTheme === "light") {
-      // /screenshots/slug.png -> /screenshots/slug-light.png
-      return section.screenshotUrl.replace(/\.png$/, "-light.png");
-    }
-    return section.screenshotUrl;
-  };
+  const isLight = mounted && resolvedTheme === "light";
+  const darkUrl = section.screenshotUrl || null;
+  const lightUrl = section.screenshotUrl?.replace(/\.png$/, "-light.png") || null;
 
-  const screenshotUrl = getThemedScreenshotUrl();
-  const showPlaceholder = !screenshotUrl || imageError;
-  const showSkeleton = !showPlaceholder && !imageLoaded;
+  // 現在のテーマの画像が読み込み済みか
+  const activeLoaded = isLight ? lightLoaded : darkLoaded;
+  const showPlaceholder = !section.screenshotUrl || (darkError && lightError);
+  const showSkeleton = !showPlaceholder && !activeLoaded;
 
   return (
     <article
@@ -73,7 +68,7 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
           <div
             className={cn(
               "absolute inset-0 bg-muted transition-opacity duration-300",
-              imageLoaded ? "opacity-0" : "opacity-100"
+              activeLoaded ? "opacity-0" : "opacity-100"
             )}
           >
             <div className="absolute inset-0 animate-pulse">
@@ -81,20 +76,40 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
             </div>
           </div>
 
-          {!showPlaceholder && screenshotUrl ? (
-            <Image
-              src={screenshotUrl}
-              alt={section.title}
-              fill
-              priority={priority}
-              className={cn(
-                "object-cover transition-all duration-500 ease-out",
-                isHovered ? "scale-[1.02]" : "scale-100"
+          {!showPlaceholder && darkUrl ? (
+            <>
+              {/* ダークテーマ用スクリーンショット */}
+              <Image
+                src={darkUrl}
+                alt={section.title}
+                fill
+                priority={priority}
+                className={cn(
+                  "object-cover transition-all duration-500 ease-out",
+                  isHovered ? "scale-[1.02]" : "scale-100",
+                  isLight ? "opacity-0" : "opacity-100"
+                )}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                onLoad={() => setDarkLoaded(true)}
+                onError={() => setDarkError(true)}
+              />
+              {/* ライトテーマ用スクリーンショット */}
+              {lightUrl && (
+                <Image
+                  src={lightUrl}
+                  alt=""
+                  fill
+                  className={cn(
+                    "object-cover transition-all duration-500 ease-out",
+                    isHovered ? "scale-[1.02]" : "scale-100",
+                    isLight ? "opacity-100" : "opacity-0"
+                  )}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  onLoad={() => setLightLoaded(true)}
+                  onError={() => setLightError(true)}
+                />
               )}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              onLoad={() => setImageLoaded(true)}
-              onError={() => setImageError(true)}
-            />
+            </>
           ) : (
             /* プレースホルダー */
             <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
