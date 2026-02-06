@@ -81,6 +81,12 @@ export { GalleryGrid001 } from "./gallery-grid-001/code";
 export { NewsletterCentered001 } from "./newsletter-centered-001/code";
 export { TrustLogos001 } from "./trust-logos-001/code";
 export { AboutSection001 } from "./about-section-001/code";
+// 新規セクション（2026-02-06）
+export { BlogFeatured001 } from "./blog-featured-001/code";
+export { GalleryLightbox001 } from "./gallery-lightbox-001/code";
+export { ContactSplit001 } from "./contact-split-001/code";
+export { NewsletterBanner001 } from "./newsletter-banner-001/code";
+export { NavigationSidebar001 } from "./navigation-sidebar-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -165,6 +171,12 @@ import { GalleryGrid001 } from "./gallery-grid-001/code";
 import { NewsletterCentered001 } from "./newsletter-centered-001/code";
 import { TrustLogos001 } from "./trust-logos-001/code";
 import { AboutSection001 } from "./about-section-001/code";
+// 新規セクション（2026-02-06）
+import { BlogFeatured001 } from "./blog-featured-001/code";
+import { GalleryLightbox001 } from "./gallery-lightbox-001/code";
+import { ContactSplit001 } from "./contact-split-001/code";
+import { NewsletterBanner001 } from "./newsletter-banner-001/code";
+import { NavigationSidebar001 } from "./navigation-sidebar-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -249,4 +261,10 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "newsletter-centered-001": NewsletterCentered001,
   "trust-logos-001": TrustLogos001,
   "about-section-001": AboutSection001,
+  // 新規セクション（2026-02-06）
+  "blog-featured-001": BlogFeatured001,
+  "gallery-lightbox-001": GalleryLightbox001,
+  "contact-split-001": ContactSplit001,
+  "newsletter-banner-001": NewsletterBanner001,
+  "navigation-sidebar-001": NavigationSidebar001,
 };
