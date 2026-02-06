@@ -12,25 +12,12 @@ interface SectionPreviewLiveProps {
 
 type ViewMode = "desktop" | "tablet" | "mobile";
 
-const VIEW_SIZES = {
-  desktop: { width: "100%", label: "Desktop" },
-  tablet: { width: "768px", label: "Tablet" },
-  mobile: { width: "375px", label: "Mobile" },
-};
-
 export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
   const [viewMode, setViewMode] = useState<ViewMode>("desktop");
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [iframeKey, setIframeKey] = useState(0);
 
   // iframeのURLを生成
   const previewUrl = `/preview/${slug}`;
-
-  // ビューモード変更時にiframeをリロード（キャッシュ対策）
-  const handleViewModeChange = (mode: ViewMode) => {
-    setViewMode(mode);
-    setIframeKey(prev => prev + 1);
-  };
 
   // Escキーでフルスクリーンを閉じる
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -69,7 +56,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
                 variant={viewMode === "desktop" ? "secondary" : "ghost"}
                 size="sm"
                 className="h-8 w-8 p-0"
-                onClick={() => handleViewModeChange("desktop")}
+                onClick={() => setViewMode("desktop")}
                 title="Desktop"
               >
                 <Monitor className="h-4 w-4" />
@@ -79,7 +66,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
                 variant={viewMode === "tablet" ? "secondary" : "ghost"}
                 size="sm"
                 className="h-8 w-8 p-0"
-                onClick={() => handleViewModeChange("tablet")}
+                onClick={() => setViewMode("tablet")}
                 title="Tablet (768px)"
               >
                 <Tablet className="h-4 w-4" />
@@ -89,7 +76,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
                 variant={viewMode === "mobile" ? "secondary" : "ghost"}
                 size="sm"
                 className="h-8 w-8 p-0"
-                onClick={() => handleViewModeChange("mobile")}
+                onClick={() => setViewMode("mobile")}
                 title="Mobile (375px)"
               >
                 <Smartphone className="h-4 w-4" />
@@ -122,7 +109,6 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
             )}
           >
             <iframe
-              key={iframeKey}
               src={previewUrl}
               className="h-full w-full border-0"
               title={`${title} preview`}
@@ -145,7 +131,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
               variant={viewMode === "desktop" ? "secondary" : "ghost"}
               size="sm"
               className="h-8 w-8 p-0"
-              onClick={() => handleViewModeChange("desktop")}
+              onClick={() => setViewMode("desktop")}
               title="Desktop"
             >
               <Monitor className="h-4 w-4" />
@@ -155,7 +141,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
               variant={viewMode === "tablet" ? "secondary" : "ghost"}
               size="sm"
               className="h-8 w-8 p-0"
-              onClick={() => handleViewModeChange("tablet")}
+              onClick={() => setViewMode("tablet")}
               title="Tablet (768px)"
             >
               <Tablet className="h-4 w-4" />
@@ -165,7 +151,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
               variant={viewMode === "mobile" ? "secondary" : "ghost"}
               size="sm"
               className="h-8 w-8 p-0"
-              onClick={() => handleViewModeChange("mobile")}
+              onClick={() => setViewMode("mobile")}
               title="Mobile (375px)"
             >
               <Smartphone className="h-4 w-4" />
@@ -202,7 +188,6 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
           }}
         >
           <iframe
-            key={iframeKey}
             src={previewUrl}
             className={cn(
               "w-full border-0",

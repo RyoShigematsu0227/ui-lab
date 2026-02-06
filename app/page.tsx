@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import { GalleryView } from "@/components/gallery/gallery-view";
 import { getSections, getCategories, getTags } from "@/lib/content";
 import { HeroVisual } from "@/components/home/hero-visual";
+import { SectionGridSkeleton } from "@/components/gallery/section-card-skeleton";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
@@ -89,7 +91,9 @@ export default async function Home() {
           </div>
 
           {/* ギャラリー */}
-          <GalleryView sections={sections} categories={categories} tags={tags} />
+          <Suspense fallback={<SectionGridSkeleton />}>
+            <GalleryView sections={sections} categories={categories} tags={tags} />
+          </Suspense>
         </div>
       </section>
     </>
