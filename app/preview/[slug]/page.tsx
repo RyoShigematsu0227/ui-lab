@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { SECTION_COMPONENTS } from "@/content/sections";
-import { MOCK_SECTIONS } from "@/data/mock-sections";
 import { PreviewWrapper } from "./preview-wrapper";
 
 // プレビュー専用ページ
@@ -12,9 +11,7 @@ interface PreviewPageProps {
 }
 
 export function generateStaticParams() {
-  return MOCK_SECTIONS.map((section) => ({
-    slug: section.slug,
-  }));
+  return Object.keys(SECTION_COMPONENTS).map((slug) => ({ slug }));
 }
 
 // コンポーネントタイプを判定

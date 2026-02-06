@@ -1,0 +1,14 @@
+{
+  "title": "トラストバッジ",
+  "description": "セキュリティ認証と受賞歴を表示するセクション",
+  "category": "logo-cloud",
+  "tags": [
+    "grid",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/trust-badges-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-06T00:00:00Z",
+  "updatedAt": "2024-02-06T00:00:00Z"
+}

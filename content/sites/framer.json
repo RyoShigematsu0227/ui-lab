@@ -1,0 +1,14 @@
+{
+  "title": "Framer",
+  "url": "https://framer.com",
+  "description": "Webサイトビルダー。インタラクティブなデモとスムーズなアニメーションが印象的。",
+  "screenshotUrl": "/screenshots/sites/framer.png",
+  "tags": [
+    "animation",
+    "interactive",
+    "full-width"
+  ],
+  "isPublished": true,
+  "createdAt": "2024-01-10T00:00:00Z",
+  "updatedAt": "2024-01-10T00:00:00Z"
+}

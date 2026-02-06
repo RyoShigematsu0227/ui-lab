@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { TagPageView } from "@/components/gallery/tag-page-view";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
-import { getTags, getTagBySlug, getSectionsByTag } from "@/lib/supabase";
+import { getTags, getTagBySlug, getSectionsByTag } from "@/lib/content";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 

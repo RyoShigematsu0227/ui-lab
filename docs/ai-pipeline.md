@@ -10,7 +10,7 @@
 - **トリガー**: GitHub Actions の cron スケジュール（毎週月曜 9:00 JST）
 - **AI**: Claude API（claude-sonnet-4-20250514）
 - **スクリーンショット**: Playwright
-- **画像ストレージ**: Supabase Storage
+- **画像保存先**: `public/screenshots/`（Gitリポジトリ内）
 
 ## パイプライン全体フロー
 
@@ -22,25 +22,38 @@
 2. セクション生成（3〜5個/週）
    └─ テーマごとに Claude API でコード生成
    └─ Next.js + Tailwind CSS のコンポーネントとして出力
-   └─ バリエーション（ダーク/ライト、レイアウト違い）も同時生成
+   └─ metadata.json も同時生成
 
 3. 品質チェック
    └─ TypeScript の型チェック（tsc --noEmit）
    └─ ESLint チェック
    └─ ビルド確認
 
-4. スクリーンショット撮影
+4. コンポーネント登録
+   └─ content/sections/index.ts にimport・マッピングを追加
+
+5. スクリーンショット撮影
    └─ Playwright で各セクションをレンダリング
    └─ デスクトップ / モバイル の2サイズで撮影
-   └─ Supabase Storage にアップロード
-
-5. データ登録
-   └─ メタデータ（カテゴリ、タグ、説明）を Supabase に INSERT
-   └─ content/sections/ にコードファイルをコミット
+   └─ public/screenshots/ に保存
 
 6. デプロイ
    └─ GitHub に push → Vercel が自動デプロイ
 ```
+
+## 生成されるファイル
+
+1セクションあたり:
+
+```
+content/sections/{slug}/
+  code.tsx          → Reactコンポーネント
+  metadata.json     → メタデータ
+public/screenshots/
+  {slug}.png        → デスクトップスクリーンショット
+```
+
++ `content/sections/index.ts` にimport行とマッピング追加
 
 ## プロンプト設計
 
@@ -80,15 +93,13 @@
 
 出力形式:
 - code.tsx: メインコンポーネント
-- metadata.json: { title, description, category, tags, variants }
-- variants/: バリエーションがあれば
+- metadata.json: { title, description, category, tags, generatedBy, createdAt, updatedAt }
 ```
 
 ## 生成数の目安
 
 - 週あたり: 3〜5セクション
 - 月あたり: 12〜20セクション
-- 各セクションにバリエーション1〜2個
 
 ## エラーハンドリング
 
@@ -97,12 +108,11 @@
 | Claude API エラー | 3回リトライ後、スキップしてログ記録 |
 | 型チェック失敗 | 該当セクションをスキップ、他のセクションは続行 |
 | スクリーンショット失敗 | プレースホルダー画像を使用 |
-| Supabase 接続エラー | 3回リトライ後、GitHub Issue を自動作成 |
+| ビルドエラー | GitHub Issue を自動作成 |
 
 ## コスト見積もり
 
 - Claude API: 週5セクション × ~$0.05/セクション ≈ $1/月
-- Supabase: Free tier で十分（画像1GBまで）
 - GitHub Actions: Free tier の無料枠内（月2000分）
 - Vercel: Hobby プランで十分
 
@@ -114,6 +124,6 @@ Phase 1 が安定したら以下を追加:
 2. 気になるサイトの URL を収集
 3. Playwright でフルページスクリーンショット撮影
 4. Claude API で解説文・カテゴリ分類を自動生成
-5. Supabase に登録
+5. `content/sites/{slug}.json` として保存
 
 ※ クローリングの法的・倫理的配慮が必要なため慎重に進める

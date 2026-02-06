@@ -1,0 +1,14 @@
+{
+  "title": "センターナビゲーション",
+  "description": "中央配置のリンク付きナビゲーションヘッダー",
+  "category": "navigation",
+  "tags": [
+    "minimal",
+    "interactive"
+  ],
+  "screenshotUrl": "/screenshots/navigation-centered-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-04T00:00:00Z",
+  "updatedAt": "2024-02-04T00:00:00Z"
+}

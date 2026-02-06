@@ -1,0 +1,15 @@
+{
+  "title": "イメージCTA",
+  "description": "背景画像付きのコールトゥアクションセクション",
+  "category": "cta",
+  "tags": [
+    "gradient",
+    "full-width",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/cta-image-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-01-28T00:00:00Z",
+  "updatedAt": "2024-01-28T00:00:00Z"
+}

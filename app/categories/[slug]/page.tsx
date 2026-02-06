@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CategoryPageView } from "@/components/gallery/category-page-view";
 import { CategoryJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
-import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/supabase";
+import { getCategories, getCategoryBySlug, getSectionsByCategory } from "@/lib/content";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 

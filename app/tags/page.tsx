@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getTags, getSections } from "@/lib/supabase";
+import { getTags, getSections } from "@/lib/content";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;

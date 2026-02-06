@@ -1,0 +1,14 @@
+{
+  "title": "検索付きFAQ",
+  "description": "検索機能付きのFAQセクション",
+  "category": "faq",
+  "tags": [
+    "interactive",
+    "grid"
+  ],
+  "screenshotUrl": "/screenshots/faq-search-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-03-11T00:00:00Z",
+  "updatedAt": "2024-03-11T00:00:00Z"
+}

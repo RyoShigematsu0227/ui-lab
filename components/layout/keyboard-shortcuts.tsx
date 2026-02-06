@@ -5,8 +5,13 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { KeyboardShortcutsHelp } from "./keyboard-shortcuts-help";
 import { CommandPalette } from "./command-palette";
+import { Section } from "@/types";
 
-export function KeyboardShortcuts() {
+interface KeyboardShortcutsProps {
+  sections: Section[];
+}
+
+export function KeyboardShortcuts({ sections }: KeyboardShortcutsProps) {
   const router = useRouter();
   const { setTheme, resolvedTheme } = useTheme();
   const [helpOpen, setHelpOpen] = useState(false);
@@ -79,7 +84,7 @@ export function KeyboardShortcuts() {
   return (
     <>
       <KeyboardShortcutsHelp open={helpOpen} onOpenChange={setHelpOpen} />
-      <CommandPalette open={commandPaletteOpen} onOpenChange={setCommandPaletteOpen} />
+      <CommandPalette open={commandPaletteOpen} onOpenChange={setCommandPaletteOpen} sections={sections} />
     </>
   );
 }

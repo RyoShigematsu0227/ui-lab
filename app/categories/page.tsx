@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getCategories, getSections } from "@/lib/supabase";
+import { getCategories, getSections } from "@/lib/content";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;

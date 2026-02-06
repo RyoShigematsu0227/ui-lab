@@ -1,0 +1,14 @@
+{
+  "title": "2カラムFAQ",
+  "description": "サポートCTA付きの2カラムFAQセクション",
+  "category": "faq",
+  "tags": [
+    "interactive",
+    "split"
+  ],
+  "screenshotUrl": "/screenshots/faq-two-column-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-01-31T00:00:00Z",
+  "updatedAt": "2024-01-31T00:00:00Z"
+}

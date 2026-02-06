@@ -3,25 +3,51 @@
 ## 全体構成図
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────────┐
-│   Vercel     │────▶│  Supabase   │     │ GitHub Actions  │
-│  (Next.js)   │◀────│ (PostgreSQL)│◀────│  (週次Cron)      │
-└─────────────┘     └─────────────┘     └────────┬────────┘
-                          ▲                       │
-                          │                       ▼
-                    ┌─────┴─────┐          ┌─────────────┐
-                    │  Supabase │          │  Claude API  │
-                    │  Storage  │◀─────────│  (生成AI)    │
-                    │  (画像)   │          └─────────────┘
-                    └───────────┘
+┌─────────────┐     ┌─────────────────┐
+│   Vercel     │     │ GitHub Actions  │
+│  (Next.js)   │     │  (週次Cron)      │
+└──────┬───────┘     └────────┬────────┘
+       │                      │
+       │  ビルド時に           │  AI生成 →
+       │  fsで読み込み         │  ファイル生成 →
+       │                      │  git push
+       ▼                      ▼
+┌─────────────────────────────────────┐
+│         Git リポジトリ               │
+│                                     │
+│  content/sections/{slug}/           │
+│    code.tsx + metadata.json         │
+│  content/sites/{slug}.json          │
+│  data/categories.ts + tags.ts       │
+│  public/screenshots/                │
+└─────────────────────────────────────┘
 ```
+
+## データ管理方式
+
+外部DBは使わず、すべてのデータをファイルとしてGitリポジトリ内に保持する。
+
+- **セクションメタデータ**: `content/sections/{slug}/metadata.json`
+- **セクションコード**: `content/sections/{slug}/code.tsx`
+- **サイト事例**: `content/sites/{slug}.json`
+- **カテゴリ**: `data/categories.ts`（静的TypeScript）
+- **タグ**: `data/tags.ts`（静的TypeScript）
+
+`lib/content.ts` が `fs.readFileSync` でファイルを読み込み、モジュールレベルキャッシュで高速化。
+
+### メリット
+
+- ネットワーク通信なし（障害リスクゼロ）
+- ビルド時に全データが静的化される
+- Gitで履歴管理
+- AI pipelineはファイル生成 + git push だけで完結
 
 ## レンダリング戦略
 
-- **トップページ**: ISR（Incremental Static Regeneration）、revalidate: 3600（1時間）
+- **トップページ**: ISR、revalidate: 3600（1時間）
 - **セクション詳細**: ISR、revalidate: 86400（24時間）
-- **サイト事例詳細**: ISR、revalidate: 86400（24時間）
 - **カテゴリ/タグページ**: ISR、revalidate: 3600（1時間）
+- **サイト事例一覧**: ISR、revalidate: 3600（1時間）
 
 週次更新のコンテンツなので、ISRで十分。リアルタイム性は不要。
 
@@ -30,35 +56,53 @@
 ### 閲覧フロー
 
 1. ユーザーがページにアクセス
-2. Next.js が Supabase からデータ取得（Server Component）
-3. ISR キャッシュがあればキャッシュを返す
-4. UIセクションのコードは `content/sections/` にファイルとして保持
-5. プレビューは iframe でレンダリング
+2. ISR キャッシュがあればキャッシュを返す
+3. Next.js Server Component が `lib/content.ts` 経由でファイルを読み込み
+4. UIセクションのコードは `content/sections/{slug}/code.tsx` から取得
+5. プレビューは `/preview/[slug]` ページを iframe で埋め込み
 
 ### AI生成フロー
 
 1. GitHub Actions が週次 Cron で `scripts/generate-sections.ts` を実行
 2. Claude API でトレンド調査 → セクションコード生成
-3. 生成されたコードを `content/sections/` に保存
-4. Playwright でプレビュースクリーンショットを撮影
-5. スクリーンショットを Supabase Storage にアップロード
-6. メタデータを Supabase DB に登録
-7. Vercel に自動デプロイ（GitHub push トリガー）
+3. `content/sections/{slug}/code.tsx` と `metadata.json` を生成
+4. `content/sections/index.ts` にimport・マッピングを追加
+5. Playwright でプレビュースクリーンショットを撮影
+6. スクリーンショットを `public/screenshots/` に保存
+7. GitHub に push → Vercel が自動デプロイ
 
-## UIセクションのプレビュー方式
-
-各セクションのコードは独立した React コンポーネントとして `content/sections/` に保存する。
-プレビュー表示には iframe + `srcdoc` を使い、サイト本体のスタイルと干渉しないようにする。
+## セクションのファイル構成
 
 ```
 content/sections/
   hero-gradient-001/
-    code.tsx          → セクションのソースコード
-    metadata.json     → カテゴリ、タグ、説明等
-    variants/
-      dark.tsx        → ダークバリエーション
-      minimal.tsx     → ミニマルバリエーション
+    code.tsx          → セクションのReactコンポーネント
+    metadata.json     → メタデータ（カテゴリ、タグ、説明等）
+  hero-minimal-001/
+    code.tsx
+    metadata.json
+  ...
 ```
+
+### metadata.json スキーマ
+
+```json
+{
+  "title": "グラデーションヒーロー",
+  "description": "美しいグラデーション背景を使用したモダンなヒーローセクション",
+  "category": "hero",
+  "tags": ["gradient", "animation", "full-width"],
+  "screenshotUrl": "/screenshots/hero-gradient-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-01-15T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}
+```
+
+## コンポーネントマッピング
+
+`content/sections/index.ts` が全セクションのReactコンポーネントをimportし、`SECTION_COMPONENTS` マップ（slug → ComponentType）として提供。プレビューページがこのマップで動的にコンポーネントをレンダリングする。
 
 ## 認証・管理画面
 
@@ -67,5 +111,5 @@ content/sections/
 ## エラーハンドリング
 
 - AI生成が失敗した場合: GitHub Actions のログに記録、次週にリトライ
-- Supabase 接続エラー: Next.js の error.tsx でフォールバック表示
+- metadata.json の読み込み失敗: 該当セクションをスキップ（他は正常表示）
 - 不正なセクションコード: ビルド時に型チェックで検出

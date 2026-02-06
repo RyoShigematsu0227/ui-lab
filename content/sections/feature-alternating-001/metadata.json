@@ -1,0 +1,15 @@
+{
+  "title": "交互配置フィーチャー",
+  "description": "画像とテキストが交互に並ぶ機能紹介セクション",
+  "category": "feature",
+  "tags": [
+    "split",
+    "hover-effect",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/feature-alternating-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-01T00:00:00Z",
+  "updatedAt": "2024-02-01T00:00:00Z"
+}

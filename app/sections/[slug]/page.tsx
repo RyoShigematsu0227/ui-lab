@@ -6,7 +6,7 @@ import { SectionActions } from "@/components/sections/section-actions";
 import { CodeDownloadButton } from "@/components/sections/code-download-button";
 import { SectionGrid } from "@/components/gallery/section-grid";
 import { SectionJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
-import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/supabase";
+import { getSections, getSectionBySlug, getSectionsByCategory } from "@/lib/content";
 import { getSectionCode } from "@/lib/section-codes";
 import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 

@@ -20,12 +20,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
-import { MOCK_SECTIONS } from "@/data/mock-sections";
 import { CATEGORIES } from "@/data/categories";
+import { Section } from "@/types";
 
 interface CommandPaletteProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  sections: Section[];
 }
 
 type CommandItem = {
@@ -37,7 +38,7 @@ type CommandItem = {
   keywords?: string[];
 };
 
-export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
+export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteProps) {
   const router = useRouter();
   const { setTheme, resolvedTheme } = useTheme();
   const [query, setQuery] = useState("");
@@ -121,7 +122,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     }));
 
     // セクションを追加
-    const sectionCommands: CommandItem[] = MOCK_SECTIONS.slice(0, 10).map((section) => ({
+    const sectionCommands: CommandItem[] = sections.slice(0, 10).map((section) => ({
       id: `section-${section.slug}`,
       label: section.title,
       description: section.description,

@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 import { FavoritesPageContent } from "@/components/gallery/favorites-page-content";
+import { getSections } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Favorites",
   description: "お気に入りに追加したUIセクション一覧",
 };
 
-export default function FavoritesPage() {
+export default async function FavoritesPage() {
+  const sections = await getSections();
   return (
     <div className="min-h-screen">
       {/* ヘッダー */}
@@ -35,7 +37,7 @@ export default function FavoritesPage() {
 
       {/* コンテンツ */}
       <section className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
-        <FavoritesPageContent />
+        <FavoritesPageContent sections={sections} />
       </section>
     </div>
   );

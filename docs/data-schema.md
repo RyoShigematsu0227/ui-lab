@@ -1,112 +1,147 @@
-# データモデル定義
+# データスキーマ定義
 
 ## 概要
 
-Supabase (PostgreSQL) を使用。テーブル・カラム名は snake_case。
+外部DBは使わず、すべてのデータをファイルベースで管理する。
 
-## テーブル一覧
+- セクション: `content/sections/{slug}/metadata.json`
+- サイト事例: `content/sites/{slug}.json`
+- カテゴリ: `data/categories.ts`
+- タグ: `data/tags.ts`
 
-### sections — UIセクション
+`lib/content.ts` が `fs` でファイルを読み込み、TypeScript型に変換して提供。
 
-| カラム | 型 | 説明 |
-|---|---|---|
-| id | uuid (PK) | 自動生成 |
-| slug | text (UNIQUE) | URLスラッグ（例: hero-gradient-001） |
-| title | text | セクションタイトル |
-| description | text | 短い説明文 |
-| category_id | uuid (FK) | カテゴリへの参照 |
-| code_path | text | コードファイルのパス（content/sections/...） |
-| screenshot_url | text | プレビュー画像URL（Supabase Storage） |
-| screenshot_mobile_url | text | モバイルプレビュー画像URL |
-| is_published | boolean | 公開フラグ（デフォルト: true） |
-| generated_by | text | 生成方法（ai / manual） |
-| created_at | timestamptz | 作成日時 |
-| updated_at | timestamptz | 更新日時 |
+## セクション metadata.json
 
-### section_variants — セクションのバリエーション
+ファイルパス: `content/sections/{slug}/metadata.json`
 
-| カラム | 型 | 説明 |
-|---|---|---|
-| id | uuid (PK) | 自動生成 |
-| section_id | uuid (FK) | 親セクションへの参照 |
-| label | text | バリエーション名（例: ダーク、ミニマル） |
-| code_path | text | バリエーションコードのパス |
-| screenshot_url | text | プレビュー画像URL |
-| sort_order | integer | 表示順 |
-| created_at | timestamptz | 作成日時 |
+| フィールド | 型 | 必須 | 説明 |
+|---|---|---|---|
+| title | string | Yes | セクションタイトル |
+| description | string | Yes | 短い説明文 |
+| category | string | Yes | カテゴリslug（例: hero） |
+| tags | string[] | Yes | タグslugの配列（例: ["gradient", "animation"]） |
+| screenshotUrl | string | No | プレビュー画像パス |
+| screenshotMobileUrl | string | No | モバイルプレビュー画像パス |
+| isPublished | boolean | No | 公開フラグ（デフォルト: true） |
+| generatedBy | "ai" \| "manual" | No | 生成方法（デフォルト: "ai"） |
+| createdAt | string | Yes | 作成日時（ISO 8601） |
+| updatedAt | string | No | 更新日時（デフォルト: createdAt） |
 
-### categories — カテゴリ
+例:
 
-| カラム | 型 | 説明 |
-|---|---|---|
-| id | uuid (PK) | 自動生成 |
-| slug | text (UNIQUE) | URLスラッグ（例: hero） |
-| name | text | 表示名（例: ヒーロー / ファーストビュー） |
-| description | text | カテゴリの説明 |
-| icon | text | アイコン名（Lucide icon） |
-| sort_order | integer | 表示順 |
-| created_at | timestamptz | 作成日時 |
-
-### tags — タグ
-
-| カラム | 型 | 説明 |
-|---|---|---|
-| id | uuid (PK) | 自動生成 |
-| slug | text (UNIQUE) | URLスラッグ（例: animation） |
-| name | text | 表示名（例: アニメーション） |
-| created_at | timestamptz | 作成日時 |
-
-### section_tags — セクションとタグの中間テーブル
-
-| カラム | 型 | 説明 |
-|---|---|---|
-| section_id | uuid (FK) | セクションへの参照 |
-| tag_id | uuid (FK) | タグへの参照 |
-| (PK) | (section_id, tag_id) | 複合主キー |
-
-### sites — サイト事例
-
-| カラム | 型 | 説明 |
-|---|---|---|
-| id | uuid (PK) | 自動生成 |
-| slug | text (UNIQUE) | URLスラッグ |
-| title | text | サイト名 |
-| url | text | サイトURL |
-| description | text | 短い解説 |
-| screenshot_url | text | スクリーンショットURL |
-| is_published | boolean | 公開フラグ |
-| created_at | timestamptz | 作成日時 |
-| updated_at | timestamptz | 更新日時 |
-
-### site_tags — サイト事例とタグの中間テーブル
-
-| カラム | 型 | 説明 |
-|---|---|---|
-| site_id | uuid (FK) | サイト事例へのの参照 |
-| tag_id | uuid (FK) | タグへの参照 |
-| (PK) | (site_id, tag_id) | 複合主キー |
-
-## インデックス
-
-```sql
-CREATE INDEX idx_sections_category_id ON sections(category_id);
-CREATE INDEX idx_sections_is_published ON sections(is_published);
-CREATE INDEX idx_sections_created_at ON sections(created_at DESC);
-CREATE INDEX idx_section_tags_tag_id ON section_tags(tag_id);
-CREATE INDEX idx_sites_is_published ON sites(is_published);
-CREATE INDEX idx_sites_created_at ON sites(created_at DESC);
+```json
+{
+  "title": "グラデーションヒーロー",
+  "description": "美しいグラデーション背景を使用したモダンなヒーローセクション",
+  "category": "hero",
+  "tags": ["gradient", "animation", "full-width"],
+  "screenshotUrl": "/screenshots/hero-gradient-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-01-15T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}
 ```
 
-## RLS (Row Level Security)
+## サイト事例 JSON
 
-すべてのテーブルで RLS を有効化。
-公開データのみなので、匿名ユーザーに SELECT を許可。
+ファイルパス: `content/sites/{slug}.json`
 
-```sql
--- 例: sections テーブル
-ALTER TABLE sections ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "公開セクションは誰でも閲覧可" ON sections
-  FOR SELECT USING (is_published = true);
+| フィールド | 型 | 必須 | 説明 |
+|---|---|---|---|
+| title | string | Yes | サイト名 |
+| url | string | Yes | サイトURL |
+| description | string | Yes | 短い解説 |
+| screenshotUrl | string | No | スクリーンショットパス |
+| tags | string[] | Yes | タグslugの配列 |
+| isPublished | boolean | No | 公開フラグ（デフォルト: true） |
+| createdAt | string | Yes | 作成日時（ISO 8601） |
+| updatedAt | string | No | 更新日時 |
+
+## カテゴリ (data/categories.ts)
+
+TypeScript配列として静的定義。
+
+| フィールド | 型 | 説明 |
+|---|---|---|
+| id | string | カテゴリID |
+| slug | string | URLスラッグ（例: hero） |
+| name | string | 表示名（例: ヒーロー） |
+| description | string | カテゴリの説明 |
+| icon | string | Lucide アイコン名 |
+| sortOrder | number | 表示順 |
+
+## タグ (data/tags.ts)
+
+TypeScript配列として静的定義。
+
+| フィールド | 型 | 説明 |
+|---|---|---|
+| id | string | タグID |
+| slug | string | URLスラッグ（例: animation） |
+| name | string | 表示名（例: アニメーション） |
+
+## TypeScript型定義 (types/index.ts)
+
+```typescript
+interface Section {
+  id: string;        // slug をそのまま使用
+  slug: string;
+  title: string;
+  description: string;
+  categoryId: string;
+  category?: Category;
+  tags: Tag[];
+  codePath: string;  // lib/content.ts が自動設定
+  screenshotUrl: string;
+  screenshotMobileUrl?: string;
+  isPublished: boolean;
+  generatedBy: "ai" | "manual";
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface Category {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  icon: string;
+  sortOrder: number;
+}
+
+interface Tag {
+  id: string;
+  slug: string;
+  name: string;
+}
+
+interface Site {
+  id: string;        // slug をそのまま使用
+  slug: string;
+  title: string;
+  url: string;
+  description: string;
+  screenshotUrl: string;
+  tags: Tag[];
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
 ```
 
-書き込みは Supabase の service_role キーを使う（AIパイプラインからのみ）。
+## データ取得関数 (lib/content.ts)
+
+| 関数 | 戻り値 | 説明 |
+|---|---|---|
+| getSections() | Section[] | 全公開セクション（createdAt降順） |
+| getSectionBySlug(slug) | Section \| undefined | slug指定で1件取得 |
+| getSectionsByCategory(slug) | Section[] | カテゴリslugでフィルタ |
+| getSectionsByTag(slug) | Section[] | タグslugでフィルタ |
+| getCategories() | Category[] | 全カテゴリ（sortOrder順） |
+| getCategoryBySlug(slug) | Category \| undefined | slug指定で1件取得 |
+| getTags() | Tag[] | 全タグ |
+| getTagBySlug(slug) | Tag \| undefined | slug指定で1件取得 |
+| getSites() | Site[] | 全公開サイト事例（createdAt降順） |
+| getSiteBySlug(slug) | Site \| undefined | slug指定で1件取得 |

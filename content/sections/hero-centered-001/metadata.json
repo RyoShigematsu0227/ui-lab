@@ -1,0 +1,14 @@
+{
+  "title": "センターヒーロー",
+  "description": "中央配置のテキストとCTAボタンのシンプルなヒーローセクション",
+  "category": "hero",
+  "tags": [
+    "minimal",
+    "bold-typography"
+  ],
+  "screenshotUrl": "/screenshots/hero-centered-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-07T00:00:00Z",
+  "updatedAt": "2024-02-07T00:00:00Z"
+}

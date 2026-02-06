@@ -1,0 +1,15 @@
+{
+  "title": "ダークCTA",
+  "description": "ダークテーマのCTAセクション",
+  "category": "cta",
+  "tags": [
+    "dark-mode",
+    "gradient",
+    "bold-typography"
+  ],
+  "screenshotUrl": "/screenshots/cta-dark-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-23T00:00:00Z",
+  "updatedAt": "2024-02-23T00:00:00Z"
+}

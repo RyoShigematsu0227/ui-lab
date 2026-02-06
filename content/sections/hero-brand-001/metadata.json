@@ -1,0 +1,15 @@
+{
+  "title": "ブランドヒーロー",
+  "description": "ブランドアイデンティティを強調したヒーローセクション",
+  "category": "hero",
+  "tags": [
+    "bold-typography",
+    "gradient",
+    "full-width"
+  ],
+  "screenshotUrl": "/screenshots/hero-brand-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-11T00:00:00Z",
+  "updatedAt": "2024-02-11T00:00:00Z"
+}
