@@ -1,0 +1,10 @@
+{
+  "title": "Prisma",
+  "url": "https://prisma.io",
+  "description": "次世代ORM。ダークモードと幾何学的なグラフィックを活用した開発者向けデザイン。",
+  "screenshotUrl": "/screenshots/sites/prisma.png",
+  "tags": ["dark-mode", "minimal", "grid"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

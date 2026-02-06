@@ -1,0 +1,10 @@
+{
+  "title": "Supabase",
+  "url": "https://supabase.com",
+  "description": "オープンソースのFirebase代替。ダークモードベースにネオングリーンのアクセントが映えるデザイン。",
+  "screenshotUrl": "/screenshots/sites/supabase.png",
+  "tags": ["dark-mode", "gradient", "animation"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

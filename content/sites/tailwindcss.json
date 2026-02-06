@@ -1,0 +1,10 @@
+{
+  "title": "Tailwind CSS",
+  "url": "https://tailwindcss.com",
+  "description": "ユーティリティファーストCSSフレームワーク。シンプルながらも技術的な美しさを感じるデザイン。",
+  "screenshotUrl": "/screenshots/sites/tailwindcss.png",
+  "tags": ["minimal", "gradient", "bold-typography"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

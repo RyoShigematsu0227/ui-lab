@@ -1,0 +1,10 @@
+{
+  "title": "Figma",
+  "url": "https://figma.com",
+  "description": "デザインコラボレーションツール。大胆なタイポグラフィと鮮やかなカラーパレットで機能を訴求。",
+  "screenshotUrl": "/screenshots/sites/figma.png",
+  "tags": ["bold-typography", "animation", "interactive"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

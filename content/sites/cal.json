@@ -1,0 +1,10 @@
+{
+  "title": "Cal.com",
+  "url": "https://cal.com",
+  "description": "オープンソースのスケジューリングツール。モノクロベースのミニマルデザインで機能性を前面に。",
+  "screenshotUrl": "/screenshots/sites/cal.png",
+  "tags": ["minimal", "grid", "dark-mode"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}
