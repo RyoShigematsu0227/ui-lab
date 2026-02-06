@@ -64,7 +64,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
   const breadcrumbJsonLdItems = [
     { name: "ホーム", url: BASE_URL },
     ...(section.category
-      ? [{ name: section.category.name, url: `${BASE_URL}/categories/${section.category.slug}` }]
+      ? [{ name: section.category.name, url: `${BASE_URL}/?category=${section.category.slug}` }]
       : []),
     { name: section.title, url: `${BASE_URL}/sections/${slug}` },
   ];
@@ -95,7 +95,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
                 <div className="flex items-center gap-3">
                   {section.category && (
                     <Link
-                      href={`/categories/${section.category.slug}`}
+                      href={`/?category=${section.category.slug}`}
                       className="shrink-0 text-[10px] font-medium tracking-widest uppercase text-primary hover:opacity-70 transition-opacity"
                     >
                       {section.category.name}
@@ -129,7 +129,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
               {section.tags.slice(0, 3).map((tag) => (
                 <Link
                   key={tag.id}
-                  href={`/tags/${tag.slug}`}
+                  href={`/?tags=${tag.slug}`}
                   className="hover:text-foreground transition-colors"
                 >
                   #{tag.name}
@@ -189,7 +189,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
               </span>
               {section.category && (
                 <Link
-                  href={`/categories/${section.category.slug}`}
+                  href={`/?category=${section.category.slug}`}
                   className="inline-flex items-center gap-1 text-[10px] tracking-wider uppercase text-muted-foreground hover:text-foreground transition-colors"
                 >
                   View all

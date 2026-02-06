@@ -62,7 +62,7 @@ export default async function NotFound() {
         </h3>
         <div className="flex flex-wrap justify-center gap-2">
           {popularCategories.map((category) => (
-            <Link key={category.id} href={`/categories/${category.slug}`}>
+            <Link key={category.id} href={`/?category=${category.slug}`}>
               <Badge variant="outline" className="cursor-pointer hover:bg-accent">
                 {category.name}
               </Badge>
