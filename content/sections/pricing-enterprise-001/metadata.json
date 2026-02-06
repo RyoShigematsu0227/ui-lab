@@ -1,0 +1,15 @@
+{
+  "title": "エンタープライズ料金表",
+  "description": "大企業向けの料金プラン表示",
+  "category": "pricing",
+  "tags": [
+    "minimal",
+    "bold-typography",
+    "grid"
+  ],
+  "screenshotUrl": "/screenshots/pricing-enterprise-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-03-01T00:00:00Z",
+  "updatedAt": "2024-03-01T00:00:00Z"
+}

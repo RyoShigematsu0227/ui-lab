@@ -10,7 +10,6 @@
     "screenshots": "tsx scripts/generate-screenshots.ts"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.94.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
@@ -29,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.2.4",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "playwright": "^1.58.1",

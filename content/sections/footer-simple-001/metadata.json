@@ -1,0 +1,14 @@
+{
+  "title": "シンプルフッター",
+  "description": "必要最小限の情報のフッター",
+  "category": "footer",
+  "tags": [
+    "minimal",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/footer-simple-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-03-18T00:00:00Z",
+  "updatedAt": "2024-03-18T00:00:00Z"
+}

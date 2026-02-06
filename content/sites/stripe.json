@@ -1,0 +1,14 @@
+{
+  "title": "Stripe",
+  "url": "https://stripe.com",
+  "description": "決済プラットフォーム。美しいグラデーションとアニメーションで、複雑な機能を分かりやすく表現。",
+  "screenshotUrl": "/screenshots/sites/stripe.png",
+  "tags": [
+    "gradient",
+    "animation",
+    "bold-typography"
+  ],
+  "isPublished": true,
+  "createdAt": "2024-01-13T00:00:00Z",
+  "updatedAt": "2024-01-13T00:00:00Z"
+}

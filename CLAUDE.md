@@ -8,7 +8,7 @@
 - TypeScript strict mode
 - Tailwind CSS v4
 - shadcn/ui
-- Supabase (PostgreSQL)
+- ファイルベースCMS（content/ + fs読み込み）
 - Vercel (ホスティング)
 - npm
 
@@ -16,20 +16,22 @@
 
 ```
 app/                  → ページとレイアウト
-  (main)/             → メインレイアウトグループ
-  api/                → APIルート
 components/
   ui/                 → shadcn/ui ベースの共通コンポーネント
   sections/           → UIセクションプレビュー関連
   gallery/            → ギャラリー表示関連
   layout/             → ヘッダー、フッター等
 lib/
-  supabase/           → Supabaseクライアント、クエリ関数
-  ai/                 → AI生成パイプライン
-  utils/              → ユーティリティ
+  content.ts          → ファイルベースのコンテンツ取得関数
+  section-codes.ts    → セクションコード読み込み
+  utils.ts            → ユーティリティ
 content/
-  sections/           → 生成されたUIセクションコード
-  sites/              → サイト事例データ
+  sections/           → UIセクション（code.tsx + metadata.json）
+  sites/              → サイト事例データ（JSON）
+data/
+  categories.ts       → カテゴリ定義（静的TypeScript）
+  tags.ts             → タグ定義（静的TypeScript）
+types/                → TypeScript型定義
 scripts/              → AI生成・自動化スクリプト
 docs/                 → プロジェクトドキュメント
 public/
@@ -41,9 +43,7 @@ public/
 - `npm run dev` — 開発サーバー (port 3000)
 - `npm run build` — プロダクションビルド
 - `npm run lint` — ESLint実行
-- `npm run format` — Prettier実行
-- `npm run db:generate` — Supabase型生成
-- `npm run ai:generate` — AIセクション生成スクリプト実行
+- `npm run screenshots` — スクリーンショット生成
 
 ## Rules
 
@@ -65,7 +65,6 @@ public/
 - コンポーネント名: PascalCase (`HeroSection`)
 - 関数・変数: camelCase
 - 定数: UPPER_SNAKE_CASE
-- DB テーブル・カラム: snake_case
 
 ## Dark Mode
 
@@ -73,10 +72,19 @@ public/
 - `next-themes` で制御
 - すべてのUIコンポーネントはダーク/ライト両対応必須
 
+## コンテンツ管理
+
+セクションのデータは `content/sections/{slug}/` に自己完結で配置:
+- `code.tsx` — セクションのReactコンポーネント
+- `metadata.json` — タイトル、説明、カテゴリslug、タグslug配列等
+
+カテゴリ・タグは `data/categories.ts`, `data/tags.ts` に静的定義。
+`lib/content.ts` が `fs` でファイルを読み込み、全ページに提供。
+
 ## 詳細ドキュメント
 
 - @docs/architecture.md — アーキテクチャ詳細
 - @docs/ai-pipeline.md — AI自動更新パイプライン設計
-- @docs/data-schema.md — データモデル定義
+- @docs/data-schema.md — データスキーマ定義
 - @docs/content-categories.md — カテゴリ・タグ体系
 - @SPEC.md — プロジェクト全体仕様書

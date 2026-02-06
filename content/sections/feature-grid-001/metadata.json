@@ -1,0 +1,15 @@
+{
+  "title": "フィーチャーグリッド",
+  "description": "グリッドレイアウトで機能を紹介するセクション",
+  "category": "feature",
+  "tags": [
+    "grid",
+    "hover-effect",
+    "minimal"
+  ],
+  "screenshotUrl": "/screenshots/feature-grid-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-13T00:00:00Z",
+  "updatedAt": "2024-02-13T00:00:00Z"
+}

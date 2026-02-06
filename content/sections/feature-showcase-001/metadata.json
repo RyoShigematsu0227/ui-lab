@@ -1,0 +1,15 @@
+{
+  "title": "ショーケースフィーチャー",
+  "description": "大きなビジュアルで機能を紹介するセクション",
+  "category": "feature",
+  "tags": [
+    "full-width",
+    "animation",
+    "hover-effect"
+  ],
+  "screenshotUrl": "/screenshots/feature-showcase-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-18T00:00:00Z",
+  "updatedAt": "2024-02-18T00:00:00Z"
+}

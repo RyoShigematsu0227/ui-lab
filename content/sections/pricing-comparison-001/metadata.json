@@ -1,0 +1,14 @@
+{
+  "title": "料金比較表",
+  "description": "プランを横並びで比較できる料金テーブル",
+  "category": "pricing",
+  "tags": [
+    "grid",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/pricing-comparison-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-27T00:00:00Z",
+  "updatedAt": "2024-02-27T00:00:00Z"
+}

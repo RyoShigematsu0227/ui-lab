@@ -1,0 +1,14 @@
+{
+  "title": "グリッドFAQ",
+  "description": "グリッドレイアウトのFAQセクション",
+  "category": "faq",
+  "tags": [
+    "grid",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/faq-grid-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-03-09T00:00:00Z",
+  "updatedAt": "2024-03-09T00:00:00Z"
+}

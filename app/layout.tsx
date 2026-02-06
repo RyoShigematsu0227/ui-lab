@@ -9,6 +9,7 @@ import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import { KeyboardShortcuts } from "@/components/layout/keyboard-shortcuts";
 import { Toaster } from "@/components/ui/sonner";
 import { WebSiteJsonLd } from "@/components/seo/json-ld";
+import { getSections } from "@/lib/content";
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
@@ -70,11 +71,12 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const sections = await getSections();
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
@@ -91,7 +93,7 @@ export default function RootLayout({
               <Footer />
             </div>
             <ScrollToTop />
-            <KeyboardShortcuts />
+            <KeyboardShortcuts sections={sections.slice(0, 10)} />
             <Toaster />
           </FavoritesProvider>
         </ThemeProvider>

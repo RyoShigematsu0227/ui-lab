@@ -39,7 +39,6 @@ const techStack = [
   { name: "TypeScript", label: "Strict" },
   { name: "Tailwind CSS", label: "v4" },
   { name: "shadcn/ui", label: "Components" },
-  { name: "Supabase", label: "Database" },
   { name: "Claude API", label: "AI" },
 ];
 

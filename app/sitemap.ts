@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getSections, getCategories, getTags, getSites } from "@/lib/supabase";
+import { getSections, getCategories, getTags, getSites } from "@/lib/content";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 

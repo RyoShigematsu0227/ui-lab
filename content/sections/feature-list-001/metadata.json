@@ -1,0 +1,15 @@
+{
+  "title": "フィーチャーリスト",
+  "description": "アイコン付きの6カラム機能紹介グリッド",
+  "category": "feature",
+  "tags": [
+    "grid",
+    "hover-effect",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/feature-list-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-01-25T00:00:00Z",
+  "updatedAt": "2024-01-25T00:00:00Z"
+}

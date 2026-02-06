@@ -1,0 +1,14 @@
+{
+  "title": "ミニマル統計",
+  "description": "シンプルな統計表示セクション",
+  "category": "stats",
+  "tags": [
+    "minimal",
+    "grid"
+  ],
+  "screenshotUrl": "/screenshots/stats-minimal-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-03-15T00:00:00Z",
+  "updatedAt": "2024-03-15T00:00:00Z"
+}

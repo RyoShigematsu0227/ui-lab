@@ -3,15 +3,18 @@
 import { useRouter } from "next/navigation";
 import { Shuffle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MOCK_SECTIONS } from "@/data/mock-sections";
 
-export function RandomSectionButton() {
+interface RandomSectionButtonProps {
+  slugs: string[];
+}
+
+export function RandomSectionButton({ slugs }: RandomSectionButtonProps) {
   const router = useRouter();
 
   const handleRandomSection = () => {
-    const randomIndex = Math.floor(Math.random() * MOCK_SECTIONS.length);
-    const randomSection = MOCK_SECTIONS[randomIndex];
-    router.push(`/sections/${randomSection.slug}`);
+    if (slugs.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * slugs.length);
+    router.push(`/sections/${slugs[randomIndex]}`);
   };
 
   return (

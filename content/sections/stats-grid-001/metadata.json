@@ -1,0 +1,14 @@
+{
+  "title": "グリッド統計",
+  "description": "グリッドレイアウトの統計セクション",
+  "category": "stats",
+  "tags": [
+    "grid",
+    "hover-effect"
+  ],
+  "screenshotUrl": "/screenshots/stats-grid-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-03-16T00:00:00Z",
+  "updatedAt": "2024-03-16T00:00:00Z"
+}

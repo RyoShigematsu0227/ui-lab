@@ -1,5 +1,5 @@
 import { GalleryView } from "@/components/gallery/gallery-view";
-import { getSections, getCategories, getTags } from "@/lib/supabase";
+import { getSections, getCategories, getTags } from "@/lib/content";
 import { HeroVisual } from "@/components/home/hero-visual";
 
 // ISR: 1時間ごとに再生成

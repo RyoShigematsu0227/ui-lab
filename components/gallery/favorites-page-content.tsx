@@ -5,9 +5,13 @@ import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionCard } from "./section-card";
 import { useFavoritesContext } from "@/components/layout/favorites-provider";
-import { MOCK_SECTIONS } from "@/data/mock-sections";
+import { Section } from "@/types";
 
-export function FavoritesPageContent() {
+interface FavoritesPageContentProps {
+  sections: Section[];
+}
+
+export function FavoritesPageContent({ sections }: FavoritesPageContentProps) {
   const { favorites, isLoaded } = useFavoritesContext();
 
   // ローディング中
@@ -36,7 +40,7 @@ export function FavoritesPageContent() {
   }
 
   // お気に入りセクションを取得
-  const favoriteSections = MOCK_SECTIONS.filter((section) =>
+  const favoriteSections = sections.filter((section) =>
     favorites.includes(section.slug)
   );
 

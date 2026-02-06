@@ -1,0 +1,14 @@
+{
+  "title": "バナーCTA",
+  "description": "バナー形式のコールトゥアクションセクション",
+  "category": "cta",
+  "tags": [
+    "gradient",
+    "full-width"
+  ],
+  "screenshotUrl": "/screenshots/cta-banner-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-22T00:00:00Z",
+  "updatedAt": "2024-02-22T00:00:00Z"
+}

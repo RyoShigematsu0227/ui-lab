@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Home, Search, Heart, Sparkles, ArrowRight, FileQuestion } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getSections, getCategories } from "@/lib/supabase";
+import { getSections, getCategories } from "@/lib/content";
 
 const suggestions = [
   { icon: Home, label: "トップページ", href: "/", description: "セクション一覧を見る" },

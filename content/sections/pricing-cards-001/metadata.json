@@ -1,0 +1,15 @@
+{
+  "title": "プライシングカード",
+  "description": "カード形式の料金プラン表示",
+  "category": "pricing",
+  "tags": [
+    "grid",
+    "hover-effect",
+    "dark-mode"
+  ],
+  "screenshotUrl": "/screenshots/pricing-cards-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-26T00:00:00Z",
+  "updatedAt": "2024-02-26T00:00:00Z"
+}

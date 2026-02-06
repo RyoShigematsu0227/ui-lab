@@ -1,0 +1,14 @@
+{
+  "title": "トグル料金表",
+  "description": "月額/年額切り替えトグル付き料金テーブル",
+  "category": "pricing",
+  "tags": [
+    "interactive",
+    "grid"
+  ],
+  "screenshotUrl": "/screenshots/pricing-toggle-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-02-28T00:00:00Z",
+  "updatedAt": "2024-02-28T00:00:00Z"
+}

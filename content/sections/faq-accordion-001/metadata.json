@@ -1,0 +1,14 @@
+{
+  "title": "アコーディオンFAQ",
+  "description": "開閉式のFAQセクション",
+  "category": "faq",
+  "tags": [
+    "interactive",
+    "minimal"
+  ],
+  "screenshotUrl": "/screenshots/faq-accordion-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2024-01-08T00:00:00Z",
+  "updatedAt": "2024-01-08T00:00:00Z"
+}

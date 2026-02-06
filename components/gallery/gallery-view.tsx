@@ -195,7 +195,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <RandomSectionButton />
+          <RandomSectionButton slugs={sections.map(s => s.slug)} />
           <button
             onClick={() => setShowFilters(!showFilters)}
             className={cn(

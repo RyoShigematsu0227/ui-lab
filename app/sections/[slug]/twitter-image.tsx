@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { getSectionBySlug } from "@/lib/supabase";
+import { getSectionBySlug } from "@/lib/content";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const alt = "UI Lab セクションプレビュー";
 export const size = {
   width: 1200,
