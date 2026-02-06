@@ -1,0 +1,11 @@
+{
+  "title": "ベントーグリッドギャラリー",
+  "description": "不揃いなグリッドレイアウトで魅力的なポートフォリオを表示するギャラリーセクション",
+  "category": "gallery",
+  "tags": ["bento", "grid", "gradient", "hover-effect"],
+  "screenshotUrl": "/screenshots/gallery-bento-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

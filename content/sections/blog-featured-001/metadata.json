@@ -1,0 +1,11 @@
+{
+  "title": "フィーチャード記事セクション",
+  "description": "大きなフィーチャードカードと小さなカードグリッドを組み合わせたブログセクション",
+  "category": "blog",
+  "tags": ["gradient", "grid", "hover-effect", "asymmetric"],
+  "screenshotUrl": "/screenshots/blog-featured-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}
