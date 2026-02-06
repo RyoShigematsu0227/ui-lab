@@ -15,6 +15,7 @@ type ViewMode = "desktop" | "tablet" | "mobile";
 export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
   const [viewMode, setViewMode] = useState<ViewMode>("desktop");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   // iframeのURLを生成
   const previewUrl = `/preview/${slug}`;
@@ -100,7 +101,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
         <div className="flex h-full items-center justify-center bg-muted/30 pt-12">
           <div
             className={cn(
-              "h-full bg-background transition-all duration-300",
+              "relative h-full bg-background transition-all duration-300",
               viewMode === "desktop"
                 ? "w-full"
                 : viewMode === "tablet"
@@ -108,10 +109,23 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
                 : "w-[375px] border-x border-border"
             )}
           >
+            {/* スケルトン */}
+            <div className={cn(
+              "absolute inset-0 bg-muted transition-opacity duration-500",
+              iframeLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+            )}>
+              <div className="absolute inset-0 animate-pulse">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted-foreground/10 to-transparent skeleton-shimmer" />
+              </div>
+            </div>
             <iframe
               src={previewUrl}
-              className="h-full w-full border-0"
+              className={cn(
+                "h-full w-full border-0 transition-opacity duration-500",
+                iframeLoaded ? "opacity-100" : "opacity-0"
+              )}
               title={`${title} preview`}
+              onLoad={() => setIframeLoaded(true)}
             />
           </div>
         </div>
@@ -175,7 +189,7 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
       <div className="flex justify-center bg-muted/30 p-4 md:p-6">
         <div
           className={cn(
-            "overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-all duration-300",
+            "relative overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-all duration-300",
             viewMode === "desktop"
               ? "w-full"
               : viewMode === "tablet"
@@ -187,13 +201,24 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
             height: viewMode === "desktop" ? "auto" : "600px",
           }}
         >
+          {/* スケルトン */}
+          <div className={cn(
+            "absolute inset-0 bg-muted transition-opacity duration-500 z-10",
+            iframeLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+          )}>
+            <div className="absolute inset-0 animate-pulse">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted-foreground/10 to-transparent skeleton-shimmer" />
+            </div>
+          </div>
           <iframe
             src={previewUrl}
             className={cn(
-              "w-full border-0",
-              viewMode === "desktop" ? "h-[600px]" : "h-full"
+              "w-full border-0 transition-opacity duration-500",
+              viewMode === "desktop" ? "h-[600px]" : "h-full",
+              iframeLoaded ? "opacity-100" : "opacity-0"
             )}
             title={`${title} preview`}
+            onLoad={() => setIframeLoaded(true)}
           />
         </div>
       </div>
