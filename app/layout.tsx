@@ -99,8 +99,8 @@ export default async function RootLayout({
         <ThemeProvider>
           <FavoritesProvider>
             {/* サイドライン装飾 */}
-            <div className="fixed top-0 bottom-0 left-6 w-px bg-border/50 dark:bg-border/80 hidden lg:block z-40" />
-            <div className="fixed top-0 bottom-0 right-6 w-px bg-border/50 dark:bg-border/80 hidden lg:block z-40" />
+            <div className="fixed top-0 bottom-0 left-6 w-px bg-border/60 dark:bg-border/96 hidden lg:block z-40" />
+            <div className="fixed top-0 bottom-0 right-6 w-px bg-border/60 dark:bg-border/96 hidden lg:block z-40" />
 
             <div className="relative flex min-h-screen flex-col">
               <Header />
