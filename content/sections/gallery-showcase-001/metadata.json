@@ -1,0 +1,11 @@
+{
+  "title": "プロジェクトショーケース",
+  "description": "カード形式のプロジェクト一覧。コーナードットとホバーエフェクトを備えたミニマルなギャラリー",
+  "category": "gallery",
+  "tags": ["grid", "hover-effect", "minimal"],
+  "screenshotUrl": "/screenshots/gallery-showcase-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

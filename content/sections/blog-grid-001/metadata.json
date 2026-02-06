@@ -1,0 +1,11 @@
+{
+  "title": "ブロググリッド",
+  "description": "3カラムグリッドのブログ記事一覧。サムネイルプレースホルダーとカテゴリラベルを備えたミニマルなカードレイアウト",
+  "category": "blog",
+  "tags": ["grid", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/blog-grid-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}
