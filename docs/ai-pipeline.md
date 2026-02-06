@@ -2,44 +2,70 @@
 
 ## 概要
 
-毎週1回、AIが最新のUIトレンドを調査し、オリジナルのUIセクションを生成してサイトに追加する。
+毎週1回、AIが自動的にオリジナルのUIセクションを生成してサイトに追加する。
 完全無人で運用する。
 
 ## 実行環境
 
-- **トリガー**: GitHub Actions の cron スケジュール（毎週月曜 9:00 JST）
-- **AI**: Claude API（claude-sonnet-4-20250514）
+- **トリガー**: GitHub Actions の cron スケジュール（毎週月曜 9:00 JST）+ 手動実行
+- **AI**: Claude Code CLI（`@anthropic-ai/claude-code`）
+- **プロンプト**: `scripts/generate-sections-prompt.md`
 - **スクリーンショット**: Playwright
 - **画像保存先**: `public/screenshots/`（Gitリポジトリ内）
 
 ## パイプライン全体フロー
 
 ```
-1. トレンド調査
-   └─ Claude API + Web検索でUIトレンドを調査
-   └─ 生成するセクションのテーマ・方向性を決定
-
-2. セクション生成（3〜5個/週）
-   └─ テーマごとに Claude API でコード生成
-   └─ Next.js + Tailwind CSS のコンポーネントとして出力
-   └─ metadata.json も同時生成
-
-3. 品質チェック
-   └─ TypeScript の型チェック（tsc --noEmit）
-   └─ ESLint チェック
-   └─ ビルド確認
-
-4. コンポーネント登録
+1. セクション生成（3〜5個/週）
+   └─ Claude Code CLI がプロンプトに従い自律的に実行
+   └─ 既存セクションを参照しデザイントーンを統一
+   └─ カテゴリバランスを考慮（少ないカテゴリを優先）
+   └─ code.tsx + metadata.json を生成
    └─ content/sections/index.ts にimport・マッピングを追加
 
-5. スクリーンショット撮影
+2. 品質チェック
+   └─ npm run build でビルド確認
+
+3. スクリーンショット撮影
+   └─ dev サーバーを起動
    └─ Playwright で各セクションをレンダリング
-   └─ デスクトップ / モバイル の2サイズで撮影
+   └─ ダーク / ライト の2テーマで撮影（新規のみ）
    └─ public/screenshots/ に保存
 
-6. デプロイ
+4. デプロイ
    └─ GitHub に push → Vercel が自動デプロイ
 ```
+
+## ワークフロー
+
+`.github/workflows/generate-sections.yml` で定義:
+
+```yaml
+on:
+  schedule:
+    - cron: "0 0 * * 1"  # 毎週月曜 9:00 JST
+  workflow_dispatch:       # 手動実行
+```
+
+主なステップ:
+1. チェックアウト + Node.js セットアップ
+2. `npx @anthropic-ai/claude-code -p` でセクション生成
+3. `npm run build` でビルド確認
+4. Playwright でスクリーンショット撮影
+5. 変更があれば自動コミット & プッシュ
+
+Secrets:
+- `ANTHROPIC_API_KEY` — Claude API キー（リポジトリSecrets）
+
+## 生成プロンプト
+
+`scripts/generate-sections-prompt.md` に定義。以下を含む:
+
+- カテゴリバランスを考慮した生成対象の決定
+- 技術要件（Tailwind CSS v4、dark:対応、外部依存なし）
+- デザインガイドライン（セマンティックトークン、タイポグラフィ、装飾ルール）
+- 既存セクションのトーンに合わせる指示
+- `content/sections/index.ts` への登録
 
 ## 生成されるファイル
 
@@ -50,51 +76,18 @@ content/sections/{slug}/
   code.tsx          → Reactコンポーネント
   metadata.json     → メタデータ
 public/screenshots/
-  {slug}.png        → デスクトップスクリーンショット
+  {slug}.png        → ダークテーマスクリーンショット
+  {slug}-light.png  → ライトテーマスクリーンショット
 ```
 
-+ `content/sections/index.ts` にimport行とマッピング追加
++ `content/sections/index.ts` にexport・import・マッピング追加
 
-## プロンプト設計
+## スクリーンショット
 
-### トレンド調査プロンプト
-
-```
-あなたはUIデザインのトレンドリサーチャーです。
-現在のWebデザインの最新トレンドを調査し、
-以下の形式で今週生成すべきUIセクションのテーマを3〜5個提案してください。
-
-対象カテゴリ: {未生成 or 少ないカテゴリを優先}
-
-各テーマについて:
-- セクション種別（ヒーロー、料金テーブル等）
-- デザインの方向性（具体的なビジュアルイメージ）
-- 参考にすべきトレンド要素
-- 推奨タグ
-```
-
-### セクション生成プロンプト
-
-```
-あなたは一流のフロントエンドエンジニアです。
-以下のテーマに基づいて、モダンで洗練されたUIセクションを生成してください。
-
-テーマ: {トレンド調査の結果}
-
-要件:
-- Next.js + Tailwind CSS (v4) の React コンポーネント
-- TypeScript strict mode
-- レスポンシブ対応（モバイルファースト）
-- ダークモード対応（dark: バリアント使用）
-- アニメーションは Tailwind の標準機能 + CSS のみ（外部ライブラリ不可）
-- 画像は placeholder を使用（public ドメインの画像URL or SVGプレースホルダー）
-- 実在の企業名・ロゴは使わない
-- コンポーネントは自己完結（外部依存なし、props不要）
-
-出力形式:
-- code.tsx: メインコンポーネント
-- metadata.json: { title, description, category, tags, generatedBy, createdAt, updatedAt }
-```
+- `npm run screenshots` — 新規セクションのみ撮影
+- `npm run screenshots:all` — 全セクションを再撮影
+- ダーク/ライト両テーマで撮影（`{slug}.png` / `{slug}-light.png`）
+- ナビゲーション・フッターは専用の小さいビューポートを使用
 
 ## 生成数の目安
 
@@ -105,25 +98,12 @@ public/screenshots/
 
 | エラー種別 | 対応 |
 |---|---|
-| Claude API エラー | 3回リトライ後、スキップしてログ記録 |
-| 型チェック失敗 | 該当セクションをスキップ、他のセクションは続行 |
-| スクリーンショット失敗 | プレースホルダー画像を使用 |
-| ビルドエラー | GitHub Issue を自動作成 |
+| Claude Code CLI エラー | GitHub Actions のログに記録、次週にリトライ |
+| ビルドエラー | ワークフロー失敗として記録 |
+| スクリーンショット失敗 | 該当セクションをスキップ |
 
 ## コスト見積もり
 
-- Claude API: 週5セクション × ~$0.05/セクション ≈ $1/月
+- Claude API: Claude Code CLI 利用料（Pro/Max プランまたはAPI キー）
 - GitHub Actions: Free tier の無料枠内（月2000分）
 - Vercel: Hobby プランで十分
-
-## 将来拡張: サイト事例自動収集（Phase 2）
-
-Phase 1 が安定したら以下を追加:
-
-1. Awwwards, Dribbble, ProductHunt 等の RSS / API を監視
-2. 気になるサイトの URL を収集
-3. Playwright でフルページスクリーンショット撮影
-4. Claude API で解説文・カテゴリ分類を自動生成
-5. `content/sites/{slug}.json` として保存
-
-※ クローリングの法的・倫理的配慮が必要なため慎重に進める

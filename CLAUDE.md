@@ -43,7 +43,11 @@ public/
 - `npm run dev` — 開発サーバー (port 3000)
 - `npm run build` — プロダクションビルド
 - `npm run lint` — ESLint実行
-- `npm run screenshots` — スクリーンショット生成
+- `npm run format` — Prettierでフォーマット
+- `npm run format:check` — フォーマットチェック
+- `npm run screenshots` — 新規セクションのスクリーンショット生成
+- `npm run screenshots:all` — 全セクションのスクリーンショット再生成
+- `npm run screenshots:sites` — サイト事例のスクリーンショット生成
 
 ## Rules
 

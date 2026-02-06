@@ -39,8 +39,8 @@ AIが生成したオリジナルUIセクション。Next.js + Tailwind CSSのコ
 ### トップページ `/`
 
 - ギャラリーレイアウトで UIセクションを一覧表示
-- カテゴリフィルタ（セクション種別: ヒーロー、ナビゲーション等）
-- タグフィルタ（特徴: アニメーション、ダークモード、グラデーション等）
+- カテゴリフィルタ（クエリパラメータ `?category=slug`）
+- タグフィルタ（クエリパラメータ `?tags=slug`）
 - 新着順ソート
 - ダークモード / ライトモード切替
 
@@ -50,14 +50,6 @@ AIが生成したオリジナルUIセクション。Next.js + Tailwind CSSのコ
 - コードブロック（ワンクリックコピー）
 - 関連セクション表示
 - カテゴリ・タグ表示
-
-### カテゴリページ `/categories/[slug]`
-
-- 特定カテゴリに属するセクション一覧
-
-### タグページ `/tags/[slug]`
-
-- 特定タグに属するセクション一覧
 
 ### サイト事例一覧 `/sites`
 
@@ -78,11 +70,11 @@ AIが生成したオリジナルUIセクション。Next.js + Tailwind CSSのコ
 
 ### Phase 1（MVP）: AIによるUIセクション生成
 
-- 週1回、自動実行（GitHub Actions / Cron）
-- 最新のUIトレンドをWeb検索で調査
-- トレンドに基づいてオリジナルUIセクションを生成
+- 週1回、GitHub Actions Cronで自動実行（+ 手動トリガー対応）
+- Claude Code CLI (`@anthropic-ai/claude-code`) でセクションを自律生成
+- `scripts/generate-sections-prompt.md` のガイドラインに従いデザイン統一
 - Next.js + Tailwind CSSの実コードとして出力
-- プレビュー画像を自動生成（Playwright）
+- プレビュー画像を自動生成（Playwright、ダーク/ライト両テーマ）
 - ファイルとしてコミット、Vercelに自動デプロイ
 - 完全無人運用
 
@@ -98,7 +90,7 @@ AIが生成したオリジナルUIセクション。Next.js + Tailwind CSSのコ
 ## 現在のコンテンツ
 
 - UIセクション: 79個（15カテゴリ）
-- サイト事例: 6個
+- サイト事例: 30個
 
 ---
 
@@ -119,7 +111,7 @@ AIが生成したオリジナルUIセクション。Next.js + Tailwind CSSのコ
 - **言語**: TypeScript（strict mode）
 - **データ管理**: ファイルベースCMS（content/ + fs読み込み）
 - **ホスティング**: Vercel
-- **AI**: Claude API（UIセクション生成）
+- **AI**: Claude Code CLI（UIセクション自動生成）
 - **スクリーンショット**: Playwright
 - **CI/CD**: GitHub Actions
 - **パッケージマネージャ**: npm
