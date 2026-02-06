@@ -69,7 +69,7 @@ export default async function Home() {
             </div>
 
             {/* 右側: フローティングUIカード */}
-            <div className="hidden lg:block relative h-[400px]">
+            <div className="relative h-[260px] sm:h-[320px] lg:h-[400px]">
               <HeroVisual />
             </div>
           </div>
