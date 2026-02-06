@@ -1,0 +1,10 @@
+{
+  "title": "Next.js",
+  "url": "https://nextjs.org",
+  "description": "Reactフレームワーク。モノクロベースにコードハイライトを効かせたデベロッパーフレンドリーなデザイン。",
+  "screenshotUrl": "/screenshots/sites/nextjs.png",
+  "tags": ["dark-mode", "minimal", "bold-typography"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

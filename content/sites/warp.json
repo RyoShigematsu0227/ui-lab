@@ -1,0 +1,10 @@
+{
+  "title": "Warp",
+  "url": "https://warp.dev",
+  "description": "モダンターミナル。ダークUIにグラデーションアクセントを配した先進的なデザイン。",
+  "screenshotUrl": "/screenshots/sites/warp.png",
+  "tags": ["dark-mode", "gradient", "animation"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

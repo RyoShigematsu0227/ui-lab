@@ -1,0 +1,10 @@
+{
+  "title": "Todoist",
+  "url": "https://todoist.com",
+  "description": "タスク管理アプリ。赤をアクセントに据えたクリーンで機能的なデザインが特徴。",
+  "screenshotUrl": "/screenshots/sites/todoist.png",
+  "tags": ["minimal", "grid", "animation"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}

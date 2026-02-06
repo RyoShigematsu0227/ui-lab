@@ -1,0 +1,10 @@
+{
+  "title": "Clerk",
+  "url": "https://clerk.com",
+  "description": "認証・ユーザー管理プラットフォーム。紫を基調とした洗練されたグラデーションとクリアなUI。",
+  "screenshotUrl": "/screenshots/sites/clerk.png",
+  "tags": ["gradient", "minimal", "animation"],
+  "isPublished": true,
+  "createdAt": "2026-02-06T00:00:00Z",
+  "updatedAt": "2026-02-06T00:00:00Z"
+}
