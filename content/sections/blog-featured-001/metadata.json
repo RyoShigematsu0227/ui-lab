@@ -1,0 +1,11 @@
+{
+  "title": "フィーチャーブログ",
+  "description": "注目記事を大きく表示し、その下に最新記事をグリッドで並べるブログセクション。フィーチャー記事にはサムネイルとリード文を配置し、記事一覧にはコンパクトなカードレイアウトを使用。",
+  "category": "blog",
+  "tags": ["grid", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/blog-featured-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-09T00:00:00Z",
+  "updatedAt": "2026-02-09T00:00:00Z"
+}

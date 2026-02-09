@@ -87,6 +87,9 @@ export { ContactSplit001 } from "./contact-split-001/code";
 export { BlogGrid001 } from "./blog-grid-001/code";
 export { LogoCloudGrid001 } from "./logo-cloud-grid-001/code";
 export { NewsletterMinimal001 } from "./newsletter-minimal-001/code";
+// 新規セクション（2026-02-09）
+export { BlogFeatured001 } from "./blog-featured-001/code";
+export { ContactCard001 } from "./contact-card-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -177,6 +180,9 @@ import { ContactSplit001 } from "./contact-split-001/code";
 import { BlogGrid001 } from "./blog-grid-001/code";
 import { LogoCloudGrid001 } from "./logo-cloud-grid-001/code";
 import { NewsletterMinimal001 } from "./newsletter-minimal-001/code";
+// 新規セクション（2026-02-09）
+import { BlogFeatured001 } from "./blog-featured-001/code";
+import { ContactCard001 } from "./contact-card-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -267,4 +273,7 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "blog-grid-001": BlogGrid001,
   "logo-cloud-grid-001": LogoCloudGrid001,
   "newsletter-minimal-001": NewsletterMinimal001,
+  // 新規セクション（2026-02-09）
+  "blog-featured-001": BlogFeatured001,
+  "contact-card-001": ContactCard001,
 };

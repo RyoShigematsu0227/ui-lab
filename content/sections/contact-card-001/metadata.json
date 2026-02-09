@@ -1,0 +1,11 @@
+{
+  "title": "カード付きコンタクトフォーム",
+  "description": "連絡先情報をカードで表示し、右側にお問い合わせフォームを配置したコンタクトセクション。営業時間や所在地などの情報をコンパクトにまとめ、フォームと並べて表示。",
+  "category": "contact",
+  "tags": ["grid", "minimal", "hover-effect", "interactive"],
+  "screenshotUrl": "/screenshots/contact-card-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-09T00:00:00Z",
+  "updatedAt": "2026-02-09T00:00:00Z"
+}
