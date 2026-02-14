@@ -8,8 +8,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import type { SortOption } from "@/types";
 
-export type SortOption = "newest" | "oldest" | "title-asc" | "title-desc";
+export type { SortOption } from "@/types";
 
 interface SortSelectProps {
   value: SortOption;
