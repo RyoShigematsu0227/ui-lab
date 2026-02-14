@@ -33,6 +33,9 @@ export interface Section {
   updatedAt: string;
 }
 
+// ソートオプション型
+export type SortOption = "newest" | "oldest" | "title-asc" | "title-desc";
+
 // セクションバリエーション型
 export interface SectionVariant {
   id: string;

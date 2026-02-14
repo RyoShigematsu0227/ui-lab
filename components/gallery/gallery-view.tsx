@@ -2,12 +2,13 @@
 
 import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { Section, Category, Tag } from "@/types";
+import { Section, Category, Tag, SortOption } from "@/types";
 import { SectionGrid } from "./section-grid";
 import { CategoryFilter } from "./category-filter";
 import { TagFilter } from "./tag-filter";
 import { SearchBar } from "./search-bar";
-import { SortSelect, SortOption } from "./sort-select";
+import { SortSelect } from "./sort-select";
+import { filterAndSortSections } from "@/lib/filter-sections";
 import { RandomSectionButton } from "./random-section-button";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Button } from "@/components/ui/button";
@@ -125,56 +126,17 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   }, [updateURLParams]);
 
   // 検索、カテゴリ、タグ、ソートでフィルタリング
-  const filteredSections = useMemo(() => {
-    let result = [...sections];
-
-    // カテゴリフィルター
-    if (selectedCategory) {
-      result = result.filter(
-        (section) => section.category?.slug === selectedCategory
-      );
-    }
-
-    // タグフィルター（AND条件：選択したすべてのタグを含む）
-    if (selectedTags.length > 0) {
-      result = result.filter((section) =>
-        selectedTags.every((tagSlug) =>
-          section.tags.some((tag) => tag.slug === tagSlug)
-        )
-      );
-    }
-
-    // 検索フィルター（デバウンス済みの値を使用）
-    if (debouncedSearchQuery.trim()) {
-      const query = debouncedSearchQuery.toLowerCase().trim();
-      result = result.filter((section) => {
-        if (section.title.toLowerCase().includes(query)) return true;
-        if (section.description.toLowerCase().includes(query)) return true;
-        if (section.tags.some((tag) => tag.name.toLowerCase().includes(query)))
-          return true;
-        if (section.category?.name.toLowerCase().includes(query)) return true;
-        return false;
-      });
-    }
-
-    // ソート
-    result.sort((a, b) => {
-      switch (sortOption) {
-        case "newest":
-          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        case "oldest":
-          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
-        case "title-asc":
-          return a.title.localeCompare(b.title, "ja");
-        case "title-desc":
-          return b.title.localeCompare(a.title, "ja");
-        default:
-          return 0;
-      }
-    });
-
-    return result;
-  }, [sections, selectedCategory, selectedTags, debouncedSearchQuery, sortOption]);
+  const filteredSections = useMemo(
+    () =>
+      filterAndSortSections({
+        sections,
+        selectedCategory,
+        selectedTags,
+        searchQuery: debouncedSearchQuery,
+        sortOption,
+      }),
+    [sections, selectedCategory, selectedTags, debouncedSearchQuery, sortOption]
+  );
 
   // 表示するセクション
   const visibleSections = useMemo(() => {
