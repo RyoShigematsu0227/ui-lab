@@ -2,11 +2,7 @@
   "title": "マソンリーギャラリー",
   "description": "フィルター機能付きのマソンリーレイアウトポートフォリオ",
   "category": "gallery",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "animation"
-  ],
+  "tags": ["grid", "hover-effect", "animation"],
   "screenshotUrl": "/screenshots/gallery-masonry-001.png",
   "isPublished": true,
   "generatedBy": "ai",

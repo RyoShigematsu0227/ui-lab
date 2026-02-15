@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "UI Lab - モダンUIセクションギャラリー",
     short_name: "UI Lab",
-    description: "AIが生成したモダンなUIセクションのギャラリーサイト。ヒーロー、ナビゲーション、料金テーブルなど、コピー可能なコンポーネントを探せます。",
+    description:
+      "AIが生成したモダンなUIセクションのギャラリーサイト。ヒーロー、ナビゲーション、料金テーブルなど、コピー可能なコンポーネントを探せます。",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

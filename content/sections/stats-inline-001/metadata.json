@@ -2,10 +2,7 @@
   "title": "インライン統計",
   "description": "横並びの統計表示セクション",
   "category": "stats",
-  "tags": [
-    "minimal",
-    "full-width"
-  ],
+  "tags": ["minimal", "full-width"],
   "screenshotUrl": "/screenshots/stats-inline-001.png",
   "isPublished": true,
   "generatedBy": "ai",

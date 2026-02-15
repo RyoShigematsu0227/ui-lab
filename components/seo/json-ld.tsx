@@ -3,10 +3,7 @@ import { Section, Category } from "@/types";
 // JSON-LDスクリプトを出力するコンポーネント
 export function JsonLd({ data }: { data: object }) {
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
   );
 }
 
@@ -16,7 +13,8 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "UI Lab",
-    description: "モダンUIセクションのギャラリーサイト。AIが生成したオリジナルUIコンポーネントを毎週追加。",
+    description:
+      "モダンUIセクションのギャラリーサイト。AIが生成したオリジナルUIコンポーネントを毎週追加。",
     url: "https://ui-lab.jp",
     potentialAction: {
       "@type": "SearchAction",

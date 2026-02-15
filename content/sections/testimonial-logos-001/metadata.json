@@ -2,10 +2,7 @@
   "title": "ロゴ付きテスティモニアル",
   "description": "企業ロゴ付きのお客様の声セクション",
   "category": "testimonial",
-  "tags": [
-    "grid",
-    "dark-mode"
-  ],
+  "tags": ["grid", "dark-mode"],
   "screenshotUrl": "/screenshots/testimonial-logos-001.png",
   "isPublished": true,
   "generatedBy": "ai",

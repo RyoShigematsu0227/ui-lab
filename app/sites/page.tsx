@@ -24,12 +24,9 @@ export default async function SitesPage() {
           <span className="heading-section text-muted-foreground tracking-widest-custom">
             Inspiration
           </span>
-          <h1 className="mt-6 heading-display text-4xl sm:text-5xl">
-            Site Examples
-          </h1>
+          <h1 className="mt-6 heading-display text-4xl sm:text-5xl">Site Examples</h1>
           <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
-            洗練されたWebサイトのデザイン事例。
-            インスピレーションの参考にどうぞ。
+            洗練されたWebサイトのデザイン事例。 インスピレーションの参考にどうぞ。
           </p>
         </div>
 

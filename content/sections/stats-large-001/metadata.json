@@ -2,10 +2,7 @@
   "title": "ラージ統計",
   "description": "大きな数字で表示する統計セクション",
   "category": "stats",
-  "tags": [
-    "bold-typography",
-    "full-width"
-  ],
+  "tags": ["bold-typography", "full-width"],
   "screenshotUrl": "/screenshots/stats-large-001.png",
   "isPublished": true,
   "generatedBy": "ai",

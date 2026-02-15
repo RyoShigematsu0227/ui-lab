@@ -2,11 +2,7 @@
   "title": "ガラスモーフィズム料金表",
   "description": "半透明効果を使用したエレガントな料金テーブル",
   "category": "pricing",
-  "tags": [
-    "glassmorphism",
-    "animation",
-    "dark-mode"
-  ],
+  "tags": ["glassmorphism", "animation", "dark-mode"],
   "screenshotUrl": "/screenshots/pricing-glass-001.png",
   "isPublished": true,
   "generatedBy": "ai",

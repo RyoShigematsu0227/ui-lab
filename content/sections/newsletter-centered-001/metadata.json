@@ -2,10 +2,7 @@
   "title": "センターニュースレター",
   "description": "中央配置のニュースレター登録セクション",
   "category": "newsletter",
-  "tags": [
-    "minimal",
-    "gradient"
-  ],
+  "tags": ["minimal", "gradient"],
   "screenshotUrl": "/screenshots/newsletter-centered-001.png",
   "isPublished": true,
   "generatedBy": "ai",

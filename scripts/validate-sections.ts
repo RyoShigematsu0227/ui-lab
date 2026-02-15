@@ -22,9 +22,7 @@ const ALL_SLUGS = fs
 
 const TARGET_SLUGS = forceAll
   ? ALL_SLUGS
-  : ALL_SLUGS.filter(
-      (slug) => !fs.existsSync(path.join(screenshotsDir, `${slug}.png`))
-    );
+  : ALL_SLUGS.filter((slug) => !fs.existsSync(path.join(screenshotsDir, `${slug}.png`)));
 
 async function validateSections() {
   if (TARGET_SLUGS.length === 0) {

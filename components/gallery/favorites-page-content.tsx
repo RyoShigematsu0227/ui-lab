@@ -40,15 +40,11 @@ export function FavoritesPageContent({ sections }: FavoritesPageContentProps) {
   }
 
   // お気に入りセクションを取得
-  const favoriteSections = sections.filter((section) =>
-    favorites.includes(section.slug)
-  );
+  const favoriteSections = sections.filter((section) => favorites.includes(section.slug));
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-muted-foreground">
-        {favoriteSections.length} 件のお気に入り
-      </p>
+      <p className="text-sm text-muted-foreground">{favoriteSections.length} 件のお気に入り</p>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {favoriteSections.map((section) => (

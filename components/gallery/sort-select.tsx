@@ -30,7 +30,12 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2" aria-label={`並び替え: ${currentOption?.label}`}>
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-2"
+          aria-label={`並び替え: ${currentOption?.label}`}
+        >
           <ArrowUpDown className="h-4 w-4" aria-hidden="true" />
           <span className="hidden sm:inline">{currentOption?.label}</span>
         </Button>

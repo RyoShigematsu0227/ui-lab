@@ -79,6 +79,7 @@ public/
 ## コンテンツ管理
 
 セクションのデータは `content/sections/{slug}/` に自己完結で配置:
+
 - `code.tsx` — セクションのReactコンポーネント
 - `metadata.json` — タイトル、説明、カテゴリslug、タグslug配列等
 

@@ -2,10 +2,7 @@
   "title": "ミニマル統計",
   "description": "シンプルな統計表示セクション",
   "category": "stats",
-  "tags": [
-    "minimal",
-    "grid"
-  ],
+  "tags": ["minimal", "grid"],
   "screenshotUrl": "/screenshots/stats-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

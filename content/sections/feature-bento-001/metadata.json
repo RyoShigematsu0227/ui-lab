@@ -2,11 +2,7 @@
   "title": "ベントーグリッドフィーチャー",
   "description": "Bento Gridレイアウトを使用した機能紹介セクション",
   "category": "feature",
-  "tags": [
-    "bento",
-    "hover-effect",
-    "animation"
-  ],
+  "tags": ["bento", "hover-effect", "animation"],
   "screenshotUrl": "/screenshots/feature-bento-001.png",
   "isPublished": true,
   "generatedBy": "ai",

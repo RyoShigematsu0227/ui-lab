@@ -2,10 +2,7 @@
   "title": "シンプルFAQ",
   "description": "シンプルな質問と回答のセクション",
   "category": "faq",
-  "tags": [
-    "minimal",
-    "interactive"
-  ],
+  "tags": ["minimal", "interactive"],
   "screenshotUrl": "/screenshots/faq-simple-001.png",
   "isPublished": true,
   "generatedBy": "ai",

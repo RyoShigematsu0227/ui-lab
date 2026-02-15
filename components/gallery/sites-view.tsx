@@ -33,8 +33,7 @@ export function SitesView({ sites }: SitesViewProps) {
         // 説明で検索
         if (site.description.toLowerCase().includes(query)) return true;
         // タグで検索
-        if (site.tags.some((tag) => tag.name.toLowerCase().includes(query)))
-          return true;
+        if (site.tags.some((tag) => tag.name.toLowerCase().includes(query))) return true;
         return false;
       });
     }
@@ -75,11 +74,7 @@ export function SitesView({ sites }: SitesViewProps) {
       {/* 結果数 */}
       <p className="text-sm text-muted-foreground">
         {filteredSites.length} 件のサイト
-        {debouncedSearchQuery && (
-          <span className="ml-2">
-            「{debouncedSearchQuery}」の検索結果
-          </span>
-        )}
+        {debouncedSearchQuery && <span className="ml-2">「{debouncedSearchQuery}」の検索結果</span>}
       </p>
 
       {/* グリッド */}
@@ -102,12 +97,7 @@ export function SitesView({ sites }: SitesViewProps) {
           </p>
 
           {debouncedSearchQuery && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setSearchQuery("")}
-              className="mb-6"
-            >
+            <Button variant="outline" size="sm" onClick={() => setSearchQuery("")} className="mb-6">
               検索をクリア
             </Button>
           )}

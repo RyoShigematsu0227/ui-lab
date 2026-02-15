@@ -43,11 +43,12 @@
 ```yaml
 on:
   schedule:
-    - cron: "0 0 * * 1"  # 毎週月曜 9:00 JST
-  workflow_dispatch:       # 手動実行
+    - cron: "0 0 * * 1" # 毎週月曜 9:00 JST
+  workflow_dispatch: # 手動実行
 ```
 
 主なステップ:
+
 1. チェックアウト + Node.js セットアップ
 2. `npx @anthropic-ai/claude-code -p` でセクション生成
 3. `npm run build` でビルド確認
@@ -55,6 +56,7 @@ on:
 5. 変更があれば自動コミット & プッシュ
 
 Secrets:
+
 - `ANTHROPIC_API_KEY` — Claude API キー（リポジトリSecrets）
 
 ## 生成プロンプト
@@ -80,7 +82,7 @@ public/screenshots/
   {slug}-light.png  → ライトテーマスクリーンショット
 ```
 
-+ `content/sections/index.ts` にexport・import・マッピング追加
+- `content/sections/index.ts` にexport・import・マッピング追加
 
 ## スクリーンショット
 
@@ -96,11 +98,11 @@ public/screenshots/
 
 ## エラーハンドリング
 
-| エラー種別 | 対応 |
-|---|---|
+| エラー種別             | 対応                                        |
+| ---------------------- | ------------------------------------------- |
 | Claude Code CLI エラー | GitHub Actions のログに記録、次週にリトライ |
-| ビルドエラー | ワークフロー失敗として記録 |
-| スクリーンショット失敗 | 該当セクションをスキップ |
+| ビルドエラー           | ワークフロー失敗として記録                  |
+| スクリーンショット失敗 | 該当セクションをスキップ                    |
 
 ## コスト見積もり
 

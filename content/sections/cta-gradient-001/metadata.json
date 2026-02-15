@@ -2,11 +2,7 @@
   "title": "グラデーションCTA",
   "description": "目を引くグラデーションを使用したCTAセクション",
   "category": "cta",
-  "tags": [
-    "gradient",
-    "animation",
-    "bold-typography"
-  ],
+  "tags": ["gradient", "animation", "bold-typography"],
   "screenshotUrl": "/screenshots/cta-gradient-001.png",
   "isPublished": true,
   "generatedBy": "ai",

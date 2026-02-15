@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import { Share2, Twitter, Link as LinkIcon, Smartphone } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -19,13 +19,13 @@ interface ShareButtonProps {
   description?: string;
 }
 
-export function ShareButton({ title, slug, url, description }: ShareButtonProps) {
-  const [canNativeShare, setCanNativeShare] = useState(false);
+// Web Share API が使用可能かをSSR安全に判定
+const subscribeNoop = () => () => {};
+const getCanNativeShare = () => !!navigator.share;
+const getCanNativeShareServer = () => false;
 
-  useEffect(() => {
-    // Web Share API が使用可能かチェック
-    setCanNativeShare(typeof navigator !== "undefined" && !!navigator.share);
-  }, []);
+export function ShareButton({ title, slug, url, description }: ShareButtonProps) {
+  const canNativeShare = useSyncExternalStore(subscribeNoop, getCanNativeShare, getCanNativeShareServer);
 
   const getUrl = () => {
     if (url) return url;

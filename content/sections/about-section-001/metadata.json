@@ -2,11 +2,7 @@
   "title": "アバウトセクション",
   "description": "会社・サービス紹介のセクション",
   "category": "feature",
-  "tags": [
-    "minimal",
-    "bold-typography",
-    "split"
-  ],
+  "tags": ["minimal", "bold-typography", "split"],
   "screenshotUrl": "/screenshots/about-section-001.png",
   "isPublished": true,
   "generatedBy": "ai",

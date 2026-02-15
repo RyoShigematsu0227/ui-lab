@@ -2,11 +2,7 @@
   "title": "CTAヒーロー",
   "description": "強力なCTAボタンを中心としたヒーローセクション",
   "category": "hero",
-  "tags": [
-    "gradient",
-    "animation",
-    "interactive"
-  ],
+  "tags": ["gradient", "animation", "interactive"],
   "screenshotUrl": "/screenshots/hero-cta-001.png",
   "isPublished": true,
   "generatedBy": "ai",

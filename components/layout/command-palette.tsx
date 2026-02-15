@@ -2,23 +2,9 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import {
-  Search,
-  Home,
-  Heart,
-  Globe,
-  Info,
-  Moon,
-  Sun,
-  Keyboard,
-  Layout,
-} from "lucide-react";
+import { Search, Home, Heart, Globe, Info, Moon, Sun, Keyboard, Layout } from "lucide-react";
 import { useTheme } from "next-themes";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { CATEGORIES } from "@/data/categories";
 import { Section } from "@/types";
@@ -128,11 +114,11 @@ export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteP
       description: section.description,
       icon: Layout,
       action: () => navigate(`/sections/${section.slug}`),
-      keywords: [section.slug, section.title, ...section.tags.map(t => t.name)],
+      keywords: [section.slug, section.title, ...section.tags.map((t) => t.name)],
     }));
 
     return [...baseCommands, ...categoryCommands, ...sectionCommands];
-  }, [router, onOpenChange, setTheme, resolvedTheme]);
+  }, [router, onOpenChange, setTheme, resolvedTheme, sections]);
 
   // フィルタリング
   const filteredCommands = useMemo(() => {
@@ -141,12 +127,14 @@ export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteP
     }
 
     const lowerQuery = query.toLowerCase();
-    return commands.filter((cmd) => {
-      if (cmd.label.toLowerCase().includes(lowerQuery)) return true;
-      if (cmd.description?.toLowerCase().includes(lowerQuery)) return true;
-      if (cmd.keywords?.some((kw) => kw.toLowerCase().includes(lowerQuery))) return true;
-      return false;
-    }).slice(0, 10);
+    return commands
+      .filter((cmd) => {
+        if (cmd.label.toLowerCase().includes(lowerQuery)) return true;
+        if (cmd.description?.toLowerCase().includes(lowerQuery)) return true;
+        if (cmd.keywords?.some((kw) => kw.toLowerCase().includes(lowerQuery))) return true;
+        return false;
+      })
+      .slice(0, 10);
   }, [commands, query]);
 
   // キーボードナビゲーション
@@ -216,9 +204,7 @@ export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteP
         {/* コマンドリスト */}
         <div className="max-h-80 overflow-y-auto p-2">
           {filteredCommands.length === 0 ? (
-            <p className="py-6 text-center text-sm text-muted-foreground">
-              結果が見つかりません
-            </p>
+            <p className="py-6 text-center text-sm text-muted-foreground">結果が見つかりません</p>
           ) : (
             <div className="space-y-1">
               {filteredCommands.map((cmd, index) => (
@@ -236,9 +222,7 @@ export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteP
                   <div className="flex-1 overflow-hidden">
                     <p className="truncate font-medium">{cmd.label}</p>
                     {cmd.description && (
-                      <p className="truncate text-xs text-muted-foreground">
-                        {cmd.description}
-                      </p>
+                      <p className="truncate text-xs text-muted-foreground">{cmd.description}</p>
                     )}
                   </div>
                 </button>

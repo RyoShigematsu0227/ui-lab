@@ -2,10 +2,7 @@
   "title": "コンタクトフォーム",
   "description": "連絡先情報付きの2カラムお問い合わせフォーム",
   "category": "contact",
-  "tags": [
-    "interactive",
-    "dark-mode"
-  ],
+  "tags": ["interactive", "dark-mode"],
   "screenshotUrl": "/screenshots/contact-form-001.png",
   "isPublished": true,
   "generatedBy": "ai",

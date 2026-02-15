@@ -18,10 +18,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
     <nav aria-label="パンくずリスト" className={cn("mb-6", className)}>
       <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
         <li>
-          <Link
-            href="/"
-            className="transition-colors hover:text-foreground"
-          >
+          <Link href="/" className="transition-colors hover:text-foreground">
             ホーム
           </Link>
         </li>
@@ -32,10 +29,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
             </li>
             <li>
               {item.href ? (
-                <Link
-                  href={item.href}
-                  className="transition-colors hover:text-foreground"
-                >
+                <Link href={item.href} className="transition-colors hover:text-foreground">
                   {item.label}
                 </Link>
               ) : (

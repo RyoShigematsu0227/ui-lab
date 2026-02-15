@@ -2,10 +2,7 @@
   "title": "ミニマルテスティモニアル",
   "description": "シンプルなお客様の声セクション",
   "category": "testimonial",
-  "tags": [
-    "minimal",
-    "dark-mode"
-  ],
+  "tags": ["minimal", "dark-mode"],
   "screenshotUrl": "/screenshots/testimonial-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

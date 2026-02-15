@@ -2,11 +2,7 @@
   "title": "テスティモニアルカード",
   "description": "カード形式のお客様の声セクション",
   "category": "testimonial",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/testimonial-cards-001.png",
   "isPublished": true,
   "generatedBy": "ai",

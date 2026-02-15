@@ -2,11 +2,7 @@
   "title": "モダンナビゲーション",
   "description": "グラデーションアクセントとモバイル対応のスティッキーヘッダー",
   "category": "navigation",
-  "tags": [
-    "gradient",
-    "animation",
-    "interactive"
-  ],
+  "tags": ["gradient", "animation", "interactive"],
   "screenshotUrl": "/screenshots/navigation-modern-001.png",
   "isPublished": true,
   "generatedBy": "ai",

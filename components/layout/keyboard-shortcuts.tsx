@@ -20,10 +20,7 @@ export function KeyboardShortcuts({ sections }: KeyboardShortcutsProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // 入力フィールドにフォーカスがある場合は無視（コマンドパレット以外）
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      ) {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         // Cmd/Ctrl + K は常に動作
         if ((e.metaKey || e.ctrlKey) && e.key === "k") {
           e.preventDefault();
@@ -84,7 +81,11 @@ export function KeyboardShortcuts({ sections }: KeyboardShortcutsProps) {
   return (
     <>
       <KeyboardShortcutsHelp open={helpOpen} onOpenChange={setHelpOpen} />
-      <CommandPalette open={commandPaletteOpen} onOpenChange={setCommandPaletteOpen} sections={sections} />
+      <CommandPalette
+        open={commandPaletteOpen}
+        onOpenChange={setCommandPaletteOpen}
+        sections={sections}
+      />
     </>
   );
 }

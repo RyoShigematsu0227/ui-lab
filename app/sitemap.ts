@@ -4,10 +4,7 @@ import { getSections, getSites } from "@/lib/content";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ui-lab.jp";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [sections, sites] = await Promise.all([
-    getSections(),
-    getSites(),
-  ]);
+  const [sections, sites] = await Promise.all([getSections(), getSites()]);
 
   // 静的ページ
   const staticPages: MetadataRoute.Sitemap = [
@@ -53,9 +50,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [
-    ...staticPages,
-    ...sectionPages,
-    ...sitePages,
-  ];
+  return [...staticPages, ...sectionPages, ...sitePages];
 }

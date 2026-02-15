@@ -2,10 +2,7 @@
   "title": "料金比較表",
   "description": "プランを横並びで比較できる料金テーブル",
   "category": "pricing",
-  "tags": [
-    "grid",
-    "dark-mode"
-  ],
+  "tags": ["grid", "dark-mode"],
   "screenshotUrl": "/screenshots/pricing-comparison-001.png",
   "isPublished": true,
   "generatedBy": "ai",

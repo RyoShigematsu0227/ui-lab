@@ -21,11 +21,14 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
   const previewUrl = `/preview/${slug}`;
 
   // Escキーでフルスクリーンを閉じる
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === "Escape" && isFullscreen) {
-      setIsFullscreen(false);
-    }
-  }, [isFullscreen]);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    },
+    [isFullscreen]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -105,15 +108,17 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
               viewMode === "desktop"
                 ? "w-full"
                 : viewMode === "tablet"
-                ? "w-[768px] border-x border-border"
-                : "w-[375px] border-x border-border"
+                  ? "w-[768px] border-x border-border"
+                  : "w-[375px] border-x border-border"
             )}
           >
             {/* スケルトン */}
-            <div className={cn(
-              "absolute inset-0 bg-muted transition-opacity duration-500",
-              iframeLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
-            )}>
+            <div
+              className={cn(
+                "absolute inset-0 bg-muted transition-opacity duration-500",
+                iframeLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+              )}
+            >
               <div className="absolute inset-0 animate-pulse">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted-foreground/10 to-transparent skeleton-shimmer" />
               </div>
@@ -193,8 +198,8 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
             viewMode === "desktop"
               ? "w-full"
               : viewMode === "tablet"
-              ? "w-[768px] max-w-full"
-              : "w-[375px]"
+                ? "w-[768px] max-w-full"
+                : "w-[375px]"
           )}
           style={{
             // モバイル・タブレット時に高さを制限
@@ -202,10 +207,12 @@ export function SectionPreviewLive({ slug, title }: SectionPreviewLiveProps) {
           }}
         >
           {/* スケルトン */}
-          <div className={cn(
-            "absolute inset-0 bg-muted transition-opacity duration-500 z-10",
-            iframeLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
-          )}>
+          <div
+            className={cn(
+              "absolute inset-0 bg-muted transition-opacity duration-500 z-10",
+              iframeLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+            )}
+          >
             <div className="absolute inset-0 animate-pulse">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted-foreground/10 to-transparent skeleton-shimmer" />
             </div>

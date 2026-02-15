@@ -2,10 +2,7 @@
   "title": "ミニマルナビゲーション",
   "description": "シンプルなナビゲーションヘッダー",
   "category": "navigation",
-  "tags": [
-    "minimal",
-    "interactive"
-  ],
+  "tags": ["minimal", "interactive"],
   "screenshotUrl": "/screenshots/navigation-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

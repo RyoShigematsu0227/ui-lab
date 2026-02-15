@@ -2,10 +2,7 @@
   "title": "トラストロゴ",
   "description": "信頼性を示すロゴセクション",
   "category": "logo-cloud",
-  "tags": [
-    "grid",
-    "minimal"
-  ],
+  "tags": ["grid", "minimal"],
   "screenshotUrl": "/screenshots/trust-logos-001.png",
   "isPublished": true,
   "generatedBy": "ai",

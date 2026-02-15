@@ -2,10 +2,7 @@
   "title": "アコーディオンFAQ",
   "description": "開閉式のFAQセクション",
   "category": "faq",
-  "tags": [
-    "interactive",
-    "minimal"
-  ],
+  "tags": ["interactive", "minimal"],
   "screenshotUrl": "/screenshots/faq-accordion-001.png",
   "isPublished": true,
   "generatedBy": "ai",

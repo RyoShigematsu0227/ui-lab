@@ -2,10 +2,7 @@
   "title": "ミニマル料金表",
   "description": "シンプルで見やすい料金テーブル",
   "category": "pricing",
-  "tags": [
-    "minimal",
-    "grid"
-  ],
+  "tags": ["minimal", "grid"],
   "screenshotUrl": "/screenshots/pricing-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

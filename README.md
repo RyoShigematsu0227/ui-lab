@@ -34,11 +34,11 @@ http://localhost:3000 で開発サーバーが起動します。
 
 ## コマンド
 
-| コマンド | 説明 |
-|---------|------|
-| `npm run dev` | 開発サーバー起動 |
-| `npm run build` | プロダクションビルド |
-| `npm run lint` | ESLint実行 |
+| コマンド              | 説明                             |
+| --------------------- | -------------------------------- |
+| `npm run dev`         | 開発サーバー起動                 |
+| `npm run build`       | プロダクションビルド             |
+| `npm run lint`        | ESLint実行                       |
 | `npm run screenshots` | セクションスクリーンショット生成 |
 
 ## プロジェクト構造
@@ -74,6 +74,7 @@ public/screenshots/   → スクリーンショット画像
 3. `content/sections/index.ts` にimport・exportとマッピングを追加
 
 metadata.json の形式:
+
 ```json
 {
   "title": "セクション名",

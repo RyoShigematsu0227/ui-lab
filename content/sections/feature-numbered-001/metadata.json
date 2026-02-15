@@ -2,10 +2,7 @@
   "title": "ナンバードフィーチャー",
   "description": "番号付きで機能を紹介するステップ形式セクション",
   "category": "feature",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/feature-numbered-001.png",
   "isPublished": true,
   "generatedBy": "ai",

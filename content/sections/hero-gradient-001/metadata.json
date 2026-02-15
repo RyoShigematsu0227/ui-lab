@@ -2,11 +2,7 @@
   "title": "グラデーションヒーロー",
   "description": "美しいグラデーション背景を使用したモダンなヒーローセクション",
   "category": "hero",
-  "tags": [
-    "gradient",
-    "animation",
-    "full-width"
-  ],
+  "tags": ["gradient", "animation", "full-width"],
   "screenshotUrl": "/screenshots/hero-gradient-001.png",
   "isPublished": true,
   "generatedBy": "ai",

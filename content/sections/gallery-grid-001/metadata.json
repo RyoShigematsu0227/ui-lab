@@ -2,10 +2,7 @@
   "title": "グリッドギャラリー",
   "description": "グリッドレイアウトのギャラリーセクション",
   "category": "gallery",
-  "tags": [
-    "grid",
-    "hover-effect"
-  ],
+  "tags": ["grid", "hover-effect"],
   "screenshotUrl": "/screenshots/gallery-grid-001.png",
   "isPublished": true,
   "generatedBy": "ai",

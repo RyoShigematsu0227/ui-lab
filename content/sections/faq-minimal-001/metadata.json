@@ -2,10 +2,7 @@
   "title": "ミニマルFAQ",
   "description": "余白を活かしたシンプルなFAQセクション",
   "category": "faq",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/faq-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

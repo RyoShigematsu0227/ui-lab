@@ -2,10 +2,7 @@
   "title": "バナーCTA",
   "description": "バナー形式のコールトゥアクションセクション",
   "category": "cta",
-  "tags": [
-    "gradient",
-    "full-width"
-  ],
+  "tags": ["gradient", "full-width"],
   "screenshotUrl": "/screenshots/cta-banner-001.png",
   "isPublished": true,
   "generatedBy": "ai",

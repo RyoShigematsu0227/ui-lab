@@ -2,11 +2,7 @@
   "title": "ブログカード",
   "description": "著者情報付きの3カラムブログ記事カード",
   "category": "blog",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/blog-cards-001.png",
   "isPublished": true,
   "generatedBy": "ai",

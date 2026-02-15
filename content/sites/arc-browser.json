@@ -3,11 +3,7 @@
   "url": "https://arc.net",
   "description": "次世代ブラウザ。大胆なカラーパレットと革新的なUIで新しいブラウジング体験を提案。",
   "screenshotUrl": "/screenshots/sites/arc.png",
-  "tags": [
-    "gradient",
-    "bold-typography",
-    "interactive"
-  ],
+  "tags": ["gradient", "bold-typography", "interactive"],
   "isPublished": true,
   "createdAt": "2024-01-11T00:00:00Z",
   "updatedAt": "2024-01-11T00:00:00Z"

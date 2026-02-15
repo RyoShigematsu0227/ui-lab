@@ -8,8 +8,9 @@ const forceAll = process.argv.includes("--all");
 // セクションディレクトリから全スラッグを取得
 const sectionsDir = path.join(process.cwd(), "content/sections");
 const screenshotsDir = path.join(process.cwd(), "public/screenshots");
-const ALL_SLUGS = fs.readdirSync(sectionsDir)
-  .filter(item => {
+const ALL_SLUGS = fs
+  .readdirSync(sectionsDir)
+  .filter((item) => {
     const itemPath = path.join(sectionsDir, item);
     return fs.statSync(itemPath).isDirectory();
   })
@@ -18,7 +19,7 @@ const ALL_SLUGS = fs.readdirSync(sectionsDir)
 // 新規のみ: ダークテーマのスクリーンショットが存在しないものだけ対象
 const SECTION_SLUGS = forceAll
   ? ALL_SLUGS
-  : ALL_SLUGS.filter(slug => !fs.existsSync(path.join(screenshotsDir, `${slug}.png`)));
+  : ALL_SLUGS.filter((slug) => !fs.existsSync(path.join(screenshotsDir, `${slug}.png`)));
 
 const BASE_URL = "http://localhost:3000";
 
@@ -29,11 +30,15 @@ function isSmallComponent(slug: string): boolean {
 
 async function generateScreenshots() {
   if (SECTION_SLUGS.length === 0) {
-    console.log("新しいセクションはありません。スキップします。\n（全セクション対象: --all フラグを付けてください）");
+    console.log(
+      "新しいセクションはありません。スキップします。\n（全セクション対象: --all フラグを付けてください）"
+    );
     return;
   }
 
-  console.log(`スクリーンショット生成を開始... (${SECTION_SLUGS.length}セクション × 2テーマ)${forceAll ? "" : "（新規のみ）"}\n`);
+  console.log(
+    `スクリーンショット生成を開始... (${SECTION_SLUGS.length}セクション × 2テーマ)${forceAll ? "" : "（新規のみ）"}\n`
+  );
 
   const browser: Browser = await chromium.launch();
 

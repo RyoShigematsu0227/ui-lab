@@ -1,10 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Section, Category, Tag, Site } from "@/types";
-import {
-  CATEGORIES,
-  getCategoryBySlug as findCategoryBySlug,
-} from "@/data/categories";
+import { CATEGORIES, getCategoryBySlug as findCategoryBySlug } from "@/data/categories";
 import { TAGS, getTagBySlug as findTagBySlug } from "@/data/tags";
 
 // metadata.json のスキーマ型
@@ -119,27 +116,20 @@ export async function getSections(): Promise<Section[]> {
       return metadataToSection(slug, meta);
     })
     .filter((s): s is Section => s !== null && s.isPublished)
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
   cachedSections = sections;
   return sections;
 }
 
-export async function getSectionBySlug(
-  slug: string
-): Promise<Section | undefined> {
+export async function getSectionBySlug(slug: string): Promise<Section | undefined> {
   const meta = loadSectionMetadata(slug);
   if (!meta) return undefined;
   const section = metadataToSection(slug, meta);
   return section.isPublished ? section : undefined;
 }
 
-export async function getSectionsByCategory(
-  categorySlug: string
-): Promise<Section[]> {
+export async function getSectionsByCategory(categorySlug: string): Promise<Section[]> {
   const sections = await getSections();
   return sections.filter((s) => s.category?.slug === categorySlug);
 }
@@ -154,9 +144,7 @@ export async function getCategories(): Promise<Category[]> {
   return CATEGORIES;
 }
 
-export async function getCategoryBySlug(
-  slug: string
-): Promise<Category | undefined> {
+export async function getCategoryBySlug(slug: string): Promise<Category | undefined> {
   return findCategoryBySlug(slug);
 }
 
@@ -190,18 +178,13 @@ export async function getSites(): Promise<Site[]> {
       return metadataToSite(slug, meta);
     })
     .filter((s): s is Site => s !== null && s.isPublished)
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
   cachedSites = sites;
   return sites;
 }
 
-export async function getSiteBySlug(
-  slug: string
-): Promise<Site | undefined> {
+export async function getSiteBySlug(slug: string): Promise<Site | undefined> {
   const meta = loadSiteMetadata(slug);
   if (!meta) return undefined;
   const site = metadataToSite(slug, meta);

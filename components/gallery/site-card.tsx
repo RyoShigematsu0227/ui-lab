@@ -77,9 +77,7 @@ export function SiteCard({ site, priority = false }: SiteCardProps) {
           <h3 className="line-clamp-1 text-sm font-medium tracking-wide transition-colors group-hover:text-primary">
             {site.title}
           </h3>
-          <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">
-            {site.description}
-          </p>
+          <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">{site.description}</p>
         </div>
       </a>
     </article>

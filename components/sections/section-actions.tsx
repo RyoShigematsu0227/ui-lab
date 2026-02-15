@@ -14,10 +14,7 @@ export function SectionActions({ slug, title }: SectionActionsProps) {
 
   return (
     <div className="flex items-center gap-2">
-      <FavoriteButton
-        isFavorite={isFavorite(slug)}
-        onToggle={() => toggleFavorite(slug)}
-      />
+      <FavoriteButton isFavorite={isFavorite(slug)} onToggle={() => toggleFavorite(slug)} />
       <ShareButton slug={slug} title={title} />
     </div>
   );

@@ -2,10 +2,7 @@
   "title": "アニメーション統計",
   "description": "数字がカウントアップするアニメーション付き統計セクション",
   "category": "stats",
-  "tags": [
-    "animation",
-    "interactive"
-  ],
+  "tags": ["animation", "interactive"],
   "screenshotUrl": "/screenshots/stats-animated-001.png",
   "isPublished": true,
   "generatedBy": "ai",

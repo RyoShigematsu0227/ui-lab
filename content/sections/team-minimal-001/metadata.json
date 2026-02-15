@@ -2,10 +2,7 @@
   "title": "ミニマルチーム",
   "description": "シンプルなチーム紹介セクション",
   "category": "team",
-  "tags": [
-    "minimal",
-    "grid"
-  ],
+  "tags": ["minimal", "grid"],
   "screenshotUrl": "/screenshots/team-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

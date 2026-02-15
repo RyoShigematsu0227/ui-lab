@@ -19,9 +19,7 @@ const ALL_SITES: SiteData[] = fs
   .readdirSync(sitesDir)
   .filter((file) => file.endsWith(".json"))
   .map((file) => {
-    const data = JSON.parse(
-      fs.readFileSync(path.join(sitesDir, file), "utf-8")
-    );
+    const data = JSON.parse(fs.readFileSync(path.join(sitesDir, file), "utf-8"));
     // screenshotUrl からファイル名を推定（/screenshots/sites/xxx.png → xxx）
     const screenshotFile = data.screenshotUrl
       ?.replace("/screenshots/sites/", "")
@@ -37,10 +35,7 @@ const ALL_SITES: SiteData[] = fs
 // 新規のみ: スクリーンショットが存在しないものだけ対象
 const SITES = forceAll
   ? ALL_SITES
-  : ALL_SITES.filter(
-      (site) =>
-        !fs.existsSync(path.join(screenshotsDir, `${site.slug}.png`))
-    );
+  : ALL_SITES.filter((site) => !fs.existsSync(path.join(screenshotsDir, `${site.slug}.png`)));
 
 async function generateScreenshots() {
   if (SITES.length === 0) {
@@ -69,9 +64,7 @@ async function generateScreenshots() {
     const outputPath = path.join(screenshotsDir, `${site.slug}.png`);
 
     try {
-      process.stdout.write(
-        `[${i + 1}/${SITES.length}] 📸 ${site.title} (${site.slug})...`
-      );
+      process.stdout.write(`[${i + 1}/${SITES.length}] 📸 ${site.title} (${site.slug})...`);
 
       await page.goto(site.url, {
         waitUntil: "networkidle",

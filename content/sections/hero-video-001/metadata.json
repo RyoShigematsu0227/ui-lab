@@ -2,11 +2,7 @@
   "title": "ビデオヒーロー",
   "description": "動画背景風のインパクトあるヒーローセクション",
   "category": "hero",
-  "tags": [
-    "gradient",
-    "animation",
-    "full-width"
-  ],
+  "tags": ["gradient", "animation", "full-width"],
   "screenshotUrl": "/screenshots/hero-video-001.png",
   "isPublished": true,
   "generatedBy": "ai",

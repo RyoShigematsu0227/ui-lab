@@ -2,10 +2,7 @@
   "title": "ミニマルヒーロー",
   "description": "余白を活かしたシンプルで洗練されたヒーローセクション",
   "category": "hero",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/hero-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

@@ -2,10 +2,7 @@
   "title": "アニメーションロゴクラウド",
   "description": "スライドアニメーション付きのロゴクラウド",
   "category": "logo-cloud",
-  "tags": [
-    "animation",
-    "grid"
-  ],
+  "tags": ["animation", "grid"],
   "screenshotUrl": "/screenshots/logo-cloud-animated-001.png",
   "isPublished": true,
   "generatedBy": "ai",

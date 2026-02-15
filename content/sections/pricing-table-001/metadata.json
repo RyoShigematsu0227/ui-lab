@@ -2,10 +2,7 @@
   "title": "プライシングテーブル",
   "description": "機能チェックリスト付きの3カラム料金表",
   "category": "pricing",
-  "tags": [
-    "grid",
-    "dark-mode"
-  ],
+  "tags": ["grid", "dark-mode"],
   "screenshotUrl": "/screenshots/pricing-table-001.png",
   "isPublished": true,
   "generatedBy": "ai",

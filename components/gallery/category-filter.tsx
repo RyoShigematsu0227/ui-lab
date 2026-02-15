@@ -17,12 +17,13 @@ export function CategoryFilter({
   onSelectCategory,
 }: CategoryFilterProps) {
   // カテゴリごとのセクション数を計算
-  const categoryCounts = categories.reduce((acc, category) => {
-    acc[category.slug] = sections.filter(
-      (s) => s.category?.slug === category.slug
-    ).length;
-    return acc;
-  }, {} as Record<string, number>);
+  const categoryCounts = categories.reduce(
+    (acc, category) => {
+      acc[category.slug] = sections.filter((s) => s.category?.slug === category.slug).length;
+      return acc;
+    },
+    {} as Record<string, number>
+  );
 
   return (
     <div className="flex flex-wrap gap-2">

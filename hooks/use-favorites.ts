@@ -58,10 +58,7 @@ export function useFavorites() {
   }, []);
 
   // お気に入りかどうかをチェック
-  const isFavorite = useCallback(
-    (slug: string) => favorites.includes(slug),
-    [favorites]
-  );
+  const isFavorite = useCallback((slug: string) => favorites.includes(slug), [favorites]);
 
   return {
     favorites,

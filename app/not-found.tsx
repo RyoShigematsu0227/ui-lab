@@ -13,10 +13,7 @@ const suggestions = [
 
 export default async function NotFound() {
   // 人気のセクションとカテゴリを取得
-  const [sections, categories] = await Promise.all([
-    getSections(),
-    getCategories(),
-  ]);
+  const [sections, categories] = await Promise.all([getSections(), getCategories()]);
 
   // 最新の5セクションを取得
   const popularSections = sections.slice(0, 5);
@@ -81,9 +78,7 @@ export default async function NotFound() {
             <Link key={section.id} href={`/sections/${section.slug}`}>
               <div className="rounded-lg border border-border p-3 transition-colors hover:bg-accent">
                 <p className="line-clamp-1 text-sm font-medium">{section.title}</p>
-                <p className="text-xs text-muted-foreground">
-                  {section.category?.name}
-                </p>
+                <p className="text-xs text-muted-foreground">{section.category?.name}</p>
               </div>
             </Link>
           ))}

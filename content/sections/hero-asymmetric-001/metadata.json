@@ -2,11 +2,7 @@
   "title": "非対称ヒーロー",
   "description": "非対称レイアウトを活用したダイナミックなヒーローセクション",
   "category": "hero",
-  "tags": [
-    "asymmetric",
-    "animation",
-    "bold-typography"
-  ],
+  "tags": ["asymmetric", "animation", "bold-typography"],
   "screenshotUrl": "/screenshots/hero-asymmetric-001.png",
   "isPublished": true,
   "generatedBy": "ai",

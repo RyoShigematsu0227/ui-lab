@@ -2,10 +2,7 @@
   "title": "ニュースレターCTA",
   "description": "メール登録フォーム付きのCTAセクション",
   "category": "cta",
-  "tags": [
-    "gradient",
-    "interactive"
-  ],
+  "tags": ["gradient", "interactive"],
   "screenshotUrl": "/screenshots/cta-newsletter-001.png",
   "isPublished": true,
   "generatedBy": "ai",

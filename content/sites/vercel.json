@@ -3,11 +3,7 @@
   "url": "https://vercel.com",
   "description": "フロントエンドクラウドプラットフォーム。グラデーションとグリッドを効果的に使用したモダンなデザイン。",
   "screenshotUrl": "/screenshots/sites/vercel.png",
-  "tags": [
-    "gradient",
-    "grid",
-    "animation"
-  ],
+  "tags": ["gradient", "grid", "animation"],
   "isPublished": true,
   "createdAt": "2024-01-14T00:00:00Z",
   "updatedAt": "2024-01-14T00:00:00Z"

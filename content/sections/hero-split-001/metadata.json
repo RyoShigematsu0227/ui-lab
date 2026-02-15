@@ -2,11 +2,7 @@
   "title": "スプリットヒーロー",
   "description": "コンテンツと画像を左右に分割したヒーローセクション",
   "category": "hero",
-  "tags": [
-    "gradient",
-    "split",
-    "animation"
-  ],
+  "tags": ["gradient", "split", "animation"],
   "screenshotUrl": "/screenshots/hero-split-001.png",
   "isPublished": true,
   "generatedBy": "ai",

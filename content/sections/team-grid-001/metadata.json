@@ -2,11 +2,7 @@
   "title": "チームグリッド",
   "description": "ホバーエフェクト付きの4カラムチーム紹介セクション",
   "category": "team",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/team-grid-001.png",
   "isPublished": true,
   "generatedBy": "ai",

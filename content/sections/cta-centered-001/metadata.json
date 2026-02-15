@@ -2,10 +2,7 @@
   "title": "センターCTA",
   "description": "中央配置のコールトゥアクションセクション",
   "category": "cta",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/cta-centered-001.png",
   "isPublished": true,
   "generatedBy": "ai",

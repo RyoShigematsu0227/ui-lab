@@ -2,10 +2,7 @@
   "title": "シンプルCTA",
   "description": "シンプルなテキストとボタンのCTAセクション",
   "category": "cta",
-  "tags": [
-    "minimal",
-    "interactive"
-  ],
+  "tags": ["minimal", "interactive"],
   "screenshotUrl": "/screenshots/cta-simple-001.png",
   "isPublished": true,
   "generatedBy": "ai",
