@@ -44,8 +44,6 @@ export function PreviewWrapper({ theme, componentType, children }: PreviewWrappe
     }
   }, [theme]);
 
-  const isSmallComponent = componentType !== "normal";
-
   return (
     <>
       <style>{`

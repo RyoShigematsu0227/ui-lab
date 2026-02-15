@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Section } from "@/types";
@@ -28,16 +28,12 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
   const { resolvedTheme } = useTheme();
   const isNewSection = isNew(section.createdAt);
   const [isHovered, setIsHovered] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const subscribeNoop = () => () => {};
+  const mounted = useSyncExternalStore(subscribeNoop, () => true, () => false);
   const [darkLoaded, setDarkLoaded] = useState(false);
   const [lightLoaded, setLightLoaded] = useState(false);
   const [darkError, setDarkError] = useState(false);
   const [lightError, setLightError] = useState(false);
-
-  // クライアント側でマウント後にテーマを適用（ハイドレーションエラー回避）
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const isLight = mounted && resolvedTheme === "light";
   const darkUrl = section.screenshotUrl || null;
@@ -46,8 +42,6 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
   // 現在のテーマの画像が読み込み済みか
   const activeLoaded = isLight ? lightLoaded : darkLoaded;
   const showPlaceholder = !section.screenshotUrl || (darkError && lightError);
-  const showSkeleton = !showPlaceholder && !activeLoaded;
-
   return (
     <article
       className="group relative"

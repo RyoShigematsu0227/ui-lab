@@ -118,7 +118,7 @@ export function CommandPalette({ open, onOpenChange, sections }: CommandPaletteP
     }));
 
     return [...baseCommands, ...categoryCommands, ...sectionCommands];
-  }, [router, onOpenChange, setTheme, resolvedTheme]);
+  }, [router, onOpenChange, setTheme, resolvedTheme, sections]);
 
   // フィルタリング
   const filteredCommands = useMemo(() => {

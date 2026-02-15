@@ -11,7 +11,6 @@ import { SortSelect } from "./sort-select";
 import { filterAndSortSections } from "@/lib/filter-sections";
 import { RandomSectionButton } from "./random-section-button";
 import { useDebounce } from "@/hooks/use-debounce";
-import { Button } from "@/components/ui/button";
 import { SlidersHorizontal, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 

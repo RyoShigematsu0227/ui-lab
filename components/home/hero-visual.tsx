@@ -109,7 +109,7 @@ function CodeCard({ isActive }: { isActive?: boolean }) {
 
   useEffect(() => {
     if (isActive) {
-      setVisibleLines(0);
+      queueMicrotask(() => setVisibleLines(0));
       const timer1 = setTimeout(() => setVisibleLines(1), 100);
       const timer2 = setTimeout(() => setVisibleLines(2), 200);
       const timer3 = setTimeout(() => setVisibleLines(3), 300);
