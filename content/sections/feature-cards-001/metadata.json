@@ -2,11 +2,7 @@
   "title": "フィーチャーカード",
   "description": "カード形式で機能を紹介するセクション",
   "category": "feature",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/feature-cards-001.png",
   "isPublished": true,
   "generatedBy": "ai",

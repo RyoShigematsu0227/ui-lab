@@ -2,10 +2,7 @@
   "title": "グリッド統計",
   "description": "グリッドレイアウトの統計セクション",
   "category": "stats",
-  "tags": [
-    "grid",
-    "hover-effect"
-  ],
+  "tags": ["grid", "hover-effect"],
   "screenshotUrl": "/screenshots/stats-grid-001.png",
   "isPublished": true,
   "generatedBy": "ai",

@@ -30,20 +30,14 @@ export function Header() {
       <div className="relative mx-auto max-w-7xl">
         <div className="flex h-14 items-center justify-between px-6 lg:px-8">
           {/* ロゴ */}
-          <Link
-            href="/"
-            className="group"
-          >
+          <Link href="/" className="group">
             <span className="text-[11px] font-medium tracking-[0.3em] uppercase text-foreground/90 transition-opacity duration-300 group-hover:opacity-60">
               UI Lab
             </span>
           </Link>
 
           {/* デスクトップナビゲーション */}
-          <nav
-            className="hidden items-center gap-8 md:flex"
-            aria-label="メインナビゲーション"
-          >
+          <nav className="hidden items-center gap-8 md:flex" aria-label="メインナビゲーション">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -88,10 +82,7 @@ export function Header() {
         )}
       >
         <div className="border-b border-border">
-          <nav
-            className="flex flex-col px-6 py-6"
-            aria-label="モバイルナビゲーション"
-          >
+          <nav className="flex flex-col px-6 py-6" aria-label="モバイルナビゲーション">
             {navItems.map((item) => (
               <Link
                 key={item.href}

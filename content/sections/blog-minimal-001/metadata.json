@@ -2,10 +2,7 @@
   "title": "ミニマルブログ",
   "description": "シンプルなブログカード一覧",
   "category": "blog",
-  "tags": [
-    "minimal",
-    "grid"
-  ],
+  "tags": ["minimal", "grid"],
   "screenshotUrl": "/screenshots/blog-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

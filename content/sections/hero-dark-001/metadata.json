@@ -2,11 +2,7 @@
   "title": "ダークヒーロー",
   "description": "ダークテーマを基調としたモダンなヒーローセクション",
   "category": "hero",
-  "tags": [
-    "dark-mode",
-    "gradient",
-    "animation"
-  ],
+  "tags": ["dark-mode", "gradient", "animation"],
   "screenshotUrl": "/screenshots/hero-dark-001.png",
   "isPublished": true,
   "generatedBy": "ai",

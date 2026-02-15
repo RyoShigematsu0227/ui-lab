@@ -2,10 +2,7 @@
   "title": "ミニマルコンタクト",
   "description": "シンプルなお問い合わせフォーム",
   "category": "contact",
-  "tags": [
-    "minimal",
-    "interactive"
-  ],
+  "tags": ["minimal", "interactive"],
   "screenshotUrl": "/screenshots/contact-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

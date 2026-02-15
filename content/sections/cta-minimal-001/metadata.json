@@ -2,10 +2,7 @@
   "title": "ミニマルCTA",
   "description": "メール入力フォーム付きのシンプルなCTAセクション",
   "category": "cta",
-  "tags": [
-    "minimal",
-    "interactive"
-  ],
+  "tags": ["minimal", "interactive"],
   "screenshotUrl": "/screenshots/cta-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

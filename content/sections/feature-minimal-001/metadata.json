@@ -2,10 +2,7 @@
   "title": "ミニマルフィーチャー",
   "description": "シンプルで洗練された機能紹介セクション",
   "category": "feature",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/feature-minimal-001.png",
   "isPublished": true,
   "generatedBy": "ai",

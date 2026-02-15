@@ -4,12 +4,7 @@ import path from "path";
 // セクションコードを実際のファイルから読み込む
 export function getSectionCode(slug: string): string {
   try {
-    const filePath = path.join(
-      process.cwd(),
-      "content/sections",
-      slug,
-      "code.tsx"
-    );
+    const filePath = path.join(process.cwd(), "content/sections", slug, "code.tsx");
     const code = fs.readFileSync(filePath, "utf-8");
     return code;
   } catch {

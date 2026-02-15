@@ -17,8 +17,7 @@ const pipeline = [
   {
     number: "02",
     title: "Create",
-    description:
-      "トレンドから着想を得て、オリジナルのUIをコードごと生成",
+    description: "トレンドから着想を得て、オリジナルのUIをコードごと生成",
   },
   {
     number: "03",
@@ -108,16 +107,11 @@ export default async function AboutPage() {
 
           <div className="grid gap-px bg-border/30 md:grid-cols-3">
             {pipeline.map((step) => (
-              <div
-                key={step.title}
-                className="bg-background p-8 md:p-10"
-              >
+              <div key={step.title} className="bg-background p-8 md:p-10">
                 <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground/60">
                   {step.number}
                 </span>
-                <h3 className="mt-4 text-base font-medium tracking-wide">
-                  {step.title}
-                </h3>
+                <h3 className="mt-4 text-base font-medium tracking-wide">{step.title}</h3>
                 <p className="mt-3 text-[13px] leading-[1.8] text-muted-foreground tracking-wide">
                   {step.description}
                 </p>
@@ -141,10 +135,7 @@ export default async function AboutPage() {
 
           <div className="grid grid-cols-2 gap-px bg-border/30 md:grid-cols-4">
             {numbers.map((item) => (
-              <div
-                key={item.label}
-                className="bg-background p-8 md:p-10"
-              >
+              <div key={item.label} className="bg-background p-8 md:p-10">
                 <span className="text-2xl md:text-3xl font-medium tracking-tight">
                   {item.value}
                 </span>
@@ -171,16 +162,11 @@ export default async function AboutPage() {
 
           <div className="grid gap-px bg-border/30 md:grid-cols-3">
             {usage.map((step) => (
-              <div
-                key={step.title}
-                className="bg-background p-8 md:p-10"
-              >
+              <div key={step.title} className="bg-background p-8 md:p-10">
                 <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground/60">
                   {step.number}
                 </span>
-                <h3 className="mt-4 text-base font-medium tracking-wide">
-                  {step.title}
-                </h3>
+                <h3 className="mt-4 text-base font-medium tracking-wide">{step.title}</h3>
                 <p className="mt-3 text-[13px] leading-[1.8] text-muted-foreground tracking-wide">
                   {step.description}
                 </p>
@@ -208,9 +194,7 @@ export default async function AboutPage() {
                 key={tech.name}
                 className="flex items-center justify-between p-4 border border-border/40 transition-colors hover:border-border"
               >
-                <span className="text-[13px] font-medium tracking-wide">
-                  {tech.name}
-                </span>
+                <span className="text-[13px] font-medium tracking-wide">{tech.name}</span>
                 <span className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase">
                   {tech.label}
                 </span>
@@ -229,9 +213,7 @@ export default async function AboutPage() {
             <span className="inline-block text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6">
               Explore
             </span>
-            <h2 className="text-xl md:text-2xl font-medium tracking-tight">
-              まず、眺めてみる
-            </h2>
+            <h2 className="text-xl md:text-2xl font-medium tracking-tight">まず、眺めてみる</h2>
             <p className="mt-4 text-[13px] text-muted-foreground tracking-wide leading-[1.8]">
               次のプロジェクトのヒントが見つかるかもしれない
             </p>

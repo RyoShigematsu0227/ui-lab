@@ -2,10 +2,7 @@
   "title": "シンプル料金表",
   "description": "必要最小限の情報で構成された料金テーブル",
   "category": "pricing",
-  "tags": [
-    "minimal",
-    "dark-mode"
-  ],
+  "tags": ["minimal", "dark-mode"],
   "screenshotUrl": "/screenshots/pricing-simple-001.png",
   "isPublished": true,
   "generatedBy": "ai",

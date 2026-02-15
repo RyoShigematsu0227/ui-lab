@@ -19,17 +19,13 @@ export function filterAndSortSections({
 
   // カテゴリフィルター
   if (selectedCategory) {
-    result = result.filter(
-      (section) => section.category?.slug === selectedCategory
-    );
+    result = result.filter((section) => section.category?.slug === selectedCategory);
   }
 
   // タグフィルター（AND条件：選択したすべてのタグを含む）
   if (selectedTags.length > 0) {
     result = result.filter((section) =>
-      selectedTags.every((tagSlug) =>
-        section.tags.some((tag) => tag.slug === tagSlug)
-      )
+      selectedTags.every((tagSlug) => section.tags.some((tag) => tag.slug === tagSlug))
     );
   }
 
@@ -39,8 +35,7 @@ export function filterAndSortSections({
     result = result.filter((section) => {
       if (section.title.toLowerCase().includes(query)) return true;
       if (section.description.toLowerCase().includes(query)) return true;
-      if (section.tags.some((tag) => tag.name.toLowerCase().includes(query)))
-        return true;
+      if (section.tags.some((tag) => tag.name.toLowerCase().includes(query))) return true;
       if (section.category?.name.toLowerCase().includes(query)) return true;
       return false;
     });
@@ -50,13 +45,9 @@ export function filterAndSortSections({
   result.sort((a, b) => {
     switch (sortOption) {
       case "newest":
-        return (
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       case "oldest":
-        return (
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        );
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
       case "title-asc":
         return a.title.localeCompare(b.title, "ja");
       case "title-desc":

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface KeyboardShortcutsHelpProps {
   open: boolean;
@@ -22,10 +17,7 @@ const shortcuts = [
   { keys: ["?"], description: "このヘルプを表示" },
 ];
 
-export function KeyboardShortcutsHelp({
-  open,
-  onOpenChange,
-}: KeyboardShortcutsHelpProps) {
+export function KeyboardShortcutsHelp({ open, onOpenChange }: KeyboardShortcutsHelpProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
@@ -34,10 +26,7 @@ export function KeyboardShortcutsHelp({
         </DialogHeader>
         <div className="space-y-3">
           {shortcuts.map((shortcut, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between text-sm"
-            >
+            <div key={index} className="flex items-center justify-between text-sm">
               <span className="text-muted-foreground">{shortcut.description}</span>
               <div className="flex gap-1">
                 {shortcut.keys.map((key, keyIndex) => (

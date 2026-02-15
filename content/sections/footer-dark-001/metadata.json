@@ -2,10 +2,7 @@
   "title": "ダークフッター",
   "description": "ダークテーマのフッターセクション",
   "category": "footer",
-  "tags": [
-    "dark-mode",
-    "grid"
-  ],
+  "tags": ["dark-mode", "grid"],
   "screenshotUrl": "/screenshots/footer-dark-001.png",
   "isPublished": true,
   "generatedBy": "ai",

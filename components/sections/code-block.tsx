@@ -15,7 +15,11 @@ interface CodeBlockProps {
 
 const DEFAULT_VISIBLE_LINES = 25;
 
-export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIBLE_LINES }: CodeBlockProps) {
+export function CodeBlock({
+  code,
+  language = "tsx",
+  initialLines = DEFAULT_VISIBLE_LINES,
+}: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -41,8 +45,14 @@ export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIB
     styles: [
       { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#6b7280" } },
       { types: ["punctuation"], style: { color: "#71717a" } },
-      { types: ["property", "tag", "boolean", "number", "constant", "symbol"], style: { color: "#93c5fd" } },
-      { types: ["selector", "attr-name", "string", "char", "builtin"], style: { color: "#86efac" } },
+      {
+        types: ["property", "tag", "boolean", "number", "constant", "symbol"],
+        style: { color: "#93c5fd" },
+      },
+      {
+        types: ["selector", "attr-name", "string", "char", "builtin"],
+        style: { color: "#86efac" },
+      },
       { types: ["operator", "entity", "url"], style: { color: "#fcd34d" } },
       { types: ["atrule", "attr-value", "keyword"], style: { color: "#c4b5fd" } },
       { types: ["function", "class-name"], style: { color: "#7dd3fc" } },
@@ -58,8 +68,14 @@ export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIB
     styles: [
       { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "#a1a1aa" } },
       { types: ["punctuation"], style: { color: "#71717a" } },
-      { types: ["property", "tag", "boolean", "number", "constant", "symbol"], style: { color: "#2563eb" } },
-      { types: ["selector", "attr-name", "string", "char", "builtin"], style: { color: "#16a34a" } },
+      {
+        types: ["property", "tag", "boolean", "number", "constant", "symbol"],
+        style: { color: "#2563eb" },
+      },
+      {
+        types: ["selector", "attr-name", "string", "char", "builtin"],
+        style: { color: "#16a34a" },
+      },
       { types: ["operator", "entity", "url"], style: { color: "#ca8a04" } },
       { types: ["atrule", "attr-value", "keyword"], style: { color: "#7c3aed" } },
       { types: ["function", "class-name"], style: { color: "#0891b2" } },
@@ -74,10 +90,12 @@ export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIB
   const shouldCollapse = totalLines > initialLines;
 
   return (
-    <div className={cn(
-      "relative rounded-lg overflow-hidden border border-border/30",
-      mounted && resolvedTheme === "light" ? "bg-[#fafafa]" : "bg-[#0c0c0c]"
-    )}>
+    <div
+      className={cn(
+        "relative rounded-lg overflow-hidden border border-border/30",
+        mounted && resolvedTheme === "light" ? "bg-[#fafafa]" : "bg-[#0c0c0c]"
+      )}
+    >
       {/* ヘッダー - ミニマルデザイン */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border/20">
         <div className="flex items-center gap-3">
@@ -93,9 +111,7 @@ export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIB
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-muted-foreground/60">
-            {totalLines} lines
-          </span>
+          <span className="text-[10px] text-muted-foreground/60">{totalLines} lines</span>
           <button
             onClick={handleCopy}
             className={cn(
@@ -105,11 +121,7 @@ export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIB
             )}
             aria-label="Copy code"
           >
-            {copied ? (
-              <Check className="h-4 w-4" />
-            ) : (
-              <Copy className="h-4 w-4" />
-            )}
+            {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
           </button>
         </div>
       </div>
@@ -144,12 +156,14 @@ export function CodeBlock({ code, language = "tsx", initialLines = DEFAULT_VISIB
 
         {/* 折りたたみ時のフェードアウト */}
         {shouldCollapse && !isExpanded && (
-          <div className={cn(
-            "absolute bottom-0 left-0 right-0 h-32 pointer-events-none",
-            mounted && resolvedTheme === "light"
-              ? "bg-gradient-to-t from-[#fafafa] to-transparent"
-              : "bg-gradient-to-t from-[#0c0c0c] to-transparent"
-          )} />
+          <div
+            className={cn(
+              "absolute bottom-0 left-0 right-0 h-32 pointer-events-none",
+              mounted && resolvedTheme === "light"
+                ? "bg-gradient-to-t from-[#fafafa] to-transparent"
+                : "bg-gradient-to-t from-[#0c0c0c] to-transparent"
+            )}
+          />
         )}
       </div>
 

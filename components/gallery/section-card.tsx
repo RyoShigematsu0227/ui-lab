@@ -175,17 +175,12 @@ export function SectionCard({ section, priority = false }: SectionCardProps) {
           {/* タグ */}
           <div className="mt-3 flex flex-wrap gap-1.5">
             {section.tags.slice(0, 2).map((tag) => (
-              <span
-                key={tag.id}
-                className="text-[10px] text-muted-foreground"
-              >
+              <span key={tag.id} className="text-[10px] text-muted-foreground">
                 #{tag.name}
               </span>
             ))}
             {section.tags.length > 2 && (
-              <span className="text-[10px] text-muted-foreground">
-                +{section.tags.length - 2}
-              </span>
+              <span className="text-[10px] text-muted-foreground">+{section.tags.length - 2}</span>
             )}
           </div>
         </div>

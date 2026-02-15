@@ -2,10 +2,7 @@
   "title": "グリッドFAQ",
   "description": "グリッドレイアウトのFAQセクション",
   "category": "faq",
-  "tags": [
-    "grid",
-    "dark-mode"
-  ],
+  "tags": ["grid", "dark-mode"],
   "screenshotUrl": "/screenshots/faq-grid-001.png",
   "isPublished": true,
   "generatedBy": "ai",

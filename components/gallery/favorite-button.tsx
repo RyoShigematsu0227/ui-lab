@@ -11,11 +11,7 @@ interface FavoriteButtonProps {
   size?: "sm" | "default";
 }
 
-export function FavoriteButton({
-  isFavorite,
-  onToggle,
-  size = "default",
-}: FavoriteButtonProps) {
+export function FavoriteButton({ isFavorite, onToggle, size = "default" }: FavoriteButtonProps) {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -39,15 +35,8 @@ export function FavoriteButton({
       )}
       onClick={handleClick}
     >
-      <Heart
-        className={cn(
-          size === "sm" ? "h-4 w-4" : "h-5 w-5",
-          isFavorite && "fill-current"
-        )}
-      />
-      <span className="sr-only">
-        {isFavorite ? "お気に入りから削除" : "お気に入りに追加"}
-      </span>
+      <Heart className={cn(size === "sm" ? "h-4 w-4" : "h-5 w-5", isFavorite && "fill-current")} />
+      <span className="sr-only">{isFavorite ? "お気に入りから削除" : "お気に入りに追加"}</span>
     </Button>
   );
 }

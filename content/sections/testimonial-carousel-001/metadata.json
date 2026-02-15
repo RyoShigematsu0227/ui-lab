@@ -2,10 +2,7 @@
   "title": "カルーセルテスティモニアル",
   "description": "スライド形式のお客様の声セクション",
   "category": "testimonial",
-  "tags": [
-    "animation",
-    "interactive"
-  ],
+  "tags": ["animation", "interactive"],
   "screenshotUrl": "/screenshots/testimonial-carousel-001.png",
   "isPublished": true,
   "generatedBy": "ai",

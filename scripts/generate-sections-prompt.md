@@ -23,6 +23,7 @@
 #### `content/sections/{slug}/code.tsx`
 
 技術要件:
+
 - React関数コンポーネント（named export、default export禁止）
 - TypeScript strict mode（`any`型禁止）
 - Tailwind CSS v4 のユーティリティクラスのみ使用
@@ -79,6 +80,7 @@
 ### 4. コンポーネント登録
 
 `content/sections/index.ts` に以下を追記:
+
 - ファイル上部の export 行に追加
 - ファイル下部の import 行に追加
 - `SECTION_COMPONENTS` マップにエントリ追加

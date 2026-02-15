@@ -10,7 +10,14 @@ const mockSections: Section[] = [
     title: "グラデーションヒーロー",
     description: "美しいグラデーション背景を使用したモダンなヒーローセクション",
     categoryId: "1",
-    category: { id: "1", slug: "hero", name: "ヒーロー", description: "", icon: "Layout", sortOrder: 1 },
+    category: {
+      id: "1",
+      slug: "hero",
+      name: "ヒーロー",
+      description: "",
+      icon: "Layout",
+      sortOrder: 1,
+    },
     tags: [
       { id: "1", slug: "gradient", name: "グラデーション" },
       { id: "10", slug: "animation", name: "アニメーション" },
@@ -28,7 +35,14 @@ const mockSections: Section[] = [
     title: "ミニマル料金テーブル",
     description: "シンプルで洗練された料金プラン比較セクション",
     categoryId: "4",
-    category: { id: "4", slug: "pricing", name: "料金テーブル", description: "", icon: "CreditCard", sortOrder: 4 },
+    category: {
+      id: "4",
+      slug: "pricing",
+      name: "料金テーブル",
+      description: "",
+      icon: "CreditCard",
+      sortOrder: 4,
+    },
     tags: [
       { id: "4", slug: "minimal", name: "ミニマル" },
       { id: "15", slug: "grid", name: "グリッドレイアウト" },
@@ -46,7 +60,14 @@ const mockSections: Section[] = [
     title: "Parallax Hero Section",
     description: "パララックス効果を活用したダイナミックなヒーロー",
     categoryId: "1",
-    category: { id: "1", slug: "hero", name: "ヒーロー", description: "", icon: "Layout", sortOrder: 1 },
+    category: {
+      id: "1",
+      slug: "hero",
+      name: "ヒーロー",
+      description: "",
+      icon: "Layout",
+      sortOrder: 1,
+    },
     tags: [
       { id: "14", slug: "parallax", name: "パララックス" },
       { id: "10", slug: "animation", name: "アニメーション" },
@@ -65,7 +86,14 @@ const mockSections: Section[] = [
     title: "アニメーションFAQ",
     description: "アコーディオン開閉にアニメーションを付けたFAQセクション",
     categoryId: "8",
-    category: { id: "8", slug: "faq", name: "FAQ", description: "", icon: "HelpCircle", sortOrder: 8 },
+    category: {
+      id: "8",
+      slug: "faq",
+      name: "FAQ",
+      description: "",
+      icon: "HelpCircle",
+      sortOrder: 8,
+    },
     tags: [
       { id: "10", slug: "animation", name: "アニメーション" },
       { id: "13", slug: "interactive", name: "インタラクティブ" },
@@ -123,10 +151,12 @@ describe("filterAndSortSections", () => {
       selectedTags: ["animation", "gradient"],
     });
     expect(withTwoTags).toHaveLength(2);
-    expect(withTwoTags.every((s) =>
-      s.tags.some((t) => t.slug === "animation") &&
-      s.tags.some((t) => t.slug === "gradient")
-    )).toBe(true);
+    expect(
+      withTwoTags.every(
+        (s) =>
+          s.tags.some((t) => t.slug === "animation") && s.tags.some((t) => t.slug === "gradient")
+      )
+    ).toBe(true);
   });
 
   it("検索クエリがタイトル・説明・タグ名・カテゴリ名にマッチすること", () => {

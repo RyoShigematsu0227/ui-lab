@@ -2,10 +2,7 @@
   "title": "シングルテスティモニアル",
   "description": "1つのレビューを大きく表示するセクション",
   "category": "testimonial",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/testimonial-single-001.png",
   "isPublished": true,
   "generatedBy": "ai",

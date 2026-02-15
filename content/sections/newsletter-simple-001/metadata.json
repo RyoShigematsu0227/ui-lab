@@ -2,10 +2,7 @@
   "title": "シンプルニュースレター",
   "description": "CTA付きのインラインニュースレター登録フォーム",
   "category": "newsletter",
-  "tags": [
-    "gradient",
-    "interactive"
-  ],
+  "tags": ["gradient", "interactive"],
   "screenshotUrl": "/screenshots/newsletter-simple-001.png",
   "isPublished": true,
   "generatedBy": "ai",

@@ -2,10 +2,7 @@
   "title": "2カラムFAQ",
   "description": "サポートCTA付きの2カラムFAQセクション",
   "category": "faq",
-  "tags": [
-    "interactive",
-    "split"
-  ],
+  "tags": ["interactive", "split"],
   "screenshotUrl": "/screenshots/faq-two-column-001.png",
   "isPublished": true,
   "generatedBy": "ai",

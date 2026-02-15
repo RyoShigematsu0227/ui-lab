@@ -2,10 +2,7 @@
   "title": "ロゴクラウド",
   "description": "パートナー企業ロゴを並べたトラストシグナルセクション",
   "category": "logo-cloud",
-  "tags": [
-    "grid",
-    "minimal"
-  ],
+  "tags": ["grid", "minimal"],
   "screenshotUrl": "/screenshots/logo-cloud-001.png",
   "isPublished": true,
   "generatedBy": "ai",

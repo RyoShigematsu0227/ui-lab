@@ -3,11 +3,7 @@
   "url": "https://linear.app",
   "description": "プロジェクト管理ツール。ダークモードベースのミニマルなデザインと、スムーズなアニメーションが特徴。",
   "screenshotUrl": "/screenshots/sites/linear.png",
-  "tags": [
-    "dark-mode",
-    "minimal",
-    "animation"
-  ],
+  "tags": ["dark-mode", "minimal", "animation"],
   "isPublished": true,
   "createdAt": "2024-01-15T00:00:00Z",
   "updatedAt": "2024-01-15T00:00:00Z"

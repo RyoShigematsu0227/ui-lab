@@ -2,11 +2,7 @@
   "title": "ブランドヒーロー",
   "description": "ブランドアイデンティティを強調したヒーローセクション",
   "category": "hero",
-  "tags": [
-    "bold-typography",
-    "gradient",
-    "full-width"
-  ],
+  "tags": ["bold-typography", "gradient", "full-width"],
   "screenshotUrl": "/screenshots/hero-brand-001.png",
   "isPublished": true,
   "generatedBy": "ai",

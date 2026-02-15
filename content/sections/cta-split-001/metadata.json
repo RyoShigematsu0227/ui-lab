@@ -2,10 +2,7 @@
   "title": "スプリットCTA",
   "description": "左右分割レイアウトのCTAセクション",
   "category": "cta",
-  "tags": [
-    "split",
-    "gradient"
-  ],
+  "tags": ["split", "gradient"],
   "screenshotUrl": "/screenshots/cta-split-001.png",
   "isPublished": true,
   "generatedBy": "ai",

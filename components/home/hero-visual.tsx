@@ -40,10 +40,10 @@ function FloatingCard({
       style={{
         animationDelay: `${delay}s`,
         animationDuration: `${duration}s`,
-        transform: `translate(${parallaxX}px, ${parallaxY}px) ${isHovered ? 'scale(1.1) rotateX(-5deg) rotateY(5deg)' : ''}`,
-        transformStyle: 'preserve-3d',
+        transform: `translate(${parallaxX}px, ${parallaxY}px) ${isHovered ? "scale(1.1) rotateX(-5deg) rotateY(5deg)" : ""}`,
+        transformStyle: "preserve-3d",
         boxShadow: isHovered
-          ? '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--primary-rgb, 100, 100, 255), 0.3)'
+          ? "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--primary-rgb, 100, 100, 255), 0.3)"
           : undefined,
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -62,28 +62,42 @@ function FloatingCard({
 }
 
 // ミニUIプレビューカード
-function MiniCard({ title, type, isActive }: { title: string; type: "hero" | "pricing" | "feature" | "cta"; isActive?: boolean }) {
+function MiniCard({
+  title,
+  type,
+  isActive,
+}: {
+  title: string;
+  type: "hero" | "pricing" | "feature" | "cta";
+  isActive?: boolean;
+}) {
   return (
     <div className="p-3 space-y-2">
       <div className="flex items-center gap-2">
-        <div className={cn(
-          "w-2 h-2 rounded-full transition-all duration-300",
-          isActive ? "bg-primary scale-125" : "bg-primary/60"
-        )} />
+        <div
+          className={cn(
+            "w-2 h-2 rounded-full transition-all duration-300",
+            isActive ? "bg-primary scale-125" : "bg-primary/60"
+          )}
+        />
         <span className="text-[9px] font-medium tracking-wider uppercase text-muted-foreground">
           {type}
         </span>
       </div>
       <p className="text-xs font-medium text-foreground/90">{title}</p>
       <div className="space-y-1">
-        <div className={cn(
-          "h-1.5 w-full bg-muted rounded transition-all duration-500",
-          isActive && "bg-primary/30"
-        )} />
-        <div className={cn(
-          "h-1.5 w-3/4 bg-muted rounded transition-all duration-500 delay-75",
-          isActive && "bg-primary/20"
-        )} />
+        <div
+          className={cn(
+            "h-1.5 w-full bg-muted rounded transition-all duration-500",
+            isActive && "bg-primary/30"
+          )}
+        />
+        <div
+          className={cn(
+            "h-1.5 w-3/4 bg-muted rounded transition-all duration-500 delay-75",
+            isActive && "bg-primary/20"
+          )}
+        />
       </div>
     </div>
   );
@@ -119,9 +133,24 @@ function CodeCard({ isActive }: { isActive?: boolean }) {
   return (
     <div className="p-3 font-mono text-[10px] space-y-1">
       <div className="flex gap-1.5 mb-2">
-        <div className={cn("w-2 h-2 rounded-full transition-colors", isActive ? "bg-red-500" : "bg-red-500/60")} />
-        <div className={cn("w-2 h-2 rounded-full transition-colors", isActive ? "bg-yellow-500" : "bg-yellow-500/60")} />
-        <div className={cn("w-2 h-2 rounded-full transition-colors", isActive ? "bg-green-500" : "bg-green-500/60")} />
+        <div
+          className={cn(
+            "w-2 h-2 rounded-full transition-colors",
+            isActive ? "bg-red-500" : "bg-red-500/60"
+          )}
+        />
+        <div
+          className={cn(
+            "w-2 h-2 rounded-full transition-colors",
+            isActive ? "bg-yellow-500" : "bg-yellow-500/60"
+          )}
+        />
+        <div
+          className={cn(
+            "w-2 h-2 rounded-full transition-colors",
+            isActive ? "bg-green-500" : "bg-green-500/60"
+          )}
+        />
       </div>
       {lines.map((line, i) => (
         <p
@@ -161,8 +190,8 @@ function StatsCard({ isActive }: { isActive?: boolean }) {
               isActive ? "bg-primary" : "bg-primary/40"
             )}
             style={{
-              height: isActive ? `${h}%` : '20%',
-              transitionDelay: `${i * 50}ms`
+              height: isActive ? `${h}%` : "20%",
+              transitionDelay: `${i * 50}ms`,
             }}
           />
         ))}
@@ -174,10 +203,7 @@ function StatsCard({ isActive }: { isActive?: boolean }) {
 // パルスするドット
 function PulseDot({ className, delay = 0 }: { className?: string; delay?: number }) {
   return (
-    <div
-      className={cn("absolute w-2 h-2", className)}
-      style={{ animationDelay: `${delay}s` }}
-    >
+    <div className={cn("absolute w-2 h-2", className)} style={{ animationDelay: `${delay}s` }}>
       <div className="absolute inset-0 rounded-full bg-primary/60 animate-ping" />
       <div className="absolute inset-0 rounded-full bg-primary" />
     </div>
@@ -201,17 +227,13 @@ export function HeroVisual() {
 
     const container = containerRef.current;
     if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
+      container.addEventListener("mousemove", handleMouseMove);
+      return () => container.removeEventListener("mousemove", handleMouseMove);
     }
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative w-full h-full"
-      style={{ perspective: '1000px' }}
-    >
+    <div ref={containerRef} className="relative w-full h-full" style={{ perspective: "1000px" }}>
       {/* グリッド背景 - マウスに反応 */}
       <div
         className="absolute inset-0 opacity-40 dark:opacity-50 transition-opacity duration-300"
@@ -242,7 +264,7 @@ export function HeroVisual() {
         style={{
           left: `${mousePos.x * 100}%`,
           top: `${mousePos.y * 100}%`,
-          transform: 'translate(-50%, -50%)',
+          transform: "translate(-50%, -50%)",
         }}
       />
 
@@ -326,14 +348,56 @@ export function HeroVisual() {
             <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <line x1="20%" y1="15%" x2="45%" y2="45%" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="4 4">
-          <animate attributeName="stroke-dashoffset" from="0" to="8" dur="1s" repeatCount="indefinite" />
+        <line
+          x1="20%"
+          y1="15%"
+          x2="45%"
+          y2="45%"
+          stroke="url(#lineGradient)"
+          strokeWidth="1"
+          strokeDasharray="4 4"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="8"
+            dur="1s"
+            repeatCount="indefinite"
+          />
         </line>
-        <line x1="80%" y1="25%" x2="55%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="4 4">
-          <animate attributeName="stroke-dashoffset" from="0" to="8" dur="1.5s" repeatCount="indefinite" />
+        <line
+          x1="80%"
+          y1="25%"
+          x2="55%"
+          y2="50%"
+          stroke="url(#lineGradient)"
+          strokeWidth="1"
+          strokeDasharray="4 4"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="8"
+            dur="1.5s"
+            repeatCount="indefinite"
+          />
         </line>
-        <line x1="30%" y1="85%" x2="50%" y2="55%" stroke="url(#lineGradient)" strokeWidth="1" strokeDasharray="4 4">
-          <animate attributeName="stroke-dashoffset" from="0" to="8" dur="1.2s" repeatCount="indefinite" />
+        <line
+          x1="30%"
+          y1="85%"
+          x2="50%"
+          y2="55%"
+          stroke="url(#lineGradient)"
+          strokeWidth="1"
+          strokeDasharray="4 4"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="8"
+            dur="1.2s"
+            repeatCount="indefinite"
+          />
         </line>
       </svg>
     </div>

@@ -15,18 +15,18 @@
 
 ファイルパス: `content/sections/{slug}/metadata.json`
 
-| フィールド | 型 | 必須 | 説明 |
-|---|---|---|---|
-| title | string | Yes | セクションタイトル |
-| description | string | Yes | 短い説明文 |
-| category | string | Yes | カテゴリslug（例: hero） |
-| tags | string[] | Yes | タグslugの配列（例: ["gradient", "animation"]） |
-| screenshotUrl | string | No | プレビュー画像パス |
-| screenshotMobileUrl | string | No | モバイルプレビュー画像パス |
-| isPublished | boolean | No | 公開フラグ（デフォルト: true） |
-| generatedBy | "ai" \| "manual" | No | 生成方法（デフォルト: "ai"） |
-| createdAt | string | Yes | 作成日時（ISO 8601） |
-| updatedAt | string | No | 更新日時（デフォルト: createdAt） |
+| フィールド          | 型               | 必須 | 説明                                            |
+| ------------------- | ---------------- | ---- | ----------------------------------------------- |
+| title               | string           | Yes  | セクションタイトル                              |
+| description         | string           | Yes  | 短い説明文                                      |
+| category            | string           | Yes  | カテゴリslug（例: hero）                        |
+| tags                | string[]         | Yes  | タグslugの配列（例: ["gradient", "animation"]） |
+| screenshotUrl       | string           | No   | プレビュー画像パス                              |
+| screenshotMobileUrl | string           | No   | モバイルプレビュー画像パス                      |
+| isPublished         | boolean          | No   | 公開フラグ（デフォルト: true）                  |
+| generatedBy         | "ai" \| "manual" | No   | 生成方法（デフォルト: "ai"）                    |
+| createdAt           | string           | Yes  | 作成日時（ISO 8601）                            |
+| updatedAt           | string           | No   | 更新日時（デフォルト: createdAt）               |
 
 例:
 
@@ -48,52 +48,52 @@
 
 ファイルパス: `content/sites/{slug}.json`
 
-| フィールド | 型 | 必須 | 説明 |
-|---|---|---|---|
-| title | string | Yes | サイト名 |
-| url | string | Yes | サイトURL |
-| description | string | Yes | 短い解説 |
-| screenshotUrl | string | No | スクリーンショットパス |
-| tags | string[] | Yes | タグslugの配列 |
-| isPublished | boolean | No | 公開フラグ（デフォルト: true） |
-| createdAt | string | Yes | 作成日時（ISO 8601） |
-| updatedAt | string | No | 更新日時 |
+| フィールド    | 型       | 必須 | 説明                           |
+| ------------- | -------- | ---- | ------------------------------ |
+| title         | string   | Yes  | サイト名                       |
+| url           | string   | Yes  | サイトURL                      |
+| description   | string   | Yes  | 短い解説                       |
+| screenshotUrl | string   | No   | スクリーンショットパス         |
+| tags          | string[] | Yes  | タグslugの配列                 |
+| isPublished   | boolean  | No   | 公開フラグ（デフォルト: true） |
+| createdAt     | string   | Yes  | 作成日時（ISO 8601）           |
+| updatedAt     | string   | No   | 更新日時                       |
 
 ## カテゴリ (data/categories.ts)
 
 TypeScript配列として静的定義。
 
-| フィールド | 型 | 説明 |
-|---|---|---|
-| id | string | カテゴリID |
-| slug | string | URLスラッグ（例: hero） |
-| name | string | 表示名（例: ヒーロー） |
-| description | string | カテゴリの説明 |
-| icon | string | Lucide アイコン名 |
-| sortOrder | number | 表示順 |
+| フィールド  | 型     | 説明                    |
+| ----------- | ------ | ----------------------- |
+| id          | string | カテゴリID              |
+| slug        | string | URLスラッグ（例: hero） |
+| name        | string | 表示名（例: ヒーロー）  |
+| description | string | カテゴリの説明          |
+| icon        | string | Lucide アイコン名       |
+| sortOrder   | number | 表示順                  |
 
 ## タグ (data/tags.ts)
 
 TypeScript配列として静的定義。
 
-| フィールド | 型 | 説明 |
-|---|---|---|
-| id | string | タグID |
-| slug | string | URLスラッグ（例: animation） |
-| name | string | 表示名（例: アニメーション） |
+| フィールド | 型     | 説明                         |
+| ---------- | ------ | ---------------------------- |
+| id         | string | タグID                       |
+| slug       | string | URLスラッグ（例: animation） |
+| name       | string | 表示名（例: アニメーション） |
 
 ## TypeScript型定義 (types/index.ts)
 
 ```typescript
 interface Section {
-  id: string;        // slug をそのまま使用
+  id: string; // slug をそのまま使用
   slug: string;
   title: string;
   description: string;
   categoryId: string;
   category?: Category;
   tags: Tag[];
-  codePath: string;  // lib/content.ts が自動設定
+  codePath: string; // lib/content.ts が自動設定
   screenshotUrl: string;
   screenshotMobileUrl?: string;
   isPublished: boolean;
@@ -118,7 +118,7 @@ interface Tag {
 }
 
 interface Site {
-  id: string;        // slug をそのまま使用
+  id: string; // slug をそのまま使用
   slug: string;
   title: string;
   url: string;
@@ -133,15 +133,15 @@ interface Site {
 
 ## データ取得関数 (lib/content.ts)
 
-| 関数 | 戻り値 | 説明 |
-|---|---|---|
-| getSections() | Section[] | 全公開セクション（createdAt降順） |
-| getSectionBySlug(slug) | Section \| undefined | slug指定で1件取得 |
-| getSectionsByCategory(slug) | Section[] | カテゴリslugでフィルタ |
-| getSectionsByTag(slug) | Section[] | タグslugでフィルタ |
-| getCategories() | Category[] | 全カテゴリ（sortOrder順） |
-| getCategoryBySlug(slug) | Category \| undefined | slug指定で1件取得 |
-| getTags() | Tag[] | 全タグ |
-| getTagBySlug(slug) | Tag \| undefined | slug指定で1件取得 |
-| getSites() | Site[] | 全公開サイト事例（createdAt降順） |
-| getSiteBySlug(slug) | Site \| undefined | slug指定で1件取得 |
+| 関数                        | 戻り値                | 説明                              |
+| --------------------------- | --------------------- | --------------------------------- |
+| getSections()               | Section[]             | 全公開セクション（createdAt降順） |
+| getSectionBySlug(slug)      | Section \| undefined  | slug指定で1件取得                 |
+| getSectionsByCategory(slug) | Section[]             | カテゴリslugでフィルタ            |
+| getSectionsByTag(slug)      | Section[]             | タグslugでフィルタ                |
+| getCategories()             | Category[]            | 全カテゴリ（sortOrder順）         |
+| getCategoryBySlug(slug)     | Category \| undefined | slug指定で1件取得                 |
+| getTags()                   | Tag[]                 | 全タグ                            |
+| getTagBySlug(slug)          | Tag \| undefined      | slug指定で1件取得                 |
+| getSites()                  | Site[]                | 全公開サイト事例（createdAt降順） |
+| getSiteBySlug(slug)         | Site \| undefined     | slug指定で1件取得                 |

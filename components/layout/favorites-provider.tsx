@@ -17,11 +17,7 @@ const FavoritesContext = createContext<FavoritesContextType | null>(null);
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   const favoritesState = useFavorites();
 
-  return (
-    <FavoritesContext.Provider value={favoritesState}>
-      {children}
-    </FavoritesContext.Provider>
-  );
+  return <FavoritesContext.Provider value={favoritesState}>{children}</FavoritesContext.Provider>;
 }
 
 export function useFavoritesContext() {

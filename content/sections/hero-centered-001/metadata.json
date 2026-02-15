@@ -2,10 +2,7 @@
   "title": "センターヒーロー",
   "description": "中央配置のテキストとCTAボタンのシンプルなヒーローセクション",
   "category": "hero",
-  "tags": [
-    "minimal",
-    "bold-typography"
-  ],
+  "tags": ["minimal", "bold-typography"],
   "screenshotUrl": "/screenshots/hero-centered-001.png",
   "isPublished": true,
   "generatedBy": "ai",

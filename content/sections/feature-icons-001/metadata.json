@@ -2,10 +2,7 @@
   "title": "アイコンフィーチャー",
   "description": "アイコンを活用した機能紹介セクション",
   "category": "feature",
-  "tags": [
-    "grid",
-    "minimal"
-  ],
+  "tags": ["grid", "minimal"],
   "screenshotUrl": "/screenshots/feature-icons-001.png",
   "isPublished": true,
   "generatedBy": "ai",

@@ -23,12 +23,9 @@ export default async function FavoritesPage() {
           <span className="heading-section text-muted-foreground tracking-widest-custom">
             Your Collection
           </span>
-          <h1 className="mt-6 heading-display text-4xl sm:text-5xl">
-            Favorites
-          </h1>
+          <h1 className="mt-6 heading-display text-4xl sm:text-5xl">Favorites</h1>
           <p className="mt-6 text-muted-foreground max-w-lg mx-auto">
-            保存したセクションはここに表示されます。
-            ハートをクリックして追加できます。
+            保存したセクションはここに表示されます。 ハートをクリックして追加できます。
           </p>
         </div>
 

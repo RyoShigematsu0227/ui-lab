@@ -2,10 +2,7 @@
   "title": "チームリスト",
   "description": "リスト形式のチーム紹介セクション",
   "category": "team",
-  "tags": [
-    "minimal",
-    "dark-mode"
-  ],
+  "tags": ["minimal", "dark-mode"],
   "screenshotUrl": "/screenshots/team-list-001.png",
   "isPublished": true,
   "generatedBy": "ai",

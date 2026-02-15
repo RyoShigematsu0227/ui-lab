@@ -10,11 +10,7 @@ interface TagFilterProps {
   onClearTags: () => void;
 }
 
-export function TagFilter({
-  tags,
-  selectedTags,
-  onToggleTag,
-}: TagFilterProps) {
+export function TagFilter({ tags, selectedTags, onToggleTag }: TagFilterProps) {
   if (tags.length === 0) return null;
 
   return (

@@ -31,9 +31,7 @@ export function ScrollToTop() {
       size="icon"
       className={cn(
         "fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition-all duration-300",
-        isVisible
-          ? "translate-y-0 opacity-100"
-          : "pointer-events-none translate-y-4 opacity-0"
+        isVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       )}
       onClick={scrollToTop}
       aria-label="ページトップに戻る"

@@ -27,8 +27,14 @@ export function SectionGrid({ sections, className, animateFrom = 0 }: SectionGri
         return (
           <div
             key={section.id}
-            className={shouldAnimate ? "animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both" : undefined}
-            style={shouldAnimate ? { animationDelay: `${(index - animateFrom) * 50}ms` } : undefined}
+            className={
+              shouldAnimate
+                ? "animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+                : undefined
+            }
+            style={
+              shouldAnimate ? { animationDelay: `${(index - animateFrom) * 50}ms` } : undefined
+            }
           >
             <SectionCard section={section} priority={index < 4} />
           </div>

@@ -2,11 +2,7 @@
   "title": "統計付きヒーロー",
   "description": "主要な数字・実績を表示するヒーローセクション",
   "category": "hero",
-  "tags": [
-    "gradient",
-    "bold-typography",
-    "grid"
-  ],
+  "tags": ["gradient", "bold-typography", "grid"],
   "screenshotUrl": "/screenshots/hero-stats-001.png",
   "isPublished": true,
   "generatedBy": "ai",

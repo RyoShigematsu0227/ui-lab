@@ -3,11 +3,7 @@
   "url": "https://raycast.com",
   "description": "生産性向上アプリ。ダークテーマとグラスモーフィズムを組み合わせた洗練されたデザイン。",
   "screenshotUrl": "/screenshots/sites/raycast.png",
-  "tags": [
-    "dark-mode",
-    "glassmorphism",
-    "animation"
-  ],
+  "tags": ["dark-mode", "glassmorphism", "animation"],
   "isPublished": true,
   "createdAt": "2024-01-12T00:00:00Z",
   "updatedAt": "2024-01-12T00:00:00Z"

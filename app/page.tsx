@@ -46,17 +46,13 @@ export default async function Home() {
               <div className="mt-12 pt-8 border-t border-border/50">
                 <div className="flex items-baseline gap-12 text-[13px] tracking-wide">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-2xl font-medium tabular-nums">
-                      {sections.length}
-                    </span>
+                    <span className="text-2xl font-medium tabular-nums">{sections.length}</span>
                     <span className="text-muted-foreground uppercase tracking-[0.15em]">
                       Sections
                     </span>
                   </div>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-2xl font-medium tabular-nums">
-                      {categories.length}
-                    </span>
+                    <span className="text-2xl font-medium tabular-nums">{categories.length}</span>
                     <span className="text-muted-foreground uppercase tracking-[0.15em]">
                       Categories
                     </span>

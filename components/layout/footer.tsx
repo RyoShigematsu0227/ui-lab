@@ -17,10 +17,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="flex flex-col items-center text-center">
           {/* ロゴ */}
-          <Link
-            href="/"
-            className="group"
-          >
+          <Link href="/" className="group">
             <span className="text-[11px] font-medium tracking-[0.3em] uppercase text-foreground/90 transition-opacity duration-300 group-hover:opacity-60">
               UI Lab
             </span>
@@ -41,8 +38,8 @@ export function Footer() {
 
           {/* 説明文 */}
           <p className="mt-10 max-w-md text-[11px] leading-relaxed tracking-wide text-muted-foreground/70">
-            AIが生成するモダンUIセクションのギャラリー。
-            Next.js + Tailwind CSSのコードをコピーして、すぐに導入できます。
+            AIが生成するモダンUIセクションのギャラリー。 Next.js + Tailwind
+            CSSのコードをコピーして、すぐに導入できます。
           </p>
 
           {/* コピーライト */}

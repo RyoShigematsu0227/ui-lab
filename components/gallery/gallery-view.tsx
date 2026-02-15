@@ -39,9 +39,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>(
     searchParams.get("tags")?.split(",").filter(Boolean) || []
   );
-  const [searchQuery, setSearchQuery] = useState(
-    searchParams.get("q") || ""
-  );
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
   const [sortOption, setSortOption] = useState<SortOption>(
     (searchParams.get("sort") as SortOption) || "newest"
   );
@@ -167,9 +165,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
 
   const handleToggleTag = (tagSlug: string) => {
     setSelectedTags((prev) =>
-      prev.includes(tagSlug)
-        ? prev.filter((t) => t !== tagSlug)
-        : [...prev, tagSlug]
+      prev.includes(tagSlug) ? prev.filter((t) => t !== tagSlug) : [...prev, tagSlug]
     );
     resetPagination();
   };
@@ -193,7 +189,8 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
   };
 
   const hasActiveFilters = selectedCategory || selectedTags.length > 0 || debouncedSearchQuery;
-  const activeFilterCount = (selectedCategory ? 1 : 0) + selectedTags.length + (debouncedSearchQuery ? 1 : 0);
+  const activeFilterCount =
+    (selectedCategory ? 1 : 0) + selectedTags.length + (debouncedSearchQuery ? 1 : 0);
 
   return (
     <div className="space-y-8">
@@ -214,7 +211,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <RandomSectionButton slugs={sections.map(s => s.slug)} />
+          <RandomSectionButton slugs={sections.map((s) => s.slug)} />
           <button
             onClick={() => setShowFilters(!showFilters)}
             className={cn(
@@ -238,11 +235,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
       {/* 検索バーとソート */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="flex-1">
-          <SearchBar
-            value={searchQuery}
-            onChange={handleSearch}
-            placeholder="Search sections..."
-          />
+          <SearchBar value={searchQuery} onChange={handleSearch} placeholder="Search sections..." />
         </div>
         <SortSelect value={sortOption} onChange={handleSortChange} />
       </div>
@@ -288,27 +281,21 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
         <div className="flex flex-wrap items-center gap-2">
           {selectedCategory && (
             <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs bg-muted rounded-lg">
-              {categories.find(c => c.slug === selectedCategory)?.name}
-              <button
-                onClick={() => handleCategorySelect(null)}
-                className="hover:text-foreground"
-              >
+              {categories.find((c) => c.slug === selectedCategory)?.name}
+              <button onClick={() => handleCategorySelect(null)} className="hover:text-foreground">
                 <X className="h-3 w-3" />
               </button>
             </span>
           )}
-          {selectedTags.map(tagSlug => {
-            const tag = tags.find(t => t.slug === tagSlug);
+          {selectedTags.map((tagSlug) => {
+            const tag = tags.find((t) => t.slug === tagSlug);
             return tag ? (
               <span
                 key={tagSlug}
                 className="inline-flex items-center gap-2 px-3 py-1.5 text-xs bg-muted rounded-lg"
               >
                 {tag.name}
-                <button
-                  onClick={() => handleToggleTag(tagSlug)}
-                  className="hover:text-foreground"
-                >
+                <button onClick={() => handleToggleTag(tagSlug)} className="hover:text-foreground">
                   <X className="h-3 w-3" />
                 </button>
               </span>
@@ -317,10 +304,7 @@ export function GalleryView({ sections, categories, tags }: GalleryViewProps) {
           {debouncedSearchQuery && (
             <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs bg-muted rounded-lg">
               &ldquo;{debouncedSearchQuery}&rdquo;
-              <button
-                onClick={() => setSearchQuery("")}
-                className="hover:text-foreground"
-              >
+              <button onClick={() => setSearchQuery("")} className="hover:text-foreground">
                 <X className="h-3 w-3" />
               </button>
             </span>

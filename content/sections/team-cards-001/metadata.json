@@ -2,11 +2,7 @@
   "title": "チームカード",
   "description": "画像付きの横型チームメンバーカード",
   "category": "team",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/team-cards-001.png",
   "isPublished": true,
   "generatedBy": "ai",

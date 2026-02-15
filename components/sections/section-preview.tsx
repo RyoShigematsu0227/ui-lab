@@ -50,12 +50,8 @@ export function SectionPreview({ title }: SectionPreviewProps) {
           {/* プレースホルダープレビュー */}
           <div className="flex aspect-[16/9] items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5">
             <div className="text-center">
-              <p className="text-2xl font-bold text-muted-foreground/50">
-                {title}
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                プレビュー（実装予定）
-              </p>
+              <p className="text-2xl font-bold text-muted-foreground/50">{title}</p>
+              <p className="mt-2 text-sm text-muted-foreground">プレビュー（実装予定）</p>
             </div>
           </div>
         </div>

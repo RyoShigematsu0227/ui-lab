@@ -2,11 +2,7 @@
   "title": "モダンフッター",
   "description": "リンクグリッドとソーシャルアイコン付きの包括的なフッター",
   "category": "footer",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/footer-modern-001.png",
   "isPublished": true,
   "generatedBy": "ai",

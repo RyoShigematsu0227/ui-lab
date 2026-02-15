@@ -24,12 +24,7 @@ export function CodeDownloadButton({ code, filename }: CodeDownloadButtonProps) 
   };
 
   return (
-    <Button
-      variant="outline"
-      size="sm"
-      className="gap-2"
-      onClick={handleDownload}
-    >
+    <Button variant="outline" size="sm" className="gap-2" onClick={handleDownload}>
       <Download className="h-4 w-4" />
       ダウンロード
     </Button>

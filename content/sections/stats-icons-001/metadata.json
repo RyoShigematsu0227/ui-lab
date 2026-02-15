@@ -2,11 +2,7 @@
   "title": "アイコン付き統計",
   "description": "アイコンと説明文付きの4カラム統計セクション",
   "category": "stats",
-  "tags": [
-    "grid",
-    "hover-effect",
-    "dark-mode"
-  ],
+  "tags": ["grid", "hover-effect", "dark-mode"],
   "screenshotUrl": "/screenshots/stats-icons-001.png",
   "isPublished": true,
   "generatedBy": "ai",

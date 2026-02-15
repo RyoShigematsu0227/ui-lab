@@ -47,12 +47,8 @@ export default async function SectionPage({ params }: SectionPageProps) {
 
   // 関連セクション（同カテゴリの他のセクション、最大4件）
   const categorySlug = section.category?.slug;
-  const allCategorySections = categorySlug
-    ? await getSectionsByCategory(categorySlug)
-    : [];
-  const relatedSections = allCategorySections
-    .filter((s) => s.id !== section.id)
-    .slice(0, 4);
+  const allCategorySections = categorySlug ? await getSectionsByCategory(categorySlug) : [];
+  const relatedSections = allCategorySections.filter((s) => s.id !== section.id).slice(0, 4);
 
   // セクションのコードを実際のファイルから取得
   const code = getSectionCode(slug);
@@ -99,9 +95,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
                     </Link>
                   )}
                   <span className="text-border">/</span>
-                  <h1 className="text-sm font-medium truncate">
-                    {section.title}
-                  </h1>
+                  <h1 className="text-sm font-medium truncate">{section.title}</h1>
                 </div>
               </div>
             </div>
@@ -158,9 +152,7 @@ export default async function SectionPage({ params }: SectionPageProps) {
         <div className="container mx-auto max-w-screen-2xl px-6 sm:px-8 md:px-12 py-12 md:py-16">
           {/* セクション情報 */}
           <div className="mb-8 max-w-2xl">
-            <p className="text-muted-foreground leading-relaxed">
-              {section.description}
-            </p>
+            <p className="text-muted-foreground leading-relaxed">{section.description}</p>
           </div>
 
           {/* コードヘッダー */}
