@@ -1,0 +1,11 @@
+{
+  "title": "ライトボックスギャラリー",
+  "description": "クリックで拡大表示できるモーダル付きの洗練されたギャラリーセクション。前後ナビゲーションで作品を順に閲覧可能",
+  "category": "gallery",
+  "tags": ["grid", "interactive", "minimal"],
+  "screenshotUrl": "/screenshots/gallery-lightbox-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-16T00:00:00Z",
+  "updatedAt": "2026-02-16T00:00:00Z"
+}

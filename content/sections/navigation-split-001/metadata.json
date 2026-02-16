@@ -1,0 +1,11 @@
+{
+  "title": "スプリットナビゲーション",
+  "description": "ロゴ・ナビリンク・CTAを三分割で配置したモダンなヘッダーナビゲーション。backdrop-blurで半透明効果を実現",
+  "category": "navigation",
+  "tags": ["split", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/navigation-split-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-16T00:00:00Z",
+  "updatedAt": "2026-02-16T00:00:00Z"
+}
