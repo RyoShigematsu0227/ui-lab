@@ -1,0 +1,11 @@
+{
+  "title": "スプリット型ニュースレター",
+  "description": "左側にコンテンツ紹介、右側に登録フォームを配置したスプリットレイアウトのニュースレターセクション",
+  "category": "newsletter",
+  "tags": ["split", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/newsletter-split-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-02-23T00:00:00Z",
+  "updatedAt": "2026-02-23T00:00:00Z"
+}
