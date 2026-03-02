@@ -1,0 +1,11 @@
+{
+  "title": "フィーチャードギャラリー",
+  "description": "大きなフィーチャード画像と小さなグリッドを組み合わせた、注目プロジェクトを強調するギャラリーセクション",
+  "category": "gallery",
+  "tags": ["minimal", "hover-effect", "grid"],
+  "screenshotUrl": "/screenshots/gallery-featured-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-03-02T00:00:00Z",
+  "updatedAt": "2026-03-02T00:00:00Z"
+}
