@@ -1,0 +1,11 @@
+{
+  "title": "タイムラインブログ",
+  "description": "縦のタイムラインレイアウトで記事を時系列に沿って表示するブログセクション",
+  "category": "blog",
+  "tags": ["minimal", "grid"],
+  "screenshotUrl": "/screenshots/blog-timeline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-03-09T00:00:00Z",
+  "updatedAt": "2026-03-09T00:00:00Z"
+}

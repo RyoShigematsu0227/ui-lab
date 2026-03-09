@@ -1,0 +1,11 @@
+{
+  "title": "スプリットフッター",
+  "description": "左にブランド情報、右にリンクグループを配置したスプリットレイアウトのフッターセクション",
+  "category": "footer",
+  "tags": ["minimal", "split"],
+  "screenshotUrl": "/screenshots/footer-split-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-03-09T00:00:00Z",
+  "updatedAt": "2026-03-09T00:00:00Z"
+}
