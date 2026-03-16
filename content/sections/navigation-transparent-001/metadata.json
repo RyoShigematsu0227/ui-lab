@@ -1,0 +1,11 @@
+{
+  "title": "トランスペアレントナビゲーション",
+  "description": "背景に溶け込む透過型ナビゲーション。丸みのあるピルボタンと繊細なホバーエフェクトが特徴",
+  "category": "navigation",
+  "tags": ["minimal", "hover-effect", "glassmorphism"],
+  "screenshotUrl": "/screenshots/navigation-transparent-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-03-16T00:00:00Z",
+  "updatedAt": "2026-03-16T00:00:00Z"
+}
