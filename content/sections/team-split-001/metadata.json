@@ -1,0 +1,11 @@
+{
+  "title": "スプリットチーム紹介",
+  "description": "左右分割レイアウトのヘッダーとグリッドカードを組み合わせた、洗練されたチーム紹介セクション",
+  "category": "team",
+  "tags": ["split", "grid", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/team-split-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-03-23T00:00:00Z",
+  "updatedAt": "2026-03-23T00:00:00Z"
+}
