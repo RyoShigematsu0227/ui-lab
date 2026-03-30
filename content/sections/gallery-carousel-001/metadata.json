@@ -1,0 +1,11 @@
+{
+  "title": "カルーセルギャラリー",
+  "description": "左右ナビゲーションとサムネイル一覧を備えたカルーセル型のプロジェクトギャラリー",
+  "category": "gallery",
+  "tags": ["interactive", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/gallery-carousel-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-03-30T00:00:00Z",
+  "updatedAt": "2026-03-30T00:00:00Z"
+}
