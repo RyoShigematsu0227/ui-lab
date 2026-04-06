@@ -1,0 +1,11 @@
+{
+  "title": "マガジンスタイルブログ",
+  "description": "フィーチャー記事とサイドリストを組み合わせたマガジン風のブログセクション。番号付きの記事一覧と控えめなプレースホルダー画像",
+  "category": "blog",
+  "tags": ["minimal", "grid", "asymmetric"],
+  "screenshotUrl": "/screenshots/blog-magazine-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-04-06T00:00:00Z",
+  "updatedAt": "2026-04-06T00:00:00Z"
+}

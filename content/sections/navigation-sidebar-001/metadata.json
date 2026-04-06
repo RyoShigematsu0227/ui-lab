@@ -1,0 +1,11 @@
+{
+  "title": "サイドバーナビゲーション",
+  "description": "メニューボタンからスライドインするサイドバー型ナビゲーション。番号付きリンクと控えめな装飾で洗練された印象",
+  "category": "navigation",
+  "tags": ["minimal", "animation", "interactive"],
+  "screenshotUrl": "/screenshots/navigation-sidebar-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-04-06T00:00:00Z",
+  "updatedAt": "2026-04-06T00:00:00Z"
+}
