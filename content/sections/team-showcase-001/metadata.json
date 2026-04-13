@@ -1,0 +1,11 @@
+{
+  "title": "ショーケース型チーム紹介",
+  "description": "番号付きグリッドレイアウトでメンバーの役割と紹介文を表示するチーム紹介セクション",
+  "category": "team",
+  "tags": ["minimal", "grid", "hover-effect"],
+  "screenshotUrl": "/screenshots/team-showcase-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-04-13T00:00:00Z",
+  "updatedAt": "2026-04-13T00:00:00Z"
+}
