@@ -1,0 +1,11 @@
+{
+  "title": "インラインコンタクト",
+  "description": "連絡先情報をインライン表示し、その下にミニマルなフォームを配置したコンタクトセクション",
+  "category": "contact",
+  "tags": ["minimal", "full-width"],
+  "screenshotUrl": "/screenshots/contact-inline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-04-20T00:00:00Z",
+  "updatedAt": "2026-04-20T00:00:00Z"
+}
