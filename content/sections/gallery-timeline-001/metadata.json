@@ -1,0 +1,11 @@
+{
+  "title": "タイムラインギャラリー",
+  "description": "プロジェクトを年別に時系列で表示するギャラリーセクション",
+  "category": "gallery",
+  "tags": ["minimal", "grid"],
+  "screenshotUrl": "/screenshots/gallery-timeline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-04-27T00:00:00Z",
+  "updatedAt": "2026-04-27T00:00:00Z"
+}

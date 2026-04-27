@@ -1,0 +1,11 @@
+{
+  "title": "比較統計セクション",
+  "description": "導入前後の主要指標を比較し改善効果を可視化する統計セクション",
+  "category": "stats",
+  "tags": ["minimal", "grid"],
+  "screenshotUrl": "/screenshots/stats-comparison-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-04-27T00:00:00Z",
+  "updatedAt": "2026-04-27T00:00:00Z"
+}
