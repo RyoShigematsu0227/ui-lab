@@ -1,0 +1,11 @@
+{
+  "title": "タブ切り替えFAQ",
+  "description": "カテゴリタブで質問を分類し、アコーディオン形式で回答を表示するFAQセクション",
+  "category": "faq",
+  "tags": ["minimal", "interactive", "hover-effect"],
+  "screenshotUrl": "/screenshots/faq-tabbed-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-04T00:00:00Z",
+  "updatedAt": "2026-05-04T00:00:00Z"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "水平グリッドチーム紹介",
+  "description": "番号付きカードを横並びに配置し、各メンバーの役割と紹介文を表示するチームセクション",
+  "category": "team",
+  "tags": ["minimal", "grid", "hover-effect"],
+  "screenshotUrl": "/screenshots/team-horizontal-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-04T00:00:00Z",
+  "updatedAt": "2026-05-04T00:00:00Z"
+}

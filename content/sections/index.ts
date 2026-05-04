@@ -123,6 +123,9 @@ export { LogoCloudMinimal001 } from "./logo-cloud-minimal-001/code";
 // 新規セクション（2026-04-27）
 export { GalleryTimeline001 } from "./gallery-timeline-001/code";
 export { StatsComparison001 } from "./stats-comparison-001/code";
+// 新規セクション（2026-05-04）
+export { FaqTabbed001 } from "./faq-tabbed-001/code";
+export { TeamHorizontal001 } from "./team-horizontal-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -249,6 +252,9 @@ import { LogoCloudMinimal001 } from "./logo-cloud-minimal-001/code";
 // 新規セクション（2026-04-27）
 import { GalleryTimeline001 } from "./gallery-timeline-001/code";
 import { StatsComparison001 } from "./stats-comparison-001/code";
+// 新規セクション（2026-05-04）
+import { FaqTabbed001 } from "./faq-tabbed-001/code";
+import { TeamHorizontal001 } from "./team-horizontal-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -375,4 +381,7 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   // 新規セクション（2026-04-27）
   "gallery-timeline-001": GalleryTimeline001,
   "stats-comparison-001": StatsComparison001,
+  // 新規セクション（2026-05-04）
+  "faq-tabbed-001": FaqTabbed001,
+  "team-horizontal-001": TeamHorizontal001,
 };
