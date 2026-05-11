@@ -1,0 +1,11 @@
+{
+  "title": "コンタクトディテール",
+  "description": "メール・電話・所在地・営業時間をグリッドレイアウトで整然と表示するコンタクト情報セクション",
+  "category": "contact",
+  "tags": ["minimal", "grid"],
+  "screenshotUrl": "/screenshots/contact-details-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-11T00:00:00Z",
+  "updatedAt": "2026-05-11T00:00:00Z"
+}

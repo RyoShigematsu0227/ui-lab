@@ -1,0 +1,11 @@
+{
+  "title": "センタードフッター",
+  "description": "中央揃えのスタック型レイアウトで、ブランド情報・ナビゲーション・ソーシャルリンクを整然と配置したフッター",
+  "category": "footer",
+  "tags": ["minimal", "full-width"],
+  "screenshotUrl": "/screenshots/footer-centered-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-11T00:00:00Z",
+  "updatedAt": "2026-05-11T00:00:00Z"
+}
