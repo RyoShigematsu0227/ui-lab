@@ -1,0 +1,11 @@
+{
+  "title": "オーバーレイナビゲーション",
+  "description": "フルスクリーンオーバーレイで展開するナビゲーション。番号付きリンクと説明文で構成された洗練されたメニュー体験",
+  "category": "navigation",
+  "tags": ["minimal", "full-width", "animation"],
+  "screenshotUrl": "/screenshots/navigation-overlay-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-18T00:00:00Z",
+  "updatedAt": "2026-05-18T00:00:00Z"
+}

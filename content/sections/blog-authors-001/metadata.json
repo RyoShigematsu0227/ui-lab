@@ -1,0 +1,11 @@
+{
+  "title": "著者別ブログセクション",
+  "description": "著者ごとに記事をグルーピングして表示するブログセクション。アバターと役職付きの著者情報で信頼性を演出",
+  "category": "blog",
+  "tags": ["minimal", "grid"],
+  "screenshotUrl": "/screenshots/blog-authors-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-18T00:00:00Z",
+  "updatedAt": "2026-05-18T00:00:00Z"
+}
