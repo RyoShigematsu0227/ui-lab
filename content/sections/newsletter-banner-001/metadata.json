@@ -1,0 +1,11 @@
+{
+  "title": "バナーニュースレター",
+  "description": "ボーダーで囲まれたバナー型のニュースレター登録セクション。左にテキスト、右にフォームのスプリットレイアウト",
+  "category": "newsletter",
+  "tags": ["split", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/newsletter-banner-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-05-25T00:00:00Z",
+  "updatedAt": "2026-05-25T00:00:00Z"
+}
