@@ -1,0 +1,11 @@
+{
+  "title": "ホバーリビールギャラリー",
+  "description": "カーソルを合わせると情報がスライドアップで表示される、インタラクティブなプロジェクトギャラリー",
+  "category": "gallery",
+  "tags": ["hover-effect", "grid", "minimal"],
+  "screenshotUrl": "/screenshots/gallery-hover-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-06-01T00:00:00Z",
+  "updatedAt": "2026-06-01T00:00:00Z"
+}

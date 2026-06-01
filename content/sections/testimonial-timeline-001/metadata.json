@@ -1,0 +1,11 @@
+{
+  "title": "タイムラインテスティモニアル",
+  "description": "時系列に沿ってクライアントの声を交互に表示する、タイムライン形式のテスティモニアルセクション",
+  "category": "testimonial",
+  "tags": ["minimal", "asymmetric"],
+  "screenshotUrl": "/screenshots/testimonial-timeline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-06-01T00:00:00Z",
+  "updatedAt": "2026-06-01T00:00:00Z"
+}
