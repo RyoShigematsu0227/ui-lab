@@ -1,0 +1,11 @@
+{
+  "title": "プログレスバー付き統計セクション",
+  "description": "各指標の達成度をプログレスバーで視覚化した、洗練された統計セクション",
+  "category": "stats",
+  "tags": ["minimal", "animation", "full-width"],
+  "screenshotUrl": "/screenshots/stats-progress-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-06-08T00:00:00Z",
+  "updatedAt": "2026-06-08T00:00:00Z"
+}

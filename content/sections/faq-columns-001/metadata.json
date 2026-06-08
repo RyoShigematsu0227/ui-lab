@@ -1,0 +1,11 @@
+{
+  "title": "カテゴリ別カラムFAQ",
+  "description": "カテゴリごとに分類されたFAQを2カラムで表示する、整理されたアコーディオンセクション",
+  "category": "faq",
+  "tags": ["grid", "minimal", "interactive"],
+  "screenshotUrl": "/screenshots/faq-columns-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-06-08T00:00:00Z",
+  "updatedAt": "2026-06-08T00:00:00Z"
+}
