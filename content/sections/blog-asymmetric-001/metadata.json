@@ -1,0 +1,11 @@
+{
+  "title": "非対称レイアウトブログ",
+  "description": "フィーチャー記事を左カラムに大きく、関連記事を右カラムにリスト表示する非対称レイアウトのブログセクション",
+  "category": "blog",
+  "tags": ["asymmetric", "minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/blog-asymmetric-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-06-22T00:00:00Z",
+  "updatedAt": "2026-06-22T00:00:00Z"
+}
