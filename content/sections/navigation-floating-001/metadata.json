@@ -1,0 +1,11 @@
+{
+  "title": "フローティングナビゲーション",
+  "description": "ピル型の角丸フローティングバーで構成されたモダンなナビゲーション。背景ブラーと細いボーダーで浮遊感を演出",
+  "category": "navigation",
+  "tags": ["minimal", "glassmorphism", "hover-effect"],
+  "screenshotUrl": "/screenshots/navigation-floating-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-06-29T00:00:00Z",
+  "updatedAt": "2026-06-29T00:00:00Z"
+}
