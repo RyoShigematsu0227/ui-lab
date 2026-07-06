@@ -1,0 +1,11 @@
+{
+  "title": "タイムライン統計",
+  "description": "年表形式で成長の軌跡を数値とともに表示する統計セクション",
+  "category": "stats",
+  "tags": ["minimal", "full-width"],
+  "screenshotUrl": "/screenshots/stats-timeline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-06T00:00:00Z",
+  "updatedAt": "2026-07-06T00:00:00Z"
+}
