@@ -153,6 +153,9 @@ export { ContactTabbed001 } from "./contact-tabbed-001/code";
 // 新規セクション（2026-07-06）
 export { LogoCloudStacked001 } from "./logo-cloud-stacked-001/code";
 export { StatsTimeline001 } from "./stats-timeline-001/code";
+// 新規セクション（2026-07-13）
+export { PricingHorizontal001 } from "./pricing-horizontal-001/code";
+export { TestimonialMarquee001 } from "./testimonial-marquee-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -309,6 +312,9 @@ import { ContactTabbed001 } from "./contact-tabbed-001/code";
 // 新規セクション（2026-07-06）
 import { LogoCloudStacked001 } from "./logo-cloud-stacked-001/code";
 import { StatsTimeline001 } from "./stats-timeline-001/code";
+// 新規セクション（2026-07-13）
+import { PricingHorizontal001 } from "./pricing-horizontal-001/code";
+import { TestimonialMarquee001 } from "./testimonial-marquee-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -465,4 +471,7 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   // 新規セクション（2026-07-06）
   "logo-cloud-stacked-001": LogoCloudStacked001,
   "stats-timeline-001": StatsTimeline001,
+  // 新規セクション（2026-07-13）
+  "pricing-horizontal-001": PricingHorizontal001,
+  "testimonial-marquee-001": TestimonialMarquee001,
 };

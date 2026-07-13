@@ -1,0 +1,11 @@
+{
+  "title": "マーキースクロール・テスティモニアル",
+  "description": "カード型の顧客の声が上下2段で水平に自動スクロールするテスティモニアルセクション。無限ループアニメーションで動きのあるレイアウト",
+  "category": "testimonial",
+  "tags": ["animation", "minimal", "full-width"],
+  "screenshotUrl": "/screenshots/testimonial-marquee-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-13T00:00:00Z",
+  "updatedAt": "2026-07-13T00:00:00Z"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "水平ストリップ料金表",
+  "description": "プランを水平ストリップ形式で並べたミニマルな料金セクション。各プランが行として展開され、一覧性に優れたレイアウト",
+  "category": "pricing",
+  "tags": ["minimal", "full-width"],
+  "screenshotUrl": "/screenshots/pricing-horizontal-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-13T00:00:00Z",
+  "updatedAt": "2026-07-13T00:00:00Z"
+}
