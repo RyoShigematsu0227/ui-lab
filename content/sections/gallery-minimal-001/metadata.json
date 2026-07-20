@@ -1,0 +1,11 @@
+{
+  "title": "ミニマルギャラリー",
+  "description": "CSSカラムレイアウトを使用した、余白を活かしたミニマルなポートフォリオギャラリー",
+  "category": "gallery",
+  "tags": ["minimal", "hover-effect", "grid"],
+  "screenshotUrl": "/screenshots/gallery-minimal-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "ナンバード FAQ",
+  "description": "番号付きのアコーディオン形式で、構造化された質問・回答セクション",
+  "category": "faq",
+  "tags": ["minimal", "interactive"],
+  "screenshotUrl": "/screenshots/faq-numbered-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}
