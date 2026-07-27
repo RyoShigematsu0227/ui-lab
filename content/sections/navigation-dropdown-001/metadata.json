@@ -1,0 +1,11 @@
+{
+  "title": "ドロップダウンナビゲーション",
+  "description": "ホバーで展開するドロップダウンメニュー付きのナビゲーションバー。プロダクト・ソリューション等の階層構造を持つメニューに最適",
+  "category": "navigation",
+  "tags": ["minimal", "hover-effect", "interactive"],
+  "screenshotUrl": "/screenshots/navigation-dropdown-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-27T00:00:00Z",
+  "updatedAt": "2026-07-27T00:00:00Z"
+}

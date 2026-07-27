@@ -1,0 +1,11 @@
+{
+  "title": "スポットライトブログ",
+  "description": "注目記事を大きなサムネイル付きで表示し、右側に最新記事リストを配置した2カラムレイアウトのブログセクション",
+  "category": "blog",
+  "tags": ["split", "minimal", "grid"],
+  "screenshotUrl": "/screenshots/blog-spotlight-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-07-27T00:00:00Z",
+  "updatedAt": "2026-07-27T00:00:00Z"
+}

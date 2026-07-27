@@ -159,6 +159,9 @@ export { TestimonialMarquee001 } from "./testimonial-marquee-001/code";
 // 新規セクション（2026-07-20）
 export { GalleryMinimal001 } from "./gallery-minimal-001/code";
 export { FaqNumbered001 } from "./faq-numbered-001/code";
+// 新規セクション（2026-07-27）
+export { NavigationDropdown001 } from "./navigation-dropdown-001/code";
+export { BlogSpotlight001 } from "./blog-spotlight-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -321,6 +324,9 @@ import { TestimonialMarquee001 } from "./testimonial-marquee-001/code";
 // 新規セクション（2026-07-20）
 import { GalleryMinimal001 } from "./gallery-minimal-001/code";
 import { FaqNumbered001 } from "./faq-numbered-001/code";
+// 新規セクション（2026-07-27）
+import { NavigationDropdown001 } from "./navigation-dropdown-001/code";
+import { BlogSpotlight001 } from "./blog-spotlight-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -483,4 +489,7 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   // 新規セクション（2026-07-20）
   "gallery-minimal-001": GalleryMinimal001,
   "faq-numbered-001": FaqNumbered001,
+  // 新規セクション（2026-07-27）
+  "navigation-dropdown-001": NavigationDropdown001,
+  "blog-spotlight-001": BlogSpotlight001,
 };
