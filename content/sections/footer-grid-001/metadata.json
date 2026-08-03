@@ -1,0 +1,11 @@
+{
+  "title": "グリッドフッター",
+  "description": "5カラムグリッドでブランド情報とナビゲーションリンクを整理したフッター。日本語リンクとソーシャルアイコンを配置。",
+  "category": "footer",
+  "tags": ["grid", "minimal"],
+  "screenshotUrl": "/screenshots/footer-grid-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-03T00:00:00Z",
+  "updatedAt": "2026-08-03T00:00:00Z"
+}

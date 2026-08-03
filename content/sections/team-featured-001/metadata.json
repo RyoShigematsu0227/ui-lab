@@ -1,0 +1,11 @@
+{
+  "title": "フィーチャードチーム",
+  "description": "カード形式でメンバーの役割と紹介文を表示するチームセクション。番号付きカードとホバーエフェクトで洗練された印象を演出。",
+  "category": "team",
+  "tags": ["minimal", "grid", "hover-effect"],
+  "screenshotUrl": "/screenshots/team-featured-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-03T00:00:00Z",
+  "updatedAt": "2026-08-03T00:00:00Z"
+}
