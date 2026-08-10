@@ -1,0 +1,11 @@
+{
+  "title": "マップ付きコンタクト",
+  "description": "抽象的なSVGマップと拠点情報を組み合わせたコンタクトセクション。複数拠点の情報をエレガントに表示",
+  "category": "contact",
+  "tags": ["minimal", "split", "illustration"],
+  "screenshotUrl": "/screenshots/contact-map-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-10T00:00:00Z",
+  "updatedAt": "2026-08-10T00:00:00Z"
+}
