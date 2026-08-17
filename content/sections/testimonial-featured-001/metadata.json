@@ -1,0 +1,11 @@
+{
+  "title": "フィーチャードテスティモニアル",
+  "description": "メインの推薦コメントを大きく表示し、サポーティングコメントを3カラムで配置するテスティモニアルセクション",
+  "category": "testimonial",
+  "tags": ["minimal", "grid", "bold-typography"],
+  "screenshotUrl": "/screenshots/testimonial-featured-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-17T00:00:00Z",
+  "updatedAt": "2026-08-17T00:00:00Z"
+}
