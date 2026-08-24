@@ -1,0 +1,11 @@
+{
+  "title": "カード型統計セクション",
+  "description": "ボーダーで区切られたカードレイアウトの統計表示。ホバーで区切り線がアニメーションする",
+  "category": "stats",
+  "tags": ["minimal", "grid", "hover-effect"],
+  "screenshotUrl": "/screenshots/stats-cards-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-24T00:00:00Z",
+  "updatedAt": "2026-08-24T00:00:00Z"
+}

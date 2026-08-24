@@ -171,6 +171,9 @@ export { NewsletterElegant001 } from "./newsletter-elegant-001/code";
 // 新規セクション（2026-08-17）
 export { LogoCloudTiered001 } from "./logo-cloud-tiered-001/code";
 export { TestimonialFeatured001 } from "./testimonial-featured-001/code";
+// 新規セクション（2026-08-24）
+export { CtaLayered001 } from "./cta-layered-001/code";
+export { StatsCards001 } from "./stats-cards-001/code";
 
 // セクションコンポーネントのマップ（slugからコンポーネントを取得）
 import { HeroGradient001 } from "./hero-gradient-001/code";
@@ -345,6 +348,9 @@ import { NewsletterElegant001 } from "./newsletter-elegant-001/code";
 // 新規セクション（2026-08-17）
 import { LogoCloudTiered001 } from "./logo-cloud-tiered-001/code";
 import { TestimonialFeatured001 } from "./testimonial-featured-001/code";
+// 新規セクション（2026-08-24）
+import { CtaLayered001 } from "./cta-layered-001/code";
+import { StatsCards001 } from "./stats-cards-001/code";
 
 export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   "hero-gradient-001": HeroGradient001,
@@ -519,4 +525,7 @@ export const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   // 新規セクション（2026-08-17）
   "logo-cloud-tiered-001": LogoCloudTiered001,
   "testimonial-featured-001": TestimonialFeatured001,
+  // 新規セクション（2026-08-24）
+  "cta-layered-001": CtaLayered001,
+  "stats-cards-001": StatsCards001,
 };
