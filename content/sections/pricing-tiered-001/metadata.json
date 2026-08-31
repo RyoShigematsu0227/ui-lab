@@ -1,0 +1,11 @@
+{
+  "title": "ティアード料金表",
+  "description": "水平レイアウトで段階的にプランを比較表示するミニマルな料金セクション",
+  "category": "pricing",
+  "tags": ["minimal", "full-width", "hover-effect"],
+  "screenshotUrl": "/screenshots/pricing-tiered-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-31T00:00:00Z",
+  "updatedAt": "2026-08-31T00:00:00Z"
+}

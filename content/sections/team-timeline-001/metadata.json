@@ -1,0 +1,11 @@
+{
+  "title": "タイムライン型チーム紹介",
+  "description": "メンバーの参画時期をタイムライン形式で表現するチーム紹介セクション",
+  "category": "team",
+  "tags": ["minimal", "asymmetric", "hover-effect"],
+  "screenshotUrl": "/screenshots/team-timeline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-08-31T00:00:00Z",
+  "updatedAt": "2026-08-31T00:00:00Z"
+}
