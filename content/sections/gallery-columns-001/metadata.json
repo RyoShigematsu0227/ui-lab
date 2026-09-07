@@ -1,0 +1,11 @@
+{
+  "title": "カラムギャラリー",
+  "description": "左右2カラムにスタガード配置されたポートフォリオギャラリー。カラム間のオフセットでリズム感を演出",
+  "category": "gallery",
+  "tags": ["grid", "hover-effect", "minimal"],
+  "screenshotUrl": "/screenshots/gallery-columns-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-09-07T00:00:00Z",
+  "updatedAt": "2026-09-07T00:00:00Z"
+}
