@@ -1,0 +1,11 @@
+{
+  "title": "タイムラインフィーチャー",
+  "description": "フェーズごとの機能ロードマップをタイムライン形式で紹介するセクション",
+  "category": "feature",
+  "tags": ["minimal", "grid"],
+  "screenshotUrl": "/screenshots/feature-timeline-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-09-14T00:00:00Z",
+  "updatedAt": "2026-09-14T00:00:00Z"
+}

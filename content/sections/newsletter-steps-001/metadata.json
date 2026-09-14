@@ -1,0 +1,11 @@
+{
+  "title": "ステップ付きニュースレター",
+  "description": "登録ステップを視覚的に示しながら購読を促すニュースレターセクション",
+  "category": "newsletter",
+  "tags": ["minimal", "split"],
+  "screenshotUrl": "/screenshots/newsletter-steps-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-09-14T00:00:00Z",
+  "updatedAt": "2026-09-14T00:00:00Z"
+}
