@@ -1,0 +1,11 @@
+{
+  "title": "コンパクトブログ一覧",
+  "description": "番号付きのコンパクトなリスト形式で記事を表示するブログセクション。メタ情報を横一列に配置し、情報密度が高く一覧性に優れたデザイン。",
+  "category": "blog",
+  "tags": ["minimal", "hover-effect"],
+  "screenshotUrl": "/screenshots/blog-compact-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-09-21T00:00:00Z",
+  "updatedAt": "2026-09-21T00:00:00Z"
+}

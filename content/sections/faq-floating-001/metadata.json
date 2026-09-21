@@ -1,0 +1,11 @@
+{
+  "title": "フローティングカードFAQ",
+  "description": "カードグリッドレイアウトで質問を配置したFAQセクション。各質問が独立したカードとして表示され、クリックで回答が展開される洗練されたデザイン。",
+  "category": "faq",
+  "tags": ["grid", "minimal", "hover-effect", "interactive"],
+  "screenshotUrl": "/screenshots/faq-floating-001.png",
+  "isPublished": true,
+  "generatedBy": "ai",
+  "createdAt": "2026-09-21T00:00:00Z",
+  "updatedAt": "2026-09-21T00:00:00Z"
+}
